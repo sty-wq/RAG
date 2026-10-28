@@ -1,0 +1,3 @@
+{
+  "ocr": {"local": {"enabled": false}, "cloud": {"enabled": true, "provider": "baidu"}}
+}

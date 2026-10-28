@@ -1,0 +1,18 @@
+[project]
+name = "rag-notes"
+version = "0.1.0"
+description = "从零手写的个人笔记 RAG：解析 → 切分 → 向量化 → Milvus → 问答"
+requires-python = ">=3.12"
+
+[tool.ruff]
+line-length = 120
+# cable_ocr 是单独集成进来的 OCR 项目，不在这里检查
+extend-exclude = ["cable_ocr", ".ocr_runtime", ".integration_backup", ".rag_cache"]
+
+[tool.ruff.lint]
+# E9：语法错误；F：pyflakes（未定义的名字、没用到的 import 等）。MVP 先只开最基本的检查
+select = ["E9", "F"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

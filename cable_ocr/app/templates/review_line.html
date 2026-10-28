@@ -1,0 +1,14 @@
+{% extends 'base.html' %}{% block content %}
+<a href="/admin/jobs/{{review.job_id}}">← 返回任务</a><h1>核对逐行文本</h1>
+<p>第 {{review.page_index+1}} 页 · {{line.id}} · 版本 {{review.revision}} · {{review.status}} · {{review.review_requirement}}</p>
+<div class="grid"><section class="card"><h2>整页与当前位置</h2><img style="max-width:100%" alt="原始页面" src="/artifacts/{{review.job_id}}/{{review.page_index}}/page/all">
+{% if line.bbox %}<h2>当前行</h2><img style="max-width:100%" alt="当前行裁剪" src="/artifacts/{{review.job_id}}/{{review.page_index}}/crop/{{line.id}}">{% else %}<p>此行位置不确定，请核对整页。</p>{% endif %}</section>
+<section><div class="card"><h2>原始候选（只读）</h2><pre style="white-space:pre-wrap">{{line.candidates[0].raw_text}}</pre><p>来源：{{line.source}} · 顺序：{{line.order_quality}}</p><pre>{{line.risk_reasons|tojson}}</pre></div>
+<div class="card"><h2>人工决定</h2><label>复核人<input id="actor" value="reviewer"></label><label>整行文本<textarea id="manual">{{review.decisions[-1].text if review.decisions and review.decisions[-1].text is not none else line.candidates[0].raw_text}}</textarea></label><label>理由<input id="reason" value="已核对页面原文"></label>
+<button data-form="raw">接受原文</button><button data-form="manual">保存整行修改</button><button data-form="unresolved">无法判断</button>
+{% if review.review_requirement=='OPTIONAL' %}<button id="require">设为必须复核</button>{% endif %}<p id="message" role="status"></p><p>普通行不做型号解析或规范化。修改只追加决定，不覆盖原始证据。</p></div>
+<details class="card"><summary>决定历史</summary>{% for d in review.decisions %}<p>{{d.actor}} · {{d.selected_form}} · {{d.text}} · {{d.reason}}</p>{% endfor %}</details></section></div>
+<script>
+let pending=false;async function send(form){if(pending)return;pending=true;const body={request_id:crypto.randomUUID(),actor:document.querySelector('#actor').value,reason:document.querySelector('#reason').value,expected_revision:{{review.revision}}};if(form!=='require')Object.assign(body,{selected_form:form,candidate_id:{{line.candidates[0].id|tojson}},manual_text:document.querySelector('#manual').value});try{const r=await fetch('/reviews/{{review.id}}/'+(form==='require'?'require':'decision'),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});if(!r.ok)throw Error((await r.json()).error);location.reload()}catch(e){document.querySelector('#message').textContent=e.message;pending=false}}
+document.querySelectorAll('[data-form]').forEach(b=>b.onclick=()=>send(b.dataset.form));document.querySelector('#require')?.addEventListener('click',()=>send('require'));
+</script>{% endblock %}

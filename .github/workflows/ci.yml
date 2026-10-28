@@ -1,0 +1,28 @@
+name: CI
+
+# 每次推送到 main、以及每个 Pull Request，都自动检查一遍
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: 安装依赖
+        run: pip install -r requirements-dev.txt
+
+      - name: 代码检查（ruff）
+        run: ruff check .
+
+      # 测试全部离线：不调用 DeepSeek、OCR 服务商，不需要任何 key
+      - name: 运行测试（pytest）
+        run: pytest -q
