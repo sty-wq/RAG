@@ -9,6 +9,7 @@ __pycache__/
 .cable_ocr_python/
 .integration_backup/
 .rag_cache/
+.rag_data/
 .idea/
 .DS_Store
 sample_notes/*

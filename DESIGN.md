@@ -29,7 +29,7 @@
 | 里程碑 | 内容 | 状态 |
 |---|---|---|
 | M1 | 切 chunk + 离线测试 + CI | ✅ |
-| M2 | 向量化 + 存入 Milvus Lite | 🚧 |
+| M2 | 向量化 + 存入 Milvus Lite + 检索小工具 | ✅ 代码和离线测试 / 🚧 本地实跑 |
 | M3 | 问答接口（FastAPI）+ 标出处 | 📌 |
 | M4 | CD：打 tag 时自动构建 Docker 镜像，推送到 GitHub 的镜像仓库 | 📌 |
 
@@ -39,9 +39,15 @@
 - 提问方式：**HTTP API（FastAPI）**；建库先用命令行
 - 向量库：**Milvus Lite**。它就是本地一个文件，不用装服务器，和正式版 Milvus 用的是同一套接口（`MilvusClient("./xxx.db")`），以后换成服务器版只改连接地址。CI 里也能直接跑
 - CD：**Docker 镜像**
-- ❓ embedding：倾向于**本地部署**（见第 5 节），待确认
+- embedding：**本地部署**，用 Ollama 跑 `qwen3-embedding:0.6b`（见第 5 节）
+- **git 工作流**：每个里程碑开一个分支（比如 `feat/embedding`），推到 GitHub 后开 Pull Request，CI 通过了再合并进 main。main 始终是能跑、测试全绿的版本
 
 **MVP 先不做**（停车场）：增量更新（MVP 每次全量重建）、疑似标题、第 ⑤ 步 LLM 切分、摘要索引、评测集、权限、MySQL、飞书接入、老 `.doc` 格式、README
+
+**停车场：部署到云服务器**（2026-10-28 新增；目前有一台 2 核 2G 的服务器）
+- 内存很紧：FastAPI 服务 + Milvus Lite 可以跑；再加上 Ollama 和 embedding 模型就很勉强
+- ⚠️ **服务器上做检索，必须用和建库时相同的 embedding 模型**。两个办法：在服务器上也跑 `qwen3-embedding:0.6b`（只用 CPU，会比较慢）；或者改用云端 embedding 接口，然后用同一个接口重新建库
+- 到 M4（CD）时再决定
 
 ## 2.2 工程化：测试与 CI（✅ M1）
 
@@ -51,6 +57,8 @@
 - CI：GitHub Actions（`.github/workflows/ci.yml`），每次推送到 main 和每个 Pull Request 都会自动运行：安装依赖 → ruff → pytest
 - 开发依赖在 `requirements-dev.txt`，pytest 和 ruff 的配置在 `pyproject.toml`
 - 已有的 OCR 集成测试（`tests/test_ocr_integration.py`）里有两个测试还是按旧代码写的（绝对路径、`ocr_result` 字段、全局列表），已经按现在的设计更新
+- ✅ 2026-10-28：推送到 GitHub 公开仓库 [sty-wq/RAG](https://github.com/sty-wq/RAG)，CI 第一次运行就全部通过（22 秒）
+- M2 新增的测试：向量化客户端用假的 HTTP 请求；**向量库用真的 Milvus Lite**（`tests/test_vector_store.py`，没装 pymilvus 的环境会自动跳过，CI 里一定会跑）；建库和检索的整体流程用假的 embedding 和假的向量库
 
 ---
 
@@ -281,15 +289,47 @@ Chunk
 
 ---
 
-## 5. 阶段三：向量化（❓ 待选型）
+## 5. 阶段三、四：向量化与入库（✅ M2，`embedder.py`、`vector_store.py`、`ingest.py`、`search.py`）
 
-**倾向的方案：本地用 Ollama 跑 embedding 模型**（待确认）
+**用法**
+
+```bash
+python ingest.py sample_notes            # 建库：完整流程（摘要和结构修正会调用 DeepSeek，有缓存）
+python ingest.py sample_notes --no-llm   # 建库：不调用 DeepSeek，只用规则切分
+python search.py "你的问题" -k 5          # 检索：看看找出来的是哪几块、相似度多少
+```
+
+**配置都用环境变量**（代码里有默认值，换平台或放进 Docker 时只改环境变量，不改代码）
+
+| 环境变量 | 默认值 | 说明 |
+|---|---|---|
+| `EMBED_BASE_URL` | `http://localhost:11434/v1` | 本地 Ollama；换成百炼、硅基流动的地址就是云端 |
+| `EMBED_MODEL` | `qwen3-embedding:0.6b` | |
+| `EMBED_API_KEY` | 空 | Ollama 不需要 |
+| `EMBED_BATCH_SIZE` | `10` | 一次请求最多送多少条（百炼的上限是 10） |
+| `MILVUS_URI` | `.rag_data/milvus.db` | 以 `.db` 结尾就是 Milvus Lite；换成 `http://地址:19530` 就是 Milvus 服务器 |
+
+**向量库（Milvus）的设计**
+
+- 集合名 `notes`，字段：`id`（主键，就是 chunk id）、`vector`、`doc_id`、`doc_name`、`source_path`、`section_id`、`heading_path`、`chunk_order`、`text`
+- 索引：`AUTOINDEX` + **余弦相似度**（COSINE）：只看两个向量的方向是否接近。检索结果里的分数越接近 1 越相似
+- **MVP 每次全量重建**：先删掉旧集合，再重新建表、插入
+- 文字字段有长度上限（按 UTF-8 字节算，一个汉字 3 个字节，`text` 最多 65535 字节）。超过就截断，并在建库报告里提示。截断时不会把一个汉字切成两半
+- **记下用哪个模型建的库**：建库时写一个说明文件（`milvus.db.meta.json`，记录模型、维度、块数、时间）。检索时如果发现当前配置的模型和建库时不一样，直接拒绝，提示重新建库
+- Milvus Lite 同一时间只允许一个进程打开同一个 `.db` 文件，所以代码里用 `with VectorStore() as store:` 保证用完就关闭
+- `run_ingest()` / `run_search()` 把 embedding、向量库、LLM 都作为参数传进去，测试时可以换成假的
+
+**以后可以改进的**（📌 停车场，用评测数据决定）
+- Qwen3-Embedding 官方建议**给"问题"加一句任务说明**再做向量化（文档不用加），据说能提升检索效果。MVP 先不加，以后用评测集对比效果
+
+**为什么选本地 Ollama**
 
 - 模型：`qwen3-embedding:0.6b`（约 640MB，1024 维，上下文 32K，支持 100 多种语言）。效果不够再换 `4b`（约 2.5GB，2560 维）。和阿里云百炼的 text-embedding-v4 是同一个系列
 - 通过 Ollama 的 **OpenAI 兼容接口** `POST /v1/embeddings` 调用。百炼、硅基流动也是同样的接口，所以代码只写一份，以后在本地和云端之间切换只需要改配置（地址、key、模型名）
 - Ollama 直接装在 Mac 上，能用上 M 系列芯片的 GPU；服务放在 Docker 里，通过 `host.docker.internal:11434` 访问 Ollama。镜像里不用装 PyTorch 和模型，体积小
 - ⚠️ **换 embedding 模型，所有向量都要重新生成**：不同模型生成的向量不能混在一起比较。所以每个向量库都要记下它是用哪个模型生成的
 - CI 里不跑 Ollama，测试用假的 embedding
+- 安装时踩过的坑：`ollama pull` 报错 "redirect target not allowed ... resolves to non-public 198.18.x.x"。原因是代理软件的 fake-ip 模式返回了假地址，而新版 Ollama 为了修复安全漏洞（CVE-2026-85180），会拒绝非公网地址。解决办法：在代理的 fake-ip 例外列表里加上 `+.r2.cloudflarestorage.com`，或者临时关掉 fake-ip
 
 候选的云端 embedding 模型（中文效果都不错，2026-10 的规格）：
 
