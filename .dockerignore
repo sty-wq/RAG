@@ -1,0 +1,27 @@
+# 构建镜像时不复制这些文件：和 .gitignore 类似，但这里管的是"什么不进镜像"
+
+# 密钥：绝对不能打进镜像（镜像可能会被推到公开的镜像仓库）
+.env
+.env.ocr
+
+# 数据和缓存：运行时用 -v 挂载
+.rag_data/
+.rag_cache/
+.ocr_runtime/
+.cable_ocr_python/
+.integration_backup/
+sample_notes/
+
+# Mac 上的虚拟环境：里面是 macOS 的程序，在 Linux 容器里根本用不了
+.venv/
+
+# 开发用的东西，服务运行用不到
+.git/
+.github/
+.idea/
+tests/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.DS_Store
