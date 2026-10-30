@@ -30,8 +30,8 @@
 |---|---|---|
 | M1 | 切 chunk + 离线测试 + CI | ✅ |
 | M2 | 向量化 + 存入 Milvus Lite + 检索小工具 | ✅（PR #1，Mac 和 CI 的 Linux 上都验证过） |
-| M3 | 问答接口（FastAPI）+ 标出处 | ✅ 代码和离线测试 / 🚧 本地实跑（见第 8 节） |
-| M4 | CD：打 tag 时自动构建 Docker 镜像，推送到 GitHub 的镜像仓库 | 📌 |
+| M3 | 问答接口（FastAPI）+ 标出处 | ✅（PR #2，见第 8 节） |
+| M4 | Docker 镜像 + CD：打 tag 时自动构建镜像，推送到 GitHub 的镜像仓库 | 🚧 Dockerfile ✅（PR #3，Mac 上验证通过）/ CD 📌（见第 9 节） |
 
 **已经决定的**
 
@@ -44,7 +44,7 @@
 
 **MVP 先不做**（停车场）：增量更新（MVP 每次全量重建）、疑似标题、第 ⑤ 步 LLM 切分、摘要索引、评测集、权限、MySQL、飞书接入、老 `.doc` 格式、README
 
-**停车场：部署方案**（2026-10-28 新增，到 M4 时细化）
+**停车场：部署方案**（2026-10-28 新增；2026-10-30 **暂停**，先只在 Mac 上验证，以后换一台带宽更大的服务器再继续）
 
 倾向的方案：**服务全部跑在家里的 Jetson 上，云服务器只负责把外面的请求转进来**
 
@@ -56,6 +56,18 @@
 - 内网穿透的几种做法：frp（云服务器跑 frps，Jetson 跑 frpc）、SSH 反向隧道（`ssh -R` 配合 autossh）、WireGuard / Tailscale 组网 + 云服务器上用 Nginx 反向代理。待选
 - 要验证的：Jetson 是 ARM64 架构，Ollama 和 Milvus Lite 在上面能不能正常跑；Docker 镜像要构建 ARM64 版本（CD 里用 `docker buildx` 同时构建 amd64 和 arm64，正好是一个 CD 的学习点）
 - ⚠️ **安全**：接口暴露到公网后，`/ask` 每次都会调用 DeepSeek，谁都能刷就等于谁都能花你的钱。上线前至少要做到：**API Key 鉴权**、**HTTPS**、**限流**
+
+**Jetson 已经做好的准备**（2026-10-30）
+- 环境：aarch64，JetPack 6（L4T R36.4.4），Docker 28.3.3；Ollama 还没装
+- 新加了一块 128G 的 NVMe 硬盘，格式化成 ext4，挂载在 `/data`。`/etc/fstab` 里用 **UUID + `nofail`**：设备名会变，UUID 不会；盘不在时也不会卡住开机
+- 修复了 fstab 里一条失效的旧配置（指向一块已经不在的盘，没加 `nofail`，重启时可能进入紧急模式）
+- Docker 的数据目录改到 `/data/docker`（`/etc/docker/daemon.json` 的 `data-root`，NVIDIA 的配置保留）；并加了 systemd 配置 `RequiresMountsFor=/data`：**`/data` 没挂上时 Docker 不启动**。教训：之前的数据盘丢了以后，Docker 悄悄把数据写到了系统盘上
+- 镜像不用从网上拉：`docker save | gzip` 导出成文件，拷过去再 `docker load`。Mac 和 Jetson 都是 arm64，镜像可以直接用
+- 遇到的问题：
+  - Jetson 上的 Docker **连不上 Docker Hub**（Docker 后台程序不走 Clash 代理）。以后从镜像仓库拉镜像时，要给 Docker 配置代理
+  - 云服务器带宽小，通过它传几百 MB 的镜像很慢 → 这就是暂停的原因
+  - 在 Linux 上，容器里默认**没有** `host.docker.internal`，Ollama 默认也只监听 `127.0.0.1`。到时候用 `--network host` 运行容器
+- 安全加固（SSH 只允许密钥登录、关掉不用的 Jupyter 和远程桌面等）：这次是实验，暂时没做，正式部署前要补上
 
 ## 2.2 工程化：测试与 CI（✅ M1）
 
@@ -415,6 +427,57 @@ python search.py "你的问题" -k 5          # 检索：看看找出来的是�
 - 检查回答里的每句话是不是真的有资料支持（忠实度评测）
 - 流式输出（边生成边显示）、多轮对话
 - 复杂问题用思考模式
+- **资料自相矛盾时要指出来**：实测"红黑树"的问题时，原文的"解析"说从前往后遍历、删除元素，"代码"却是从后往前遍历、插入元素。回答把两种说法拼在了一起，没有指出矛盾。**RAG 会忠实地照搬资料里的错误**，回答质量的上限就是资料的质量。可以在提示词里要求"资料之间有矛盾时明确指出"
+
+**实测**（2026-10-28，Mac）：
+- "红黑树怎么找比当前值大的最小值" → 回答用到了 3 块资料，每句都标了出处；第 4 块（题目4，相似度 0.384）过了门槛，但 LLM 没有引用它（`cited: false`）
+- "今天天气怎么样" → 所有块都低于 0.35，没有调用 LLM，直接回答"无法回答"（`sources: []`）
+
+---
+
+## 9. Docker 与 CD（🚧 M4）
+
+**Dockerfile**（✅ PR #3）
+- 基础镜像 `python:3.12-slim`；**先复制依赖清单、安装依赖，再复制代码**：只改代码时，安装依赖那一层直接用缓存
+- 镜像里只有"代码 + Python 依赖"。密钥（`.env.ocr`）运行时以只读方式挂载；向量库（`.rag_data/`）运行时挂载目录；Ollama 跑在宿主机上，通过环境变量 `EMBED_BASE_URL` 告诉服务它的地址
+- `.dockerignore`：密钥、数据、Mac 的虚拟环境 `.venv`（里面是 macOS 的程序，在 Linux 容器里用不了）、测试，都不进镜像
+- 服务监听 `0.0.0.0`：只监听 `127.0.0.1` 的话，容器外面访问不到
+
+**在 Mac 上运行**
+
+```bash
+docker build -t rag-notes:dev .
+docker run --rm -p 8000:8000 \
+  -v "$PWD/.rag_data:/app/.rag_data" \
+  -v "$PWD/.env.ocr:/app/.env.ocr:ro" \
+  -e EMBED_BASE_URL=http://host.docker.internal:11434/v1 \
+  rag-notes:dev
+```
+
+- 实测：镜像是 `linux/arm64`；容器里问答正常。**Mac 上（macOS 版 Milvus Lite）建的向量库，Linux 容器里也能直接读**，搬到别的机器上不用重新建库
+- Docker Desktop 没打开时，会报 `failed to connect to the docker API ... docker.sock`：`docker` 命令只是客户端，真正干活的引擎要先启动
+
+**CD**（🚧 `.github/workflows/release.yml`）
+
+```
+git push origin v0.1.0 → Release workflow：① 测试（复用 ci.yml）→ ② 构建 amd64 + arm64 镜像 → 推送到 ghcr.io/sty-wq/rag
+```
+
+- **只有推送 `v` 开头的 tag 才发布**，平时推送代码只跑 CI。版本号用"语义化版本"：`主版本.次版本.修订号`，0.x 表示还在早期
+- **发布前先测试**：`ci.yml` 加了 `workflow_call`，变成可以被调用的"可复用 workflow"，`release.yml` 直接调用它，测试步骤只写一份
+- **一次构建两种架构**：GitHub 的机器是 amd64，用 QEMU 模拟 ARM CPU 构建 arm64。pull 时 Docker 会自动挑出适合本机的那一个。以后嫌慢，可以改用 GitHub 的原生 arm64 机器
+- 登录 GHCR 用 GitHub 自动提供的 `GITHUB_TOKEN`，不需要自己配置密钥；workflow 里要声明 `packages: write` 权限
+- 镜像标签：`v0.1.0` → `0.1.0`、`0.1`、`latest`（docker/metadata-action 自动生成）
+- 镜像名必须全部小写，而仓库名是大写的 `RAG`，所以在 workflow 里用 bash 的 `${变量,,}` 转成小写
+- 构建缓存用 GitHub Actions 的缓存（`type=gha`），依赖没变时会快很多
+- GHCR 上新建的镜像默认是**私有**的，要在包的设置里改成公开，别人才能直接 pull
+- 用到的 Action 版本（2026-10）：setup-qemu v4、setup-buildx v4、login v4、metadata v6、build-push v7
+
+**停车场：评测数据集**（2026-10-30 新增，部署之后、混合检索和 rerank 之前做）
+- **自己的评测集为主**：20～50 个问题，标好"应该找到哪几块"；有意混入"资料里没有答案"的问题（测拒答）和"换了说法"的问题（避免只靠字面重合）。可以让 LLM 针对每个 chunk 出题，再人工检查。公开数据集测不到我们的解析、结构修正和切分
+- **C-MTEB 的检索任务**（DuRetrieval、T2Retrieval 等）：用来比较 embedding 模型、混合检索、rerank
+- **RGB**（AAAI 2024，有中文）：测抗噪声、**拒答**、信息整合、**识别资料中的错误**，正好对应上面遇到的两个情况
+- **CRUD-RAG**（中文）：按"增删改查"四类任务评测，语料是新闻
 
 ---
 
@@ -427,5 +490,8 @@ python search.py "你的问题" -k 5          # 检索：看看找出来的是�
 - [硅基流动：Embeddings 接口与各模型输入上限](https://docs.siliconflow.cn/cn/api-reference/embeddings/create-embeddings)
 - [Milvus Lite（PyPI）](https://pypi.org/project/milvus-lite)：本地文件版 Milvus，支持的平台和限制
 - [Ollama 上的 embedding 模型一览](https://www.morphllm.com/ollama-embedding-models)：qwen3-embedding 各尺寸的维度、上下文和体积，以及 `/v1/embeddings` 接口
+- [CRUD-RAG：中文 RAG 评测基准](https://arxiv.org/abs/2401.17043)
+- [RGB：Benchmarking LLMs in Retrieval-Augmented Generation（AAAI 2024）](https://ojs.aaai.org/index.php/AAAI/article/view/29728)
+- [C-MTEB（PyPI）](https://pypi.org/project/C-MTEB/)
 - [DeepSeek API: Models & Pricing](https://api-docs.deepseek.com/quick_start/pricing)
 - [DeepSeek API: JSON Output](https://api-docs.deepseek.com/guides/json_mode)
