@@ -51,6 +51,19 @@ def test_missing_config_is_reported(tmp_path):
         DeepSeekClient(env)
 
 
+def test_missing_config_file_is_reported_clearly(tmp_path):
+    with pytest.raises(LLMError, match="不存在"):
+        DeepSeekClient(tmp_path / "no-such.env")
+
+
+def test_config_path_that_is_a_directory_is_reported_clearly(tmp_path):
+    # 回归测试：docker run -v 的源文件不存在时，Docker 会建一个同名的空文件夹
+    folder = tmp_path / ".env.ocr"
+    folder.mkdir()
+    with pytest.raises(LLMError, match="文件夹"):
+        DeepSeekClient(folder)
+
+
 def test_request_body_disables_thinking_by_default(client, monkeypatch):
     calls = fake_post(monkeypatch, FakeResponse(200, "你好"))
     assert client.chat("hi") == "你好"

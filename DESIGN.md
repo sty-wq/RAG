@@ -31,7 +31,9 @@
 | M1 | 切 chunk + 离线测试 + CI | ✅ |
 | M2 | 向量化 + 存入 Milvus Lite + 检索小工具 | ✅（PR #1，Mac 和 CI 的 Linux 上都验证过） |
 | M3 | 问答接口（FastAPI）+ 标出处 | ✅（PR #2，见第 8 节） |
-| M4 | Docker 镜像 + CD：打 tag 时自动构建镜像，推送到 GitHub 的镜像仓库 | 🚧 Dockerfile ✅（PR #3，Mac 上验证通过）/ CD 📌（见第 9 节） |
+| M4 | Docker 镜像 + CD：打 tag 时自动构建镜像，推送到 GitHub 的镜像仓库 | ✅ Dockerfile（PR #3）+ CD（PR #5，`v0.1.0` 已发布，见第 9 节） |
+
+🎉 **2026-10-30：MVP 完成。** 推送 `v0.1.0` → GitHub Actions 自动测试、构建 amd64 + arm64 镜像 → 推送到 `ghcr.io/sty-wq/rag` → Mac 上 `docker pull` 后直接运行，问答正常。
 
 **已经决定的**
 
@@ -427,7 +429,7 @@ python search.py "你的问题" -k 5          # 检索：看看找出来的是�
 - 检查回答里的每句话是不是真的有资料支持（忠实度评测）
 - 流式输出（边生成边显示）、多轮对话
 - 复杂问题用思考模式
-- **资料自相矛盾时要指出来**：实测"红黑树"的问题时，原文的"解析"说从前往后遍历、删除元素，"代码"却是从后往前遍历、插入元素。回答把两种说法拼在了一起，没有指出矛盾。**RAG 会忠实地照搬资料里的错误**，回答质量的上限就是资料的质量。可以在提示词里要求"资料之间有矛盾时明确指出"
+- ✅（已加进提示词）**资料自相矛盾时要指出来**：实测"红黑树"的问题时，原文的"解析"说从前往后遍历、删除元素，"代码"却是从后往前遍历、插入元素。回答把两种说法拼在了一起，没有指出矛盾。**RAG 会忠实地照搬资料里的错误**，回答质量的上限就是资料的质量。可以在提示词里要求"资料之间有矛盾时明确指出"
 
 **实测**（2026-10-28，Mac）：
 - "红黑树怎么找比当前值大的最小值" → 回答用到了 3 块资料，每句都标了出处；第 4 块（题目4，相似度 0.384）过了门槛，但 LLM 没有引用它（`cited: false`）
@@ -435,7 +437,7 @@ python search.py "你的问题" -k 5          # 检索：看看找出来的是�
 
 ---
 
-## 9. Docker 与 CD（🚧 M4）
+## 9. Docker 与 CD（✅ M4）
 
 **Dockerfile**（✅ PR #3）
 - 基础镜像 `python:3.12-slim`；**先复制依赖清单、安装依赖，再复制代码**：只改代码时，安装依赖那一层直接用缓存
@@ -457,7 +459,7 @@ docker run --rm -p 8000:8000 \
 - 实测：镜像是 `linux/arm64`；容器里问答正常。**Mac 上（macOS 版 Milvus Lite）建的向量库，Linux 容器里也能直接读**，搬到别的机器上不用重新建库
 - Docker Desktop 没打开时，会报 `failed to connect to the docker API ... docker.sock`：`docker` 命令只是客户端，真正干活的引擎要先启动
 
-**CD**（🚧 `.github/workflows/release.yml`）
+**CD**（✅ `.github/workflows/release.yml`）
 
 ```
 git push origin v0.1.0 → Release workflow：① 测试（复用 ci.yml）→ ② 构建 amd64 + arm64 镜像 → 推送到 ghcr.io/sty-wq/rag
@@ -472,6 +474,43 @@ git push origin v0.1.0 → Release workflow：① 测试（复用 ci.yml）→ �
 - 构建缓存用 GitHub Actions 的缓存（`type=gha`），依赖没变时会快很多
 - GHCR 上新建的镜像默认是**私有**的，要在包的设置里改成公开，别人才能直接 pull
 - 用到的 Action 版本（2026-10）：setup-qemu v4、setup-buildx v4、login v4、metadata v6、build-push v7
+
+**第一次发布 `v0.1.0`**（2026-10-30）
+- Release #1 全部通过，用时 7 分 21 秒：test 33 秒，image 6 分 43 秒（arm64 在 QEMU 模拟环境里构建，所以最慢）
+- 部署就两条命令：
+
+  ```bash
+  docker pull ghcr.io/sty-wq/rag:0.1.0
+  cd 项目目录   # 下面的 $PWD 要指向放着 .env.ocr 和 .rag_data 的目录
+  docker run --rm -p 8000:8000 \
+    -v "$PWD/.rag_data:/app/.rag_data" \
+    -v "$PWD/.env.ocr:/app/.env.ocr:ro" \
+    -e EMBED_BASE_URL=http://host.docker.internal:11434/v1 \
+    ghcr.io/sty-wq/rag:0.1.0
+  ```
+
+- `docker buildx imagetools inspect ghcr.io/sty-wq/rag:0.1.0` 能看到一个 tag 下有 amd64、arm64 两个镜像；Mac 上 pull 时 Docker 自动挑了 arm64
+- 踩过的坑：
+  - 推送 tag 要单独执行 `git push origin v0.1.0`，普通的 `git push` 不会推送 tag
+  - GHCR 上新建的包默认是私有的，要在 Package settings 里改成 Public
+  - **在主目录下运行了 `docker run`**：`$PWD` 指错了地方，`-v` 找不到源文件时**不报错，而是自动建一个同名的空文件夹**，结果容器里的 `.env.ocr` 变成了空文件夹，服务启动失败。正式部署时改用 `--mount type=bind,src=…,dst=…`，源文件不存在会直接报错
+  - `docker pull` 和当前目录无关；`docker build .` 和 `-v "$PWD/…"` 都和当前目录有关
+
+**小修小补**（✅ 2026-10-30，分支 `chore/small-fixes`）
+- ✅ `actions/checkout` v4 → v6、`actions/setup-python` v5 → v6：Release 日志提醒旧版本用的 Node.js 20 已经过时，v6 改用 Node.js 24，用法不变。`ubuntu-latest` 以后会换成 Ubuntu 26，先不管
+- ✅ `llm.py`：配置文件不存在、或者是个文件夹时，直接提示"找不到配置文件"并点名可能是 `-v` 挂载错了，不再误报"缺少配置"。加了两个回归测试
+- ✅ 问答提示词加了一条：资料相互矛盾时，不要混在一起，要明确指出矛盾，并分别标出处（见第 8 节）
+
+**停车场：Kubernetes、分布式部署、按需扩展、滚动更新**（2026-10-30 新增）
+
+现在还做不了，原因不在 K8s，而在于我们的服务还不满足前提条件：
+- **Milvus Lite 是单个文件，同一时间只允许一个进程打开** → 服务没法起多个副本，扩展不了。要先换成 Milvus 服务器版（standalone）
+- **服务不是"无状态"的**：数据在本地文件里。K8s 的扩缩容和滚动更新，要求每个副本都能随时被删掉、再新建
+- embedding（Ollama）应该拆成一个独立的服务，单独扩展
+- 资源：哪怕是精简版的 k3s 也要占几百 MB 内存；"分布式"至少要两三台机器
+- 没有流量，"按需扩展"就没有意义，也拿不出数据来说明效果
+
+建议的顺序：CD → 用 Docker 部署到服务器 → 评测集 → 混合检索 / rerank → 换成 Milvus 服务器版、服务改成无状态 → 再上 K8s（可以先用 k3s 学）
 
 **停车场：评测数据集**（2026-10-30 新增，部署之后、混合检索和 rerank 之前做）
 - **自己的评测集为主**：20～50 个问题，标好"应该找到哪几块"；有意混入"资料里没有答案"的问题（测拒答）和"换了说法"的问题（避免只靠字面重合）。可以让 LLM 针对每个 chunk 出题，再人工检查。公开数据集测不到我们的解析、结构修正和切分
