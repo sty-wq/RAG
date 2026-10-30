@@ -119,6 +119,8 @@ def main(argv: list[str] | None = None) -> int:
     manifest = json.loads((data_dir / "manifest.json").read_text(encoding="utf-8"))
     embedder = Embedder()
     started = time.time()
+    # 先记下 git 提交号再打开向量库：Milvus 连接开着的时候启动子进程，gRPC 会打印一堆 fork 相关的提示
+    commit = git_commit()
 
     # 评测用单独的向量库文件，不会碰到你笔记的那个库
     with VectorStore(uri=str(data_dir / "index" / "milvus.db")) as store:
@@ -136,7 +138,7 @@ def main(argv: list[str] | None = None) -> int:
     result = {
         "label": args.label,
         "created_at": time.strftime("%Y-%m-%d %H:%M:%S"),
-        "git_commit": git_commit(),
+        "git_commit": commit,
         "config": {"embed_model": embedder.model, "max_chunk_chars": MAX_CHUNK_CHARS,
                    "chunk_count": meta["chunk_count"], "k_max": args.k_max},
         "dataset": {"questions_file": args.questions,

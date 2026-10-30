@@ -30,13 +30,17 @@ from outline import JsonCache
 PROJECT_DIR = Path(__file__).resolve().parent.parent
 DEFAULT_DATA = PROJECT_DIR / "evaluation" / "data" / "crud"
 CACHE_FILE = PROJECT_DIR / ".rag_cache" / "question_rewrites.json"
-PROMPT_VERSION = "v1"        # 改了提示词就改这里，旧缓存自动失效
+# 改了提示词就改这里，旧缓存自动失效
+# v1 → v2：v1 允许"只保留最主要的一两个方面"，人工抽查发现 2docs / 3docs 的题会被删掉一问，
+# 而被删掉的那一问往往正好对应其中一篇新闻 → 那篇新闻不再被题目需要，Recall 就被冤枉地拉低了。
+# v2 要求每一问都保留。
+PROMPT_VERSION = "v2"
 
 REWRITE_PROMPT = """下面这道题是照着新闻原文出的，写得又长又书面。请把它改写成普通用户在搜索框里会输入的问法。
 
 要求：
-1. 简短、口语化，一般不超过 30 个字。
-2. 问的还是同一件事，答案不能变；如果原题同时问了好几个方面，保留最主要的一到两个。
+1. 简短、口语化，一般不超过 40 个字。
+2. 问的还是同一件事，答案不能变。原题问到的每一个方面都要保留，一问都不能少，但可以压缩说法、合并成一句。
 3. 不要照抄原题的长句子；去掉具体日期和机构全称，较长的名称改用简称或日常说法。
 4. 不要添加原题里没有的信息。
 5. 只输出改写后的问题本身，不要任何解释。
