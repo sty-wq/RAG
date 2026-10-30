@@ -512,11 +512,68 @@ git push origin v0.1.0 → Release workflow：① 测试（复用 ci.yml）→ �
 
 建议的顺序：CD → 用 Docker 部署到服务器 → 评测集 → 混合检索 / rerank → 换成 Milvus 服务器版、服务改成无状态 → 再上 K8s（可以先用 k3s 学）
 
-**停车场：评测数据集**（2026-10-30 新增，部署之后、混合检索和 rerank 之前做）
-- **自己的评测集为主**：20～50 个问题，标好"应该找到哪几块"；有意混入"资料里没有答案"的问题（测拒答）和"换了说法"的问题（避免只靠字面重合）。可以让 LLM 针对每个 chunk 出题，再人工检查。公开数据集测不到我们的解析、结构修正和切分
-- **C-MTEB 的检索任务**（DuRetrieval、T2Retrieval 等）：用来比较 embedding 模型、混合检索、rerank
-- **RGB**（AAAI 2024，有中文）：测抗噪声、**拒答**、信息整合、**识别资料中的错误**，正好对应上面遇到的两个情况
-- **CRUD-RAG**（中文）：按"增删改查"四类任务评测，语料是新闻
+---
+
+## 10. 评测（🚧，`evaluation/`）
+
+**决定**（2026-10-30）：**只用公开数据集**（没有自己的笔记可用，而且公开数据别人能复现）。评测分三层，每层回答一个问题：
+
+| 层 | 回答什么问题 | 数据 | 状态 |
+|---|---|---|---|
+| **C. 检索和问答** | 切分、混合检索、rerank 能不能提高准确率 | CRUD-RAG | 🚧 检索部分已实现 |
+| **B. 格式对照实验** | 文件格式会不会影响最终效果 | 同一批 CRUD-RAG 新闻，分别做成 txt / docx / PDF / 扫描件，题目不变 | 📌 |
+| **A. 解析层** | 每种格式解析得对不对 | 程序生成的已知原文的文档（md/txt/docx/PDF，含 GBK）；真实扫描件用 OmniDocBench 的中文页面 | 📌 |
+
+顺序：C → B → A（B 直接复用 C 的题目，A 工作量最大）
+
+### 10.1 CRUD-RAG 小样本（`evaluation/build_crud.py`）
+
+- 数据结构（实测）：`split_merged.json` 里 `questanswer_1doc` 800 条、`2docs` 797 条、`3docs` 797 条；每条有 `ID`（事件 id）、`event`、`news1`～`news3`（题目依据的新闻原文）、`questions`、`answers`；语料 48 个文件，**一行一篇新闻**，共约 9 万行
+- 抽样规则（固定种子 42，每次结果一样）：
+  - 每类 100 道题，**同一个事件只用一次**：三类题目会围绕同一事件出题，否则一道题的标准答案文档会被另一道题的文档抢排名
+  - 题目依据的新闻 = 标准答案文档；文件名是正文的 md5，**标注和切分方式无关**，改切分也不用重新标注
+  - 3000 篇随机新闻作为干扰项，**排除标准答案的副本**（语料库里同一篇新闻可能有好几份，用正文中间的 3 小段文字判断）
+  - 50 道**无答案题**：抽 1doc 题，但故意不把原文放进语料
+- 数据不提交到 git（`evaluation/data/` 已忽略），只提交脚本和汇总结果
+- 已知局限：干扰项里可能有**同一事件的其他报道**（不是副本，但也能回答问题），会让分数略微偏低；新闻是纯文本，测不到标题结构相关的处理
+
+### 10.2 检索评测（`evaluation/run_retrieval.py`）
+
+- 不调用 DeepSeek，**不花钱、结果可复现**；用单独的向量库文件，不碰笔记的库
+- 指标（k 指"前 k 个 chunk"，因为交给 LLM 的就是前 k 个 chunk）：
+  - **Hit@k**：前 k 个里有没有至少一篇标准答案文档
+  - **Recall@k**：前 k 个覆盖了多少比例的标准答案文档（2docs / 3docs 题只找到一部分也会体现出来）
+  - **MRR**：第一个找对的结果排名的倒数，再取平均
+  - **相似度门槛分析**：按 `MIN_SCORE` 算"有答案的题被误拦的比例"和"无答案的题被拦下的比例"，用来定门槛
+- 结果：汇总存到 `evaluation/results/<时间>_<标签>.json`（提交到 git，留作历史记录，里面记着 git 提交号、模型、切分参数），每道题的明细存到 `evaluation/data/crud/runs/`（不提交）
+- 指标函数和抽样规则都有离线测试（`tests/test_evaluation.py`），CI 里会跑
+
+### 10.3 结果记录
+
+| 日期 | 标签 | 提交 | Hit@1 | Hit@5 | Recall@5 | Recall@10 | MRR |
+|---|---|---|---|---|---|---|---|
+| 2026-10-30 | v0.1.2 基线（原题，3000 篇随机干扰） | c987e9f | 0.920 | 0.993 | 0.947 | 0.977 | 0.952 |
+
+**基线的分析**（4685 块；按类型：1doc Recall@5 = 1.000，2docs 0.955，3docs 0.887）
+
+1. **太简单了，几乎没有提升空间（天花板效应）**：Hit@5 已经 0.993，剩下的提升空间只有不到 1 个点。300 道题里，一道题就是 0.33 个点，再做优化也很难和随机波动区分开。原因：
+   - 题目是 GPT-4 照着新闻原文出的，又长又具体，带着日期、机构全称、引号里的名称，**和原文的字面重合度很高**；真实用户的提问通常更短、更口语化
+   - 干扰项是随机抽的，话题大多和题目八竿子打不着
+2. **相似度门槛 0.35 完全没起作用**：有答案的题 top1 中位数 0.788，无答案的题 0.596，**无答案的题一道都没被拦下**，全部交给了 LLM 去判断。0.35 是当初只看一个例子定的，这里被数据否定了
+3. 真正还有空间的：**3docs 的 Recall@5（0.887）** 和 **Hit@1 / MRR**（排序）
+
+**下一步：先把评测集变难，再做优化**（否则优化的效果测不出来）
+- **"难版"题目**：让 LLM 把每道题改写成简短、口语化的问法，标准答案不变，所以不会引入标注错误；原题保留为"易版"，两套一起报
+- **扩大干扰项**：从 3000 篇增加到上万篇
+- 门槛：从明细里算不同门槛下的误拦率和拦对率；**用一个种子的样本来定门槛，再换一个种子的样本来验证**，避免对着测试集调参
+- 汇报差别时，按题目逐一对比"变好了几道、变差了几道"，而不只看平均分
+
+### 10.4 以后（📌）
+
+- 问答层：用 DeepSeek 对照参考答案打分；无答案题统计拒答率
+- **RGB**（AAAI 2024，有中文）：测抗噪声、**拒答**、信息整合、**识别资料中的错误**
+- **C-MTEB 的检索任务**（DuRetrieval、T2Retrieval 等）：用来比较 embedding 模型
+- 更难的干扰项：同一事件的其他报道
 
 ---
 
@@ -529,7 +586,8 @@ git push origin v0.1.0 → Release workflow：① 测试（复用 ci.yml）→ �
 - [硅基流动：Embeddings 接口与各模型输入上限](https://docs.siliconflow.cn/cn/api-reference/embeddings/create-embeddings)
 - [Milvus Lite（PyPI）](https://pypi.org/project/milvus-lite)：本地文件版 Milvus，支持的平台和限制
 - [Ollama 上的 embedding 模型一览](https://www.morphllm.com/ollama-embedding-models)：qwen3-embedding 各尺寸的维度、上下文和体积，以及 `/v1/embeddings` 接口
-- [CRUD-RAG：中文 RAG 评测基准](https://arxiv.org/abs/2401.17043)
+- [CRUD-RAG：中文 RAG 评测基准](https://arxiv.org/abs/2401.17043)（数据：[GitHub](https://github.com/IAAR-Shanghai/CRUD_RAG)）
+- [OmniDocBench（CVPR 2025）](https://openaccess.thecvf.com/content/CVPR2025/papers/Ouyang_OmniDocBench_Benchmarking_Diverse_PDF_Document_Parsing_with_Comprehensive_Annotations_CVPR_2025_paper.pdf)：981 页真实 PDF 页面，中英文、9 种文档类型，有标准文字标注
 - [RGB：Benchmarking LLMs in Retrieval-Augmented Generation（AAAI 2024）](https://ojs.aaai.org/index.php/AAAI/article/view/29728)
 - [C-MTEB（PyPI）](https://pypi.org/project/C-MTEB/)
 - [DeepSeek API: Models & Pricing](https://api-docs.deepseek.com/quick_start/pricing)

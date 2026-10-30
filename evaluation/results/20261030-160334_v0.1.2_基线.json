@@ -1,0 +1,87 @@
+{
+  "label": "v0.1.2 基线",
+  "created_at": "2026-10-30 16:03:34",
+  "git_commit": "c987e9f（有未提交的改动）",
+  "config": {
+    "embed_model": "qwen3-embedding:0.6b",
+    "max_chunk_chars": 800,
+    "chunk_count": 4685,
+    "k_max": 10
+  },
+  "dataset": {
+    "source": "CRUD-RAG data/crud_split/split_merged.json + data/80000_docs",
+    "source_sha256": "b199fb281ac526c1",
+    "seed": 42,
+    "params": {
+      "per_task": 100,
+      "unanswerable": 50,
+      "distractors": 3000
+    },
+    "questions": {
+      "1doc": 100,
+      "2docs": 100,
+      "3docs": 100,
+      "unanswerable": 50
+    },
+    "corpus_docs": 3593
+  },
+  "overall": {
+    "n": 300,
+    "hit@1": 0.92,
+    "hit@3": 0.9833,
+    "hit@5": 0.9933,
+    "hit@10": 1.0,
+    "recall@1": 0.5694,
+    "recall@3": 0.9106,
+    "recall@5": 0.9472,
+    "recall@10": 0.9772,
+    "mrr": 0.9519
+  },
+  "by_type": {
+    "1doc": {
+      "n": 100,
+      "hit@1": 0.94,
+      "hit@3": 0.98,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "recall@1": 0.94,
+      "recall@3": 0.98,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 0.9633
+    },
+    "2docs": {
+      "n": 100,
+      "hit@1": 0.91,
+      "hit@3": 0.99,
+      "hit@5": 0.99,
+      "hit@10": 1.0,
+      "recall@1": 0.465,
+      "recall@3": 0.945,
+      "recall@5": 0.955,
+      "recall@10": 0.975,
+      "mrr": 0.951
+    },
+    "3docs": {
+      "n": 100,
+      "hit@1": 0.91,
+      "hit@3": 0.98,
+      "hit@5": 0.99,
+      "hit@10": 1.0,
+      "recall@1": 0.3033,
+      "recall@3": 0.8067,
+      "recall@5": 0.8867,
+      "recall@10": 0.9567,
+      "mrr": 0.9414
+    }
+  },
+  "gate": {
+    "min_score": 0.35,
+    "answerable_blocked": 0.0,
+    "unanswerable_blocked": 0.0,
+    "answerable_top1_median": 0.7879,
+    "unanswerable_top1_median": 0.5963,
+    "n_unanswerable": 50
+  },
+  "duration_s": 346.1
+}
