@@ -7,8 +7,11 @@ from types import SimpleNamespace
 import pytest
 
 from evaluation.build_crud import build, doc_file_name, snippets, squash
-from evaluation.metrics import average, hit_at_k, recall_at_k, reciprocal_rank
+from evaluation.metrics import average, bigram_overlap, hit_at_k, recall_at_k, reciprocal_rank
+from evaluation.rewrite_questions import clean, rewrite_all
 from evaluation.run_retrieval import evaluate
+from llm import LLMError
+from outline import JsonCache
 
 # ---------------- 指标 ----------------
 
@@ -132,3 +135,48 @@ def test_build_follows_the_sampling_rules(tmp_path):
 def test_doc_file_name_is_stable():
     assert doc_file_name("同一篇") == doc_file_name("同一篇")
     assert doc_file_name("同一篇") != doc_file_name("另一篇")
+
+
+# ---------------- 难版题目：改写 ----------------
+
+def test_bigram_overlap_ignores_punctuation():
+    doc = "国家卫健委开展启明行动，防控儿童近视。"
+    assert bigram_overlap("启明行动", doc) == 1.0
+    assert bigram_overlap("启明行动？？", doc) == 1.0            # 标点不影响
+    assert bigram_overlap("小孩近视怎么办", doc) < 0.5
+    assert bigram_overlap("", doc) == 0.0
+
+
+def test_clean_strips_prefix_quotes_and_extra_lines():
+    assert clean("改写：“启明行动是干嘛的？”\n解释：……") == "启明行动是干嘛的？"
+    assert clean("\n\n  问题：近视怎么防？ ") == "近视怎么防？"
+
+
+QUESTIONS = [
+    {"qid": "1doc-0001", "type": "1doc", "question": "国家卫生健康委员会于2023年7月28日启动的启明行动针对什么问题？",
+     "gold_docs": ["a.txt"]},
+    {"qid": "unanswerable-0001", "type": "unanswerable", "question": "某某活动于2023年8月1日在哪里举办？",
+     "gold_docs": []},
+]
+
+
+def test_rewrite_keeps_labels_caches_and_survives_failures(fake_llm, tmp_path):
+    cache = JsonCache(tmp_path / "rewrites.json")
+    llm = fake_llm("改写：启明行动管什么的？", LLMError("HTTP 500"))
+
+    hard, stats = rewrite_all(QUESTIONS, llm, cache, workers=1)
+
+    assert hard[0]["question"] == "启明行动管什么的？"
+    assert hard[0]["question_original"] == QUESTIONS[0]["question"]
+    assert hard[0]["gold_docs"] == ["a.txt"]                   # 标准答案不变
+    assert hard[1]["question"] == QUESTIONS[1]["question"]     # 失败的保留原题
+    assert hard[1]["rewrite_failed"] is True
+    assert stats["failed"] == 1 and stats["new_calls"] == 2
+
+    # 再跑一次：成功的那道走缓存，只有失败的那道会重新请求
+    llm2 = fake_llm("某活动在哪办的？")
+    hard2, stats2 = rewrite_all(QUESTIONS, llm2, JsonCache(tmp_path / "rewrites.json"), workers=1)
+    assert stats2["new_calls"] == 1 and len(llm2.prompts) == 1
+    assert [h["question"] for h in hard2] == ["启明行动管什么的？", "某活动在哪办的？"]
+    assert "国家卫生健康委员会" in llm.prompts[0]               # 改写时只给题目
+    assert "a.txt" not in llm.prompts[0]

@@ -104,6 +104,8 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="检索评测")
     parser.add_argument("--data", default=str(DEFAULT_DATA), help="build_crud 生成的目录")
     parser.add_argument("--label", required=True, help="这次评测的名字，比如 \"v0.1.2 基线\"")
+    parser.add_argument("--questions", default="questions.jsonl",
+                        help="用哪套题：questions.jsonl（易版，原题）或 questions_hard.jsonl（难版，口语化改写）")
     parser.add_argument("--reuse-index", action="store_true", help="已经建过库、切分方式也没变时，跳过重新建库")
     parser.add_argument("--k-max", type=int, default=10)
     args = parser.parse_args(argv)
@@ -113,7 +115,7 @@ def main(argv: list[str] | None = None) -> int:
     from vector_store import VectorStore
 
     data_dir = Path(args.data).resolve()
-    questions = load_questions(data_dir / "questions.jsonl")
+    questions = load_questions(data_dir / args.questions)
     manifest = json.loads((data_dir / "manifest.json").read_text(encoding="utf-8"))
     embedder = Embedder()
     started = time.time()
@@ -137,7 +139,8 @@ def main(argv: list[str] | None = None) -> int:
         "git_commit": git_commit(),
         "config": {"embed_model": embedder.model, "max_chunk_chars": MAX_CHUNK_CHARS,
                    "chunk_count": meta["chunk_count"], "k_max": args.k_max},
-        "dataset": {k: manifest[k] for k in ("source", "source_sha256", "seed", "params", "questions", "corpus_docs")},
+        "dataset": {"questions_file": args.questions,
+                    **{k: manifest[k] for k in ("source", "source_sha256", "seed", "params", "questions", "corpus_docs")}},
         **summary,
         "duration_s": round(time.time() - started, 1),
     }
@@ -151,7 +154,7 @@ def main(argv: list[str] | None = None) -> int:
         for row in details:
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
 
-    print(f"\n【{args.label}】{result['git_commit']}，{meta['chunk_count']} 块\n")
+    print(f"\n【{args.label}】{result['git_commit']}，{meta['chunk_count']} 块，题目：{args.questions}\n")
     print_table(summary)
     print(f"\n汇总已保存：{result_path.relative_to(PROJECT_DIR)}")
     return 0
