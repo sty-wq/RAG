@@ -26,6 +26,13 @@ class LLMError(RuntimeError):
 
 class DeepSeekClient:
     def __init__(self, env_file: Path = ENV_FILE, timeout: float = 60):
+        # 先确认配置文件真的存在、而且是个文件。
+        # 踩过的坑：docker run -v 挂载时源文件不存在，Docker 会建一个同名的空文件夹，
+        # 如果不先检查，这里只会报"缺少配置"，让人误以为是文件内容写错了
+        if not env_file.is_file():
+            what = "是一个文件夹，不是文件" if env_file.is_dir() else "不存在"
+            raise LLMError(f"找不到配置文件：{env_file} {what}。"
+                           "如果是在 Docker 里运行，检查 -v 挂载的源路径对不对")
         cfg = dotenv_values(env_file)
         needed = ("DEEPSEEK_BASE_URL", "DEEPSEEK_API_KEY", "DEEPSEEK_MODEL")
         missing = [key for key in needed if not cfg.get(key)]

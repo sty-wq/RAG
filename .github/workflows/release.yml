@@ -17,7 +17,7 @@ jobs:
       contents: read
       packages: write               # 允许往 GitHub 的镜像仓库（GHCR）推镜像
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       # 镜像名必须全部小写，而仓库名 RAG 是大写的。${变量,,} 是 bash 里"转成小写"的写法
       - name: 生成镜像名

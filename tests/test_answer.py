@@ -50,6 +50,7 @@ def test_prompt_numbers_sources_and_includes_question():
     assert "[2] 来源：b.md > 乙\n内容乙" in prompt
     assert prompt.rstrip().endswith("问题是什么")
     assert NOT_FOUND in prompt                            # 告诉模型找不到时该怎么说
+    assert "矛盾" in prompt                               # 资料自相矛盾时要指出来
 
 
 def test_answer_with_citations_and_low_scores_dropped(fake_llm):
