@@ -125,14 +125,16 @@ class VectorStore:
         }, ensure_ascii=False, indent=2), encoding="utf-8")
         return truncated
 
-    def search(self, query_vector: list[float], k: int = 5) -> list[SearchHit]:
-        """找出和问题向量最相似的 k 块。"""
+    def search(self, query_vector: list[float], k: int = 5, doc_name: str | None = None) -> list[SearchHit]:
+        """找出和问题向量最相似的 k 块。给了 doc_name，就只在这一篇文档里找。"""
         # Milvus 的数据平时存在磁盘上，检索前要先"加载"进内存。
         # 建库的那个进程里会自动加载，但换一个进程（比如单独运行 search.py）时，
         # 集合的状态是 released（在磁盘上、没加载），直接检索会报错。已经加载过的话，这一步什么也不做。
         self.client.load_collection(self.collection)
+        # 过滤条件是 Milvus 的表达式，字符串要加双引号；json.dumps 会顺便把文件名里的引号转义掉
+        flt = f"doc_name == {json.dumps(doc_name, ensure_ascii=False)}" if doc_name else ""
         results = self.client.search(self.collection, data=[query_vector], limit=k,
-                                     output_fields=OUTPUT_FIELDS)
+                                     filter=flt, output_fields=OUTPUT_FIELDS)
         hits = []
         for hit in results[0]:                          # results[i] 对应第 i 个问题
             entity = hit["entity"]

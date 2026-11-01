@@ -1,0 +1,72 @@
+{
+  "label": "qasper 基线（3-small）",
+  "created_at": "2026-11-01 13:23:13",
+  "git_commit": "0d47029（有未提交的改动）",
+  "config": {
+    "embed_model": "text-embedding-3-small",
+    "embed_base_url": "https://api.quickrouter.ai/v1",
+    "max_chunk_chars": 800,
+    "chunk_count": 17885,
+    "k_max": 10
+  },
+  "dataset": {
+    "name": "qasper",
+    "questions_file": "questions.jsonl",
+    "source": "Qasper test split (huggingface allenai/qasper, parquet)",
+    "source_sha256": "206d05a86672dc33",
+    "seed": null,
+    "params": {},
+    "questions": {
+      "answerable": 1309,
+      "float_only": 42,
+      "unanswerable": 79,
+      "no_evidence": 21
+    },
+    "corpus_docs": 416
+  },
+  "counts": {
+    "answerable": 1309,
+    "no_evidence": 21,
+    "unanswerable": 79,
+    "float_only": 42
+  },
+  "overall": {
+    "n": 1309,
+    "hit@1": 0.1138,
+    "hit@3": 0.1948,
+    "hit@5": 0.2383,
+    "hit@10": 0.2979,
+    "recall@1": 0.0957,
+    "recall@3": 0.1765,
+    "recall@5": 0.2154,
+    "recall@10": 0.2738,
+    "mrr": 0.1666,
+    "doc_hit@1": 0.2521,
+    "doc_hit@5": 0.3598
+  },
+  "by_type": {
+    "answerable": {
+      "n": 1309,
+      "hit@1": 0.1138,
+      "hit@3": 0.1948,
+      "hit@5": 0.2383,
+      "hit@10": 0.2979,
+      "recall@1": 0.0957,
+      "recall@3": 0.1765,
+      "recall@5": 0.2154,
+      "recall@10": 0.2738,
+      "mrr": 0.1666,
+      "doc_hit@1": 0.2521,
+      "doc_hit@5": 0.3598
+    }
+  },
+  "gate": {
+    "min_score": 0.35,
+    "answerable_blocked": 0.0076,
+    "unanswerable_blocked": 0.0165,
+    "answerable_top1_median": 0.5454,
+    "unanswerable_top1_median": 0.5221,
+    "n_unanswerable": 121
+  },
+  "duration_s": 1086.5
+}
