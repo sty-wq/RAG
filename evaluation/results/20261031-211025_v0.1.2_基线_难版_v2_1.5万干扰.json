@@ -1,0 +1,88 @@
+{
+  "label": "v0.1.2 基线（难版 v2，1.5万干扰）",
+  "created_at": "2026-10-31 21:10:25",
+  "git_commit": "55cc2c1（有未提交的改动）",
+  "config": {
+    "embed_model": "qwen3-embedding:0.6b",
+    "max_chunk_chars": 800,
+    "chunk_count": 20724,
+    "k_max": 10
+  },
+  "dataset": {
+    "questions_file": "questions_hard.jsonl",
+    "source": "CRUD-RAG data/crud_split/split_merged.json + data/80000_docs",
+    "source_sha256": "b199fb281ac526c1",
+    "seed": 42,
+    "params": {
+      "per_task": 100,
+      "unanswerable": 50,
+      "distractors": 15000
+    },
+    "questions": {
+      "1doc": 100,
+      "2docs": 100,
+      "3docs": 100,
+      "unanswerable": 50
+    },
+    "corpus_docs": 15593
+  },
+  "overall": {
+    "n": 300,
+    "hit@1": 0.7667,
+    "hit@3": 0.91,
+    "hit@5": 0.93,
+    "hit@10": 0.9567,
+    "recall@1": 0.4722,
+    "recall@3": 0.795,
+    "recall@5": 0.8494,
+    "recall@10": 0.9089,
+    "mrr": 0.8413
+  },
+  "by_type": {
+    "1doc": {
+      "n": 100,
+      "hit@1": 0.76,
+      "hit@3": 0.89,
+      "hit@5": 0.9,
+      "hit@10": 0.95,
+      "recall@1": 0.76,
+      "recall@3": 0.89,
+      "recall@5": 0.9,
+      "recall@10": 0.95,
+      "mrr": 0.8318
+    },
+    "2docs": {
+      "n": 100,
+      "hit@1": 0.8,
+      "hit@3": 0.94,
+      "hit@5": 0.96,
+      "hit@10": 0.97,
+      "recall@1": 0.41,
+      "recall@3": 0.845,
+      "recall@5": 0.895,
+      "recall@10": 0.93,
+      "mrr": 0.865
+    },
+    "3docs": {
+      "n": 100,
+      "hit@1": 0.74,
+      "hit@3": 0.9,
+      "hit@5": 0.93,
+      "hit@10": 0.95,
+      "recall@1": 0.2467,
+      "recall@3": 0.65,
+      "recall@5": 0.7533,
+      "recall@10": 0.8467,
+      "mrr": 0.827
+    }
+  },
+  "gate": {
+    "min_score": 0.35,
+    "answerable_blocked": 0.0,
+    "unanswerable_blocked": 0.0,
+    "answerable_top1_median": 0.7379,
+    "unanswerable_top1_median": 0.6295,
+    "n_unanswerable": 50
+  },
+  "duration_s": 9.7
+}
