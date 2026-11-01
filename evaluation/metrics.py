@@ -8,7 +8,10 @@ gold：  这道题的标准答案：应该被找到的那几篇文档。
 """
 from __future__ import annotations
 
+import re
 from statistics import mean
+
+_NOT_WORD = re.compile(r"[\W_]+")      # 空白和标点（中文标点也算），汉字、字母、数字会保留
 
 
 def hit_at_k(ranked: list[str], gold: set[str], k: int) -> float:
@@ -35,6 +38,21 @@ def reciprocal_rank(ranked: list[str], gold: set[str]) -> float:
         if doc in gold:
             return 1.0 / rank
     return 0.0
+
+
+def char_bigrams(text: str) -> set[str]:
+    """去掉空白和标点后，所有相邻两个字组成的集合。中文没有空格分词，用"两个字一组"来比较最简单。"""
+    flat = _NOT_WORD.sub("", text)
+    return {flat[i:i + 2] for i in range(len(flat) - 1)}
+
+
+def bigram_overlap(question: str, doc: str) -> float:
+    """题目里的"两字组"，有多少比例原样出现在文档里。用来衡量题目和原文的字面重合度：
+    越接近 1，越像是照着原文抄的；越低，越需要真正"理解意思"才能找到。"""
+    q = char_bigrams(question)
+    if not q:
+        return 0.0
+    return len(q & char_bigrams(doc)) / len(q)
 
 
 def average(rows: list[dict], keys: list[str]) -> dict[str, float]:

@@ -1,0 +1,88 @@
+{
+  "label": "v0.1.2 基线（易版，1.5万干扰）",
+  "created_at": "2026-10-31 21:09:56",
+  "git_commit": "55cc2c1",
+  "config": {
+    "embed_model": "qwen3-embedding:0.6b",
+    "max_chunk_chars": 800,
+    "chunk_count": 20724,
+    "k_max": 10
+  },
+  "dataset": {
+    "questions_file": "questions.jsonl",
+    "source": "CRUD-RAG data/crud_split/split_merged.json + data/80000_docs",
+    "source_sha256": "b199fb281ac526c1",
+    "seed": 42,
+    "params": {
+      "per_task": 100,
+      "unanswerable": 50,
+      "distractors": 15000
+    },
+    "questions": {
+      "1doc": 100,
+      "2docs": 100,
+      "3docs": 100,
+      "unanswerable": 50
+    },
+    "corpus_docs": 15593
+  },
+  "overall": {
+    "n": 300,
+    "hit@1": 0.8533,
+    "hit@3": 0.9533,
+    "hit@5": 0.9767,
+    "hit@10": 0.9833,
+    "recall@1": 0.5306,
+    "recall@3": 0.85,
+    "recall@5": 0.9,
+    "recall@10": 0.9367,
+    "mrr": 0.9075
+  },
+  "by_type": {
+    "1doc": {
+      "n": 100,
+      "hit@1": 0.88,
+      "hit@3": 0.97,
+      "hit@5": 0.99,
+      "hit@10": 0.99,
+      "recall@1": 0.88,
+      "recall@3": 0.97,
+      "recall@5": 0.99,
+      "recall@10": 0.99,
+      "mrr": 0.9267
+    },
+    "2docs": {
+      "n": 100,
+      "hit@1": 0.85,
+      "hit@3": 0.95,
+      "hit@5": 0.97,
+      "hit@10": 0.98,
+      "recall@1": 0.435,
+      "recall@3": 0.89,
+      "recall@5": 0.92,
+      "recall@10": 0.94,
+      "mrr": 0.9045
+    },
+    "3docs": {
+      "n": 100,
+      "hit@1": 0.83,
+      "hit@3": 0.94,
+      "hit@5": 0.97,
+      "hit@10": 0.98,
+      "recall@1": 0.2767,
+      "recall@3": 0.69,
+      "recall@5": 0.79,
+      "recall@10": 0.88,
+      "mrr": 0.8914
+    }
+  },
+  "gate": {
+    "min_score": 0.35,
+    "answerable_blocked": 0.0,
+    "unanswerable_blocked": 0.0,
+    "answerable_top1_median": 0.7889,
+    "unanswerable_top1_median": 0.6267,
+    "n_unanswerable": 50
+  },
+  "duration_s": 1557.6
+}
