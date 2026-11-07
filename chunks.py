@@ -78,18 +78,55 @@ def split_blocks(content: str) -> list[tuple[str, bool]]:
     return blocks
 
 
+# 这些符号后面一定是句子（或分句）的结尾：中文标点、问号、感叹号、分号、换行
 _SENTENCE_END = re.compile(r"(?<=[。！？!?；;\n])")
+# 英文句号：只有"句号（后面可以跟引号、括号）+ 空白 + 大写字母开头"才算句子结尾。
+# 不能见 "." 就切："3.5"、"e.g. the"、"Fig. 2" 里都有点
+_EN_PERIOD = re.compile(r"\.[\"')\]”’]*(?=\s+[\"'(\[“‘]?[A-Z])")
+_WORD_BEFORE = re.compile(r"([A-Za-z][A-Za-z.]*)$")
+# 以点结尾的常见缩写，后面就算跟着大写字母也不是句子结尾（比如 "et al. Smith"、"Fig. A"）
+ABBREVIATIONS = {"e.g", "i.e", "al", "fig", "figs", "eq", "eqs", "vs", "etc", "cf", "sec", "secs", "tab",
+                 "no", "nos", "dr", "mr", "mrs", "ms", "prof", "approx", "resp", "ref", "refs", "st",
+                 "jr", "inc", "ltd", "u.s", "u.k", "ph.d"}
+
+
+def split_sentences(text: str) -> list[str]:
+    """把一段文字切成句子。切完拼回去和原文一模一样（一个字都不丢、不改）。"""
+    cuts = {m.end() for m in _SENTENCE_END.finditer(text)}
+    for m in _EN_PERIOD.finditer(text):
+        word = _WORD_BEFORE.search(text, 0, m.start())
+        if word:
+            w = word.group(1).lower().rstrip(".")
+            if w in ABBREVIATIONS or len(w) == 1:        # 缩写，或者人名首字母（"J. Smith"）
+                continue
+        cuts.add(m.end())
+    pieces, prev = [], 0
+    for cut in sorted(cuts):
+        if prev < cut < len(text):
+            pieces.append(text[prev:cut])
+            prev = cut
+    pieces.append(text[prev:])
+    return [p for p in pieces if p]
+
+
+def hard_cut(sentence: str, limit: int) -> list[str]:
+    """单句就超过 limit 时只能硬切。尽量切在空白处，别把英文单词从中间切断。"""
+    pieces = []
+    while len(sentence) > limit:
+        space = sentence.rfind(" ", limit // 2, limit)  # 在后半段里找最后一个空格
+        cut = space + 1 if space != -1 else limit         # 找不到（比如中文）就在 limit 处切
+        pieces.append(sentence[:cut])
+        sentence = sentence[cut:]
+    if sentence:
+        pieces.append(sentence)
+    return pieces
 
 
 def split_long_text(text: str, limit: int) -> list[str]:
     """把超长的普通段落按句子切开，再合并到不超过 limit；单句还超长就硬切。"""
     pieces = []
-    for sentence in _SENTENCE_END.split(text):
-        while len(sentence) > limit:
-            pieces.append(sentence[:limit])
-            sentence = sentence[limit:]
-        if sentence:
-            pieces.append(sentence)
+    for sentence in split_sentences(text):
+        pieces.extend(hard_cut(sentence, limit))
 
     merged, buf = [], ""
     for piece in pieces:

@@ -50,6 +50,19 @@ def test_search_works_after_collection_is_released(tmp_path):
     assert hits[0].text == "汽车"
 
 
+def test_search_within_one_document(tmp_path):
+    other = Chunk(id="chunk-9", doc_id="doc-2", doc_name='别的"笔记".md', source_path="notes/x.md",
+                  section_id=0, heading_path="x", order=0, text="苹果派", embed_text="苹果派")
+    with VectorStore(uri=str(tmp_path / "test.db")) as store:
+        store.rebuild([*CHUNKS, other], [*VECTORS, [1.0, 0.0, 0.0, 0.0]], embed_model="fake-model")
+        everywhere = store.search([1.0, 0.0, 0.0, 0.0], k=4)
+        only_mine = store.search([1.0, 0.0, 0.0, 0.0], k=4, doc_name="笔记.md")
+        only_other = store.search([1.0, 0.0, 0.0, 0.0], k=4, doc_name='别的"笔记".md')   # 文件名里有引号也行
+    assert "苹果派" in [h.text for h in everywhere]
+    assert {h.doc_name for h in only_mine} == {"笔记.md"} and len(only_mine) == 3
+    assert [h.text for h in only_other] == ["苹果派"]
+
+
 def test_rebuild_replaces_old_data(tmp_path):
     uri = str(tmp_path / "test.db")
     with VectorStore(uri=uri) as store:

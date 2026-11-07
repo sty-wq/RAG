@@ -1,0 +1,97 @@
+{
+  "label": "20261102_210742_SC68_D_dense_rerank",
+  "created_at": "2026-11-02 21:09:17",
+  "git_commit": "3415387（有未提交的改动）",
+  "config": {
+    "embed_model": "text-embedding-3-small",
+    "embed_base_url": "https://api.quickrouter.ai/v1",
+    "max_chunk_chars": 800,
+    "chunk_count": 17887,
+    "k_max": 10,
+    "within_doc": false,
+    "rerank_query_policy": "retrieval",
+    "retrieval": {
+      "mode": "dense",
+      "candidate_k": 50,
+      "rrf_k": 60,
+      "min_rerank_score": null
+    },
+    "reranker": {
+      "backend": "local",
+      "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+      "device": null,
+      "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+      "isolated_process": true,
+      "max_length": 512,
+      "batch_size": 16,
+      "timeout": 120.0
+    }
+  },
+  "dataset": {
+    "name": "qasper",
+    "questions_file": "/Users/bia/Documents/Codex/2026-11-02/wo/outputs/qasper-pilot100/questions_ready_68.jsonl",
+    "source": "Qasper test split (huggingface allenai/qasper, parquet)",
+    "source_sha256": "206d05a86672dc33",
+    "seed": null,
+    "params": {},
+    "questions": {
+      "answerable": 1309,
+      "float_only": 42,
+      "unanswerable": 79,
+      "no_evidence": 21
+    },
+    "corpus_docs": 416
+  },
+  "counts": {
+    "answerable:selfcontained_pilot_v1": 68
+  },
+  "overall": {
+    "n": 68,
+    "hit@1": 0.3382,
+    "hit@3": 0.6471,
+    "hit@5": 0.7353,
+    "hit@10": 0.8529,
+    "recall@1": 0.2843,
+    "recall@3": 0.5797,
+    "recall@5": 0.6654,
+    "recall@10": 0.8113,
+    "mrr": 0.4961,
+    "doc_hit@1": 0.9853,
+    "doc_hit@5": 1.0
+  },
+  "by_type": {
+    "answerable:selfcontained_pilot_v1": {
+      "n": 68,
+      "hit@1": 0.3382,
+      "hit@3": 0.6471,
+      "hit@5": 0.7353,
+      "hit@10": 0.8529,
+      "recall@1": 0.2843,
+      "recall@3": 0.5797,
+      "recall@5": 0.6654,
+      "recall@10": 0.8113,
+      "mrr": 0.4961,
+      "doc_hit@1": 0.9853,
+      "doc_hit@5": 1.0
+    }
+  },
+  "gate": {
+    "enabled": false,
+    "score_type": "rerank",
+    "min_score": null,
+    "answerable_blocked": null,
+    "unanswerable_blocked": null,
+    "answerable_top1_median": 9.6635,
+    "unanswerable_top1_median": null,
+    "n_unanswerable": 0
+  },
+  "retrieval_latency_ms": {
+    "p50": 235.374,
+    "max": 801.54,
+    "includes_cold_start": false,
+    "includes_query_embedding": false,
+    "local_model_preloaded": true
+  },
+  "rerank_model_load_ms": 4641.776,
+  "duration_s": 52.9
+}

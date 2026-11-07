@@ -1,0 +1,89 @@
+{
+  "label": "qasper 基线（3-small，补标题）",
+  "created_at": "2026-11-01 13:40:54",
+  "git_commit": "0d47029（有未提交的改动）",
+  "config": {
+    "embed_model": "text-embedding-3-small",
+    "embed_base_url": "https://api.quickrouter.ai/v1",
+    "max_chunk_chars": 800,
+    "chunk_count": 17885,
+    "k_max": 10,
+    "within_doc": false
+  },
+  "dataset": {
+    "name": "qasper",
+    "questions_file": "questions_ctx.jsonl",
+    "source": "Qasper test split (huggingface allenai/qasper, parquet)",
+    "source_sha256": "206d05a86672dc33",
+    "seed": null,
+    "params": {},
+    "questions": {
+      "answerable": 1309,
+      "float_only": 42,
+      "unanswerable": 79,
+      "no_evidence": 21
+    },
+    "corpus_docs": 416
+  },
+  "counts": {
+    "answerable:self": 15,
+    "answerable:title": 1294,
+    "no_evidence:title": 21,
+    "unanswerable:title": 78,
+    "float_only:title": 42,
+    "unanswerable:self": 1
+  },
+  "overall": {
+    "n": 1309,
+    "hit@1": 0.2552,
+    "hit@3": 0.4721,
+    "hit@5": 0.5852,
+    "hit@10": 0.7693,
+    "recall@1": 0.2181,
+    "recall@3": 0.424,
+    "recall@5": 0.5372,
+    "recall@10": 0.7212,
+    "mrr": 0.3987,
+    "doc_hit@1": 0.9939,
+    "doc_hit@5": 0.9992
+  },
+  "by_type": {
+    "answerable:self": {
+      "n": 15,
+      "hit@1": 0.6,
+      "hit@3": 0.6667,
+      "hit@5": 0.7333,
+      "hit@10": 0.7333,
+      "recall@1": 0.4309,
+      "recall@3": 0.5344,
+      "recall@5": 0.5811,
+      "recall@10": 0.6222,
+      "mrr": 0.65,
+      "doc_hit@1": 0.8,
+      "doc_hit@5": 1.0
+    },
+    "answerable:title": {
+      "n": 1294,
+      "hit@1": 0.2512,
+      "hit@3": 0.4699,
+      "hit@5": 0.5835,
+      "hit@10": 0.7697,
+      "recall@1": 0.2157,
+      "recall@3": 0.4227,
+      "recall@5": 0.5367,
+      "recall@10": 0.7223,
+      "mrr": 0.3958,
+      "doc_hit@1": 0.9961,
+      "doc_hit@5": 0.9992
+    }
+  },
+  "gate": {
+    "min_score": 0.35,
+    "answerable_blocked": 0.0,
+    "unanswerable_blocked": 0.0,
+    "answerable_top1_median": 0.7796,
+    "unanswerable_top1_median": 0.76,
+    "n_unanswerable": 121
+  },
+  "duration_s": 77.9
+}

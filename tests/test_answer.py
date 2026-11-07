@@ -66,14 +66,25 @@ def test_answer_with_citations_and_low_scores_dropped(fake_llm):
 def test_nothing_relevant_means_no_llm_call(fake_llm):
     llm = fake_llm()                                       # 没准备回答：一旦被调用就会出错
     result = answer_question("天气怎么样", FakeEmbedder(), FakeStore([hit(0.1, "无关")]), llm)
-    assert not result.found and result.answer == NOT_FOUND
+    assert not result.found and result.answer == NOT_FOUND + "检索到的段落均未达到当前相关性门槛。"
     assert llm.prompts == []
 
 
 def test_model_says_not_found(fake_llm):
-    result = answer_question("问题", FakeEmbedder(), FakeStore(HITS), fake_llm(NOT_FOUND), min_score=0.35)
+    result = answer_question("问题", FakeEmbedder(), FakeStore(HITS), fake_llm(NOT_FOUND, NOT_FOUND), min_score=0.35)
     assert not result.found
+    assert result.answer == NOT_FOUND + "模型未说明具体缺少哪项证据。"
     assert not any(s.cited for s in result.sources)
+
+
+def test_refusal_explains_evidence_gap_and_preserves_citation(fake_llm):
+    explanation = NOT_FOUND + "资料[1]说明使用了红黑树，但未给出节点数。"
+    llm = fake_llm(NOT_FOUND, explanation)
+    result = answer_question("红黑树有多少节点", FakeEmbedder(), FakeStore(HITS), llm)
+    assert not result.found and result.answer == explanation
+    assert result.sources[0].cited
+    assert len(llm.prompts) == 2
+
 
 
 def test_index_not_built_is_an_error(fake_llm):

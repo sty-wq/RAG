@@ -1,0 +1,2 @@
+# 本地 CrossEncoder 的可选依赖；HTTP 重排只需要现有的 httpx。
+sentence-transformers==6.2.0

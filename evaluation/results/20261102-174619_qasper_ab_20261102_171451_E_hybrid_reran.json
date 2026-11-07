@@ -1,0 +1,113 @@
+{
+  "label": "qasper_ab_20261102_171451_E_hybrid_rerank",
+  "created_at": "2026-11-02 17:46:19",
+  "git_commit": "3415387（有未提交的改动）",
+  "config": {
+    "embed_model": "text-embedding-3-small",
+    "embed_base_url": "https://api.quickrouter.ai/v1",
+    "max_chunk_chars": 800,
+    "chunk_count": 17887,
+    "k_max": 10,
+    "within_doc": false,
+    "retrieval": {
+      "mode": "hybrid",
+      "candidate_k": 50,
+      "rrf_k": 60,
+      "min_rerank_score": null
+    },
+    "reranker": {
+      "backend": "local",
+      "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+      "device": null,
+      "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+      "isolated_process": true,
+      "max_length": 512,
+      "batch_size": 16,
+      "timeout": 120.0
+    }
+  },
+  "dataset": {
+    "name": "qasper",
+    "questions_file": "questions_ctx.jsonl",
+    "source": "Qasper test split (huggingface allenai/qasper, parquet)",
+    "source_sha256": "206d05a86672dc33",
+    "seed": null,
+    "params": {},
+    "questions": {
+      "answerable": 1309,
+      "float_only": 42,
+      "unanswerable": 79,
+      "no_evidence": 21
+    },
+    "corpus_docs": 416
+  },
+  "counts": {
+    "answerable:self": 15,
+    "answerable:title": 1294,
+    "no_evidence:title": 21,
+    "unanswerable:title": 78,
+    "float_only:title": 42,
+    "unanswerable:self": 1
+  },
+  "overall": {
+    "n": 1309,
+    "hit@1": 0.2261,
+    "hit@3": 0.5241,
+    "hit@5": 0.6952,
+    "hit@10": 0.8686,
+    "recall@1": 0.2007,
+    "recall@3": 0.4689,
+    "recall@5": 0.6335,
+    "recall@10": 0.8169,
+    "mrr": 0.4192,
+    "doc_hit@1": 0.9931,
+    "doc_hit@5": 1.0
+  },
+  "by_type": {
+    "answerable:self": {
+      "n": 15,
+      "hit@1": 0.3333,
+      "hit@3": 0.8,
+      "hit@5": 0.8,
+      "hit@10": 0.8667,
+      "recall@1": 0.3,
+      "recall@3": 0.5911,
+      "recall@5": 0.6309,
+      "recall@10": 0.7589,
+      "mrr": 0.5333,
+      "doc_hit@1": 0.8667,
+      "doc_hit@5": 1.0
+    },
+    "answerable:title": {
+      "n": 1294,
+      "hit@1": 0.2249,
+      "hit@3": 0.5209,
+      "hit@5": 0.694,
+      "hit@10": 0.8686,
+      "recall@1": 0.1995,
+      "recall@3": 0.4674,
+      "recall@5": 0.6335,
+      "recall@10": 0.8175,
+      "mrr": 0.4179,
+      "doc_hit@1": 0.9946,
+      "doc_hit@5": 1.0
+    }
+  },
+  "gate": {
+    "enabled": false,
+    "score_type": "rerank",
+    "min_score": null,
+    "answerable_blocked": null,
+    "unanswerable_blocked": null,
+    "answerable_top1_median": 9.2654,
+    "unanswerable_top1_median": 7.7491,
+    "n_unanswerable": 121
+  },
+  "retrieval_latency_ms": {
+    "p50": 247.365,
+    "max": 7873.771,
+    "includes_cold_start": true,
+    "includes_query_embedding": false
+  },
+  "duration_s": 432.3
+}

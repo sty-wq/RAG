@@ -1,0 +1,101 @@
+{
+  "label": "qasper 候选池深度（3-small）",
+  "created_at": "2026-11-02 14:03:30",
+  "git_commit": "3415387（有未提交的改动）",
+  "config": {
+    "embed_model": "text-embedding-3-small",
+    "embed_base_url": "https://api.quickrouter.ai/v1",
+    "max_chunk_chars": 800,
+    "chunk_count": 17887,
+    "k_max": 50,
+    "within_doc": false
+  },
+  "dataset": {
+    "name": "qasper",
+    "questions_file": "questions_ctx.jsonl",
+    "source": "Qasper test split (huggingface allenai/qasper, parquet)",
+    "source_sha256": "206d05a86672dc33",
+    "seed": null,
+    "params": {},
+    "questions": {
+      "answerable": 1309,
+      "float_only": 42,
+      "unanswerable": 79,
+      "no_evidence": 21
+    },
+    "corpus_docs": 416
+  },
+  "counts": {
+    "answerable:self": 15,
+    "answerable:title": 1294,
+    "no_evidence:title": 21,
+    "unanswerable:title": 78,
+    "float_only:title": 42,
+    "unanswerable:self": 1
+  },
+  "overall": {
+    "n": 1309,
+    "hit@1": 0.2613,
+    "hit@3": 0.479,
+    "hit@5": 0.6188,
+    "hit@10": 0.7754,
+    "hit@20": 0.9343,
+    "hit@50": 0.9916,
+    "recall@1": 0.223,
+    "recall@3": 0.429,
+    "recall@5": 0.5597,
+    "recall@10": 0.723,
+    "recall@20": 0.8982,
+    "recall@50": 0.986,
+    "mrr": 0.4215,
+    "doc_hit@1": 0.9939,
+    "doc_hit@5": 0.9992
+  },
+  "by_type": {
+    "answerable:self": {
+      "n": 15,
+      "hit@1": 0.6,
+      "hit@3": 0.7333,
+      "hit@5": 0.7333,
+      "hit@10": 0.8,
+      "hit@20": 0.8,
+      "hit@50": 0.8,
+      "recall@1": 0.4309,
+      "recall@3": 0.5344,
+      "recall@5": 0.5811,
+      "recall@10": 0.7222,
+      "recall@20": 0.7789,
+      "recall@50": 0.8,
+      "mrr": 0.6622,
+      "doc_hit@1": 0.8,
+      "doc_hit@5": 1.0
+    },
+    "answerable:title": {
+      "n": 1294,
+      "hit@1": 0.2573,
+      "hit@3": 0.476,
+      "hit@5": 0.6175,
+      "hit@10": 0.7751,
+      "hit@20": 0.9359,
+      "hit@50": 0.9938,
+      "recall@1": 0.2206,
+      "recall@3": 0.4278,
+      "recall@5": 0.5595,
+      "recall@10": 0.723,
+      "recall@20": 0.8996,
+      "recall@50": 0.9882,
+      "mrr": 0.4187,
+      "doc_hit@1": 0.9961,
+      "doc_hit@5": 0.9992
+    }
+  },
+  "gate": {
+    "min_score": 0.35,
+    "answerable_blocked": 0.0,
+    "unanswerable_blocked": 0.0,
+    "answerable_top1_median": 0.7805,
+    "unanswerable_top1_median": 0.7603,
+    "n_unanswerable": 121
+  },
+  "duration_s": 59.8
+}
