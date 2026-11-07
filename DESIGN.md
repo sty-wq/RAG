@@ -334,7 +334,7 @@ python search.py "你的问题" -k 5          # 检索：看看找出来的是�
 | `EMBED_MODEL` | `qwen3-embedding:0.6b` | |
 | `EMBED_API_KEY` | 空 | Ollama 不需要 |
 | `EMBED_BATCH_SIZE` | `10` | 一次请求最多送多少条（百炼的上限是 10） |
-| `MILVUS_URI` | `.rag_data/milvus.db` | 以 `.db` 结尾就是 Milvus Lite；换成 `http://地址:19530` 就是 Milvus 服务器 |
+| `RAG_MILVUS_URI` | `.rag_data/milvus.db` | 项目专用配置；以 `.db` 结尾就是 Milvus Lite，`http://地址:19530` 是 Milvus 服务器 |
 
 **向量库（Milvus）的设计**
 
@@ -692,6 +692,11 @@ git push origin v0.1.0 → Release workflow：① 测试（复用 ci.yml）→ �
 - 平均分只差几个点，但逐题看，hit@5 变好的题是变差的近 3 倍，不是偶然
 - 有变差的题很正常：块的边界变了，有些原来碰巧排在前面的块被挤下去了
 
+**候选池深度**（2026-11-02，`--k-max 50`，不用重建库）：Recall@10 0.723 → **@20 0.898 → @50 0.986**
+- 证据几乎都捞得到，只是排得不够靠前 → **先做 rerank**，混合检索往后放
+- ⚠️ @50 偏乐观：每篇论文中位数只有 41 块，又带着标题检索，前 50 名基本就是整篇论文。换成更大的笔记库，候选池要重新量
+- ⚠️ MRR 从 0.408 变成 0.421，不是变好了：k_max=10 时排在第 10 名以后的算 0 分，k_max=50 时算 1/11～1/50。**比较 MRR 时 k_max 必须一样**
+
 - **doc_hit@5 = 0.999**：带上标题以后，找到对的论文几乎不成问题（每一块的 `embed_text` 里都带着论文标题）
 - 所以剩下的分数测的就是"**在一篇长论文的约 41 块里找到对的那一段**"：hit@1 只有 0.255，recall@10 0.721，提升空间很大。这正是我们想要的切块 / 排序评测
 - self 组只有 15 道，太少，不单独解读
@@ -721,3 +726,239 @@ git push origin v0.1.0 → Release workflow：① 测试（复用 ci.yml）→ �
 - [C-MTEB（PyPI）](https://pypi.org/project/C-MTEB/)
 - [DeepSeek API: Models & Pricing](https://api-docs.deepseek.com/quick_start/pricing)
 - [DeepSeek API: JSON Output](https://api-docs.deepseek.com/guides/json_mode)
+
+## 11. 混合检索与模型重排（2026-11-02）
+
+共享流程在 `retrieval.py`：问题 → dense / BM25 两路召回 → 按 chunk_id 用 RRF 融合 → 可选 CrossEncoder 重排 → 最终 top-k。
+`search.py`、`answer.py` / `api.py`、`evaluation/run_retrieval.py` 共用同一流程，保留 dense、BM25、hybrid 三种模式，便于做对照实验。
+
+### 11.1 BM25 与候选池
+
+- 数据库地址使用项目专用 `RAG_MILVUS_URI`，优先级为构造函数 uri 参数 > RAG_MILVUS_URI > 旧 MILVUS_URI > 默认笔记库。PyMilvus 导入时会把 MILVUS_URI 按服务器 URL 解析；旧值为本地 `.db` 路径时，本项目会在 SDK 导入前将它迁移到 RAG_MILVUS_URI，并在当前 Python 进程中清空 MILVUS_URI，兼容旧命令及 `.env` 配置。已有的 RAG_MILVUS_URI 优先，旧服务器 URL 保留原行为；空配置使用默认库。终端中的变量不受子进程迁移影响。
+- `lexical.py` 实现 BM25 Okapi 倒排索引。英文按单词和标识符切分，中文使用单字和相邻双字，统一 NFKC 与大小写；没有语义分词或词干处理。
+- `VectorStore.lexical_search()` 用 query_iterator 分批读取已有集合的 chunk 文字和出处，在进程内建立索引，**不修改 Milvus schema、不重算已有 embedding**。
+- 索引输入是标题路径 + 库中实际存储的原文；首次查询加载，后续复用缓存。`rebuild()` 或本项目的索引元信息变化会使缓存失效。绕过本项目直接写集合不在缓存一致性保证内。
+- 当前适合单进程、万级 chunk。每个服务进程有自己的 BM25 索引，启动耗时和内存随语料增加；大规模场景应另外评测持久化全文索引。
+- RRF：`sum(1 / (rrf_k + rank))`，默认 `rrf_k=60`。先按 chunk_id 去重，保留两路原始分数；不把 BM25 与余弦分数直接相加。
+- `candidate_k=50` 表示每路最多召回 50 块，融合后最多取 50 块送去重排；`k=5` 是最终交给问答的数量。若 k 大于 candidate_k，候选池会相应扩大。
+- doc_name 过滤同时作用于两路；仅 BM25 模式不调用 query embedding，也不要求当前 embedding 模型与建库模型相同。
+
+### 11.2 重排配置
+
+`reranker.py` 提供本地和 HTTP 两种真实模型接口。默认关闭，启用后失败会报错，不静默降级为未重排结果。
+
+本地依赖和模型：
+
+```bash
+.venv/bin/python -m pip install -r requirements-rerank.txt
+.venv/bin/python search.py "如何避免重复扣费" --mode hybrid --candidate-k 50 --rerank local -k 5
+```
+
+默认模型 `cross-encoder/mmarco-mMiniLMv2-L12-H384-v1`，显式启用后首次加载并缓存到 `.rag_cache/models/`，不需要云端 key。模型为 query-document 对打分，不改写原文。默认最大输入长度 512 token，长候选会由模型分词器截断；这是当前限制，需要对长代码另做实验。
+
+环境变量示例见 `retrieval.env.example`。本地主要配置：`RERANK_MODEL`、`RERANK_DEVICE`、`RERANK_REVISION`、`RERANK_CACHE_DIR`、`RERANK_BATCH_SIZE`、`RERANK_MAX_LENGTH`、`RERANK_TIMEOUT`。模型在独立常驻子进程 `_rerank_worker.py` 中加载和复用，推理串行化以限制并发内存；这样避开 macOS 上 FAISS 与 PyTorch 的 OpenMP 冲突，不需要额外 Web 服务。API 关闭时释放子进程；超时或崩溃时报错并清理，后续请求可以重新启动。
+
+HTTP 模式设置 `RERANK_BACKEND=http`、`RERANK_BASE_URL`、`RERANK_MODEL`，需要时再设置独立的 `RERANK_API_KEY`。客户端 POST 到 `<BASE_URL>/rerank`，请求包含 model / query / documents / top_n，响应需要为 `results: [{index, relevance_score}]`，且返回全部候选的唯一 index。它不是 OpenAI 标准接口；接入具体供应商时要核对该协议。
+
+### 11.3 API 与分数
+
+```bash
+RAG_RETRIEVAL_MODE=hybrid RERANK_BACKEND=local .venv/bin/uvicorn api:app --host 127.0.0.1 --port 8000
+```
+
+`POST /ask` 支持可选的 `mode`、`candidate_k`、`rerank`，例如：
+
+```json
+{"question": "如何避免重复扣费", "k": 5, "mode": "hybrid", "candidate_k": 50, "rerank": true}
+```
+
+未传字段时采用服务配置；API / search CLI 默认 hybrid，重排由 `RERANK_BACKEND` 控制，默认 none。Python 的 `run_search()` 和评测 CLI 默认保留 dense 基线。请求启用重排但服务没有配置时返回 503，可显式传 `rerank:false` 做对照。`GET /health` 返回检索配置和重排模型信息。
+
+返回出处增加 `score_type`、`dense_score`、`lexical_score`、`rrf_score`、`rerank_score`。`score` 是最终排序分数，不同 score_type 的数值不能直接比较。原 `RAG_MIN_SCORE=0.35` 只用于未重排的 dense 余弦分数；BM25 和 RRF 不套用此门槛。模型重排默认也不按分数拒答，如需门槛，用开发集校准 `RAG_MIN_RERANK_SCORE`。引用与资料充分性仍由现有问答流程处理，新增重排本身不证明回答正确。
+
+Docker 默认镜像支持 BM25 / hybrid / HTTP 重排；需要镜像内本地模型时，使用 `docker build --build-arg INSTALL_LOCAL_RERANK=true`，模型缓存建议单独挂载。
+
+### 11.4 对照评测
+
+已有索引可直接复用，不需要为 BM25 重建向量库。以下命令在相同 questions / embedding / corpus 上对比；使用 Qasper 时要配置与其索引相同的 embedding 模型和地址。
+
+```bash
+.venv/bin/python -m evaluation.run_retrieval --label "dense 对照" --reuse-index --mode dense
+.venv/bin/python -m evaluation.run_retrieval --label "BM25 对照" --reuse-index --mode bm25
+.venv/bin/python -m evaluation.run_retrieval --label "hybrid 对照" --reuse-index --mode hybrid --candidate-k 50
+.venv/bin/python -m evaluation.run_retrieval --label "hybrid 加重排" --reuse-index --mode hybrid --candidate-k 50 --rerank local
+```
+
+汇总保留原 Hit / Recall / MRR，同时记录检索方式、候选池、RRF 参数、重排模型和版本。逐题明细增加 chunk_id 和各阶段分数，便于核对变好/变差的题。MRR 比较时固定 k_max。没有配置对应分数门槛时 gate 标记 disabled，不能把它解释成拒答能力。检索耗时包含首次 BM25 构建/模型加载，不包含批量 query embedding；冷启动和稳定延迟需要分开看。
+
+自动化测试仍全部离线，模型与 HTTP 用假依赖；Milvus 测试使用临时真实数据库，覆盖旧 schema、跨分页加载、过滤、缓存失效、融合、重排协议和问答/API 的分数处理。真实模型小样例或有限样本检查只证明接线可用；完整数据上的收益必须由正式对照实验报告。
+
+### 11.5 Qasper 重排回退分析与问题分离（2026-11-02）
+
+#### 实验现象
+
+在同一份 `questions_ctx.jsonl`、17887 块索引、`text-embedding-3-small`、`k_max=10` 下，候选池固定 50。本地重排模型为 `cross-encoder/mmarco-mMiniLMv2-L12-H384-v1`，revision 为 `1427fd652930e4ba29e8149678df786c240d8825`。
+
+| 实验 | Hit@1 | Hit@5 | Recall@5 | Recall@10 | MRR@10 | 检索 P50/ms |
+|---|---|---|---|---|---|---|
+| A：Dense | 0.2613 | 0.6188 | 0.5597 | 0.7230 | 0.4083 | 4.0 |
+| C：Hybrid | 0.1322 | 0.5088 | 0.4398 | 0.6543 | 0.2941 | 17.0 |
+| D：Dense + 本地 rerank | 0.2254 | 0.6960 | 0.6340 | 0.8166 | 0.4189 | 237.7 |
+| E：Hybrid + 本地 rerank | 0.2261 | 0.6952 | 0.6335 | 0.8169 | 0.4192 | 247.4 |
+
+来源是 `evaluation/results/` 下标签前缀 `qasper_ab_20261102_171451_` 的 A/C/D/E 结果；A、D 逐题明细分别为 `evaluation/data/qasper/runs/20261102-171638.jsonl`、`20261102-173333.jsonl`。这里的 P50 不含 query embedding 和答案生成；不能称为端到端延迟。以上是修改前的真实全量结果，不是下面新方案的成绩。
+
+结论：重排改善了前 5/10 条证据覆盖，但第一名命中下降；等权混合检索没有体现额外收益。不能写成“所有排序指标均提升”，也不能把这套英文论文结果直接推广到中文 CRUD。
+
+#### 原第一名命中、重排后未命中的 206 道题
+
+全量机械检查 206 道，定向人工复核 26 道（并非随机样本，不能估计各原因的总体比例）：
+
+- 204 道的 D 第一名仍来自正确论文；104 道变为摘要，30 道为引言，33 道为结论类章节。
+- 166 道的首个标注证据落在第 2～5 名，31 道落在第 6～10 名，9 道前十未命中。多数是论文内的段落排序回退。
+- 175 道的 D 第一名原本就在 A 前十，因此单纯缩小 50 个候选不能解决大多数回退。
+- 原 A 第一名和 D 第一名组成 412 对输入，实际 tokenizer 长度最大 464，全部低于 512；本批相对次序反转不是输入截断导致的。
+- 同一模型离线回放复现了 206 对的排序关系。D 第一名分数最大误差约 0.0000215；仍留在 D 前十的 180 个原 A 第一名，分数最大误差约 0.0000143。没有发现支持分数错位的证据。
+
+已确认的问题有三类，可能重叠：
+
+1. **问题中的论文标题影响重排偏好。** 保持候选文字与模型不变，仅把 `In the paper "<title>", <question>` 换为显式保存的原问题，105/206 对中原 A 第一名重新超过 D 第一名。只去候选标题路径翻转 23 对，两者都去掉翻转 94 对。这里比较的是两个候选，不能解释成“完整 Top-50 已修复 105 题”，更不能当作全量新指标。
+2. **主题相关不等于回答了细节。** `1906.08871-q01` 的具体 EEG 五种特征被只说使用 EEG 的摘要挤下；`1903.02930-q02` 问训练数据规模，模型把网络层数/batch size 放在 64M 视频片段之前；`2002.04326-q01` 问数据集规模，模型把选项平均句长放在 6138 道题之前。去掉标题不能解决全部细粒度判断问题。
+3. **指定证据命中不等于答案充分性。** `1809.03391-q04` 的新第一名明确写出 IDN Tagged Corpus；`1909.11980-q01` 的新第一名明确写出 French，仍因未覆盖指定段落而记为未命中。反过来，206 道原命中中 63 道仅匹配长证据的一部分；`1908.11046-q03` 的原块没有基线模型名却命中，新块写出 Baseline-BiLSTM-CNN 却未命中。不能认定全部 206 道都是真实答案质量回退。
+
+#### 已实现：召回问题与重排问题分离
+
+共享接口增加可选参数 `retrieve(..., rerank_question=None)`：
+
+- `question` 和对应的 `query_vector` 继续用于 Dense/BM25 召回。问题中的论文标题仍帮助从整个库中找到相关论文。
+- 非空的 `rerank_question` 只用于候选打分；不改变候选池、过滤条件或评分指标。
+- 候选输入仍是 `heading_path + 原文`，保留论文标题、章节名及来源，不直接删除摘要、不提高金标准文档权重，也不读取答案来构造问题。
+- 未传 `rerank_question` 的搜索、问答/API 调用保持原行为；不会用正则从用户输入里猜测或删除标题。
+
+评测新增 `--rerank-query {auto,original,retrieval}`：
+
+| 策略 | 实际重排问题 | 用途 |
+|---|---|---|
+| `auto`（默认） | 带 `evidence` 字段的 Qasper 记录使用有效的 `question_original`；其他情况使用 `question` | Qasper 采用新方案，CRUD 难版保持难版问法 |
+| `retrieval` | 始终使用 `question` | 精确恢复旧 D/E 的输入策略 |
+| `original` | 显式使用有效的 `question_original`，缺失/空白/非字符串则回退到 `question` | 人为指定的对照实验 |
+
+特别注意：CRUD 的 `questions_hard.jsonl` 也有 `question_original`，它是改写前的易版题。`auto` 不会把它换回去；在 CRUD 上显式用 `original` 会改变重排问题难度，需要另行标记实验。
+
+汇总 JSON 的 `config.rerank_query_policy` 保存选择的策略；逐题 JSONL 保存 `retrieval_query`、`rerank_query`、`rerank_query_source`，便于确认实际输入。未启用重排时，后两个字段为 null。旧结果、问题文件、标注、数据库和拒答阈值均保持原样。
+
+#### 验证与后续验收
+
+自动化测试覆盖：Dense/BM25/Hybrid 召回继续使用原召回问题、重排改用显式原问题、候选标题与原文保留、CRUD 难题不退回易题、缺失原问题回退、无重排保持旧行为、旧策略复现、非法参数在调用模型前报错，以及 CLI 参数和结果字段贯通。
+
+在原 Qasper 的 embedding 地址与 API key 配置下运行，不要改用笔记库的本地 Qwen 模型：
+
+```bash
+export EMBED_MODEL='text-embedding-3-small'
+export EMBED_BASE_URL='https://api.quickrouter.ai/v1'
+export RERANK_MODEL='cross-encoder/mmarco-mMiniLMv2-L12-H384-v1'
+export RERANK_REVISION='1427fd652930e4ba29e8149678df786c240d8825'
+
+# 新方案：召回补标题，重排用原问题
+.venv/bin/python -m evaluation.run_retrieval \
+  --data evaluation/data/qasper --questions questions_ctx.jsonl \
+  --reuse-index --mode dense --candidate-k 50 --k-max 10 \
+  --rerank local --rerank-query auto --label 'qasper_D2_original_query'
+
+# 需要复现旧输入时：相同参数，只把策略改回 retrieval
+.venv/bin/python -m evaluation.run_retrieval \
+  --data evaluation/data/qasper --questions questions_ctx.jsonl \
+  --reuse-index --mode dense --candidate-k 50 --k-max 10 \
+  --rerank local --rerank-query retrieval --label 'qasper_D1_legacy_query'
+```
+
+必须在完整 1451 道题、1309 道可计分题上与旧 D 对比，包括原本正确的题目；固定候选池 50、`k_max=10`、embedding 与模型 revision，检查 Hit@1、Recall@5、MRR、doc_hit 和逐题回退。不能只用 206 道已失败题证明全量收益。复用索引仍需要生成问题向量，云端 embedding 可能计费。
+
+本次落实的是输入分离及可复现对照机制。完整数据上的收益尚未重新测定；标注补全、答案充分性评测、模型更换和性能调优仍是独立任务。后续若补标，应冻结新版本并对所有方案重算，保留原表，不能为了提高某个模型的分数单方面放宽标准。
+
+本次实现验证：174 项自动化测试、2 个子测试及 Ruff 检查通过。另用真实本地模型，通过新 `evaluate → retrieve → LocalReranker` 流程复查 `1906.08871-q01` 与 `1903.02930-q02`：在各自固定的两个历史候选中，旧策略未命中第一名，新策略命中第一名。该检查使用受控召回与 embedding 替身，证明输入路由与真实模型接通，不是完整 Top-50 或全量质量评测。
+
+### 11.6 本地重排模型配置冲突与启动检查（2026-11-02）
+
+D2 运行曾在 worker 初始化阶段报 `RepositoryNotFoundError`。同一终端确认 `RERANK_MODEL=qwen3-rerank`，该值覆盖了默认 CrossEncoder；`--rerank local` 把此云端 API 别名当 Hugging Face 仓库名加载。它与 `--rerank-query auto` 的输入分离无关；前面的 gRPC `too_many_pings` 与 fork 提示也不是这次 RepositoryNotFoundError 的直接原因。
+
+本地模式需配置可加载的 Hugging Face 仓库 ID 或本地目录；HTTP 模式的模型别名由服务商解释。切换后端时显式切换模型配置，不静默忽略用户指定的模型或退回其他模型。已验证的本地配置为：
+
+```bash
+export RERANK_MODEL='cross-encoder/mmarco-mMiniLMv2-L12-H384-v1'
+export RERANK_REVISION='1427fd652930e4ba29e8149678df786c240d8825'
+export RERANK_CACHE_DIR='/Users/bia/PycharmProjects/PythonProject5/.rag_cache/models'
+```
+
+已补充 `LocalReranker.warmup()`，评测 CLI 在打开 Milvus 和调用 query embedding **之前**加载本地模型，并打印实际模型名与版本；配置错误会立即退出。成功加载的子进程用于后续评分，不重复启动。初始化失败提示包含模型、版本、缓存目录及本地/HTTP 配置差别，不透传上游异常正文或密钥。
+
+新结果的 `rerank_model_load_ms` 单独记录预加载耗时，`retrieval_latency_ms.local_model_preloaded` 表明本地模型是否提前加载。CLI 中本地 Dense 检索延迟不再含模型冷启动；BM25/Hybrid 仍可能包含首次构建 BM25 索引的耗时。`duration_s` 仍包含预加载；历史 D/E 的加载耗时计入首题，比较最大延迟时须注意这一口径变化。直接调用 `evaluate` 的调用方仍自行决定是否预加载。
+
+自动化回归验证：错误模型在生成问题向量/打开数据库前失败；预加载后复用同一进程；加载错误显示实际配置并清理子进程。原有超时、崩溃后重启与默认懒加载测试继续保留。
+
+### 11.7 DeepSeek LLM 重排实验（2026-11-02）
+
+68 道独立问题试跑中，Dense + 本地重排的 Hit@1 从 0.2647 提升到 0.3382，但逐题检查仍发现：摘要/结论只提到研究目标，却排在直接回答问题的实验/方法段落前。另有正确答案未被旧证据标注覆盖的“假退步”。因此本轮增加一个可比较的 LLM 重排后端，不把所有问题归因于参数规模，也不修改原标注来提高分数。
+
+**实现与配置。** `--rerank deepseek` / `RERANK_BACKEND=deepseek` 显式启用 `DeepSeekReranker`。复用 `llm.DeepSeekClient`，默认读取项目 `.env.ocr` 的 `DEEPSEEK_BASE_URL`、`DEEPSEEK_API_KEY`、`DEEPSEEK_MODEL`；可用 `RERANK_DEEPSEEK_ENV` 指定其他配置文件。不继承本地/HTTP 的 `RERANK_MODEL`、`RERANK_REVISION`，不修改 `.env.ocr`。本次实际配置及成功调用的模型为 `deepseek-v4-flash-vision-exp`，使用纯文本输入。它通过 `/chat/completions` 排序，不假设聊天模型有 `/rerank` 端点。[JSON 输出接口说明](https://api-docs.deepseek.com/guides/json_mode/)
+
+每题一次 listwise 请求，输入完整 query 与当前候选的 `heading_path + text`，要求优先排序能直接回答所问对象、数值口径、数据划分或方法步骤的证据。候选文本作为不可信数据，不执行其中的指令；不向模型提供 qid、gold_docs、参考答案或标注 evidence 字段。使用 JSON 模式、temperature=0、关闭 thinking。返回值必须是全部候选 ID 的完整排列；重复、缺漏、越界、非整数、额外字段和非法 JSON 均报错，不静默回退、不自动补齐。网络暂时失败最多重试一次；格式失败直接报错。最多 100 个候选、完整提示词最多 160000 字符，超过直接报错，不静默截断，也不拆批后直接比较不同批次的分数。
+
+**分数与可追溯性。** 为复用现有排序接口，第一名记 0，后续为 -1、-2……；`score_type=rerank_rank`。这只是名次，不是相关性或置信度；禁用余弦门槛，并明确拒绝 `--min-rerank-score`。不能根据第一名恒为 0 判断能否回答。问答阶段仍须检查证据充分性。结果元信息记录实际模型、prompt 版本及哈希、候选与字符限制、超时、调用数和 token 用量，不输出密钥或上游错误正文。
+
+**真实诊断结果，非完整基准。** 冻结历史 SC68 Dense 的前 10 候选，选择此前 7 道 Hit@1 退步题，再取其余题按 qid 排序的前 3 道。相同候选、相同问题分别用本地模型与 DeepSeek 排序；不调用 embedding、不打开 Milvus、不重建索引。该样本偏向已知失败题，且候选池为 10，不可与旧 D/E 的 Top-50 或全部 68/1309 题直接比较。
+
+| 这 10 题 / 固定前 10 候选 | Dense 原序 | 本地重新排序 | DeepSeek 排序 |
+|---|---:|---:|---:|
+| Hit@1 | 0.7000 | 0.2000 | 0.8000 |
+| Hit@5 | 0.8000 | 0.8000 | 1.0000 |
+| Recall@5 | 0.8000 | 0.8000 | 1.0000 |
+| MRR@10 | 0.7725 | 0.4778 | 0.8750 |
+| 重排 P50（ms） | — | 163.7 | 780.3 |
+
+10 次 DeepSeek 请求成功，输入 17781 tokens、输出 330 tokens。延迟只含该次重排（DeepSeek 含网络），本地模型提前加载；不含召回、embedding、最终回答生成。质量指标仍使用旧 evidence 匹配，不能证明答案质量或全量泛化收益。冻结输入与逐题结果分别保存在本轮工作区 `outputs/deepseek-rerank/diagnostic_inputs.json`、`diagnostic_results.json`。
+
+后续正式对照仍使用同一份 68 题、相同的索引与候选池 50，召回和重排都使用新问题。保留本地实验结果，只新增 DeepSeek 实验：
+
+```bash
+cd /Users/bia/PycharmProjects/PythonProject5
+EMBED_MODEL='text-embedding-3-small' \
+EMBED_BASE_URL='https://api.quickrouter.ai/v1' \
+.venv/bin/python -m evaluation.run_retrieval \
+  --data evaluation/data/qasper \
+  --questions /Users/bia/Documents/Codex/2026-11-02/wo/outputs/qasper-pilot100/questions_ready_68.jsonl \
+  --reuse-index --mode dense --candidate-k 50 --k-max 10 \
+  --rerank deepseek --rerank-query retrieval --label SC68_F_deepseek_v1
+```
+
+`EMBED_API_KEY` 沿用已有可用配置；DeepSeek key 由 `.env.ocr` 读取，不需要在命令行粘贴。全量命令尚未执行，会产生 embedding 与 DeepSeek 请求费用。初版不缓存 LLM 排序，每次运行重新请求；固定 prompt/候选仍不保证模型输出完全确定。
+
+离线测试覆盖：50 候选单次请求及编号映射；非法/缺失/重复排名；超限输入不发请求；DeepSeek 配置与旧本地模型变量隔离；错误正文脱敏；用量记录；名次不套用拒答门槛；CLI 和实际 evaluate→retrieve→rerank_hits 路由；gold/旧问题不进入请求。测试使用假的 HTTP 响应，真实云调用单独计入上述诊断结果。
+
+### 11.8 DeepSeek 50 候选排名格式错误的容错（2026-11-02）
+
+用户正式运行 SC68、候选池 50 时收到 `DeepSeek ranking 必须包含全部候选的唯一整数编号`。该异常发生在响应 JSON 已解析、但完整排列校验未通过时；缺失、重复、越界、非整数编号或额外字段都可能触发。旧代码没有保留该次响应及失败 qid，不能断言当时具体属于哪种错误。此前真实验证只覆盖 10 候选，50 候选仅有模拟协议测试，验证范围不足。
+
+修复保持原来的全池 listwise 排序方式及完整候选集合，不在本地删除重复项、补尾部、改成局部 Top-k 或回退 Dense。提示词升级为 `evidence-listwise-v2`，明确三项 JSON 示例只示意格式，实际请求携带 `expected_count` 与 `required_ids`，要求包括不相关段落在内的完整排列。
+
+校验器返回有界诊断：期望/实际条目数、缺失/重复/越界编号及数量、非整数数量。JSON 或排名结构无效时，将安全诊断作为 `format_feedback` 连同**同一问题和完整候选**重新请求模型；默认最多两次格式重试（总共三次格式尝试）。网络层仍最多重试一次，所以最坏可产生六次 HTTP 尝试；认证/不可用等调用失败不作为格式问题重试。原始模型正文不进入日志或反馈；只记录固定错误类型与数字编号。若带反馈后的提示词超限，直接报错而不截断。
+
+最终仍不合法时，继续显式失败，并由评测器附上 `qid`；不把查询或证据原文放进错误信息。`describe()` 增加 `format_retries`、`validation_failures`、`format_retry_calls`，便于记录重试开销。原有总 token 用量包括成功收到的无效响应及格式重试。正常一次成功的请求不增加调用。
+
+验证分三层，不能混作全量检索结果：
+
+1. 单元测试覆盖 50 候选缺号、重复、一基编号、字符串编号、非法 JSON、连续两次失败后成功，以及达到上限时的安全诊断；断言修复请求的候选和问题完全不变，排序必须取自模型重新返回的完整排列。
+2. 真实 API 对 10 道题、每题 50 个不同候选进行验证，修复版 10/10 返回合法排列。候选由历史 Dense 前 10 加 BM25 补至 50 构成，仅验证大候选池协议稳定性；不是用户失败那次 Dense 前 50 的重现，也不是质量基准。相同输入下旧版也 10/10 成功，因此没有复现用户的具体响应错误。
+3. 受控故障注入：第一轮模拟响应漏掉编号 49；后续纠错请求真实发送到 DeepSeek。模型返回完整 50 个编号，校验通过。该缺号是测试注入，不能声称服务商在此次验证中真实漏号。
+
+检查记录保存在本轮工作区 `outputs/deepseek-ranking-fix/`，包括冻结候选、旧/新版真实调用的结构诊断及故障注入记录。后续 SC68 完整实验建议使用新标签 `SC68_F_deepseek_v2`；仍保持 `--candidate-k 50 --rerank deepseek --rerank-query retrieval`。本修复没有增加断点续跑：整轮评测失败后重跑仍会重新向量化、召回和排序，可能再次计费。
+
+### 11.9 QuickRouter Qwen3 云端重排对照（2026-11-02）
+
+用户确认 Qwen3 与 embedding 共用 QuickRouter 服务地址和 API key。复用现有 `HTTPReranker` 和 `--rerank http`，调用 `POST https://api.quickrouter.ai/v1/rerank`，模型名为 `qwen3-rerank`。不走本地 CrossEncoder，也不改变向量模型或索引。
+
+对照服务商文档 https://doc.quickrouter.ai/docs/rerank.html，现有请求缺少文档列出的 `instruct`。本次为该模型默认添加官方英文指令，要求检索能够回答问题的段落；支持构造参数和 `RERANK_INSTRUCT` 覆盖，并将实际指令记录到 `describe()`/评测配置中。其他 HTTP 模型在没有显式指令时保持原请求字段。请求增加 `Accept: application/json`。保留全部候选唯一 index 和有限分数校验，不补齐缺失结果、不回退 Dense。
+
+运行时显式将 `EMBED_API_KEY` 赋给 `RERANK_API_KEY`，不在代码里自动从其他服务继承密钥。embedding 仍使用 `text-embedding-3-small`；仅重排模型改为 `qwen3-rerank`。固定 SC68 题集、索引、dense、candidate-k=50、k-max=10、rerank-query=retrieval，使用独立标签 `SC68_G_qwen3_rerank_v1`。不设置 `--within-doc`，在全部论文中召回。比较 Hit@1、Recall@5、MRR@10 和检索延迟；云端延迟包括网络，不代表模型纯推理速度。68 题已用于调试，后续须在独立测试集复核。
+
+验证边界：离线协议测试覆盖 50 个返回项的逆序映射、默认/自定义指令、其他模型不增加指令、非法分数/缺项/重复项及 HTTP 重试。本次执行环境没有继承用户终端的 embedding key，因此没有真实 Qwen 调用或质量/延迟结果；不能把离线测试当作云端验证。模型云端别名不能用于推断具体参数量。

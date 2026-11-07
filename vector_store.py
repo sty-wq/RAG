@@ -1,9 +1,9 @@
 """阶段四：入库 —— 把 chunk 和向量存进 Milvus，以及按向量检索。
 
 默认用 Milvus Lite：它就是本地的一个 .db 文件，不用装服务器。接口（MilvusClient）和正式版
-Milvus 一样，以后换成服务器版，只要把环境变量 MILVUS_URI 改成 http://地址:19530。
+Milvus 一样，以后换成服务器版，只要把环境变量 RAG_MILVUS_URI 改成 http://地址:19530。
 
-  MILVUS_URI   默认 <项目目录>/.rag_data/milvus.db
+  RAG_MILVUS_URI   默认 <项目目录>/.rag_data/milvus.db
 
 注意：同一个 .db 文件，同一时间只能被一个进程打开。
 """
@@ -11,13 +11,27 @@ from __future__ import annotations
 
 import json
 import os
+import threading
 import time
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 
-from pymilvus import DataType, MilvusClient
+from dotenv import load_dotenv
 
 from chunks import Chunk
+
+# PyMilvus 导入时会把 MILVUS_URI 当服务器地址解析，本地 .db 路径会使导入失败。
+# 保留旧的本地变量写法，但在 SDK 导入前迁移到项目专用变量；新变量优先。
+# 提前加载 SDK 本来也会加载的 .env，兼容其中的旧本地路径配置。
+load_dotenv()
+_legacy_uri = os.getenv("MILVUS_URI", "")
+if _legacy_uri.endswith(".db") and "://" not in _legacy_uri:
+    if not os.getenv("RAG_MILVUS_URI"):
+        os.environ["RAG_MILVUS_URI"] = _legacy_uri
+    # 不能 pop：SDK 的 load_dotenv() 会把 .env 里的旧值重新载入。
+    os.environ["MILVUS_URI"] = ""
+
+from pymilvus import DataType, MilvusClient  # noqa: E402
 
 PROJECT_DIR = Path(__file__).resolve().parent
 DEFAULT_URI = str(PROJECT_DIR / ".rag_data" / "milvus.db")
@@ -31,13 +45,18 @@ OUTPUT_FIELDS = ["doc_id", "doc_name", "source_path", "section_id", "heading_pat
 
 @dataclass
 class SearchHit:
-    score: float          # 余弦相似度，越接近 1 越相似
+    score: float          # 最终排序分数；语义由 score_type 标明
     chunk_id: str
     doc_name: str
     source_path: str
     heading_path: str
     chunk_order: int
     text: str
+    score_type: str = "cosine"
+    dense_score: float | None = None
+    lexical_score: float | None = None
+    rrf_score: float | None = None
+    rerank_score: float | None = None
 
 
 def fit_bytes(text: str, limit: int) -> tuple[str, bool]:
@@ -50,11 +69,13 @@ def fit_bytes(text: str, limit: int) -> tuple[str, bool]:
 
 class VectorStore:
     def __init__(self, uri: str | None = None, collection: str = COLLECTION):
-        self.uri = uri or os.getenv("MILVUS_URI", DEFAULT_URI)
+        self.uri = uri or os.getenv("RAG_MILVUS_URI") or os.getenv("MILVUS_URI") or DEFAULT_URI
         self.collection = collection
         if self.uri.endswith(".db"):
             Path(self.uri).parent.mkdir(parents=True, exist_ok=True)   # Milvus Lite 要求目录已经存在
         self.client = MilvusClient(self.uri)
+        self._lexical_cache = None
+        self._lexical_lock = threading.Lock()
 
     # 用 with 语句保证用完会关闭：Milvus Lite 同一时间只允许一个进程打开同一个文件
     def __enter__(self) -> VectorStore:
@@ -83,6 +104,8 @@ class VectorStore:
         if len(chunks) != len(vectors) or not chunks:
             raise ValueError("chunk 和向量的数量必须相同，且不能为空")
         dim = len(vectors[0])
+        # 不能把上一次集合的 BM25 结果带到新集合。
+        self._lexical_cache = None
 
         if self.client.has_collection(self.collection):
             self.client.drop_collection(self.collection)
@@ -125,6 +148,42 @@ class VectorStore:
         }, ensure_ascii=False, indent=2), encoding="utf-8")
         return truncated
 
+    def lexical_search(self, question: str, k: int = 5, doc_name: str | None = None) -> list[SearchHit]:
+        """从已有集合构建进程内 BM25，首次使用时加载；无需重建向量或修改旧 schema。
+
+        只读取 id、文字和出处，不读取向量。每个进程缓存一次；索引说明文件变化
+        或本实例 rebuild() 后失效。当前集合应由本项目管理，不支持绕过它的外部写入。
+        """
+        from lexical import BM25Index
+
+        stat = self.meta_path.stat() if self.meta_path.exists() else None
+        stamp = (stat.st_mtime_ns, stat.st_size) if stat else None
+        with self._lexical_lock:
+            if self._lexical_cache is None or self._lexical_cache[0] != stamp:
+                self.client.load_collection(self.collection)
+                iterator = self.client.query_iterator(self.collection, batch_size=500,
+                                                      output_fields=["id", *OUTPUT_FIELDS])
+                hits = []
+                try:
+                    while batch := iterator.next():
+                        for row in batch:
+                            hits.append(SearchHit(score=0.0, chunk_id=row["id"], doc_name=row["doc_name"],
+                                                  source_path=row["source_path"], heading_path=row["heading_path"],
+                                                  chunk_order=row["chunk_order"], text=row["text"], score_type="bm25"))
+                finally:
+                    iterator.close()
+                # Milvus 迭代顺序不保证稳定；固定次序后相同 BM25 分数才能稳定打破平局。
+                hits.sort(key=lambda hit: hit.chunk_id)
+                index = BM25Index([f"{hit.heading_path}\n{hit.text}" for hit in hits])
+                documents: dict[str, set[int]] = {}
+                for position, hit in enumerate(hits):
+                    documents.setdefault(hit.doc_name, set()).add(position)
+                self._lexical_cache = stamp, hits, index, documents
+            _, hits, index, documents = self._lexical_cache
+        allowed = documents.get(doc_name, set()) if doc_name is not None else None
+        return [replace(hits[position], score=score, lexical_score=score)
+                for position, score in index.search(question, k, allowed)]
+
     def search(self, query_vector: list[float], k: int = 5, doc_name: str | None = None) -> list[SearchHit]:
         """找出和问题向量最相似的 k 块。给了 doc_name，就只在这一篇文档里找。"""
         # Milvus 的数据平时存在磁盘上，检索前要先"加载"进内存。
@@ -146,5 +205,6 @@ class VectorStore:
                 heading_path=entity["heading_path"],
                 chunk_order=entity["chunk_order"],
                 text=entity["text"],
+                dense_score=float(hit["distance"]),
             ))
         return hits

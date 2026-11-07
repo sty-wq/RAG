@@ -17,8 +17,10 @@ WORKDIR /app
 
 # 先只复制依赖清单并安装。Docker 是一层一层构建的，依赖没变时这一层会直接用缓存，
 # 以后只改代码、重新构建，就不用再等漫长的 pip install
-COPY requirements.txt requirements-ocr.txt ./
+COPY requirements.txt requirements-ocr.txt requirements-rerank.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
+ARG INSTALL_LOCAL_RERANK=false
+RUN if [ "$INSTALL_LOCAL_RERANK" = "true" ]; then pip install --no-cache-dir -r requirements-rerank.txt; fi
 
 # 再复制代码（哪些文件不复制，见 .dockerignore）
 COPY . .

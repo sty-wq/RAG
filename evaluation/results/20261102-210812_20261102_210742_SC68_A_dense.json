@@ -1,0 +1,88 @@
+{
+  "label": "20261102_210742_SC68_A_dense",
+  "created_at": "2026-11-02 21:08:12",
+  "git_commit": "3415387（有未提交的改动）",
+  "config": {
+    "embed_model": "text-embedding-3-small",
+    "embed_base_url": "https://api.quickrouter.ai/v1",
+    "max_chunk_chars": 800,
+    "chunk_count": 17887,
+    "k_max": 10,
+    "within_doc": false,
+    "rerank_query_policy": "retrieval",
+    "retrieval": {
+      "mode": "dense",
+      "candidate_k": 50,
+      "rrf_k": 60,
+      "min_rerank_score": null
+    },
+    "reranker": null
+  },
+  "dataset": {
+    "name": "qasper",
+    "questions_file": "/Users/bia/Documents/Codex/2026-11-02/wo/outputs/qasper-pilot100/questions_ready_68.jsonl",
+    "source": "Qasper test split (huggingface allenai/qasper, parquet)",
+    "source_sha256": "206d05a86672dc33",
+    "seed": null,
+    "params": {},
+    "questions": {
+      "answerable": 1309,
+      "float_only": 42,
+      "unanswerable": 79,
+      "no_evidence": 21
+    },
+    "corpus_docs": 416
+  },
+  "counts": {
+    "answerable:selfcontained_pilot_v1": 68
+  },
+  "overall": {
+    "n": 68,
+    "hit@1": 0.2647,
+    "hit@3": 0.5294,
+    "hit@5": 0.6471,
+    "hit@10": 0.8529,
+    "recall@1": 0.2353,
+    "recall@3": 0.5012,
+    "recall@5": 0.6005,
+    "recall@10": 0.7843,
+    "mrr": 0.4272,
+    "doc_hit@1": 0.9853,
+    "doc_hit@5": 0.9853
+  },
+  "by_type": {
+    "answerable:selfcontained_pilot_v1": {
+      "n": 68,
+      "hit@1": 0.2647,
+      "hit@3": 0.5294,
+      "hit@5": 0.6471,
+      "hit@10": 0.8529,
+      "recall@1": 0.2353,
+      "recall@3": 0.5012,
+      "recall@5": 0.6005,
+      "recall@10": 0.7843,
+      "mrr": 0.4272,
+      "doc_hit@1": 0.9853,
+      "doc_hit@5": 0.9853
+    }
+  },
+  "gate": {
+    "enabled": true,
+    "score_type": "cosine",
+    "min_score": 0.35,
+    "answerable_blocked": 0.0,
+    "unanswerable_blocked": 0.0,
+    "answerable_top1_median": 0.7523,
+    "unanswerable_top1_median": null,
+    "n_unanswerable": 0
+  },
+  "retrieval_latency_ms": {
+    "p50": 4.781,
+    "max": 133.965,
+    "includes_cold_start": true,
+    "includes_query_embedding": false,
+    "local_model_preloaded": false
+  },
+  "rerank_model_load_ms": null,
+  "duration_s": 4.6
+}

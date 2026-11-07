@@ -1,0 +1,104 @@
+{
+  "label": "qasper_ab_20261102_171451_C_hybrid",
+  "created_at": "2026-11-02 17:25:30",
+  "git_commit": "3415387（有未提交的改动）",
+  "config": {
+    "embed_model": "text-embedding-3-small",
+    "embed_base_url": "https://api.quickrouter.ai/v1",
+    "max_chunk_chars": 800,
+    "chunk_count": 17887,
+    "k_max": 10,
+    "within_doc": false,
+    "retrieval": {
+      "mode": "hybrid",
+      "candidate_k": 50,
+      "rrf_k": 60,
+      "min_rerank_score": null
+    },
+    "reranker": null
+  },
+  "dataset": {
+    "name": "qasper",
+    "questions_file": "questions_ctx.jsonl",
+    "source": "Qasper test split (huggingface allenai/qasper, parquet)",
+    "source_sha256": "206d05a86672dc33",
+    "seed": null,
+    "params": {},
+    "questions": {
+      "answerable": 1309,
+      "float_only": 42,
+      "unanswerable": 79,
+      "no_evidence": 21
+    },
+    "corpus_docs": 416
+  },
+  "counts": {
+    "answerable:self": 15,
+    "answerable:title": 1294,
+    "no_evidence:title": 21,
+    "unanswerable:title": 78,
+    "float_only:title": 42,
+    "unanswerable:self": 1
+  },
+  "overall": {
+    "n": 1309,
+    "hit@1": 0.1322,
+    "hit@3": 0.3652,
+    "hit@5": 0.5088,
+    "hit@10": 0.7212,
+    "recall@1": 0.1102,
+    "recall@3": 0.3099,
+    "recall@5": 0.4398,
+    "recall@10": 0.6543,
+    "mrr": 0.2941,
+    "doc_hit@1": 0.9985,
+    "doc_hit@5": 1.0
+  },
+  "by_type": {
+    "answerable:self": {
+      "n": 15,
+      "hit@1": 0.2,
+      "hit@3": 0.6667,
+      "hit@5": 0.6667,
+      "hit@10": 0.8,
+      "recall@1": 0.2,
+      "recall@3": 0.5168,
+      "recall@5": 0.5702,
+      "recall@10": 0.7386,
+      "mrr": 0.4491,
+      "doc_hit@1": 0.8667,
+      "doc_hit@5": 1.0
+    },
+    "answerable:title": {
+      "n": 1294,
+      "hit@1": 0.1314,
+      "hit@3": 0.3617,
+      "hit@5": 0.507,
+      "hit@10": 0.7202,
+      "recall@1": 0.1092,
+      "recall@3": 0.3075,
+      "recall@5": 0.4383,
+      "recall@10": 0.6533,
+      "mrr": 0.2923,
+      "doc_hit@1": 1.0,
+      "doc_hit@5": 1.0
+    }
+  },
+  "gate": {
+    "enabled": false,
+    "score_type": "rrf",
+    "min_score": null,
+    "answerable_blocked": null,
+    "unanswerable_blocked": null,
+    "answerable_top1_median": 0.0323,
+    "unanswerable_top1_median": 0.0323,
+    "n_unanswerable": 121
+  },
+  "retrieval_latency_ms": {
+    "p50": 16.997,
+    "max": 1498.332,
+    "includes_cold_start": true,
+    "includes_query_embedding": false
+  },
+  "duration_s": 121.4
+}

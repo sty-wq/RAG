@@ -1,0 +1,94 @@
+{
+  "label": "SC68_G_qwen3_rerank_v1",
+  "created_at": "2026-11-02 22:06:33",
+  "git_commit": "3415387（有未提交的改动）",
+  "config": {
+    "embed_model": "text-embedding-3-small",
+    "embed_base_url": "https://api.quickrouter.ai/v1",
+    "max_chunk_chars": 800,
+    "chunk_count": 17887,
+    "k_max": 10,
+    "within_doc": false,
+    "rerank_query_policy": "retrieval",
+    "retrieval": {
+      "mode": "dense",
+      "candidate_k": 50,
+      "rrf_k": 60,
+      "min_rerank_score": null
+    },
+    "reranker": {
+      "backend": "http",
+      "model": "qwen3-rerank",
+      "instruct": "Given a web search query, retrieve relevant passages that answer the query.",
+      "timeout": 60,
+      "retries": 2
+    }
+  },
+  "dataset": {
+    "name": "qasper",
+    "questions_file": "/Users/bia/Documents/Codex/2026-11-02/wo/outputs/qasper-pilot100/questions_ready_68.jsonl",
+    "source": "Qasper test split (huggingface allenai/qasper, parquet)",
+    "source_sha256": "206d05a86672dc33",
+    "seed": null,
+    "params": {},
+    "questions": {
+      "answerable": 1309,
+      "float_only": 42,
+      "unanswerable": 79,
+      "no_evidence": 21
+    },
+    "corpus_docs": 416
+  },
+  "counts": {
+    "answerable:selfcontained_pilot_v1": 68
+  },
+  "overall": {
+    "n": 68,
+    "hit@1": 0.3235,
+    "hit@3": 0.7059,
+    "hit@5": 0.8235,
+    "hit@10": 0.9118,
+    "recall@1": 0.3015,
+    "recall@3": 0.6336,
+    "recall@5": 0.7574,
+    "recall@10": 0.8824,
+    "mrr": 0.5368,
+    "doc_hit@1": 0.9853,
+    "doc_hit@5": 1.0
+  },
+  "by_type": {
+    "answerable:selfcontained_pilot_v1": {
+      "n": 68,
+      "hit@1": 0.3235,
+      "hit@3": 0.7059,
+      "hit@5": 0.8235,
+      "hit@10": 0.9118,
+      "recall@1": 0.3015,
+      "recall@3": 0.6336,
+      "recall@5": 0.7574,
+      "recall@10": 0.8824,
+      "mrr": 0.5368,
+      "doc_hit@1": 0.9853,
+      "doc_hit@5": 1.0
+    }
+  },
+  "gate": {
+    "enabled": false,
+    "score_type": "rerank",
+    "min_score": null,
+    "answerable_blocked": null,
+    "unanswerable_blocked": null,
+    "answerable_top1_median": 0.9703,
+    "unanswerable_top1_median": null,
+    "n_unanswerable": 0
+  },
+  "retrieval_latency_ms": {
+    "p50": 3819.733,
+    "max": 5869.602,
+    "includes_cold_start": true,
+    "includes_query_embedding": false,
+    "local_model_preloaded": false
+  },
+  "rerank_model_load_ms": null,
+  "duration_s": 276.3
+}

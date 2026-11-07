@@ -239,3 +239,13 @@ def test_crud_questions_still_scored_by_document(k):
     store = TextStore([[("g.txt", "anything", 0.9)]])
     summary, _ = evaluate(questions, CountingEmbedder(), store)
     assert summary["overall"][f"hit@{k}"] == 1.0
+
+
+def test_deeper_cutoffs_only_when_k_max_allows():
+    questions = [{"qid": "a", "type": "answerable", "question": "q", "gold_docs": ["p.md"],
+                  "evidence": [["The dataset has 3k dialogs."]], "should_answer": True}]
+    results = [[("p.md", f"filler {i}", 0.9) for i in range(30)] + [("p.md", "The dataset has 3k dialogs.", 0.5)]]
+    deep, _ = evaluate(questions, CountingEmbedder(), TextStore(results), k_max=50)
+    shallow, _ = evaluate(questions, CountingEmbedder(), TextStore(results), k_max=10)
+    assert deep["overall"]["recall@20"] == 0.0 and deep["overall"]["recall@50"] == 1.0   # 证据排第 31
+    assert "recall@50" not in shallow["overall"]
