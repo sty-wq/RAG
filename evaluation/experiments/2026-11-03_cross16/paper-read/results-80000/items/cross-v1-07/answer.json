@@ -1,0 +1,6 @@
+{
+  "answer": "No. They measure different abilities and come from different studies. The best tweet hate-speech classifier’s overall F1 of 0.90 measures three-way tweet classification performance (hate speech, offensive language, neither), with precision 0.91 and recall 0.90; the hate-class precision and recall were only 0.44 and 0.61 [1]. The Reddit/Gab human preference results measure which generated intervention response workers judged best at mitigating hate speech and which method had the best response diversity; human-written responses were chosen as most effective and diverse 70% or more of the time on both datasets [2].",
+  "seconds": 2.623671624925919,
+  "input_tokens": 10179,
+  "output_tokens": 131
+}

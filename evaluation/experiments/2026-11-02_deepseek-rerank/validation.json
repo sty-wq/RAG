@@ -1,0 +1,29 @@
+{
+  "installed": true,
+  "files": {
+    "reranker.py": "2d0b579496afae2c737be27128f35c008841e6d5904119ab8f54b482293d025d",
+    "retrieval.py": "fa54a348fa13e866e18b4251339ffeb453fbdaeb406edbfd377f0d19e540f958",
+    "retrieval.env.example": "fef898fecaccada6e469010f7374bfb7f4c9468cbbef52d260d4ffd30ca2911e",
+    "evaluation/run_retrieval.py": "d1c7962150ab9c759c70ead36828d9f6b47c07e4a237d80ac3dfe9fd9164296d",
+    "DESIGN.md": "c246c67355386d7b37e641107cfab5343d4a0eb6264eec51a418b83e02a2e9b9",
+    "tests/test_deepseek_reranker.py": "2aeab6cc2c3c0b42b302a1416347b34206b5319f1454d24105c6419251d1606c"
+  },
+  "original_files_backed_up": "/Users/bia/Documents/Codex/2026-11-02/wo/work/deepseek-rerank/backup",
+  "project_tests": {
+    "passed": 198,
+    "subtests_passed": 2,
+    "warnings": 1,
+    "seconds": 10.44
+  },
+  "ruff": "passed",
+  "git_diff_check": "passed",
+  "cli_help_deepseek": "verified",
+  "live_requests": 10,
+  "live_model": "deepseek-v4-flash-vision-exp",
+  "live_prompt_tokens": 17781,
+  "live_completion_tokens": 330,
+  "live_protocol": "10 selected questions; frozen historical dense top-10; same candidates for both rerankers",
+  "full_68_top50_run": "not run",
+  "env_modified": false,
+  "original_index_modified": false
+}

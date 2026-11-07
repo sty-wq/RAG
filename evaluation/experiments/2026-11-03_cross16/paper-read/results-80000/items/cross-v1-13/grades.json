@@ -1,0 +1,18 @@
+{
+  "one_pass": {
+    "fact_a": true,
+    "fact_b": false,
+    "synthesis": true,
+    "verdict": "incorrect",
+    "citation": "incomplete",
+    "why": "A correctly states HABCNN filters the document with Q/A attention and compares document representations (fact_a). But for AS Reader it explicitly says the given materials do not describe how attention is summed across repeated occurrences of a candidate word, so fact_b (summing a word's attention across occurrences) is not stated. Synthesis contrast is present, but missing fact_b makes the verdict incorrect. Citations include relevant passages but the AS Reader summation evidence is not used to support fact_b."
+  },
+  "paper_read": {
+    "fact_a": true,
+    "fact_b": true,
+    "synthesis": true,
+    "verdict": "correct",
+    "citation": "supported",
+    "why": "B states HABCNN-QP/QAP uses Q and A attention to produce document projections and compares them (or Q-projection with answer representation), matching fact_a. It states AS Reader normalizes positional attention and sums a candidate word's attention across all its occurrences (pointer sum attention), matching fact_b. It contrasts the two scoring mechanisms, satisfying synthesis. Citations to both papers' passages support the material claims."
+  }
+}

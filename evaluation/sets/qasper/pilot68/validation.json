@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "selected_unique_qids": 100,
+  "selected_unique_papers": 100,
+  "ready_records": 68,
+  "pending_excluded": 32,
+  "same_query_for_retrieval_and_rerank": "204 assertions: 68 records x actual resolver extracted for auto/original/retrieval policies",
+  "legacy_fields_preserved": [
+    "qid",
+    "paper_id",
+    "type",
+    "answers",
+    "evidence (including annotator groups)",
+    "gold_docs",
+    "should_answer"
+  ],
+  "query_checks": [
+    "unique queries",
+    "no question_original",
+    "no paper-ID strings",
+    "no they/their/this paper/this dataset/these datasets",
+    "nonempty question ending in ?"
+  ],
+  "protected_source_files_sha256_unchanged": 104,
+  "selection_reproduced": true,
+  "assistant_reviewed_individually": 100,
+  "independent_semantic_review": false,
+  "new_full_reference_answer_substrings_length_at_least_5": 0,
+  "answer_overlap_check_limit": "Exact substring screening only; semantic leakage assessed by assistant, not established by this heuristic.",
+  "html_structure": {
+    "cards": 100,
+    "artifact_links": 6
+  },
+  "browser_visual_preview": "not completed: browser security policy disallowed local file protocol; no workaround attempted",
+  "tests_are": "offline data-integrity and query-routing checks only",
+  "live_retrieval": "not run",
+  "llm_judge": "not run"
+}

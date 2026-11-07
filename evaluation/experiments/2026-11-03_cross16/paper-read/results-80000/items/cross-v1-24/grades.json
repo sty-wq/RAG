@@ -1,0 +1,18 @@
+{
+  "one_pass": {
+    "fact_a": false,
+    "fact_b": true,
+    "synthesis": false,
+    "verdict": "incorrect",
+    "citation": "incomplete",
+    "why": "A correctly describes the neutralization model's detector-gated decoder (fact_b), but explicitly states BAE is absent and refuses to answer the BAE side, so fact_a and the synthesis comparison are not stated. Citations cover only the neutralizer paper, not BAE."
+  },
+  "paper_read": {
+    "fact_a": false,
+    "fact_b": true,
+    "synthesis": false,
+    "verdict": "incorrect",
+    "citation": "incomplete",
+    "why": "B describes the neutralizer's detector/join-embedding mechanism (fact_b) but refuses on BAE, so fact_a and synthesis are missing. Sources cite the neutralizer paper and an unrelated gender-debiasing paper, not BAE."
+  }
+}

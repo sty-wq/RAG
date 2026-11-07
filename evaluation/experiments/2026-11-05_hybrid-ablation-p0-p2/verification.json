@@ -1,0 +1,9 @@
+{
+  "real_candidate_fusions_match_production": 1809,
+  "alpha_zero_exact_dense_order": 1809,
+  "bm25_top50_matches_production_fake_iterator_queries": 8,
+  "boundary_and_tie_assertions": 5,
+  "network_calls": 0,
+  "analysis_sha256": "3bbd5ca0170303f8ad948976527cd66b0a044620e0d4ed15d31a4831a0ae098c",
+  "verification_sha256": "c9a960ade05257fedc125fe57f965047a3069ecc60d9221d96e3963fb4471d3c"
+}

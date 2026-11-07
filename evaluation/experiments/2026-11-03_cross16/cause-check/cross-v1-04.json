@@ -1,0 +1,84 @@
+{
+  "qid": "cross-v1-04",
+  "question": "In machine translation of occupations, how did the Google Translate pronoun study diagnose gender imbalance, and what training set did the domain-adaptation study construct to address it?",
+  "conditions": {
+    "replay": {
+      "ids": [
+        "491c96e663ce2c78613dd4b5fd137e65",
+        "c3017a5cbe1240958fd1207f14234f45",
+        "e5b44f386bee11b5b6a7768564c9f9d5",
+        "f8f6ca47650d33c1cd6e8c2c62c9821b",
+        "16989dd61f99704782a335b3670a2da1"
+      ],
+      "answer": "根据现有资料无法回答这个问题。\n拒答原因：资料只涉及 Google Translate 性别代词研究，能确认该研究用 BLS 职业列表在 12 种性别中性语言中构造“He/She is an Engineer”类句子、经 Google Translate API 译为英语并统计译出代词频率，还将女性代词频率与 BLS 女性从业比例比较（单侧 t 检验、12 分位直方图）[2][3][4][5]；但全部资料均未提及任何“domain-adaptation study”，因此无法说明其构建了什么训练集。",
+      "cited_docs": [
+        "1809.02208.md"
+      ],
+      "judge": {
+        "correct": false,
+        "supported": false,
+        "why": "拒答判错。该回答未给出领域适应研究构建的训练集（194个职业、388句性别平衡集合），也未完成两篇论文的比较，因此不正确；且其拒答缺乏依据，因为资料中实际包含领域适应研究的内容。"
+      },
+      "grounded": false
+    },
+    "prompt_only": {
+      "ids": [
+        "491c96e663ce2c78613dd4b5fd137e65",
+        "c3017a5cbe1240958fd1207f14234f45",
+        "e5b44f386bee11b5b6a7768564c9f9d5",
+        "f8f6ca47650d33c1cd6e8c2c62c9821b",
+        "16989dd61f99704782a335b3670a2da1"
+      ],
+      "answer": "根据现有资料，只能回答前半部分；后半部分（领域适配研究构建了什么训练集）在全部资料中没有任何信息。\n\n**Google Translate 代词研究如何诊断性别失衡：**\n\n该研究从美国劳工统计局（BLS）的职业列表出发，用12种性别中性语言（如匈牙利语、中文、约鲁巴语等）构造“He/She is an Engineer”这类句式，通过 Google Translate API 译为英语，统计译文中女性、男性及性别中性代词的出现频率，发现 GT 强烈倾向男性默认，尤其在 STEM 等性别分布失衡领域[2]。研究进一步按职业类别合并统计，发现男性代词翻译概率普遍高于女性或中性代词，且在生命与物理科学、建筑、工程、计算机科学和数学等领域更为严重[1]。为检验这种偏向是否只是反映职场性别分布，作者将女性代词翻译频率与 BLS 的女性从业比例对比：女性从业比例与女性翻译频率之间没有相关性[3]；单侧 t 检验拒绝原假设，结论是 GT 的女性翻译频率低估了美国职业中的女性参与频率，因此这种不对称不能理解为职场人口结构的反映[4]；女性代词翻译分布与真实女性从业分布不一致，女性代词集中在第一个12分位[5]。\n\n**领域适配研究构建的训练集：**\n\n根据现有资料无法回答这一部分。所给资料全部来自同一篇关于 Google Translate 性别偏见的案例研究（1809.02208），其中没有出现任何“领域适配研究”及其构建的训练集的信息。\n\n**两者关系：** 资料仅支持 Google Translate 研究的诊断方法与结论；领域适配研究及其训练集在资料中完全缺失，无法建立两者之间的关联。",
+      "cited_docs": [
+        "1809.02208.md"
+      ],
+      "judge": {
+        "correct": false,
+        "supported": false,
+        "why": "仅正确回答前半部分，后半部分称资料缺失而无法回答，未给出领域适应研究构建的194职业、388句性别平衡训练集，缺少必要事实与完整比较，故判错。"
+      },
+      "grounded": false
+    },
+    "evidence_only": {
+      "ids": [
+        "491c96e663ce2c78613dd4b5fd137e65",
+        "c3017a5cbe1240958fd1207f14234f45",
+        "e5b44f386bee11b5b6a7768564c9f9d5",
+        "12dda95cae67a4ee32ccb059446eb93c",
+        "9e4ea7bd7f0cd5554bd1bd55296a2954"
+      ],
+      "answer": "Google Translate 的代词研究通过统计翻译输出中女性、男性和性别中性代词的出现频率来诊断性别失衡，发现 GT 强烈倾向于男性默认，尤其在 STEM 等性别分布不平衡的领域[2]；该研究还将女性代词翻译频率与 BLS 报告中各职业女性参与频率进行比较，发现两者没有相关性，GT 输出未能反映真实世界中女性工作者的分布，低估了预期频率[3][5]。领域适应研究构建了手工职业数据集（handcrafted set）：从美国劳工统计资料中收集职业列表，去除特定领域形容词（如只保留“engineer”而不区分工业工程师、机车工程师等），共选取 194 个职业，构成仅 388 句的性别平衡集合[4]。",
+      "cited_docs": [
+        "1809.02208.md",
+        "2004.04498.md"
+      ],
+      "judge": {
+        "correct": true,
+        "supported": true,
+        "why": "正确给出两篇论文核心事实：Google Translate 研究统计译文中女性/男性/中性代词频率，并与 BLS 女性从业比例比较，发现女性代词频率低估女性参与、无相关性；领域适应研究构建了去除领域形容词的194个职业、388句性别平衡手工集合。两侧事实均有有效材料支持，比较正确。"
+      },
+      "grounded": true
+    },
+    "historical": {
+      "ids": [
+        "491c96e663ce2c78613dd4b5fd137e65",
+        "c3017a5cbe1240958fd1207f14234f45",
+        "e5b44f386bee11b5b6a7768564c9f9d5",
+        "f8f6ca47650d33c1cd6e8c2c62c9821b",
+        "16989dd61f99704782a335b3670a2da1"
+      ],
+      "answer": "根据现有资料无法回答这个问题。\n拒答原因：资料只涉及 Google Translate 性别偏见研究，说明了其用 BLS 职业列表在 12 种性别中性语言中构造“He/She is an Engineer”类句子、经 Google Translate API 译为英语并统计译文中女性、男性及性别中性代词频率，还将女性代词频率与 BLS 女性从业比例比较（[2][3][4][5]）；但全部资料均未提及任何“domain-adaptation study”，因此无法说明该研究为应对此问题构建了什么训练集。",
+      "cited_docs": [
+        "1809.02208.md"
+      ],
+      "judge": {
+        "correct": false,
+        "supported": false,
+        "why": "拒答判错。未给出领域适应研究的训练集事实（194职业/388句），也未完成必要比较；其称资料未提及领域适应研究不成立。"
+      },
+      "grounded": false
+    }
+  },
+  "swaps": 2
+}

@@ -1,0 +1,84 @@
+{
+  "qid": "cross-v1-23",
+  "question": "What human-provided supervision supports multi-hop question generation on HotPotQA, compared with question generation from Freebase using web exploration?",
+  "conditions": {
+    "replay": {
+      "ids": [
+        "8eb4694117daf4929135bd2f1724b5af",
+        "54bf0874199743c6d832f09f0ea2f945",
+        "95af56fcfd7fe4eaadf912c7d844fec3",
+        "c91c6a5a3d5d8923af9090c9b778b864",
+        "09fe0d18bfc57663ddaa0b3e97db9416"
+      ],
+      "answer": "根据现有资料无法回答这个问题。\n拒答原因：资料中没有任何内容涉及 HotPotQA 数据集或多跳（multi-hop）问题生成，也未提及该任务所需的人工监督。资料仅讨论了从 Freebase 知识库借助网络探索生成问题的方法：其唯一人工劳动是问题模板构建[2]，在 500 个随机选取的 Freebase 三元组上手工制作了 106 个模板[3]，并生成了 991 个种子问题、从 Google 检索了 1529 个额外问题[3]。这些内容均不能说明 HotPotQA 上多跳问题生成的人工监督情况。",
+      "cited_docs": [
+        "1610.03807.md"
+      ],
+      "judge": {
+        "correct": false,
+        "supported": false,
+        "why": "该回答拒答，未给出HotPotQA多跳问题生成所需人工监督（句子级支撑事实标注）这一必要事实，也未完成与Freebase方法（问题模板构建）的正确比较，故判错。"
+      },
+      "grounded": false
+    },
+    "prompt_only": {
+      "ids": [
+        "8eb4694117daf4929135bd2f1724b5af",
+        "54bf0874199743c6d832f09f0ea2f945",
+        "95af56fcfd7fe4eaadf912c7d844fec3",
+        "c91c6a5a3d5d8923af9090c9b778b864",
+        "09fe0d18bfc57663ddaa0b3e97db9416"
+      ],
+      "answer": "根据现有资料无法回答这个问题。\n拒答原因：资料[1]-[5]均围绕从知识库（KB）生成问题、并在Freebase上与serban-EtAl:2016:P16-1比较的工作，未涉及HotPotQA或多跳问题生成，也未提供该场景下人工监督的具体信息。资料仅能确认：该Freebase研究的人工投入是手工构建问题模板（[2]、[4]），在500个随机抽取的Freebase三元组上手工制作了106个模板（[3]），而对比系统serban-EtAl:2016:P16-1使用10,000个人工生成的问题对进行训练（[1]）。",
+      "cited_docs": [
+        "1610.03807.md"
+      ],
+      "judge": {
+        "correct": false,
+        "supported": false,
+        "why": "该回答拒答，仅描述Freebase侧模板构建，未给出HotPotQA侧句子级支撑事实标签这一必要事实，也未完成两侧比较，故判错。"
+      },
+      "grounded": false
+    },
+    "evidence_only": {
+      "ids": [
+        "8eb4694117daf4929135bd2f1724b5af",
+        "54bf0874199743c6d832f09f0ea2f945",
+        "95af56fcfd7fe4eaadf912c7d844fec3",
+        "c91c6a5a3d5d8923af9090c9b778b864",
+        "b7cd201c1d2860ef430587332c25df76"
+      ],
+      "answer": "根据现有资料无法回答这个问题。  \n拒答原因：资料[5]只说明该研究使用 HotPotQA 数据集，并将训练集与开发集合并后按 80%/10%/10% 划分为训练、开发、测试，且使用 BLEU-1、BLEU-2、BLEU-3、BLEU-4、ROUGE-L 和 METEOR 评测；资料未说明 HotPotQA 多跳问题生成中具体使用了何种人工提供的监督信号。资料[1][2][3][4]则说明 Freebase 网络探索方法中唯一人工劳动是构建问题模板，并在 500 个随机三元组上手工制作 106 个模板、生成 991 个种子问题，再由 Google 检索 1529 个问题，但这些不能回答 HotPotQA 所对应的人工监督是什么。",
+      "cited_docs": [
+        "1610.03807.md",
+        "2004.02143.md"
+      ],
+      "judge": {
+        "correct": false,
+        "supported": false,
+        "why": "该回答虽引用了HotPotQA数据集材料，但仅说明数据划分与评测指标，未指出其人工监督为句子级支撑事实标注，且未完成与Freebase模板构建的正确比较，故判错。"
+      },
+      "grounded": false
+    },
+    "historical": {
+      "ids": [
+        "8eb4694117daf4929135bd2f1724b5af",
+        "54bf0874199743c6d832f09f0ea2f945",
+        "95af56fcfd7fe4eaadf912c7d844fec3",
+        "c91c6a5a3d5d8923af9090c9b778b864",
+        "09fe0d18bfc57663ddaa0b3e97db9416"
+      ],
+      "answer": "根据现有资料无法回答这个问题。\n拒答原因：资料[1]–[5]均围绕“Question Generation from a Knowledge Base with Web Exploration”这一工作，讨论的是从 Freebase 三元组生成问题、与 serban-EtAl:2016:P16-1 的对比，以及人工构建问题模板、用 4-gram 语言模型筛选问题等；资料中没有任何关于 HotPotQA 或多跳（multi-hop）问题生成的内容，也没有提供该任务下人工监督信息的描述。因此无法就 HotPotQA 上多跳问题生成所依赖的人工监督与 Freebase 网络探索式问题生成作比较。",
+      "cited_docs": [
+        "1610.03807.md"
+      ],
+      "judge": {
+        "correct": false,
+        "supported": false,
+        "why": "该回答拒答，未提供HotPotQA侧的核心事实（句子级ground-truth支撑事实标签），也未与Freebase侧的问题模板构建进行正确比较，故判错。"
+      },
+      "grounded": false
+    }
+  },
+  "swaps": 1
+}

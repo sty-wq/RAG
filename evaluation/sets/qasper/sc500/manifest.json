@@ -1,0 +1,21 @@
+{
+  "version": "qasper-selfcontained-500-v1",
+  "seed": 20261103,
+  "eligible": 1008,
+  "eligible_papers": 308,
+  "excluded_pilot_papers": 100,
+  "reviewed": 788,
+  "model_and_rule_passed": 501,
+  "included": 500,
+  "papers": 270,
+  "model": "deepseek-v4-flash-vision-exp",
+  "method": "每轮按论文抽一题，固定随机顺序；改写只看标题、摘要与原题，同模型在两次单独调用中分别按原标注审核，再复核全库区分度和局部泄漏；每批最多4题。机审后按抽样顺序取500题。",
+  "limits": "同模型复核，非独立人工审核。审核使用每题最多6个去重证据段，各取前1900字符。原版参考标注未重新标注。未运行检索或答案评测。",
+  "source_sha256": "7ed0e76d7440d9b6dea1676e8780c7d7ea9b14fc8d5e93bb5ec5e30f823e7aa6",
+  "pilot_sha256": "f185b52cfd97f9a3d8243502b52995b1083ccfcb9b38ba4c111b020325d72fea",
+  "artifact_sha256": {
+    "questions_ready_500.jsonl": "dd195806c43aabe7c08658a5fd3eed7f5ef8462d79baccd28cbc758a1f1fb4a7",
+    "review.jsonl": "b8ca3accee2745eb121248a7c40d1b710460e83a18d70ce5109e555d412d3c08",
+    "queries_only_500.jsonl": "01fc37bbc6384acd4aa9cbbbf791fadfa26bc7c22697289fa68bbd5ca24b5490"
+  }
+}

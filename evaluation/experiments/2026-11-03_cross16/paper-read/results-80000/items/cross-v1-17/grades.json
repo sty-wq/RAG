@@ -1,0 +1,18 @@
+{
+  "paper_read": {
+    "fact_a": true,
+    "fact_b": true,
+    "synthesis": true,
+    "verdict": "correct",
+    "citation": "supported",
+    "why": "A correctly states table retrieval uses bag-of-words BM25 over caption/header words (fact_a) and PubMed uses individual-word embedding distances via Word Mover's Distance (fact_b), and contrasts lexical term-matching vs semantic embedding signal (synthesis). Citations [1] and [2] point to the exact passages supporting each claim."
+  },
+  "one_pass": {
+    "fact_a": true,
+    "fact_b": true,
+    "synthesis": true,
+    "verdict": "correct",
+    "citation": "supported",
+    "why": "B correctly describes bag-of-words BM25 candidate retrieval with caption/headers (fact_a) and individual query-word to document-word embedding distance motivated by Word Mover's Distance (fact_b), and contrasts lexical vs semantic signals (synthesis). Citations [1] and [25]/[13] support the respective claims."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "n": 16,
+  "pool_both_evidence@50": 0.5625,
+  "dense": {
+    "both_docs": 0.4375,
+    "both_evidence": 0.0,
+    "evidence_recall": 0.34375,
+    "correct": 1,
+    "grounded_cross_answers": 1
+  },
+  "rerank": {
+    "both_docs": 0.625,
+    "both_evidence": 0.1875,
+    "evidence_recall": 0.53125,
+    "correct": 6,
+    "grounded_cross_answers": 6
+  }
+}

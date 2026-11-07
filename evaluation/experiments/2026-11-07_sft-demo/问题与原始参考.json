@@ -1,0 +1,27 @@
+{
+  "qid": "1909.00786-q01",
+  "type": "answerable",
+  "paper_id": "1909.00786",
+  "question": "How large is the benefit of editing-based SQL query generation compared with generating entire SQL from scratch for cross-domain context-dependent questions?",
+  "answers": [
+    "improvement of 7% question match accuracy and 11% interaction match accuracy",
+    "our model delivers an improvement of 7% question match accuracy and 11% interaction match accuracy over the previous state-of-the-art"
+  ],
+  "gold_docs": [
+    "1909.00786.md"
+  ],
+  "evidence": [
+    [
+      "We evaluate our model on SParC BIBREF0, a new large-scale dataset for cross-domain semantic parsing in context consisting of coherent question sequences annotated with SQL queries over 200 databases in 138 domains. Experiment results show that by generating from the previous query, our model delivers an improvement of 7% question match accuracy and 11% interaction match accuracy over the previous state-of-the-art. Further analysis shows that our editing approach is more robust to error propagation than copying segments, and the improvement becomes more significant if the basic text-to-SQL generation accuracy (without editing) improves."
+    ],
+    [
+      "We evaluate our model on SParC BIBREF0, a new large-scale dataset for cross-domain semantic parsing in context consisting of coherent question sequences annotated with SQL queries over 200 databases in 138 domains. Experiment results show that by generating from the previous query, our model delivers an improvement of 7% question match accuracy and 11% interaction match accuracy over the previous state-of-the-art. Further analysis shows that our editing approach is more robust to error propagation than copying segments, and the improvement becomes more significant if the basic text-to-SQL generation accuracy (without editing) improves."
+    ]
+  ],
+  "should_answer": true,
+  "source_question": "How big is benefit in experiments of this editing approach compared to generating entire SQL from scratch?",
+  "group": "answerable:selfcontained_500_v1",
+  "rewrite_version": "qasper-selfcontained-500-v1",
+  "rewrite_review_status": "model_review_passed",
+  "reference_status": "legacy_seed_not_exhaustive_global_gold"
+}

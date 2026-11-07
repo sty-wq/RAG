@@ -1,0 +1,18 @@
+{
+  "paper_read": {
+    "fact_a": true,
+    "fact_b": true,
+    "synthesis": true,
+    "verdict": "correct",
+    "citation": "supported",
+    "why": "A states EEG features (alone or concatenated with acoustic) enter as input feature vectors to attention/CTC ASR, and intent recognizer uses domain knowledge/intent-example FST index composed with ASR lattice for fuzzy matching and lattice rescoring. It reports EEG fusion lowers WER (no single overall number) and intent rescoring increases recognized intents by 25.1% over best-path baseline. Both facts and synthesis (input-feature augmentation vs rescoring-time hypothesis revision, different outcomes) are correctly attributed; citations to both papers' passages support the claims."
+  },
+  "one_pass": {
+    "fact_a": true,
+    "fact_b": true,
+    "synthesis": true,
+    "verdict": "correct",
+    "citation": "supported",
+    "why": "B correctly places extra information in EEG features (alone or concatenated with acoustics) for the EEG-assisted ASR, citing WER results including T7/T8 vs all-sensor comparisons and lower WER on smaller corpus. For the intent-aware recognizer it correctly identifies intent-example library/domain knowledge entering via FST intent index fuzzy matching and lattice rescoring, guiding best-path selection without retraining, and reports 526,356→658,549 intents (25.1%). Synthesis matches input-feature augmentation vs rescoring-time hypothesis revision with different measured outcomes; citations to both papers support material claims."
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "installed": true,
+  "files_sha256": {
+    "reranker.py": "973750a3471b5c1232a706333342aa578a2cb37417e25107b198263cac9cf556",
+    "tests/test_deepseek_reranker.py": "e4542667148b9aa1112cb743d3a90d16a857fa5a331f3de9f427b395f2606998",
+    "DESIGN.md": "bd220003d7d6251ede0fa6471c0321443cdc4001fe31ea1beed8d1d0429b3f07",
+    "evaluation/run_retrieval.py": "99be602ac817e583d6fcf3ac81e163dec09ea25df7e161d947d65d8eb960fcd8"
+  },
+  "full_snapshot_tests": {
+    "passed": 210,
+    "subtests_passed": 2
+  },
+  "real_fifty_candidate_cases_passed": 10,
+  "real_repair_after_synthetic_missing_id": "passed",
+  "original_failure_response_available": false,
+  "live_validation_scope": "controlled 50 candidates = historical dense top10 plus BM25 to 50 unique chunks; schema robustness only, not reproduction of the failed dense top50 and not a quality benchmark",
+  "full_68_dense_top50_evaluation": "not run",
+  "prompt_version": "evidence-listwise-v2",
+  "env_modified": false,
+  "original_index_modified": false
+}

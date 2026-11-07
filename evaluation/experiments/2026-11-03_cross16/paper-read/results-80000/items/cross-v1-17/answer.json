@@ -1,0 +1,6 @@
+{
+  "answer": "In content-based web table retrieval, query–candidate similarity in the first retrieval step is computed at the **bag-of-words level**: the query is represented as bag-of-words and the table as plain text composed of words from caption and headers, with similarity calculated using Okapi BM25 [1]. In the semantic PubMed query matching, similarity is computed at the **individual word level** using neural word embeddings: the method measures the distance between individual words from a query and a document (rather than comparing centroids), using a modified Word Mover's Distance with idf-based word weights and cosine similarity between word embeddings [2]. The signal used in the table retrieval step is BM25 term-matching over caption/header words [1]; the signal used in the PubMed method is neural word-embedding semantic relatedness between query words and document words [2].",
+  "seconds": 3.203060249914415,
+  "input_tokens": 13324,
+  "output_tokens": 175
+}

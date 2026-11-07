@@ -1,0 +1,84 @@
+{
+  "qid": "cross-v1-21",
+  "question": "What information is shared across tasks by the recurrent multi-task text classifier, and what information flows between the convolutional and recurrent stages of AC-BLSTM?",
+  "conditions": {
+    "replay": {
+      "ids": [
+        "26badbb201f1f134ce092a19791290d0",
+        "53b837cad3df32cfbfdd3dd85bbb81f1",
+        "d57fb8419c6d93efeaa930dcc45b5516",
+        "8ec42f132aa0478d83b340846585888e",
+        "8bcadc8b9653295cfd912fa1a88bc66c"
+      ],
+      "answer": "根据现有资料无法回答这个问题。\n拒答原因：资料[1]-[5]只描述了该多任务文本分类架构中任务间共享的信息（如Global Fusion Layer维护的全局记忆、Coupling Layer和Local Fusion Layer传递的隐藏状态与记忆单元信息），但完全没有提及AC-BLSTM，也没有涉及卷积阶段与循环阶段之间的信息流动，因此无法回答问题的第二部分。",
+      "cited_docs": [
+        "1707.02892.md"
+      ],
+      "judge": {
+        "correct": false,
+        "supported": false,
+        "why": "拒答判错。问题两部分均可由给定材料回答：多任务模型通过Global Fusion Layer共享全局记忆，AC-BLSTM将非对称卷积学到的短语级特征序列送入BLSTM学习长程依赖。该回答未给出AC-BLSTM部分事实。"
+      },
+      "grounded": false
+    },
+    "prompt_only": {
+      "ids": [
+        "26badbb201f1f134ce092a19791290d0",
+        "53b837cad3df32cfbfdd3dd85bbb81f1",
+        "d57fb8419c6d93efeaa930dcc45b5516",
+        "8ec42f132aa0478d83b340846585888e",
+        "8bcadc8b9653295cfd912fa1a88bc66c"
+      ],
+      "answer": "根据现有资料无法回答这个问题。  \n拒答原因：资料[1]-[5]只描述了该循环多任务文本分类架构中任务间共享/流动的信息（如各任务Single Layer的隐藏状态与记忆单元、Coupling Layer的成对直接交互、Local Fusion Layer的成对间接交互、Global Fusion Layer的全局共享记忆），但完全没有提到AC-BLSTM，也没有描述任何卷积阶段与循环阶段之间的信息流动；因此问题中关于AC-BLSTM的部分缺少可依据的事实。",
+      "cited_docs": [
+        "1707.02892.md"
+      ],
+      "judge": {
+        "correct": false,
+        "supported": false,
+        "why": "拒答判错。材料[5]提供了AC-BLSTM卷积阶段向BLSTM传递短语级特征的信息，问题可答；该回答未给出两篇论文的必要事实及比较。"
+      },
+      "grounded": false
+    },
+    "evidence_only": {
+      "ids": [
+        "26badbb201f1f134ce092a19791290d0",
+        "53b837cad3df32cfbfdd3dd85bbb81f1",
+        "d57fb8419c6d93efeaa930dcc45b5516",
+        "8ec42f132aa0478d83b340846585888e",
+        "2cc1407672713c2d112a285f7a7ed9d0"
+      ],
+      "answer": "根据资料[1]，该循环多任务文本分类器通过Global Fusion Layer维护一个在所有任务间共享信息的全局记忆（global memory for information shared among all tasks）；各任务自身的LSTM Single Layer负责任务内学习，Pair-wise Coupling Layer和Local Fusion Layer负责任务间的直接与间接交互[1]。资料[5]仅说明AC-BLSTM将非对称卷积层输出的短语级表示序列送入BLSTM以学习长程依赖，未提及卷积阶段与循环阶段之间具体流动的信息内容。",
+      "cited_docs": [
+        "1611.01884.md",
+        "1707.02892.md"
+      ],
+      "judge": {
+        "correct": false,
+        "supported": false,
+        "why": "第一部分正确（Global Fusion Layer维护所有任务共享的全局记忆），但第二部分未给出AC-BLSTM卷积到循环阶段传递短语级特征这一必要事实，仅称未提及，故整体判错。"
+      },
+      "grounded": false
+    },
+    "historical": {
+      "ids": [
+        "26badbb201f1f134ce092a19791290d0",
+        "53b837cad3df32cfbfdd3dd85bbb81f1",
+        "d57fb8419c6d93efeaa930dcc45b5516",
+        "8ec42f132aa0478d83b340846585888e",
+        "8bcadc8b9653295cfd912fa1a88bc66c"
+      ],
+      "answer": "根据现有资料无法回答这个问题。\n拒答原因：资料只描述了该多任务文本分类架构中 Global Fusion Layer 作为所有任务共享的全局记忆（global memory），以及 Coupling Layers 和 Local Fusion Layers 用于任务间直接与间接交互[1][2][4][5]；但资料完全没有提及 AC-BLSTM，也没有涉及卷积阶段与循环阶段之间的信息流动，因此无法回答问题的第二部分，也无法确认第一部分是否对应 AC-BLSTM 的共享信息。",
+      "cited_docs": [
+        "1707.02892.md"
+      ],
+      "judge": {
+        "correct": false,
+        "supported": false,
+        "why": "拒答判错。材料[5]明确说明AC-BLSTM将非对称卷积层输出的短语级表示序列送入BLSTM学习长程依赖，可回答第二部分；该回答遗漏此事实。"
+      },
+      "grounded": false
+    }
+  },
+  "swaps": 1
+}

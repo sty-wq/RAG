@@ -1,0 +1,18 @@
+{
+  "paper_read": {
+    "fact_a": false,
+    "fact_b": true,
+    "synthesis": true,
+    "verdict": "incorrect",
+    "citation": "incomplete",
+    "why": "A correctly states the ill-formed question study's finding (fact_b) and the synthesis that GEC only fixes local errors and does not meet human standards. However, for the BEA-2019 restricted track it discusses CoNLL-2014 M2 scores and error-type frequency mismatches rather than the required fact_a (1.2M pairs / 560K without identity mappings). It also does not correctly attribute the restricted-track data fact, so fact_a is false. Citations mention ids but the BEA-2019 side does not cite the passage containing the 1.2M/560K fact, making grounding incomplete."
+  },
+  "one_pass": {
+    "fact_a": false,
+    "fact_b": true,
+    "synthesis": true,
+    "verdict": "incorrect",
+    "citation": "incomplete",
+    "why": "B correctly captures the ill-formed question study's finding (fact_b: GEC slightly improves automatic metrics/preserves meaning but rewritten questions still fall short of human standards) and the synthesis that a grammatical corrector alone is insufficient. But for the BEA-2019 restricted track it only describes the purely neural system and metrics, omitting the required fact_a about 1.2M corrected/uncorrected pairs (560K without identity mappings). Thus fact_a is false and the answer is incorrect; citations are incomplete because the 1.2M/560K passage is not cited."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "answer": "The Google Translate study diagnosed gender imbalance by building sentences such as “He/She is an Engineer” in 12 gender-neutral languages (e.g., Hungarian, Chinese, Yoruba), translating them into English with the Google Translate API, and collecting statistics on the frequency of female, male, and gender-neutral pronouns in the output; it then compared these frequencies against U.S. Bureau of Labor Statistics data on women's participation in each job position, finding that GT's male defaults overestimated the real-world male share and that female pronoun frequencies under-estimated female participation [1]. The domain-adaptation study constructed a tiny, handcrafted, gender-balanced profession dataset: sentences following the template “The [PROFESSION] finished [his|her] work,” using 194 professions drawn from the list collected from US labour statistics (with field-specific adjectives removed), giving 388 sentences in a gender-balanced set, with masculine and feminine templates manually translated for each target language; it also created a no-overlap variant removing professions occurring in WinoMT (216 sentences, padded back to 388 with balanced adjective-based sentences) [2].",
+  "seconds": 2.38631400000304,
+  "input_tokens": 14245,
+  "output_tokens": 228
+}

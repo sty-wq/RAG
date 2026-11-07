@@ -1,0 +1,18 @@
+{
+  "one_pass": {
+    "fact_a": true,
+    "fact_b": true,
+    "synthesis": true,
+    "verdict": "correct",
+    "citation": "supported",
+    "why": "A states GT study compared female pronoun frequency with BLS female participation (fact_a), and the adaptation study built a gender-balanced set of 194 professions/388 sentences (fact_b), and contrasts external demographic comparison vs balanced training data (synthesis). Citations to both papers' passages support these claims."
+  },
+  "paper_read": {
+    "fact_a": true,
+    "fact_b": true,
+    "synthesis": true,
+    "verdict": "correct",
+    "citation": "supported",
+    "why": "B describes GT method (gender-neutral language sentences, pronoun frequency, BLS comparison showing underestimation) and the domain-adaptation handcrafted set (194 professions, 388 sentences, template, no-overlap variant). Both facts and the synthesis (external demographic comparison vs balanced training set) are present and correctly attributed, with valid citations to both papers."
+  }
+}

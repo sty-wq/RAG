@@ -1,0 +1,17 @@
+{
+  "model_load_seconds_including_download": 43.45269969399999,
+  "sanity_scores": [
+    7.625,
+    -11.1796875
+  ],
+  "warmup_queries": 2,
+  "parameter_count": 595776512,
+  "pending_qids": [
+    "1912.00342-q02",
+    "2003.03728-q04",
+    "cross100-2p-001",
+    "cross100-2p-002",
+    "cross100-3p-001",
+    "cross100-3p-002"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "paper_read": {
+    "fact_a": true,
+    "fact_b": true,
+    "synthesis": true,
+    "verdict": "correct",
+    "citation": "supported",
+    "why": "A states GameWikiSum uses Wikipedia gameplay sections as targets restricted to gameplay mechanics [1], and contracts corpus uses first author with 3 years contract drafting experience to select most informative summary among alternatives [2]; synthesis (section standardization vs expert selection) is present. Citations point to valid passages supporting each claim."
+  },
+  "one_pass": {
+    "fact_a": true,
+    "fact_b": false,
+    "synthesis": false,
+    "verdict": "incorrect",
+    "citation": "incomplete",
+    "why": "B correctly describes GameWikiSum gameplay-section targets and matching rules, but for contracts it only says summaries were reviewed by the experienced first author and explicitly denies knowing how a target is retained; it omits the expert selection of the most informative summary among alternatives, so fact_b and synthesis fail. Citations for contracts do not support the selection mechanism."
+  }
+}

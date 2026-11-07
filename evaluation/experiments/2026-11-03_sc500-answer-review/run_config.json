@@ -1,0 +1,15 @@
+{
+  "questions": "dd195806c43aabe7c08658a5fd3eed7f5ef8462d79baccd28cbc758a1f1fb4a7",
+  "index_meta": "f67028f64624e8e97f13a49c46ed3a613d5a0ba08fa2a2a31a307351beb7648a",
+  "base": "https://api.quickrouter.ai/v1",
+  "model": "deepseek-v4-flash-vision-exp",
+  "embedding": "text-embedding-3-small",
+  "candidate_k": 50,
+  "k": 5,
+  "files": {
+    "answer.py": "db5864c24af05da28b0d89384d20da0f43cde2b2e6a39ef9f2e2570eeeac6a9e",
+    "reranker.py": "33797b93b348fd22186d72453b09d783f5e1a8a50002556cf22fc282e14b5ee9",
+    "retrieval.py": "fa54a348fa13e866e18b4251339ffeb453fbdaeb406edbfd377f0d19e540f958"
+  },
+  "evaluator": "4193f88b4930010833c039075eff875c09470c369d0d4dbda9834309a1683cde"
+}

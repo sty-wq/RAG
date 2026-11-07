@@ -1,0 +1,18 @@
+{
+  "one_pass": {
+    "fact_a": true,
+    "fact_b": true,
+    "synthesis": true,
+    "verdict": "correct",
+    "citation": "supported",
+    "why": "A states Audio Word2Vec can sometimes omit target-language fine-tuning (STD performance without fine-tuning as good as with) and cites [47]; states language-vector optimization improved cross-entropy 1.39→1.35 from Modern English init and cites [22]. Synthesis correctly contrasts omission vs benefit under different evaluations. Citations point to valid passages in both papers."
+  },
+  "paper_read": {
+    "fact_a": true,
+    "fact_b": true,
+    "synthesis": true,
+    "verdict": "correct",
+    "citation": "supported",
+    "why": "B states Audio Word2Vec without fine-tuning can match fine-tuned STD performance and cites [1] (paper passage includes this); states 32-sentence language-vector optimization improved cross-entropy 1.39→1.35 and cites [2] (paper passage includes this). Synthesis correctly contrasts the two reliance patterns. Citations are to valid source passages supporting each claim."
+  }
+}

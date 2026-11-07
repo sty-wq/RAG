@@ -1,0 +1,41 @@
+{
+  "qid": "1909.00786-q01",
+  "review_index": 1,
+  "source_sha256": {
+    "/Users/bia/Documents/Codex/2026-11-02/wo/outputs/singlepaper-error-review-20261107/分类审核/重点审核_139题_逐题审核表.csv": "0757e95dd92969b0fb4a19c30a6fbb88470775ae1fee669eff07b140cc0c594d",
+    "/Users/bia/Documents/Codex/2026-11-02/wo/outputs/qasper-500/questions_ready_500.jsonl": "dd195806c43aabe7c08658a5fd3eed7f5ef8462d79baccd28cbc758a1f1fb4a7",
+    "/Users/bia/Documents/Codex/2026-11-02/wo/outputs/qwen3-reranker-baseline/score.py": "e02d8da3e27ec4eb1c007bfcdb9bec9be16ee7257ae3f88a28c8c4b69498a2f9",
+    "/Users/bia/PycharmProjects/PythonProject5/evaluation/data/qasper/corpus/1909.00786.md": "c20d73db516bf47ff838ca9d3364637cc11302b6b7beffbb21fb5879958bded5",
+    "/Users/bia/Documents/Codex/2026-11-02/wo/outputs/sc500-answer-review/items/1909.00786-q01/pool.json": "c4f6a1bbc43744e279c08ee65c33bc5d90cb91a8726396e7148d3cbfa710f7cb",
+    "/Users/bia/Documents/Codex/2026-11-02/wo/outputs/qwen3-reranker-baseline/results/full-06b/items/1909.00786-q01.json": "31655737bbb5fda3c5907a89c2673571ec292b24b7af7127ad915a4949947359"
+  },
+  "label_counts": {
+    "no": 44,
+    "uncertain": 4,
+    "yes": 2
+  },
+  "demo_counts": {
+    "yes": 2,
+    "no": 8
+  },
+  "review_status": "assistant_review_pending_user",
+  "split": "demo_unassigned",
+  "training_performed": false,
+  "source_files_unchanged": true,
+  "tokenizer_or_trainer_validation_performed": false,
+  "verification": [
+    "50 unique saved candidates",
+    "original query and candidate text preserved",
+    "10 examples have only yes/no targets",
+    "prompt constants copied from current score.py",
+    "JSONL roundtrip passed",
+    "all source hashes unchanged"
+  ],
+  "outputs_sha256": {
+    "SFT示例_10条_含溯源.jsonl": "ef6ab45b12029e10ec14e017bfa3058023919c0bd8ab19195869fe34378553a0",
+    "问题与原始参考.json": "39a9df030dd61368e41b6d58a394e4857d00fbcbae254966c4016d41b4f3638d",
+    "第一题_正负例判断与SFT示范.md": "f863f4f62c9bdba3615f738c6a3390687846a54f148db76962cbe5303c29b807",
+    "候选50段_逐段审核.jsonl": "faeac6359a020aec4c8196c76eece6ec08973396bf86d5b9e79a1489cfb0eb4b",
+    "SFT示例_10条_prompt_completion.jsonl": "30cbf9f19b5a5e588a1d976fe27fae1ad26132609d05849c29d8d022900f3d93"
+  }
+}

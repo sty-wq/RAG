@@ -1,0 +1,77 @@
+{
+  "source_sha256": "3c364abd8270f60ce130c26ab9a695e9990f5fab90e28b55af8824e38fc30333",
+  "files": [
+    {
+      "key": "D1",
+      "name": "D1_未找到正确论文_1题.csv",
+      "questions": 1,
+      "data_rows": 51,
+      "sha256": "f574e57a899045d622f93c1a92f49e9c70e89a16a44ca3ba89122c839ae6997c",
+      "bytes": 75057
+    },
+    {
+      "key": "D2",
+      "name": "D2_找到论文但无标注证据_7题.csv",
+      "questions": 7,
+      "data_rows": 367,
+      "sha256": "e76e0d17ecd66544db9d1263616c5b6328dcecacedd68a13a7ef933d278409ee",
+      "bytes": 597100
+    },
+    {
+      "key": "D3",
+      "name": "D3_找到论文但证据不完整_11题.csv",
+      "questions": 11,
+      "data_rows": 631,
+      "sha256": "ee48b7691a0f07aebfcbf68a99355d78a87bea299d85fd7eaa975f43a0a2aaed",
+      "bytes": 1250101
+    },
+    {
+      "key": "D4",
+      "name": "D4_候选证据齐全_384题.csv",
+      "questions": 384,
+      "data_rows": 20161,
+      "sha256": "b36b1d8724c22aced35496a119782eaffcbf800f190270965a423432d5ea4ce1",
+      "bytes": 34049890
+    },
+    {
+      "key": "R1",
+      "name": "R1_前5条完全未命中_152题.csv",
+      "questions": 152,
+      "data_rows": 7954,
+      "sha256": "5aaefae925723802388d533a23c7c0859733af558d2e163c542fe2fe82f90882",
+      "bytes": 13385869
+    },
+    {
+      "key": "R2",
+      "name": "R2_前5条证据不完整_53题.csv",
+      "questions": 53,
+      "data_rows": 2887,
+      "sha256": "f518cda70ad55f682f55210e84db7abfbbe050ad96640b79c10b34749a165a46",
+      "bytes": 5067583
+    },
+    {
+      "key": "R3",
+      "name": "R3_前5条证据齐全但首条未命中_179题.csv",
+      "questions": 179,
+      "data_rows": 9320,
+      "sha256": "2b3b142137fbf0598589642083c588e7a03a00fa92f1266516036ccfac4e4110",
+      "bytes": 15597814
+    },
+    {
+      "key": "focus",
+      "name": "重点审核_139题_完整段落明细.csv",
+      "questions": 139,
+      "data_rows": 7319,
+      "sha256": "edf5d48f3c289dcf365e59345492fb1ac7693a9a156a912bec211753fe5897b5",
+      "bytes": 12949659
+    },
+    {
+      "key": "review",
+      "name": "重点审核_139题_逐题审核表.csv",
+      "questions": 139,
+      "data_rows": 139,
+      "sha256": "0757e95dd92969b0fb4a19c30a6fbb88470775ae1fee669eff07b140cc0c594d",
+      "bytes": 285601
+    }
+  ]
+}

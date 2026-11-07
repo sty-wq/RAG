@@ -1,0 +1,6 @@
+{
+  "answer": "根据资料[1]，HotPotQA 提供句级 ground-truth 标签来定位文档列表中的 supporting facts；该研究利用这些标签训练 answer-aware supporting facts prediction 辅助任务，并以 ground-truth supporting facts 与预测 supporting facts 之间的 F1 作为 MultiHop-Enhanced Reward，同时用 ground-truth 问题计算 Rouge-L 奖励。[1] 资料[2] 的 Freebase 方法则主要依靠人工构建问题模板，并用人工评分评估生成问题；其唯一人工劳动是问题模板构建，不依赖大规模人工标注的问题—三元组对。[2]",
+  "seconds": 2.2041986250551417,
+  "input_tokens": 9350,
+  "output_tokens": 126
+}

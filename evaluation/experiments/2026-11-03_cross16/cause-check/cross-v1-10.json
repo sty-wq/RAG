@@ -1,0 +1,87 @@
+{
+  "qid": "cross-v1-10",
+  "question": "In the multilingual tweet annotation study and the time-ordered Twitter sentiment evaluation, what was repeated or held out, and which source of evaluation uncertainty did each design address?",
+  "conditions": {
+    "replay": {
+      "ids": [
+        "f268f3c93b06a6af97c0368c6228b6f5",
+        "2d4060c8794bcbdb9e0a1984f11ef02d",
+        "8190dd2ae5b56ff228ba55259b6f166b",
+        "d29999d8ba1457bfe39494e23ec338a3",
+        "1b183e930929d3ed662e2f5c30085a4f"
+      ],
+      "answer": "In the multilingual tweet annotation study, about 15% of tweets were intentionally duplicated to be annotated twice, either by the same annotator or by two different annotators; from multiple annotations by the same annotator the authors computed self-agreement, and from multiple annotations by different annotators they computed inter-annotator agreement, with confidence intervals estimated by bootstrapping [1]. In the time-ordered Twitter sentiment evaluation work, the authors addressed the issue of dependent observations for blocked cross-validation by removing adjacent observations between the training and test sets, effectively creating a gap between the two [4]; they also note that they focus on longer-term time-dependence between the training and test sets and completely ignore finer-scale dependence at the level of individual tweets (e.g., retweets and replies) [5]. Separately, in the multilingual study's classification experiments, blocked, stratified, 10-fold cross-validation was applied in all experiments [2], and in its language datasets analyses the labeled sets were ordered by tweet post time, increased by 10,000 tweets at each stage, with 10-fold cross-validation performed after each stage [3].",
+      "cited_docs": [
+        "1602.07563.md",
+        "1803.05160.md"
+      ],
+      "judge": {
+        "correct": false,
+        "supported": false,
+        "why": "第一项正确（15%重复标注、self-agreement与inter-annotator agreement）。但第二项未给出时间有序评估的关键事实：138对in-sets/out-sets、在每个in-set上训练并在out-set上测样本外性能；X只讲移除相邻观测和忽略细粒度依赖，未回答held out了什么及对应评估不确定性，故比较错误。"
+      },
+      "grounded": false
+    },
+    "prompt_only": {
+      "ids": [
+        "f268f3c93b06a6af97c0368c6228b6f5",
+        "2d4060c8794bcbdb9e0a1984f11ef02d",
+        "8190dd2ae5b56ff228ba55259b6f166b",
+        "d29999d8ba1457bfe39494e23ec338a3",
+        "1b183e930929d3ed662e2f5c30085a4f"
+      ],
+      "answer": "**多语言推文标注研究**：约15%的推文被有意重复，交由同一标注者或两位不同标注者再次标注，用于计算同一标注者的自我一致性和不同标注者之间的标注者间一致性，置信区间通过自助法估计[1]。该设计针对的是**人工标注本身的不确定性/标注一致性**。\n\n**时间序列推文情感评估研究**：采用分块、分层、10折交叉验证，并在所有实验中使用[2]；相关结论还提到，为处理依赖观测问题，分块交叉验证会移除训练集与测试集之间的相邻观测，从而在两者之间形成间隔[4]。该设计针对的是**时间有序推文数据中训练与测试观测不独立所导致的评估偏差/性能高估风险**[4][5]。\n\n**两者关系**：前者通过重复标注来度量并处理**标注来源的不确定性**，后者通过分块交叉验证和移除相邻观测来缓解**时间依赖导致的评估不确定性**；二者分别对应标注质量与评估程序两个不同环节[1][2][4]。",
+      "cited_docs": [
+        "1602.07563.md",
+        "1803.05160.md"
+      ],
+      "judge": {
+        "correct": false,
+        "supported": false,
+        "why": "第一项正确（15%重复标注及一致性度量）。第二项错误：未提及138对in-sets/out-sets及在每个in-set训练、在out-set测样本外性能这一核心设计，而答成blocked stratified 10-fold交叉验证与移除相邻观测，未正确说明held out内容与所针对的评估不确定性。"
+      },
+      "grounded": false
+    },
+    "evidence_only": {
+      "ids": [
+        "f268f3c93b06a6af97c0368c6228b6f5",
+        "2d4060c8794bcbdb9e0a1984f11ef02d",
+        "8190dd2ae5b56ff228ba55259b6f166b",
+        "d29999d8ba1457bfe39494e23ec338a3",
+        "884cceb03c2cf218ce25fb2cbd6173a8"
+      ],
+      "answer": "In the multilingual tweet annotation study, about 15% of tweets were intentionally duplicated to be annotated twice, either by the same annotator or by two different annotators; multiple annotations by the same annotator were used to compute self-agreement, and multiple annotations by different annotators were used to compute inter-annotator agreement, with confidence intervals estimated by bootstrapping [1]. In the time-ordered Twitter sentiment evaluation, the language datasets were partitioned into 138 in-sets and corresponding out-sets; for each in-set a TwoPlaneSVMbin model was trained and its performance measured on the corresponding out-set, and the study's goal was to analyze how well different estimation procedures approximate the out-set gold standard results [5]. The evaluation used blocked, stratified, 10-fold cross-validation in all experiments [2], and the issue of dependent observations was addressed for blocked cross-validation by removing adjacent observations between the training and test sets, creating a gap between the two [4].",
+      "cited_docs": [
+        "1602.07563.md",
+        "1803.05160.md"
+      ],
+      "judge": {
+        "correct": true,
+        "supported": true,
+        "why": "Z同时给出两篇论文必要事实：多语言标注研究约15%推文被有意重复，由同一或不同标注者二次标注，计算self-agreement与inter-annotator agreement，针对标注一致性/标注不确定性；时间有序评估将语言数据集划分为138对in-sets与out-sets，在每个in-set上训练TwoPlaneSVMbin并在对应out-set上测性能，用于分析估计程序对out-set金标准的近似程度，针对样本外/held-out评估不确定性。两侧核心事实均有有效材料支持，比较正确。"
+      },
+      "grounded": true
+    },
+    "historical": {
+      "ids": [
+        "f268f3c93b06a6af97c0368c6228b6f5",
+        "2d4060c8794bcbdb9e0a1984f11ef02d",
+        "8190dd2ae5b56ff228ba55259b6f166b",
+        "d29999d8ba1457bfe39494e23ec338a3",
+        "1b183e930929d3ed662e2f5c30085a4f"
+      ],
+      "answer": "在 multilingual tweet annotation study 中，约15%的推文被有意重复，交由同一标注者或两位不同标注者再次标注，用于计算 self-agreement 和 inter-annotator agreement，并估计标注一致性；这针对的是标注者一致性/标注不确定性。[1] 在 time-ordered Twitter sentiment evaluation 中，采用 blocked、stratified、10-fold cross-validation，并在所有实验中使用；相关讨论还提到通过移除训练集与测试集之间的相邻观测来制造间隔，以处理依赖观测问题；这针对的是时间有序数据中数据独立性被违反所带来的评估不确定性。[2][4]",
+      "cited_docs": [
+        "1602.07563.md",
+        "1803.05160.md"
+      ],
+      "judge": {
+        "correct": false,
+        "supported": false,
+        "why": "第一项正确（约15%推文重复标注，计算self-agreement与inter-annotator agreement，针对标注一致性）。但第二项错误：时间有序评估的核心设计是形成138对in-sets/out-sets，在每个in-set上训练分类器并在对应out-set上测样本外性能，针对的是评估程序能否反映held-out数据表现；W却答成blocked stratified 10-fold交叉验证和移除相邻观测，未给出138配对in/out设计，故事实与比较均不正确。"
+      },
+      "grounded": false
+    }
+  },
+  "swaps": 1
+}

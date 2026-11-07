@@ -1,0 +1,14 @@
+{
+  "0.6b": {
+    "pairs": 29650,
+    "truncated": 0,
+    "max_tokens": 484,
+    "official_protocol_parity": true
+  },
+  "4b": {
+    "pairs": 29650,
+    "truncated": 0,
+    "max_tokens": 484,
+    "official_protocol_parity": true
+  }
+}

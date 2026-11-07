@@ -1,0 +1,18 @@
+{
+  "one_pass": {
+    "fact_a": true,
+    "fact_b": true,
+    "synthesis": true,
+    "verdict": "correct",
+    "citation": "supported",
+    "why": "A states HotPotQA provides sentence-level ground-truth supporting-fact labels [4] and Freebase approach's human labor is template construction (106 templates) [28], plus notes limited human work to templates [14]. Both facts and the contrast (evidence locations vs templates) are present and correctly attributed; citations point to valid passages."
+  },
+  "paper_read": {
+    "fact_a": true,
+    "fact_b": true,
+    "synthesis": true,
+    "verdict": "correct",
+    "citation": "supported",
+    "why": "B states HotPotQA provides sentence-level ground-truth labels for supporting facts and uses them for the auxiliary prediction task/reward [1], and that the Freebase method's only human labor is question-template construction [2]. Both facts and the synthesis contrast are correctly attributed with valid source passages."
+  }
+}

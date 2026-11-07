@@ -1,0 +1,200 @@
+{
+  "historical1309": {
+    "n": 1309,
+    "hit@1": 0.2613,
+    "hit@3": 0.479,
+    "hit@5": 0.6188,
+    "hit@10": 0.7754,
+    "recall@1": 0.223,
+    "recall@3": 0.429,
+    "recall@5": 0.5597,
+    "recall@10": 0.723,
+    "mrr": 0.4083,
+    "doc_hit@1": 0.9939,
+    "doc_hit@5": 0.9992
+  },
+  "single500": {
+    "dense": {
+      "n": 500,
+      "retrieval": {
+        "hit@1": 0.222,
+        "recall@1": 0.1923517730496454,
+        "all_evidence@1": 0.17,
+        "hit@5": 0.606,
+        "recall@5": 0.5430308302808303,
+        "all_evidence@5": 0.49,
+        "hit@10": 0.79,
+        "recall@10": 0.7225911477411477,
+        "all_evidence@10": 0.662,
+        "hit@50": 0.984,
+        "recall@50": 0.9742299283154122,
+        "all_evidence@50": 0.962,
+        "mrr@5": 0.36243333333333333,
+        "mrr@10": 0.3870801587301587
+      },
+      "correct": 229,
+      "correct_strict": 228,
+      "correct_and_supported": 224,
+      "answer_evidence_coverage": null,
+      "coverage_reason": "not measured in saved500 experiment"
+    },
+    "rerank": {
+      "n": 500,
+      "retrieval": {
+        "hit@1": 0.73,
+        "recall@1": 0.6444277777777778,
+        "all_evidence@1": 0.574,
+        "hit@5": 0.934,
+        "recall@5": 0.9006992063492063,
+        "all_evidence@5": 0.86,
+        "mrr@5": 0.8114666666666667
+      },
+      "correct": 403,
+      "correct_strict": 401,
+      "correct_and_supported": 402,
+      "answer_evidence_coverage": null,
+      "coverage_reason": "not measured in saved500 experiment"
+    }
+  },
+  "cross93": {
+    "two": {
+      "n": 85,
+      "dense_retrieval": {
+        "hit@1": 0.16470588235294117,
+        "recall@1": 0.08235294117647059,
+        "all_evidence@1": 0,
+        "hit@5": 0.5529411764705883,
+        "recall@5": 0.3,
+        "all_evidence@5": 0.047058823529411764,
+        "hit@10": 0.7294117647058823,
+        "recall@10": 0.4647058823529412,
+        "all_evidence@10": 0.2,
+        "hit@50": 0.9764705882352941,
+        "recall@50": 0.8705882352941177,
+        "all_evidence@50": 0.7647058823529411,
+        "mrr@5": 0.30392156862745096,
+        "mrr@10": 0.32712885154061627
+      },
+      "all_docs_in_pool": 84,
+      "mean_pool_doc_recall": 0.9941176470588236,
+      "gold_matching_disagrees_with_seed_ids": 0,
+      "one_pass": {
+        "context_evidence_hit": 0.9764705882352941,
+        "context_evidence_recall": 0.8705882352941177,
+        "context_all_evidence": 0.7647058823529411,
+        "context_all_docs": 0.9882352941176471,
+        "correct": 0.9529411764705882,
+        "grounded": 0.9294117647058824,
+        "answer_evidence_coverage": 0.8973389355742297,
+        "all_answer_points_supported": 0.7176470588235294
+      },
+      "paper_read": {
+        "context_evidence_hit": 1,
+        "context_evidence_recall": 0.9882352941176471,
+        "context_all_evidence": 0.9764705882352941,
+        "context_all_docs": 0.9764705882352941,
+        "correct": 0.9882352941176471,
+        "grounded": 0.9647058823529412,
+        "answer_evidence_coverage": 0.9184313725490196,
+        "all_answer_points_supported": 0.7294117647058823
+      }
+    },
+    "three": {
+      "n": 8,
+      "dense_retrieval": {
+        "hit@1": 0.125,
+        "recall@1": 0.041666666666666664,
+        "all_evidence@1": 0,
+        "hit@5": 0.375,
+        "recall@5": 0.16666666666666666,
+        "all_evidence@5": 0,
+        "hit@10": 0.5,
+        "recall@10": 0.20833333333333331,
+        "all_evidence@10": 0,
+        "hit@50": 0.875,
+        "recall@50": 0.6666666666666666,
+        "all_evidence@50": 0.375,
+        "mrr@5": 0.19166666666666665,
+        "mrr@10": 0.20729166666666665
+      },
+      "all_docs_in_pool": 7,
+      "mean_pool_doc_recall": 0.9583333333333334,
+      "gold_matching_disagrees_with_seed_ids": 0,
+      "one_pass": {
+        "context_evidence_hit": 0.875,
+        "context_evidence_recall": 0.6666666666666666,
+        "context_all_evidence": 0.375,
+        "context_all_docs": 0.875,
+        "correct": 0.75,
+        "grounded": 0.75,
+        "answer_evidence_coverage": 0.740625,
+        "all_answer_points_supported": 0.5
+      },
+      "paper_read": {
+        "context_evidence_hit": 1,
+        "context_evidence_recall": 0.9583333333333334,
+        "context_all_evidence": 0.875,
+        "context_all_docs": 0.875,
+        "correct": 0.875,
+        "grounded": 0.875,
+        "answer_evidence_coverage": 0.8375,
+        "all_answer_points_supported": 0.75
+      }
+    },
+    "all": {
+      "n": 93,
+      "dense_retrieval": {
+        "hit@1": 0.16129032258064516,
+        "recall@1": 0.07885304659498207,
+        "all_evidence@1": 0,
+        "hit@5": 0.5376344086021505,
+        "recall@5": 0.2885304659498208,
+        "all_evidence@5": 0.043010752688172046,
+        "hit@10": 0.7096774193548387,
+        "recall@10": 0.44265232974910396,
+        "all_evidence@10": 0.1827956989247312,
+        "hit@50": 0.967741935483871,
+        "recall@50": 0.8530465949820788,
+        "all_evidence@50": 0.7311827956989247,
+        "mrr@5": 0.2942652329749104,
+        "mrr@10": 0.31682027649769584
+      },
+      "all_docs_in_pool": 91,
+      "mean_pool_doc_recall": 0.9910394265232975,
+      "gold_matching_disagrees_with_seed_ids": 0,
+      "one_pass": {
+        "context_evidence_hit": 0.967741935483871,
+        "context_evidence_recall": 0.8530465949820788,
+        "context_all_evidence": 0.7311827956989247,
+        "context_all_docs": 0.978494623655914,
+        "correct": 0.9354838709677419,
+        "grounded": 0.9139784946236559,
+        "answer_evidence_coverage": 0.883858166922683,
+        "all_answer_points_supported": 0.6989247311827957
+      },
+      "paper_read": {
+        "context_evidence_hit": 1,
+        "context_evidence_recall": 0.985663082437276,
+        "context_all_evidence": 0.967741935483871,
+        "context_all_docs": 0.967741935483871,
+        "correct": 0.978494623655914,
+        "grounded": 0.956989247311828,
+        "answer_evidence_coverage": 0.9114695340501792,
+        "all_answer_points_supported": 0.7311827956989247
+      }
+    }
+  },
+  "definitions": {
+    "single": "original Qasper covers, max recall among annotator groups",
+    "cross": "one required fact quote per paper, file-scoped whitespace-normalized exact containment; verified identical to supporting_chunk_ids on all93 pools",
+    "answer_evidence_coverage": "mean per-question supported required points / required points; cached LLM audit",
+    "mrr5": "reciprocal rank of first marked evidence within5; does not measure multi-paper completeness"
+  },
+  "missing": [
+    "500 answer_evidence_coverage",
+    "93 dense-top5 answer correctness/coverage baseline",
+    "500 final paper_read evaluation",
+    "500 rerank top10/50 ranked output"
+  ],
+  "calls": 0
+}

@@ -1,0 +1,18 @@
+{
+  "one_pass": {
+    "fact_a": true,
+    "fact_b": true,
+    "synthesis": true,
+    "verdict": "correct",
+    "citation": "supported",
+    "why": "A states SAMSum gives one expert-written reference summary per dialogue at whole-dialogue granularity (cited to SAMSum passage) and Interview gives per-turn speaker-role annotations (cited to Interview passages). It also correctly links the two granularities (whole-conversation summary vs per-turn role). Extra SAMSum speaker-name detail is accurate and not a material error. Citations point to valid passages in both papers supporting each claim."
+  },
+  "paper_read": {
+    "fact_a": true,
+    "fact_b": true,
+    "synthesis": true,
+    "verdict": "correct",
+    "citation": "supported",
+    "why": "B states SAMSum provides abstractive summaries, one per dialogue, at whole-dialogue granularity, and Interview provides per-turn speaker-role annotations at turn granularity, correctly attributing each. Citations reference valid passages from both papers (SAMSum corpus description; Interview abstract/introduction/tasks) supporting the claims. No attribution swap or material error."
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "qid": "cross-v1-24",
+  "question": "How do BAE and the subjective-bias neutralization model decide which textual changes to allow when editing a sentence?",
+  "conditions": {
+    "replay": {
+      "ids": [
+        "08ca3d01631e620246d63c965d463bef",
+        "533f09e846a0cf2aaaaf7abdc9124c6e",
+        "4cf962556e19c5344d27fd8bdbd4ebff",
+        "740cc9fa3663d6fc0573823b26308dd8",
+        "08c728a9cf31b908ed01b5313704d197"
+      ],
+      "answer": "根据现有资料无法回答这个问题。  \n拒答原因：资料只涉及主观偏见中性化模型（MODULAR）的检测与编辑模块如何通过检测器输出概率和 join embedding 控制编辑，以及其检测模块用源文本与目标文本差异训练、将删除或修改的词标为 1 [1][2][3][4]；资料中没有关于 BAE 如何决定允许哪些文本修改的内容，也没有 BAE 与主观偏见中性化模型在“允许编辑”规则上的对照说明。",
+      "cited_docs": [
+        "1911.09709.md"
+      ],
+      "judge": {
+        "correct": false,
+        "supported": false,
+        "why": "拒答判错。Z未给出BAE事实，也未进行两模型比较。"
+      },
+      "grounded": false
+    },
+    "prompt_only": {
+      "ids": [
+        "08ca3d01631e620246d63c965d463bef",
+        "533f09e846a0cf2aaaaf7abdc9124c6e",
+        "4cf962556e19c5344d27fd8bdbd4ebff",
+        "740cc9fa3663d6fc0573823b26308dd8",
+        "08c728a9cf31b908ed01b5313704d197"
+      ],
+      "answer": "根据现有资料无法回答这个问题。  \n拒答原因：资料[1]–[5]只涉及主观偏见中性化模型（MODULAR）的检测模块、联合嵌入控制与微调方式，能确认其检测模块为每个输入词估计主观偏见概率[3]，并用该概率门控联合嵌入以影响编辑模块[1]，且用户也可输入指定分布来强制模型针对特定词改写[5]；但全部资料均未提及BAE，也没有说明BAE如何决定允许哪些文本改动，因此无法对BAE与主观偏见中性化模型两者如何决定可允许的文本改动作出有依据的回答。",
+      "cited_docs": [
+        "1911.09709.md"
+      ],
+      "judge": {
+        "correct": false,
+        "supported": false,
+        "why": "拒答判错。X未提供BAE的必要事实，也未完成两模型比较。"
+      },
+      "grounded": false
+    },
+    "evidence_only": {
+      "ids": [
+        "08ca3d01631e620246d63c965d463bef",
+        "533f09e846a0cf2aaaaf7abdc9124c6e",
+        "4cf962556e19c5344d27fd8bdbd4ebff",
+        "740cc9fa3663d6fc0573823b26308dd8",
+        "f5eeb2485dbcf41abca485e974a7e0a7"
+      ],
+      "answer": "BAE 在引入扰动时，为保证语义相似性，会用 Universal Sentence Encoder（USE）的句子相似度评分器过滤 BERT-MLM 预测的 top K 掩码 token；对于 R 操作，还会额外检查语法正确性，过滤掉与原 token 词性（POS）不同的预测 token，再从过滤后的集合中选择最能攻击模型的 token [5]。主观偏见中性化模型则在检测与编辑模块预训练后，将二者联合端到端微调，通过一种新的 join embedding 机制让检测器控制编辑器：将同一个向量 v 加到编辑模块每个编码器隐藏状态上，并以检测器输出概率 p 作为门控 [1]；这样 v 会丰富检测器识别为主观的词的隐藏状态，告诉解码器哪些语言应被更改、哪些可安全复制，错误信号可回流到编码器和检测器 [2]。微调时使用 token 加权损失，将中性化词（即仅出现在目标文本 t 中的词）的损失按因子 α 缩放 [2]。检测模块预训练时，用源文本与目标文本的 diff 定义标签：若源词在去偏过程中被删除或修改则标签为 1，若同时出现在源和目标文本中则标签为 0 [4]。",
+      "cited_docs": [
+        "1911.09709.md",
+        "2004.01970.md"
+      ],
+      "judge": {
+        "correct": true,
+        "supported": true,
+        "why": "Y正确给出BAE用USE句子相似度过滤BERT-MLM候选并用词性兼容性检查替换，且中性化模型用检测器识别的subjective词通过join embedding门控告知解码器哪些改哪些复制；两侧核心事实均有有效材料引用，比较正确。"
+      },
+      "grounded": true
+    },
+    "historical": {
+      "ids": [
+        "08ca3d01631e620246d63c965d463bef",
+        "533f09e846a0cf2aaaaf7abdc9124c6e",
+        "4cf962556e19c5344d27fd8bdbd4ebff",
+        "740cc9fa3663d6fc0573823b26308dd8",
+        "08c728a9cf31b908ed01b5313704d197"
+      ],
+      "answer": "根据现有资料无法回答这个问题。  \n拒答原因：资料只涉及主观偏见中性化模型（MODULAR）的检测与编辑模块如何通过检测器输出概率和 join embedding 控制编辑，以及如何用源文本与目标文本的差异训练检测模块[1][2][4][5]；资料中没有关于 BAE 如何决定允许哪些文本修改的内容，也没有 BAE 与该中性化模型在“允许哪些编辑”上的方法说明。",
+      "cited_docs": [
+        "1911.09709.md"
+      ],
+      "judge": {
+        "correct": false,
+        "supported": false,
+        "why": "拒答判错。问题要求比较两篇论文，W未给出BAE事实，也未做比较。"
+      },
+      "grounded": false
+    }
+  },
+  "swaps": 1
+}

@@ -1,0 +1,3444 @@
+[
+  {
+    "qid": "1611.06322-q02",
+    "question": "In the paper \"Spotting Rumors via Novelty Detection\", what is their evaluation metric?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "9b9c61b7cf97397793f2a3dfa58c055a"
+    ],
+    "hybrid_top5": [
+      "39c2dec31d5fd55d928a9b42cf15b30e",
+      "f2b91bc388b74900d330d828645d4717",
+      "45220cbef5fd3ec4fda6e92e5ee17452",
+      "0e0fd3aa39705ce4f2f8b3473a61b030",
+      "2443672322866092253178be4b2bf39d"
+    ]
+  },
+  {
+    "qid": "1611.06322-q03",
+    "question": "In the paper \"Spotting Rumors via Novelty Detection\", are their methods fully supervised?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "3d087a5ca589630d09ad2f40aa12e9fd"
+    ],
+    "hybrid_top5": [
+      "39c2dec31d5fd55d928a9b42cf15b30e",
+      "f2b91bc388b74900d330d828645d4717",
+      "45220cbef5fd3ec4fda6e92e5ee17452",
+      "71ec47cad08ec5bf0cc4fe35db6d2e60",
+      "2443672322866092253178be4b2bf39d"
+    ]
+  },
+  {
+    "qid": "1905.00840-q03",
+    "question": "In the paper \"Knowledge Authoring and Question Answering with KALM\", what dataset did they evaluate on?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "b4959db91bd77f75eedf9c06d3fa342d",
+      "1ff7ef48efbfe0786e6ed8516d7a1e67"
+    ],
+    "hybrid_top5": [
+      "12bd6393ee4e793dfd407842efcd17d0",
+      "c1f0518f8898df7ec6d7624e02ce124e",
+      "4d658e14b4ca752f8f50ceb8022b65ef",
+      "3049f28308e4b3149b4766d5d9389e55",
+      "69aeb2c4881419fa2d252e212c9c64c2"
+    ]
+  },
+  {
+    "qid": "1810.02229-q02",
+    "question": "In the paper \"Italian Event Detection Goes Deep Learning\", what are the baselines this paper uses?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "c67e707a9d4971999f87b6fd14c41cd3"
+    ],
+    "hybrid_top5": [
+      "ca84c50e841fe496179471835457bccb",
+      "d650a3d3247138cadc6bf30c58e8a6e1",
+      "8b73f3f4102430b9cd4e4cce098274bc",
+      "1540a021fa478760dc206f78edfc82db",
+      "1a0c78ae779ec782aa39752456bd5306"
+    ]
+  },
+  {
+    "qid": "1909.04387-q02",
+    "question": "In the paper \"A Crowd-based Evaluation of Abuse Response Strategies in Conversational Agents\", how much data did they gather from crowdsourcing?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "6317007d8ed61774764405c77df30c77"
+    ],
+    "hybrid_top5": [
+      "685347e741fedcc2b393f5146741c674",
+      "6be11c437b56b13c0320c0a86035d832",
+      "c91a7762195f5e65dae458195f2dbcb1",
+      "8f9ddd8c298db236f4c8f427e8335d16",
+      "bddcbf99e8a8713544a49cabd29e7c67"
+    ]
+  },
+  {
+    "qid": "2003.13016-q01",
+    "question": "In the paper \"A Dataset of German Legal Documents for Named Entity Recognition\", was the automatic annotation evaluated?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "3cfd60c1998d202111c426fa098b8dbd"
+    ],
+    "hybrid_top5": [
+      "e18c70f74a5bd4c953279cfe1d58fc3a",
+      "3c7ab1c1e5126aaf2f20d99044b34787",
+      "a06f3c64bae760ff07c8404e60716478",
+      "94d7c76dc5db80ea486dd2750c82c5c7",
+      "cd6e013c1fe07d18116c170116199672"
+    ]
+  },
+  {
+    "qid": "1708.05521-q03",
+    "question": "In the paper \"EmoAtt at EmoInt-2017: Inner attention sentence embedding for Emotion Intensity\", what was the baseline?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "619651c21134adf1c5a365f64bbb9a7e"
+    ],
+    "hybrid_top5": [
+      "788560634171e84b92111fbb1f139ad1",
+      "c65fe6f44d60abb14ec02a2b9b68cc70",
+      "f123350fe265bf085d17ab37bd0f0216",
+      "405a359c31ef7536ddd591ed39d72dd1",
+      "846dc4556e0ee0ad730189df6959db9c"
+    ]
+  },
+  {
+    "qid": "1908.11049-q04",
+    "question": "In the paper \"Multilingual and Multi-Aspect Hate Speech Analysis\", how big is their dataset?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "836c18784acba32fd0faab7120fe4d54"
+    ],
+    "hybrid_top5": [
+      "81a1b6873dade7c60fd81aad238e698e",
+      "454410f64eaff6f6a433f2588536106b",
+      "29c2e05f6ae0b227a9b9197eeacc5acf",
+      "c353c9a7b4d9950838d441d5d154b9f7",
+      "55f51be343824fcdaa64acecaf31ac2f"
+    ]
+  },
+  {
+    "qid": "1906.08871-q03",
+    "question": "In the paper \"Advancing Speech Recognition With No Speech Or With Noisy Speech\", what dataset was used?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "000dac760dec76adf7c0cce045b59969"
+    ],
+    "hybrid_top5": [
+      "9dc75be6d08c77670f3d4dcd0f42db94",
+      "87bcc4b1e81488c811c687268d4d91f5",
+      "7a032f7073b985cee5bb47ec5622e320",
+      "35fd0aa7add831b53b61ff3f51323637",
+      "34749e3cd54393c18d0ab17798793522"
+    ]
+  },
+  {
+    "qid": "2004.04124-q01",
+    "question": "Does LadaBERT ever outperform its knowledge destilation teacher in terms of accuracy on some problems?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "fe2775a1b67d81f9756db172b0635547"
+    ],
+    "hybrid_top5": [
+      "207ed64ed41a433acc487bbb4f4ab143",
+      "5f50efa907de77f34a4056f3ecbf86ac",
+      "244c19e11282a6e8a45e83f88dfb0ab0",
+      "cd4b6da41c6fea8ef644a4013e5a94be",
+      "481270070cc65b3d4e448a47185ef87b"
+    ]
+  },
+  {
+    "qid": "1911.04873-q01",
+    "question": "In the paper \"Can Neural Networks Learn Symbolic Rewriting?\", do any of the models use attention?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "99f04813c1ab7d3e8c7e7f0545d81ea4"
+    ],
+    "hybrid_top5": [
+      "2b21ea5cc056c01bd788bc1566c6ffb2",
+      "ef9abc545fdd0e86d52ae17bd1cd7947",
+      "41bf08d8c951f35ee0e7228c5f4227d6",
+      "83f1d4396baacae61645899d84879162",
+      "d38588f87374e10aae57f4dfdb1e2a62"
+    ]
+  },
+  {
+    "qid": "1911.04873-q02",
+    "question": "In the paper \"Can Neural Networks Learn Symbolic Rewriting?\", what translation models are explored?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "99f04813c1ab7d3e8c7e7f0545d81ea4"
+    ],
+    "hybrid_top5": [
+      "2b21ea5cc056c01bd788bc1566c6ffb2",
+      "41bf08d8c951f35ee0e7228c5f4227d6",
+      "83f1d4396baacae61645899d84879162",
+      "be4c3512836c4b3f396c47ef349764a9",
+      "ef9abc545fdd0e86d52ae17bd1cd7947"
+    ]
+  },
+  {
+    "qid": "1606.07043-q01",
+    "question": "In the paper \"Toward Interpretable Topic Discovery via Anchored Correlation Explanation\", how do they incorporate expert knowledge into their topic model?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "e417be7ea3b10b67da9494ff6aa13392",
+      "69206c3af06243af43680886dad8a8fc"
+    ],
+    "hybrid_top5": [
+      "9634662f3f57cafb907c5b9af7735b46",
+      "d122c514617d0a09fb16fea56ea9c4e8",
+      "a88fc35f717be018dfabf6c6727b1bed",
+      "db45ec0db5307ab2bbc43c1c67f6bee4",
+      "c6f67c088ae56e9be667e7b6069d7961"
+    ]
+  },
+  {
+    "qid": "2003.07568-q03",
+    "question": "In the paper \"XPersona: Evaluating Multilingual Personalized Chatbot\", which translation pipelines do they use to compare against?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "3231819aa603f6ad3467add6d9de5243"
+    ],
+    "hybrid_top5": [
+      "98519f3b4e0d7755a823ac81492de128",
+      "3ea2dc36b3dd0a67f5baa7ba1af29603",
+      "df565d30b5183f0c870e8023e6369cd1",
+      "da5584e2f4468b2977a8b5355e710caf",
+      "c8386d1471e18e58af92f18b75b35452"
+    ]
+  },
+  {
+    "qid": "1810.02268-q02",
+    "question": "In the paper \"A Large-Scale Test Set for the Evaluation of Context-Aware Pronoun Translation in Neural Machine Translation\", what are the baselines?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "3c4a9a6d1a65429fcbfad7bfa35f4a4f"
+    ],
+    "hybrid_top5": [
+      "5afa6a151aa6dd9230f9c99f1a577172",
+      "b8b6c01bb2d8fcd4fd0f172b060e0475",
+      "2b4a74db9a8db0347779098b5f043966",
+      "0c28f8a53c01cb4c4c4d7d259f08dadf",
+      "843c64dc3d7031d256d3edcbf0a6f5cc"
+    ]
+  },
+  {
+    "qid": "1909.12079-q03",
+    "question": "In the paper \"Improving Fine-grained Entity Typing with Entity Linking\", which datasets do they evaluate on?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "f6381c754c95f6e11e30fd910abd6034"
+    ],
+    "hybrid_top5": [
+      "32d377f52f17f2af11684374829d8c8f",
+      "a5a2fa36e587fbc7a6a84ac819905faf",
+      "654f3904112c2d0d8acc7a04429239ed",
+      "2dfe6d7bf551ea9aa7ff6d7b9a164650",
+      "92546921da4c0eb79ecdee4aedfe5a40"
+    ]
+  },
+  {
+    "qid": "1703.10152-q05",
+    "question": "In the paper \"Automatic Argumentative-Zoning Using Word2vec\", how are the sentence embeddings generated?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "47131680a378a46b07644f16d3ba2718"
+    ],
+    "hybrid_top5": [
+      "57d7a61021e47657b9c2580894b6819b",
+      "e69410859e6430709023c1033ab70996",
+      "3662216276e50a6fe3785f28d3e65907",
+      "8ce3e70e06c2dfd98efe5c2a07498ee0",
+      "bb78fb2719f1d6765fa2a75136e7cf3b"
+    ]
+  },
+  {
+    "qid": "1907.04072-q02",
+    "question": "In the paper \"Multitask Learning for Blackmarket Tweet Detection\", what baseline do they compare to?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "2388df71fca149badc864346b43f2bfc"
+    ],
+    "hybrid_top5": [
+      "26df54cb35ebeb44deed7e305904d571",
+      "908288aac6c2a3667529c5a4d3b65819",
+      "6b76bfdf56713cb575775a7c41b1744a",
+      "dce2bd83c6c461a9b7297a1179cd430f",
+      "ddd98e7a5836eef4117c22c612454a04"
+    ]
+  },
+  {
+    "qid": "1909.10481-q01",
+    "question": "In the paper \"Cross-Lingual Natural Language Generation via Pre-Training\", what languages do they use during pretraining?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "6c868fe15b791cfed0e9524cf6533038"
+    ],
+    "hybrid_top5": [
+      "df42d56b5fff202d9c1fd58f603bb98f",
+      "053a84129662a3a3951da12c4a9e2266",
+      "7721acbf72cdd57cb7437113d1ede0d5",
+      "9285c163a315e570d6e84d12a28b8b28",
+      "19b6a9a6adc87ce27db81805dd6a0bd8"
+    ]
+  },
+  {
+    "qid": "1909.10481-q02",
+    "question": "In the paper \"Cross-Lingual Natural Language Generation via Pre-Training\", what is the architecture of the decoder?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "445c55cb6d5d8565fa10be8533d16c8d"
+    ],
+    "hybrid_top5": [
+      "9285c163a315e570d6e84d12a28b8b28",
+      "7721acbf72cdd57cb7437113d1ede0d5",
+      "166073831edcbf41e948bbbda08225d9",
+      "df42d56b5fff202d9c1fd58f603bb98f",
+      "f963453dccc8209870ef91d8e5bb65dc"
+    ]
+  },
+  {
+    "qid": "1805.04833-q02",
+    "question": "In the paper \"Hierarchical Neural Story Generation\", which automated evaluation metrics are used?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "e7f1217ac198733fb01d968db46a0e22"
+    ],
+    "hybrid_top5": [
+      "1802525aa0880655aad5148d97d240b1",
+      "f157eb5068d2e97e4b0b6bc4c0043fe8",
+      "a8b29c3113a5bb356c336406cca21d23",
+      "9a3dfc76aa982863a73e53c0bb2abff5",
+      "e857e3697c09623b25808d1f7cd78e27"
+    ]
+  },
+  {
+    "qid": "1805.07882-q02",
+    "question": "In the paper \"Sentence Modeling via Multiple Word Embeddings and Multi-level Comparison for Semantic Textual Similarity\", what datasets where used?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "a8c1d771f44fec64ee9561e46cf870a2"
+    ],
+    "hybrid_top5": [
+      "b5ad5ecf5a9a7321ece8a035a4c3f411",
+      "e6c3db6ed8513500b9edf65224553248",
+      "f55e370c68e5081e287df92f04afed4d",
+      "31ba352936b39116f89fa55b5ae8bb0f",
+      "43c892e2def3a00d5fd2e184a4adc190"
+    ]
+  },
+  {
+    "qid": "1808.04122-q02",
+    "question": "In the paper \"A Capsule Network-based Embedding Model for Knowledge Graph Completion and Search Personalization\", by how much do they outperform state-of-the-art models on knowledge graph completion?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "cef757cd30476f3dd0b08ea6565c97b7"
+    ],
+    "hybrid_top5": [
+      "19e7449847ee8567fe223a0e1e33595e",
+      "7489c31200ce588eaebc30610338700d",
+      "6cc10e25d1809ee2d8b1503ece4d8683",
+      "40fee6ed41b70305b05fa47c4504bdb5",
+      "b3c02e174adc527d9283abc72baa66a1"
+    ]
+  },
+  {
+    "qid": "2003.08437-q02",
+    "question": "In the paper \"A Corpus of Adpositional Supersenses for Mandarin Chinese\", how did they annotate the corpus?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "f341365b2a4d7ddf12341a685ba3494a"
+    ],
+    "hybrid_top5": [
+      "42c1d97453b2c1a51d074e750eeb739d",
+      "673015903413449a585cb6da49b9c6a3",
+      "b09e0b10ed971750a3a34b1065c9fc75",
+      "49c3df3b16e41af11102ebe52cced0d2",
+      "a43b0ec9e572227e008a06702ca22c12"
+    ]
+  },
+  {
+    "qid": "2003.04978-q01",
+    "question": "In the paper \"Fake News Detection with Different Models\", which datasets do they use?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "301d453182f51560c8f114cacbe42742"
+    ],
+    "hybrid_top5": [
+      "8fabd323db5ec9da21fbace45fc7d8ea",
+      "1d72896783468e71db136244a37ec383",
+      "858e007b26c0dc129342cd4a80e644db",
+      "4c108c3b27f031fb81c7512fb6c1df61",
+      "ae0a7c1783df87d0c8d982bd5feaabbb"
+    ]
+  },
+  {
+    "qid": "1603.09405-q02",
+    "question": "In the paper \"Enhancing Sentence Relation Modeling with Auxiliary Character-level Embedding\", which datasets do they evaluate on?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "20cac38404096a41ee3897e9674c8434"
+    ],
+    "hybrid_top5": [
+      "d5bdc255c7bd431cadddeb58409aac42",
+      "6bfa07c7e9a251e27d5d9082bed8ce81",
+      "de5ae78f5cf6f3f694eeb5b9fd4510f0",
+      "847eb6bb29ed6f2db5d8e9f19d97dcff",
+      "8202ac49d26f1551d37229706345d3bc"
+    ]
+  },
+  {
+    "qid": "1703.04009-q02",
+    "question": "In the paper \"Automated Hate Speech Detection and the Problem of Offensive Language\", what type of model do they train?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "02286a844c0b0a696d2f042d075e8107",
+      "b6dd36eadbcf3c05b70e1797e7e9c420"
+    ],
+    "hybrid_top5": [
+      "74177479ffb87afc70924433c484ae86",
+      "512c8f53861311e804d1e782d2257178",
+      "6aed3814710c41358a7ec2b023325cdd",
+      "b7b21948caa65e672b655178ae002621",
+      "a7b1da2c82dc923b1d887adc170d73ed"
+    ]
+  },
+  {
+    "qid": "1909.04242-q04",
+    "question": "In the paper \"Mitigating Annotation Artifacts in Natural Language Inference Datasets to Improve Cross-dataset Generalization Ability\", which datasets do they use in the cross-dataset evaluation?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "3702dd0bd7accec1a16f86567e0db5d2"
+    ],
+    "hybrid_top5": [
+      "598343b9100a43a0e3f4f50f4a94bccf",
+      "3ed7b2731211078f668fa2f4b7cff9c7",
+      "80ba94cef0f5fed0853085ea86637958",
+      "edbda554e4d5a4cbee2ef7cd0675c561",
+      "1987a99b2b151181e65b4cfec00e80ab"
+    ]
+  },
+  {
+    "qid": "2003.12139-q02",
+    "question": "In the paper \"Integrating Crowdsourcing and Active Learning for Classification of Work-Life Events from Tweets\", how large is their tweets dataset?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "bb13de03616d03d716ec95f18c3f97a5",
+      "cd2e5e6748ccbe387895909d41cccaf5"
+    ],
+    "hybrid_top5": [
+      "b08c0a21e825bce53666e66c557b6bf7",
+      "ba0fede8ebe1820bc0517594e8d865ea",
+      "448c40002f9e2c906b47f5abcd161741",
+      "167c4459c1f07e00edfdc36ce7ee7528",
+      "da9793239e9f968cac69aa03c0867676"
+    ]
+  },
+  {
+    "qid": "1809.03391-q02",
+    "question": "In the paper \"Toward a Standardized and More Accurate Indonesian Part-of-Speech Tagging\", what neural network models were explored?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "38922f7b7d330609ba1bb3124cf72523"
+    ],
+    "hybrid_top5": [
+      "887575774644e322f84b570840908da8",
+      "23ea5fab58f0647be71fa9f8946b1b1d",
+      "6e7373b47a9572d4bc804e69b399ce0a",
+      "ed759b64ac83e899243a71b995faf44e",
+      "841b01472b5ea4713d529c21d89f1ee6"
+    ]
+  },
+  {
+    "qid": "1809.03391-q03",
+    "question": "In the paper \"Toward a Standardized and More Accurate Indonesian Part-of-Speech Tagging\", what rule based models were evaluated?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "0a78d9d98475e260c00722412e5db597"
+    ],
+    "hybrid_top5": [
+      "887575774644e322f84b570840908da8",
+      "ed759b64ac83e899243a71b995faf44e",
+      "6e7373b47a9572d4bc804e69b399ce0a",
+      "7ec006a76e80981bfac1beff3b8e288a",
+      "23ea5fab58f0647be71fa9f8946b1b1d"
+    ]
+  },
+  {
+    "qid": "1912.10162-q01",
+    "question": "In the paper \"Design and implementation of an open source Greek POS Tagger and Entity Recognizer using spaCy\", what are the issues identified for out-of-vocabulary words?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "07d8b560294b1caeeefdf70943651ae1",
+      "d9e3e000ea4a2bc6c57d3dad6074d6ca"
+    ],
+    "hybrid_top5": [
+      "fe66b09ce09b244659d4983bf1610f8c",
+      "58c37238e1c440a23e57b1e490587aa0",
+      "2d2fe5e5ecaf07099467a7e6b2bbcc1c",
+      "b83356e41c256e80b5967884eb7bad84",
+      "e573d02e856fe9e4a8e75a30ee0489d8"
+    ]
+  },
+  {
+    "qid": "1906.11085-q01",
+    "question": "In the paper \"Enhancing PIO Element Detection in Medical Text Using Contextualized Embedding\", what boosting techniques were used?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "78234effc883225beee5b654bbd478e8"
+    ],
+    "hybrid_top5": [
+      "0c3cb84e4bbf0dc868128975e17fc2f4",
+      "bb79629207ed3af91d05408f7fcae6d4",
+      "2decab71aef2aa8939c141e1b5b363d0",
+      "211fba5732c12df671fc000ee1890e90",
+      "6ef38791c0baab37b75c7b8d5319d6cc"
+    ]
+  },
+  {
+    "qid": "1906.11085-q05",
+    "question": "In the paper \"Enhancing PIO Element Detection in Medical Text Using Contextualized Embedding\", who annotated the new dataset?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "e3e5143641b49726c8b98a5163461c42"
+    ],
+    "hybrid_top5": [
+      "211fba5732c12df671fc000ee1890e90",
+      "2decab71aef2aa8939c141e1b5b363d0",
+      "be7b43bd86e424ceb6a08f0fe2a2f1d3",
+      "6ef38791c0baab37b75c7b8d5319d6cc",
+      "0c3cb84e4bbf0dc868128975e17fc2f4"
+    ]
+  },
+  {
+    "qid": "2003.07459-q07",
+    "question": "In the paper \"Offensive Language Identification in Greek\", what models do they experiment on?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "304f0119258bc2b8cf47539646d785fd"
+    ],
+    "hybrid_top5": [
+      "0168d53563f8f69a34a2bb5d35de514d",
+      "b21cbc56652f72dd0a16808bd031a18c",
+      "70b0fcae473b515f3f3cd9820d9c3383",
+      "5941be9c9a2ce046778b26bcb905881b",
+      "307197ea794d2bdd39ecc8796ca77d70"
+    ]
+  },
+  {
+    "qid": "1803.08614-q02",
+    "question": "In the paper \"MultiBooked: A Corpus of Basque and Catalan Hotel Reviews Annotated for Aspect-level Sentiment Classification\", what is the size of their published dataset?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "d770de1ee1512a59081a693f5d02cb2f"
+    ],
+    "hybrid_top5": [
+      "d822037bf18a436bfeff3707871e5fb6",
+      "1b9868e4ec04d0cca27854dddd735883",
+      "b7d5a2205c0d69b879670161299b1170",
+      "b74db35c0859a8605d7ba7b861eab1c2",
+      "d917ae1e69e429f26b6e50617a4408df"
+    ]
+  },
+  {
+    "qid": "1612.07486-q01",
+    "question": "In the paper \"Continuous multilinguality with language vectors\", do they explore how their word representations vary across languages?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "6774fc394949cd2f647f6671bb1f1b49"
+    ],
+    "hybrid_top5": [
+      "a37529c123253fcd24ca0bd1a762950c",
+      "ee86f9f16c78fd671f5f8d59ce89ad22",
+      "3d6eba86591c9b73cdbd161110862bde",
+      "e4012a162b2a10011e5685584802ad55",
+      "babe8e772f148ee92cafd053761fc5ca"
+    ]
+  },
+  {
+    "qid": "1612.03762-q02",
+    "question": "In the paper \"From narrative descriptions to MedDRA: automagically encoding adverse drug reactions\", do the authors offer a hypothesis as to why the system performs better on short descriptions than longer ones?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "5f8aafe63fb7c6585cc7104725626b89"
+    ],
+    "hybrid_top5": [
+      "e025b301028ea15a51a93bfa3fa5c4dc",
+      "0a1d5d5fa758cb143d670a50370f5dd9",
+      "5b5c3589598db4d7a66128b01e826e48",
+      "da07936802c363398055164f8c2b30a6",
+      "8ce96d7edc61be6ce87ea22bb790b858"
+    ]
+  },
+  {
+    "qid": "1612.03762-q04",
+    "question": "In the paper \"From narrative descriptions to MedDRA: automagically encoding adverse drug reactions\", how is the system constructed to be linear in the size of the narrative input and the terminology?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "8ce96d7edc61be6ce87ea22bb790b858"
+    ],
+    "hybrid_top5": [
+      "0a1d5d5fa758cb143d670a50370f5dd9",
+      "e025b301028ea15a51a93bfa3fa5c4dc",
+      "298142f74c5158399ddac8f8decfa83f",
+      "5b5c3589598db4d7a66128b01e826e48",
+      "da07936802c363398055164f8c2b30a6"
+    ]
+  },
+  {
+    "qid": "1910.09362-q01",
+    "question": "In the paper \"Improving Word Representations: A Sub-sampled Unigram Distribution for Negative Sampling\", do they use skip-gram word2vec?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "a70cc069ef41c063c985e1b664cb2b34"
+    ],
+    "hybrid_top5": [
+      "620a2f855d6ac020bc4da726bee26aea",
+      "e61cd013da4af4c114a5781ecc1db88e",
+      "9a86fca5cd8e05cdf053a3415ac1056d",
+      "804024b2b7bafe03f968ba8e736ceb9d",
+      "84844a3298d1d2eee19bc263e891a1b4"
+    ]
+  },
+  {
+    "qid": "1803.09000-q02",
+    "question": "In the paper \"WikiRank: Improving Keyphrase Extraction Based on Background Knowledge\", what was their model's f1 score?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "2e580271013c303b7165bea3d3bf4fb2"
+    ],
+    "hybrid_top5": [
+      "608f02ba8c3d530ee0cea1e5da79a53f",
+      "6b114a0b9dd36f2cdc363bf331b4b285",
+      "72846c6c28ccedc8a1a60874df1f928e",
+      "7010a2c70302e4d3ea00a9cce1845492",
+      "b7334a31f9ad08ab0c4a05288e757891"
+    ]
+  },
+  {
+    "qid": "1909.05190-q02",
+    "question": "In the paper \"Event Representation Learning Enhanced with External Commonsense Knowledge\", how is the event prediction task evaluated?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "39d86041f90b89eb91ad02d7df026a65"
+    ],
+    "hybrid_top5": [
+      "7aee650c8a3e38c1de4b90c6c71922f4",
+      "c16cfcf064d0e9555fdd55f63d52eb52",
+      "a25fd20a76043545793a3dea443c4bf0",
+      "aef90e53a62b615e37f7f8bb10b0398e",
+      "7f3d7c0432874f81f1432369473636f3"
+    ]
+  },
+  {
+    "qid": "1909.11232-q02",
+    "question": "In the paper \"Sign Language Recognition Analysis using Multimodal Data\", what is the performance of the best model in the sign language recognition task?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "28fb49dabae3ca8001242c0940897a9b"
+    ],
+    "hybrid_top5": [
+      "01da52986fa48040f8841305c714919a",
+      "488ebc59bdf88f901793580757ad5ff2",
+      "ecd5859a8f917d0225d4e92ef68809f2",
+      "40ac0b20b6aa6ad808c5cba6fdce3bfb",
+      "4e1488becb2fafb69f803716f60f6f11"
+    ]
+  },
+  {
+    "qid": "1808.09180-q01",
+    "question": "In the paper \"What do character-level models learn about morphology? The case of dependency parsing\", who made the stated claim (that \"this is because character-level models learn morphology\")?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "75cca2f48bcda0e3f09d2191cd59d20d"
+    ],
+    "hybrid_top5": [
+      "48172cc8177d4b1a932acd02ff578791",
+      "1e0f0a5177edd3a9f69e787fa0b9987e",
+      "7cf946979f4e9aef6095a827366802a2",
+      "edd822987e1cfec29aacebdd5e31befc",
+      "6358814a874deb71c3a905e05d446881"
+    ]
+  },
+  {
+    "qid": "1808.09180-q02",
+    "question": "In the paper \"What do character-level models learn about morphology? The case of dependency parsing\", which languages do they use?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "9b1c3b8a344d5c502c139d1251af3501"
+    ],
+    "hybrid_top5": [
+      "48172cc8177d4b1a932acd02ff578791",
+      "edd822987e1cfec29aacebdd5e31befc",
+      "a32b3ae4348213fc959f09aa9d2885da",
+      "1e0f0a5177edd3a9f69e787fa0b9987e",
+      "7cf946979f4e9aef6095a827366802a2"
+    ]
+  },
+  {
+    "qid": "1912.11980-q01",
+    "question": "In the paper \"Explicit Sentence Compression for Neural Machine Translation\", which baselines to they compare to?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "236ce5259eeb61a56ba10f7fb8d109ad"
+    ],
+    "hybrid_top5": [
+      "73e8ce46c3e6025c8834d4e267fcdb8e",
+      "52c6039664c2a6e0f78bd15e7ff625fd",
+      "85b6f18d553b8acc4579f91933862b21",
+      "29cf21d6a6a277eaade3ca9e71150f50",
+      "bba0dbae0ca829a1fe22177f8e0bd385"
+    ]
+  },
+  {
+    "qid": "2004.04060-q01",
+    "question": "In the paper \"Self-Attention Gazetteer Embeddings for Named-Entity Recognition\", what is the performance of large state-of-the-art models on these datasets?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "54e09b8837d27dd7ac5549dd5df32d6c"
+    ],
+    "hybrid_top5": [
+      "334f70ba3392eed6f41af2113291259e",
+      "b78974f566eecb6c4aa9aac448b4de1c",
+      "3880312c26f18c7bba391038dc5e8ac9",
+      "4c1fd27592c657b2d7d90fdfe137d5bc",
+      "963d98cc4ce570a49f3a8eae27bbd6ac"
+    ]
+  },
+  {
+    "qid": "2004.04060-q03",
+    "question": "In the paper \"Self-Attention Gazetteer Embeddings for Named-Entity Recognition\", how do they build gazetter resources from Wikipedia knowlege base?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "042fe5bc96a585f207938798c5276688"
+    ],
+    "hybrid_top5": [
+      "334f70ba3392eed6f41af2113291259e",
+      "963d98cc4ce570a49f3a8eae27bbd6ac",
+      "a3001456a5b80aa8782579827636ba56",
+      "520fe98df74a33b73b89c1c96b1cc03b",
+      "764e312439103a8f236516017a6e56d9"
+    ]
+  },
+  {
+    "qid": "1807.08089-q01",
+    "question": "In the paper \"Phonetic-and-Semantic Embedding of Spoken Words with Applications in Spoken Content Retrieval\", what is the dataset that is used to train the embeddings?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "087bdfdaabaf732c2f44ce66650aa726"
+    ],
+    "hybrid_top5": [
+      "d3f7e7495b3a49acffbb9e238f60d0cf",
+      "25fb1f4f9f58e5886fcd26727de51d3a",
+      "31a7e376c67bcda38b472bdedecfe230",
+      "b672c18ff0563bbc91d8493e301ad292",
+      "063edaa78a759dbf7a4568de295e4b7d"
+    ]
+  },
+  {
+    "qid": "1807.08089-q03",
+    "question": "In the paper \"Phonetic-and-Semantic Embedding of Spoken Words with Applications in Spoken Content Retrieval\", what language is used for the experiments?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "087bdfdaabaf732c2f44ce66650aa726"
+    ],
+    "hybrid_top5": [
+      "d3f7e7495b3a49acffbb9e238f60d0cf",
+      "31a7e376c67bcda38b472bdedecfe230",
+      "3bf99e35f651fdda9f8786932d7e94ec",
+      "b672c18ff0563bbc91d8493e301ad292",
+      "25fb1f4f9f58e5886fcd26727de51d3a"
+    ]
+  },
+  {
+    "qid": "1703.05320-q01",
+    "question": "In the paper \"Legal Question Answering using Ranking SVM and Deep Convolutional Neural Network\", what is the baseline model",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "5ac77a378a618ba07247c84c27ee0181"
+    ],
+    "hybrid_top5": [
+      "63767b19972e5fd7ffda356740c3788f",
+      "0aa2773a3f300ecba030cade5f4b54d8",
+      "bea865cf32eaaa1cf20747d21e85a920",
+      "fa28239de53785b01200a6faeb2d762a",
+      "2a683d33d67ccc4466bae540a7531b6e"
+    ]
+  },
+  {
+    "qid": "1910.10762-q01",
+    "question": "In the paper \"Analyzing ASR pretraining for low-resource speech-to-text translation\", what sizes were their datasets?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "37d083c13eafa3bd84ec7a41b127d774",
+      "9b31ff9a2e07623c4a4898a2f8713865"
+    ],
+    "hybrid_top5": [
+      "a14d36f7e2931409cb9f64d417b55ada",
+      "02d99e96b03a19fd838199e6d0d3868a",
+      "d504a661362fd1610d2f528f51329740",
+      "e5d04a6dc9be6e959d1786416544f1a4",
+      "8d89a7323dffb4f793b02eac45381231"
+    ]
+  },
+  {
+    "qid": "1910.10762-q02",
+    "question": "In the paper \"Analyzing ASR pretraining for low-resource speech-to-text translation\", how many layers does their model have?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "6f196036aca54f394bedb735e519ce55"
+    ],
+    "hybrid_top5": [
+      "2318ead0b3b86fe9fbd04ebdcb9803cd",
+      "8f9942d3ac50702a5731051a3625d35a",
+      "8d89a7323dffb4f793b02eac45381231",
+      "e5d04a6dc9be6e959d1786416544f1a4",
+      "e13989063551845268b82e869ed05f6d"
+    ]
+  },
+  {
+    "qid": "1910.10762-q04",
+    "question": "In the paper \"Analyzing ASR pretraining for low-resource speech-to-text translation\", what languages did they use?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "5a9574091cbc1392f1a7ef2f9b97999f"
+    ],
+    "hybrid_top5": [
+      "e5d04a6dc9be6e959d1786416544f1a4",
+      "d504a661362fd1610d2f528f51329740",
+      "a14d36f7e2931409cb9f64d417b55ada",
+      "3fff75b60fe9912a86f1e7fc57f9ad4d",
+      "02d99e96b03a19fd838199e6d0d3868a"
+    ]
+  },
+  {
+    "qid": "1706.04206-q03",
+    "question": "In the paper \"Identifying Condition-Action Statements in Medical Guidelines Using Domain-Independent Features\", how large is the released data set?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "ecd4721ddeb841dbc5df5d32aab65d25"
+    ],
+    "hybrid_top5": [
+      "f9b6da48d775b4e03b2689711b352135",
+      "bb9a4856c4ae0439e4ca93656bfd94c4",
+      "d415b61b8f8c46d23dd4dd73991da9a9",
+      "f1ab3fd102c051d75362103f3f8c395d",
+      "a33036ce5a41e136d2e10d2b10b2d932"
+    ]
+  },
+  {
+    "qid": "1707.06875-q02",
+    "question": "In the paper \"Why We Need New Evaluation Metrics for NLG\", what NLG tasks were considered?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "cbaa5e1d9e7263c44d4afc432e56d453"
+    ],
+    "hybrid_top5": [
+      "54edfc75c21318e3078b159258188f62",
+      "30442ed555ca74c3af18789ea8e2d399",
+      "4998cc066661e639c182cbceaec3954e",
+      "ff143af0e0e7d60c7cb40aa2d0caf866",
+      "eb9f0d246bb7b93feadcf839a9ebfb5c"
+    ]
+  },
+  {
+    "qid": "1804.05253-q03",
+    "question": "In the paper \"\"With 1 follower I must be AWESOME :P\". Exploring the role of irony markers in irony recognition\", what type of classifiers were used?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "eb7e8bed3ad5a6c572cadae309a7e078"
+    ],
+    "hybrid_top5": [
+      "0beb16dc230ccd56974699dfbdd2e042",
+      "b81b72c90eeb91cc0f4de8bed065dce1",
+      "105cdadb361575fb766921c8806c087f",
+      "d7d5ebc7f463168cd2c2b3414246ce14",
+      "11fcf0e8c722b279b6059d876c1a51c5"
+    ]
+  },
+  {
+    "qid": "1804.05253-q04",
+    "question": "In the paper \"\"With 1 follower I must be AWESOME :P\". Exploring the role of irony markers in irony recognition\", who annotated the Twitter and Reddit data for irony?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "19618bf92d81afcb3843db5d57d1ce10"
+    ],
+    "hybrid_top5": [
+      "8186ac712ebfc2309d3b1e9f1ae98fd0",
+      "4e541732596d162de880c63a8fc51a11",
+      "0beb16dc230ccd56974699dfbdd2e042",
+      "b81b72c90eeb91cc0f4de8bed065dce1",
+      "105cdadb361575fb766921c8806c087f"
+    ]
+  },
+  {
+    "qid": "2004.02363-q02",
+    "question": "In the paper \"BERT in Negotiations: Early Prediction of Buyer-Seller Negotiation Outcomes\", what datasets are used?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "59677470ffa5ff28760569742012abf1"
+    ],
+    "hybrid_top5": [
+      "8da5b81015361fca665657df036bb23e",
+      "665a52d298c92797aaf90aba07b2a7b9",
+      "182a4b5c4e0ed8b2d48ad4a364c19eba",
+      "1517155f08e865a3eae5e9fcfbbe9d2f",
+      "c31a966db206121dfad0974580b79bf4"
+    ]
+  },
+  {
+    "qid": "1601.03313-q02",
+    "question": "In the paper \"Political Speech Generation\", how was quality of sentence transition measured?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "c50d7bca58ecba0761d322f80409e927"
+    ],
+    "hybrid_top5": [
+      "ae816f77f915e10a3f7f1c60ce63cc0e",
+      "d32b7bbc4ef943afee7571208bc94aba",
+      "c19275ff2dcf8c3beb28642e0b7568ca",
+      "d4e87b22e6364e1eaff8c40131938a13",
+      "3d285763fff8f4b2de18559c1d528396"
+    ]
+  },
+  {
+    "qid": "1707.06519-q01",
+    "question": "In the paper \"Language Transfer of Audio Word2Vec: Learning Audio Segment Representations without Target Language Data\", which datasets do they use?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "253542d542b9a147dc586203f4a396b6",
+      "c63f75d0129baef47a4c04dd83dd4398"
+    ],
+    "hybrid_top5": [
+      "9c4cab738e459d067000e5e60e73db47",
+      "b2470d08e3bfd51d8cd724d958fc0d3a",
+      "a6a03f6b5f192d48cbcf0a86f73fd43e",
+      "bc70205f2af9347712ebdc03f48859d5",
+      "b10223332fe79bb6d6b25551cb6e21d1"
+    ]
+  },
+  {
+    "qid": "2002.12699-q01",
+    "question": "In the paper \"Automatic Section Recognition in Obituaries\", by how much did their model outperform the other models?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "9542c48c9c91a8e804ff8de8f320a234"
+    ],
+    "hybrid_top5": [
+      "7db3bbbff29cc9bf31d641a389ce8022",
+      "6566d9c4b32e4c5c16f178f23ce96573",
+      "9feadaf1ee16df998ff7318286d6a164",
+      "5fe7f582ec59fed638a6d5c6b6014922",
+      "b66519012363473bb52eccdf2866ffd0"
+    ]
+  },
+  {
+    "qid": "1708.01065-q05",
+    "question": "In the paper \"Reader-Aware Multi-Document Summarization: An Enhanced Model and The First Dataset\", what is the size of the data collected?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "241d189a88ddfb0f62d7fc2aee5524fe"
+    ],
+    "hybrid_top5": [
+      "40b23b0c1e223bfbe00ec12104f9d6f8",
+      "c9cdcdda8602c4571a2d16d98bc85b7d",
+      "71e9c73f08b13baca00d4084827b86c0",
+      "16f3c4e4b3d96529e6d2e0924b65b9f4",
+      "0b98982f584897de19eaae2c09d04b6f"
+    ]
+  },
+  {
+    "qid": "1708.01065-q06",
+    "question": "In the paper \"Reader-Aware Multi-Document Summarization: An Enhanced Model and The First Dataset\", did they use a crowdsourcing platform?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "92937d683704fe6289a381282566a095"
+    ],
+    "hybrid_top5": [
+      "0b98982f584897de19eaae2c09d04b6f",
+      "81fea8b25ea4b9f19c465be445ab4a33",
+      "71e9c73f08b13baca00d4084827b86c0",
+      "40b23b0c1e223bfbe00ec12104f9d6f8",
+      "94eabd0d963fd241e0a7e64d814e98fa"
+    ]
+  },
+  {
+    "qid": "1708.01065-q07",
+    "question": "In the paper \"Reader-Aware Multi-Document Summarization: An Enhanced Model and The First Dataset\", how was annotation conducted?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "92937d683704fe6289a381282566a095"
+    ],
+    "hybrid_top5": [
+      "40b23b0c1e223bfbe00ec12104f9d6f8",
+      "72d46cad251589215bc04a10df4917b2",
+      "8085bfd4a7ef5df38c645c1b2a4750a3",
+      "71e9c73f08b13baca00d4084827b86c0",
+      "0b98982f584897de19eaae2c09d04b6f"
+    ]
+  },
+  {
+    "qid": "1911.12893-q02",
+    "question": "In the paper \"GitHub Typo Corpus: A Large-Scale Multilingual Dataset of Misspellings and Grammatical Errors\", is the distribution of the edits uniform across all languages?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "e3e7c0bcbfb063a87231a283b8c98867"
+    ],
+    "hybrid_top5": [
+      "f1d9137ba9d6441f987676cee12325a8",
+      "8f058b891934e2a91624037169b9bf32",
+      "6d388f2bfaf2efa9b08112918ea30fde",
+      "d6a1771484f0b61f6683b2b1a596bc58",
+      "610aee0dded0f7856f68ef36342445a9"
+    ]
+  },
+  {
+    "qid": "1603.08868-q01",
+    "question": "In the paper \"A Readable Read: Automatic Assessment of Language Learning Materials based on Linguistic Complexity\", what classifiers did they train?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "44947f44b21da36e42e0f611e66ca2e4"
+    ],
+    "hybrid_top5": [
+      "b75f577860b4c79d9279759a66f8c75d",
+      "9c1efc3c05034b24f0761c8ab90e6e7b",
+      "121cd017b8066448475d1b10b4fa9406",
+      "8c8cd46f5db3ff4d9a2ba35bac5a975e",
+      "8e520450c587d3239693abe58c79dd34"
+    ]
+  },
+  {
+    "qid": "1603.08868-q02",
+    "question": "In the paper \"A Readable Read: Automatic Assessment of Language Learning Materials based on Linguistic Complexity\", what dataset did they use?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "03132e6699fe49cf1344f1ca14206203"
+    ],
+    "hybrid_top5": [
+      "8e425ed70c8111aa59dbb13045ef56cd",
+      "121cd017b8066448475d1b10b4fa9406",
+      "497cf514c8144533257753f08dad5052",
+      "9c1efc3c05034b24f0761c8ab90e6e7b",
+      "9de18af6640be3d4953c614bc3f41dff"
+    ]
+  },
+  {
+    "qid": "1910.01340-q03",
+    "question": "In the paper \"TexTrolls: Identifying Russian Trolls on Twitter from a Textual Perspective\", what unsupervised approach was used to deduce the thematic information?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "41fe2d72c60053f1a3ad81773d051bdf"
+    ],
+    "hybrid_top5": [
+      "a2ca1de7a7fc0b563e3262bd123ad78a",
+      "4e1c20ced12f0244b927c0dbe4d60c7a",
+      "54eeed44a26491e264cf82a72f8d3837",
+      "53d95a999ad06ee3ae86ad89fb744ce9",
+      "a20a7cc91058aa7493ad35843cd133f6"
+    ]
+  },
+  {
+    "qid": "1910.01340-q04",
+    "question": "In the paper \"TexTrolls: Identifying Russian Trolls on Twitter from a Textual Perspective\", what profile features are used?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "a9a3f625d935cc63a362270aa18399e4"
+    ],
+    "hybrid_top5": [
+      "53d95a999ad06ee3ae86ad89fb744ce9",
+      "4e1c20ced12f0244b927c0dbe4d60c7a",
+      "54eeed44a26491e264cf82a72f8d3837",
+      "f80512379017a058f4510f203bcc103d",
+      "f7a3d8f8bd4882c6ba67782933438d5f"
+    ]
+  },
+  {
+    "qid": "2003.09244-q05",
+    "question": "In the paper \"Language Technology Programme for Icelandic 2019-2023\", when did language technology start in Iceland?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "e8b838a34d90bf4cf05309055340a0c9"
+    ],
+    "hybrid_top5": [
+      "3b5e5d0cec26dacd84c88e0c742aeefe",
+      "7214fdde163d061437205a785be901ca",
+      "dcc9205f2fb2dbcd6dd60281f3fc6f14",
+      "fd6c0140d46d025cdebe9e4cbbcd339a",
+      "7d13efe7d87dd645a077146826a667ca"
+    ]
+  },
+  {
+    "qid": "1908.07491-q03",
+    "question": "In the paper \"Controversy in Context\", what is the size of the introduced dataset?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "3ec45651b444655968ce836339d837e2",
+      "921507530af392ea96ec03f8dd6defdb"
+    ],
+    "hybrid_top5": [
+      "ff0c70c0254f115580767840a5b4ae00",
+      "18851bcaa8b845037abc2a87632b6039",
+      "e5c55f1c3ac846af4ee4955f624914be",
+      "3e51cabcf2027189c6ba7cc9c9d67768",
+      "c8f2ae123eb5076979a3f9955ddd5d87"
+    ]
+  },
+  {
+    "qid": "2004.02334-q03",
+    "question": "In the paper \"Neural Machine Translation with Imbalanced Classes\", what datasets are used in the paper?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "3987cc983cf747f1a03c157b2818db95"
+    ],
+    "hybrid_top5": [
+      "d64cafa2af92a11fd609e5d142d687b8",
+      "21a8d55a66bfe3760d2a84667eb01cfb",
+      "a400144b282afba7b1db29ee6869ca3e",
+      "254383bce9b6770bcc00ca7a831ee055",
+      "08044aebc95d0bf93b341bcbdc707e7e"
+    ]
+  },
+  {
+    "qid": "1908.11046-q02",
+    "question": "In the paper \"Remedying BiLSTM-CNN Deficiency in Modeling Cross-Context for NER.\", how is \"complexity\" and \"confusability\" of entity mentions defined in this work?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "49ed1921db81268bc8fba31595c54e74",
+      "49cb21eb544a6296107f0a612c180639"
+    ],
+    "hybrid_top5": [
+      "d1734d7ccf9b192e2c955c36f33926cf",
+      "4573c85805261d9e246f02c67e59388d",
+      "60d9668907aec6bbacab87e65f0c6ec2",
+      "7dd02f55856dcef0fb8fda8bd121144d",
+      "923e846bf78ee0175f9d60709002f3e9"
+    ]
+  },
+  {
+    "qid": "1906.01076-q01",
+    "question": "In the paper \"Episodic Memory in Lifelong Language Learning\", what text classification tasks are considered?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "580dfdfbfec900e627b263db35be1e45"
+    ],
+    "hybrid_top5": [
+      "0ec0fff16fe996d2d302bf62ce078d7d",
+      "5f9d1263bed452f34dc16ed93f7de373",
+      "650988dd8b6a1acd0a672f10ed4f4485",
+      "a33626b42abb34184c4131911098b6fc",
+      "36786354943e55f365aae6f6918b8c30"
+    ]
+  },
+  {
+    "qid": "1902.06734-q01",
+    "question": "In the paper \"Author Profiling for Hate Speech Detection\", is the dataset used in other work?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "8ec3991618a646a163440c8d4dde85b1"
+    ],
+    "hybrid_top5": [
+      "d5bff9c940d9eb15aa97962516333654",
+      "d8b7f37ceeccb15335273e4c7538e1c5",
+      "9026106812b36c5aacb94c6e2c7f5384",
+      "ad0f348dde59f7e3809b17472e1834dc",
+      "d2a3f8dd7df7c6b8855098a7005e3bd5"
+    ]
+  },
+  {
+    "qid": "1902.06734-q02",
+    "question": "In the paper \"Author Profiling for Hate Speech Detection\", what is the drawback to methods that rely on textual cues?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "91e110a1fe9c2dfad0f476b9ae7b0b39"
+    ],
+    "hybrid_top5": [
+      "d8b7f37ceeccb15335273e4c7538e1c5",
+      "e3c60257edaba486bc4d04cb4abb261f",
+      "4754b66e33fc97e9b5f31c6b84c19f5e",
+      "ad0f348dde59f7e3809b17472e1834dc",
+      "d5bff9c940d9eb15aa97962516333654"
+    ]
+  },
+  {
+    "qid": "1702.02584-q02",
+    "question": "In the paper \"Predicting Audience's Laughter Using Convolutional Neural Network\", what is novel about the newly emerging CNN method, in comparison to well-established conventional method?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "dda68c9baa6821041cd74687e711c39a"
+    ],
+    "hybrid_top5": [
+      "3292b90d9a18272e335825e15089fb87",
+      "0853a4b69bff75b00e9ccf5255435747",
+      "89f3c534be8dfde0e9a9275a5f9e6834",
+      "f582670e6e76126669d27e54383c8152",
+      "0ab20917fa710911d799ac009badc439"
+    ]
+  },
+  {
+    "qid": "1702.02584-q03",
+    "question": "In the paper \"Predicting Audience's Laughter Using Convolutional Neural Network\", what lexical cues are used for humor recogition?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "32a4de1c1c33d74bf2292afd0008de3b"
+    ],
+    "hybrid_top5": [
+      "76774112426ea6742d6c9e6a63186cea",
+      "dda68c9baa6821041cd74687e711c39a",
+      "0853a4b69bff75b00e9ccf5255435747",
+      "2a6f3de7208a3f469dc3dc628c7ddebc",
+      "faf1bbacb6d48a03a126a37b1e913114"
+    ]
+  },
+  {
+    "qid": "1906.05506-q04",
+    "question": "In the paper \"Character n-gram Embeddings to Improve RNN Language Models\", which dataset do they evaluate on for headline generation?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "b5ca30d31f2a0553ab7240a5c2c87e5f"
+    ],
+    "hybrid_top5": [
+      "98c16256fba45e5ea4ffa40903d72df1",
+      "879862c3320ac93d16fa9fbd631619a5",
+      "b2b9be78ac6c986401123462283f6173",
+      "715c27f81d21cfcec8a03e50dfa381d9",
+      "827bd9b3088915c8d38c77fa07820c1d"
+    ]
+  },
+  {
+    "qid": "1808.00957-q01",
+    "question": "In the paper \"SWDE : A Sub-Word And Document Embedding Based Engine for Clickbait Detection\", which dataset do they use?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "212e4f5e30555c1388847ca7fd3a8aab"
+    ],
+    "hybrid_top5": [
+      "117d84b7a67b5347d1ef0fb05cc03a76",
+      "f249536bd47f8abefe8cbf84fab6d936",
+      "b5cf8c7ce35ee31c281b264db6a33c19",
+      "1d07b65cd87b2b836f15adb5687b18da",
+      "3e8d9e187341b0147c37c76d04b21864"
+    ]
+  },
+  {
+    "qid": "1808.07231-q05",
+    "question": "In the paper \"Reducing Gender Bias in Abusive Language Detection\", what pre-trained word embeddings are used?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "346dc667d0276041ddca5f9c7e32e4df"
+    ],
+    "hybrid_top5": [
+      "2085536857bfb7375edf2b39a7f3bec2",
+      "d457aafc0065224499812e8618957b97",
+      "da6d3f11191a9e212256ccff3e4eb01a",
+      "43c20ae27b8dbe66cff9658582c69656",
+      "4cbb4460b62c4a5b526a5dc05959f73a"
+    ]
+  },
+  {
+    "qid": "1808.07231-q06",
+    "question": "In the paper \"Reducing Gender Bias in Abusive Language Detection\", what metrics are used to measure gender biases?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "e4742ed2b1f54ae4d10f8a5b4696e894"
+    ],
+    "hybrid_top5": [
+      "3e5f73f2aa46ba5e6cc1bf2449f6e20d",
+      "2085536857bfb7375edf2b39a7f3bec2",
+      "d457aafc0065224499812e8618957b97",
+      "569675b6202bf41e56ee32d7bca802f5",
+      "da6d3f11191a9e212256ccff3e4eb01a"
+    ]
+  },
+  {
+    "qid": "1909.02322-q01",
+    "question": "In the paper \"Informative and Controllable Opinion Summarization\", do they compare to previous work?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "230819411a781995840c754d436fcbaf"
+    ],
+    "hybrid_top5": [
+      "7df797eec22b3ce33695c4430f35e76b",
+      "62159a1e5bf341433afc41fbe9a70737",
+      "cb5b0836d3a9ac1d87100e7b71398cd7",
+      "84a3027a5c8894351c67236ef5b8ef02",
+      "eb206f205e7cbe06e8710e658d01c11c"
+    ]
+  },
+  {
+    "qid": "1805.04579-q03",
+    "question": "In the paper \"Using Statistical and Semantic Models for Multi-Document Summarization\", what showed to be the best performing combination of semantic and statistical model on the summarization task in terms of ROUGE score?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "5e940db0db50eec76b6f274e6b01df29"
+    ],
+    "hybrid_top5": [
+      "1362df8315e97204758e69f38e0b36c0",
+      "3beacfbb1b818a8ce3d200b911397ff1",
+      "5c366a1edacc931e3c644eab8b64a156",
+      "e782f3a46253b285032ec50c2066a41a",
+      "06e24c7d0f18299e0ce38ab32b3dbaea"
+    ]
+  },
+  {
+    "qid": "1803.08419-q07",
+    "question": "In the paper \"The Rapidly Changing Landscape of Conversational Agents\", what was the proposed use of conversational agents in pioneering work?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "5b280ab58d50137a78b08e283b8b5cd5"
+    ],
+    "hybrid_top5": [
+      "958b36ba44be133a0c0ec2ced1b93f3f",
+      "79b1d395db4327e006b4c7587e86609e",
+      "a4a467502f2198f1697fae76a7f673df",
+      "f765f708ba1ddc640f9c3034eff6676c",
+      "b8570eaa009e0a6d9e35dfd6cf6849bf"
+    ]
+  },
+  {
+    "qid": "1908.08917-q02",
+    "question": "In the paper \"A Lost Croatian Cybernetic Machine Translation Program\", what is the reason this research was not adopted in the 1960s?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "3543ec496473079b673f26aab6a9f5af",
+      "6990af3ca000d0d9f8ef003eee6bb698"
+    ],
+    "hybrid_top5": [
+      "c0b3e8e40bbb92ba3670d906dad94063",
+      "1b2acf54da2ac95f214829b74143e0d5",
+      "7984b3910cf99dfe7810d0b2a1ee5999",
+      "2d895bdab866e24489ffbad3d51e9a15",
+      "5fef72726050f2b9bbf959834b0a96dd"
+    ]
+  },
+  {
+    "qid": "1603.09381-q04",
+    "question": "In the paper \"Clinical Information Extraction via Convolutional Neural Network\", what dataset did they use to evaluate?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "b3e17325c86ed8a1b57c9c09fcc4f4fd"
+    ],
+    "hybrid_top5": [
+      "ef82cba071a689cd1785212bd58dd51c",
+      "99ca9b2be0b6977c14dc4a48fc2b2e6f",
+      "e049761ab3e8fb5971281f40b6817423",
+      "9e8965ee7309f870914140508856e16e",
+      "e7dbca9e1ed083df8bf88148aa4be08a"
+    ]
+  },
+  {
+    "qid": "1708.05482-q01",
+    "question": "In the paper \"A Question Answering Approach to Emotion Cause Extraction\", what was their system's f1 score?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "7acb0ca6defbe5c9c9a21bb8b89dca53"
+    ],
+    "hybrid_top5": [
+      "7267a48afa42f7811474fde5cb90efc9",
+      "84456452fb296e110f3bbb65a289f1a0",
+      "828ba099f1b138f1bd59c63a63f73b04",
+      "65fa82cca6bcdfb4131e55d2a4aceaf6",
+      "ddc7e611e97a149071dd4b7efae776e4"
+    ]
+  },
+  {
+    "qid": "1708.05482-q02",
+    "question": "In the paper \"A Question Answering Approach to Emotion Cause Extraction\", what were the baselines?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "72affc1991e6144b70a9f5d347b97c5d"
+    ],
+    "hybrid_top5": [
+      "7267a48afa42f7811474fde5cb90efc9",
+      "828ba099f1b138f1bd59c63a63f73b04",
+      "ddc7e611e97a149071dd4b7efae776e4",
+      "65fa82cca6bcdfb4131e55d2a4aceaf6",
+      "5171e17ccba976886e7813239eb46a3b"
+    ]
+  },
+  {
+    "qid": "1708.05482-q03",
+    "question": "In the paper \"A Question Answering Approach to Emotion Cause Extraction\", what emotion cause dataset was used?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "86c2383539a9223bf2e3204386b8ef5f"
+    ],
+    "hybrid_top5": [
+      "7267a48afa42f7811474fde5cb90efc9",
+      "5171e17ccba976886e7813239eb46a3b",
+      "65fa82cca6bcdfb4131e55d2a4aceaf6",
+      "eea124202165ff7b149b9c295b7809f6",
+      "ddc7e611e97a149071dd4b7efae776e4"
+    ]
+  },
+  {
+    "qid": "1910.14589-q03",
+    "question": "In the paper \"Machine Translation of Restaurant Reviews: New Corpus for Domain Adaptation and Robustness\", what are the human evaluation metrics?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "af6633fb99cbdd3be5498b75603ea693",
+      "05cbe9f21d835fe6398b592a42bd474c"
+    ],
+    "hybrid_top5": [
+      "1a3feb1c4e841da029473a1a2a0e79b1",
+      "ee83c9042feb6add11e0175e576feb44",
+      "cd91706ce233e189bbc3705a4aa568e9",
+      "78e35a6e1b30c98eda4634589b1b4867",
+      "6d92a6652f1e5f997405fe2bd4f67b19"
+    ]
+  },
+  {
+    "qid": "1905.08067-q04",
+    "question": "In the paper \"Understanding the Radical Mind: Identifying Signals to Detect Extremist Content on Twitter\", which behavioural features are used?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "96bca8e09e43f18628d94d2d59ae09bb"
+    ],
+    "hybrid_top5": [
+      "2616b81c00c2fd16c9dff8d2768e23c4",
+      "1d3c9b5b093dd911d709340be646d3cb",
+      "f7c4d8d0c78734e95f01ae5926d9e51b",
+      "5d7d2b2f6576dfd5e0deac5ff181435d",
+      "ff6af913d168cc6bfd89de22089ffa9b"
+    ]
+  },
+  {
+    "qid": "1911.12722-q02",
+    "question": "In the paper \"A Fine-Grained Sentiment Dataset for Norwegian\", what were the results of their experiment?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "f4e803949a19c084dade3f4048889cc7",
+      "bb0a8f4ac8efc0071e85909611c74bb3"
+    ],
+    "hybrid_top5": [
+      "6607c14db4b839a3a17f30762c6439be",
+      "6406875fcc277663829ba587d9e18421",
+      "6ed5dc92ac622b61bf957ced259340c8",
+      "a0e6a387dbbbc570348855f4e5fbe5c6",
+      "2cfc5a623670df94f420e022f79d0c0d"
+    ]
+  },
+  {
+    "qid": "1911.12722-q03",
+    "question": "In the paper \"A Fine-Grained Sentiment Dataset for Norwegian\", how big is the dataset?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "54158d9cc4a6baa95778cd3bf51cf147"
+    ],
+    "hybrid_top5": [
+      "6406875fcc277663829ba587d9e18421",
+      "6ed5dc92ac622b61bf957ced259340c8",
+      "6d32497884219f83ba4891b63ffb6f6a",
+      "0b6b227d988d864fe191ab548f222014",
+      "6bc0f65c346ad7aa502e6eac24d3484d"
+    ]
+  },
+  {
+    "qid": "1909.01720-q02",
+    "question": "In the paper \"Different Absorption from the Same Sharing: Sifted Multi-task Learning for Fake News Detection\", what are the hyperparameter setting of the MTL model?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "110721b0e762811b8de610a68ca51174"
+    ],
+    "hybrid_top5": [
+      "088b0de1f1ad3f77be89b610725bf880",
+      "dbf26b453374a3d107009a216b9a27de",
+      "a6fd7aa1f15824850c2f566b3082901d",
+      "042b4a052d8fd2479679f02955111c03",
+      "6791a06b8ec93d898f962c275e4d749d"
+    ]
+  },
+  {
+    "qid": "1909.01720-q03",
+    "question": "In the paper \"Different Absorption from the Same Sharing: Sifted Multi-task Learning for Fake News Detection\", what architecture does the rest of the multi-task learning setup use?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "50c5567300899a5c620dbc13a5566a3d"
+    ],
+    "hybrid_top5": [
+      "bcdcc83adb6e3a96aea084031040b79b",
+      "123d40f257b8b6e8fb7c3f7fa6daf542",
+      "088b0de1f1ad3f77be89b610725bf880",
+      "6791a06b8ec93d898f962c275e4d749d",
+      "721813b0ea0643b23a06aa83a0d6419a"
+    ]
+  },
+  {
+    "qid": "1908.10090-q01",
+    "question": "In the paper \"On NMT Search Errors and Model Errors: Cat Got Your Tongue?\", what were the length constraints they set?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "09c4676eca25142e2781e2f3f9888137"
+    ],
+    "hybrid_top5": [
+      "69dc24ec5a653f43afc567f3f7720738",
+      "22e7f0ced1576016c91b035c43c71463",
+      "15a4ba6834c68497f8edc73453ac561c",
+      "1f00c6074aff158180f50ba85222689f",
+      "7a17fe4b1ab6ac8ff857fe2c0c4ce151"
+    ]
+  },
+  {
+    "qid": "1908.10090-q02",
+    "question": "In the paper \"On NMT Search Errors and Model Errors: Cat Got Your Tongue?\", what is the test set size?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "dd303fd62809d682ed8d0d1e6751e140"
+    ],
+    "hybrid_top5": [
+      "7a17fe4b1ab6ac8ff857fe2c0c4ce151",
+      "1f00c6074aff158180f50ba85222689f",
+      "3cfbddfdcd8265f6abc04ce822cde4f9",
+      "a95be2df081cd6cf95e3b05bae6316da",
+      "44cec3734634b0bd928d6f6ec413a3b4"
+    ]
+  },
+  {
+    "qid": "1910.07154-q02",
+    "question": "In the paper \"Unsupervised Question Answering for Fact-Checking\", what is the threshold?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "73dd7d2555cc3d8bd2c8253142c54e1f"
+    ],
+    "hybrid_top5": [
+      "a81c1cee7e8fd4cc8fdb661dc1086443",
+      "bedaf16e0c0f7abd72c9ad28f010e255",
+      "505e09cd32160d53736233eb2cc6de27",
+      "632bac0550d26c4a24da5a36b7fba81e",
+      "bf2ce31bbba6787b2e035f0348a90630"
+    ]
+  },
+  {
+    "qid": "1705.02023-q01",
+    "question": "In the paper \"Senti17 at SemEval-2017 Task 4: Ten Convolutional Neural Network Voters for Tweet Polarity Classification\", what were the evaluation metrics?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "db76aea752232588406eb0a3112d019b"
+    ],
+    "hybrid_top5": [
+      "75317d99d13465984b9cd8b53c6c6c45",
+      "4caa68b49121f81a0beb6e988020a99b",
+      "9dfb4db3cb3f7dfc522370afeebb8935",
+      "b2eb90904e67a949bea323c94746adb5",
+      "319f33c63e9e574c43d39bd2227eb87b"
+    ]
+  },
+  {
+    "qid": "1705.02023-q02",
+    "question": "In the paper \"Senti17 at SemEval-2017 Task 4: Ten Convolutional Neural Network Voters for Tweet Polarity Classification\", how many sentiment labels do they explore?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "db76aea752232588406eb0a3112d019b"
+    ],
+    "hybrid_top5": [
+      "75317d99d13465984b9cd8b53c6c6c45",
+      "4caa68b49121f81a0beb6e988020a99b",
+      "b2eb90904e67a949bea323c94746adb5",
+      "319f33c63e9e574c43d39bd2227eb87b",
+      "fdb2e58096c166e0635a6e00eddee009"
+    ]
+  },
+  {
+    "qid": "2004.02214-q01",
+    "question": "In the paper \"Prototype-to-Style: Dialogue Generation with Style-Aware Editing on Retrieval Memory\", is there a metric that also rewards good stylistic response?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "bad3abab6a7473d06eb44cece9c91a2a"
+    ],
+    "hybrid_top5": [
+      "c04de1503f143bf1b84758a5507f0a1a",
+      "265b18205df8794a9ac2d87d8c7a9ac2",
+      "4e74407294594a3bfc1c997e2e655320",
+      "28513bff02c16a254f1da53e00055ec9",
+      "4f8a73d4c98aa1b726964882a0c7ea25"
+    ]
+  },
+  {
+    "qid": "1704.06851-q01",
+    "question": "In the paper \"Affect-LM: A Neural Language Model for Customizable Affective Text Generation\", is the performance improvement (with and without affect attributes) statistically significant?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "2b3157d6100f89cb298e9967baec7cfc"
+    ],
+    "hybrid_top5": [
+      "8746c2eb9d6309a0ca1ad9329e75d766",
+      "6721250678ce21436a42da18a706f831",
+      "d34f566259209d8e993ba748a53cc13a",
+      "f1a3d279163ebbf1b47cb842290910ec",
+      "18c7a4b7b4c530e90707e22773cd2245"
+    ]
+  },
+  {
+    "qid": "1704.08390-q05",
+    "question": "In the paper \"Duluth at SemEval-2017 Task 6: Language Models in Humor Detection\", what were subtasks A and B?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "abb6bc6137c12972077d748bde6511a3"
+    ],
+    "hybrid_top5": [
+      "97bc8e9baccae909bf266d88e2c385fb",
+      "c1ba649c43785aea5e97cbbac3560263",
+      "f0b046b01b47fd7c23e2b379f858953a",
+      "00b6da27b653f43d1e268f05dc019595",
+      "6c3abb73a94dbe027a4f7583979c40d6"
+    ]
+  },
+  {
+    "qid": "1911.03642-q02",
+    "question": "In the paper \"Towards Understanding Gender Bias in Relation Extraction\", how does counterfactual data augmentation affect gender bias in predictions and performance?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "c0b282491e14c29065855d989d35bea1"
+    ],
+    "hybrid_top5": [
+      "653217fd6dc42172b27748d34d73379e",
+      "12895816bfb45c9527446a738fab4a41",
+      "3e3bb169cdbf54dd9342643aaf384a2a",
+      "ddaa7270bec4e4ea99a56d18491d959a",
+      "d49dd04e341873d93c873ff19e7dc9c2"
+    ]
+  },
+  {
+    "qid": "1911.03642-q03",
+    "question": "In the paper \"Towards Understanding Gender Bias in Relation Extraction\", how does hard debiasing affect gender bias in prediction and performance?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "698f9860c286aef5678d6cda76fc6a49"
+    ],
+    "hybrid_top5": [
+      "653217fd6dc42172b27748d34d73379e",
+      "12895816bfb45c9527446a738fab4a41",
+      "7f2af3890bd6832d2db2386835a8f77c",
+      "3e3bb169cdbf54dd9342643aaf384a2a",
+      "23ce0108e6f49acdc6a1f9e76e89bb73"
+    ]
+  },
+  {
+    "qid": "1911.03642-q05",
+    "question": "In the paper \"Towards Understanding Gender Bias in Relation Extraction\", how are the sentences in WikiGenderBias curated?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "ffb7d2131077748cab4b21f9e10e6c70"
+    ],
+    "hybrid_top5": [
+      "ddaa7270bec4e4ea99a56d18491d959a",
+      "20377698250c2e136507b6676dd34de2",
+      "87260d6c766146dc46caf404fbe52052",
+      "7f2af3890bd6832d2db2386835a8f77c",
+      "64b0d03f3b0d4b46d7e3b3a726ed6f9e"
+    ]
+  },
+  {
+    "qid": "1701.03578-q06",
+    "question": "In the paper \"Efficient Transfer Learning Schemes for Personalized Language Modeling using Recurrent Neural Network\", which similarity metrics are used for quantitative analysis?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "d0875de42ab4968a18acef995b74d532",
+      "73523e04153d7d22f35efbb228fce1b4"
+    ],
+    "hybrid_top5": [
+      "c3699a7eece0d12d9f6a691798229a56",
+      "1e4c1c02ff5a49722d962631fecd4019",
+      "5050bd89963bba66e68ebda5368a8c3b",
+      "5aa09b91b182374c677a5e1acafc842d",
+      "3f9cb7c357d4742a95d5dc6b235cd5ad"
+    ]
+  },
+  {
+    "qid": "1801.04433-q02",
+    "question": "In the paper \"Detecting Offensive Language in Tweets Using Deep Learning\", what results did their system obtain?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "fbb145bda64fe3d7891d4c464aa11b08"
+    ],
+    "hybrid_top5": [
+      "2028eb105d4fb0036141b1eb32dfaf1c",
+      "db93d2b13c940c0d828b54bcd3614721",
+      "a5c9bcf0e0b58e1673631ef381cb0b48",
+      "a1ee231078248523c165b355cd4bfef2",
+      "383051085162c7ed7900bae0c2192446"
+    ]
+  },
+  {
+    "qid": "1903.01411-q02",
+    "question": "In the paper \"Polylingual Wordnet\", does the performance increase with the number of used languages?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "d32edd3f829e992c73fd6b7b7821c302"
+    ],
+    "hybrid_top5": [
+      "e3a05ac427a1a1da4d5aaae8ae7bda5d",
+      "b133e9f36ca3900376a6ccab169e7c5f",
+      "eb29a5a807eb5ce2999b218aa66959d9",
+      "29d9542728d7c1df5052aae333cde4e8",
+      "e3b796d9458ba82121c75aa0c500c6e9"
+    ]
+  },
+  {
+    "qid": "2004.03090-q01",
+    "question": "In the paper \"Interview: A Large-Scale Open-Source Corpus of Media Dialog\", which baselines did they compare to?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "14c46668eb3449d5fb506465678d5a59"
+    ],
+    "hybrid_top5": [
+      "08efcdd8416d5a235cac708e8922ace5",
+      "5cae8ef19e5c29996cf4c853fd9eb697",
+      "e126816c669fc630e89ef32969b593bf",
+      "ba4eb9a4c69ad12627ba8fd77f832878",
+      "0dc0374122f6f725b957b73e26d7d968"
+    ]
+  },
+  {
+    "qid": "1903.10318-q03",
+    "question": "In the paper \"Fine-tune BERT for Extractive Summarization\", how do they use BERT to encode the whole text?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "30e36f18ea55cb4a059494c1ee30c002"
+    ],
+    "hybrid_top5": [
+      "e26f5676beacdb07b86929580af97b9a",
+      "0dc5c0a868beb0b353d25d0d0a05b3cb",
+      "76515bc3e446a798f744663ede1b5771",
+      "b3d78d83797b3dbc1ff9c8d32d63a375",
+      "4733bfc60ab5fdc186defe544589e033"
+    ]
+  },
+  {
+    "qid": "1911.12237-q01",
+    "question": "In the paper \"SAMSum Corpus: A Human-annotated Dialogue Dataset for Abstractive Summarization\", how many abstractive summarizations exist for each dialogue?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "be3f08b86f6f2fca4a489b4603e0649e"
+    ],
+    "hybrid_top5": [
+      "230bc5f3d55624fb1342c120450dc9cb",
+      "ae0bccf770c3ce572d73a0fd05972b2c",
+      "bd0395a2c7b1e72fceeca01fdc8282da",
+      "f54998d5c3e33ca5515ef5ea363d5d7e",
+      "a826c76c69331e07d14a80f7a82aeed1"
+    ]
+  },
+  {
+    "qid": "1909.07873-q01",
+    "question": "In the paper \"Generating Black-Box Adversarial Examples for Text Classifiers Using a Deep Reinforced Model\", do they manually check all adversarial examples that fooled some model for potential valid examples?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "706da8e39ccd1b154764f136293a8e1c"
+    ],
+    "hybrid_top5": [
+      "d13eddf624c963db196a704a3fdd0084",
+      "30acdcdfb0d079f6f013cfb21486cd42",
+      "4ca70b7e2f577ff2c78cba4cebdcacb4",
+      "6d164579a578705ad4b846fb1939e8c6",
+      "1e444c1dc1dc4d5f8e39e0bafb3e18c2"
+    ]
+  },
+  {
+    "qid": "1906.01502-q03",
+    "question": "In the paper \"How multilingual is Multilingual BERT?\", what language pairs are affected?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "c0ac09622329d1e5bee988ba8b943ec2"
+    ],
+    "hybrid_top5": [
+      "1cbeb8c13ef28339bdf6e7174a335f06",
+      "40373e7b358915db902e6b830d535c08",
+      "15312f7b23f3c9e8acde296b63075ffc",
+      "7412fb739eb125783abde8cab172fd39",
+      "bcdab36db2dd54e89afe3352158c802a"
+    ]
+  },
+  {
+    "qid": "1611.00440-q02",
+    "question": "In the paper \"And the Winner is ...: Bayesian Twitter-based Prediction on 2016 U.S. Presidential Election\", what preprocessing method is introduced?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "03f12e3b177940c5567c5e69dc9ff640"
+    ],
+    "hybrid_top5": [
+      "2aa75366d26bd7fba35ebe300cebfff5",
+      "3b338f92f3eb30b18b7fc6a6eb695745",
+      "54d1ad903bff261b0b531080e0009bbe",
+      "9063946f86a9b9f571b096654134dfc7",
+      "cd7bdb89ce53e31b3208e91876045d88"
+    ]
+  },
+  {
+    "qid": "1702.02367-q01",
+    "question": "In the paper \"Iterative Multi-document Neural Attention for Multiple Answer Prediction\", how well does their model perform on the recommendation task?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "e92588330539ebe3123db5e35053fbb7"
+    ],
+    "hybrid_top5": [
+      "86074842a6dfc945d150fc7b40005ce3",
+      "66fc56ea6330a60bb9832baa02e06364",
+      "ad44bcf4de7f27da5e441c8ec4d6d730",
+      "2eefc819de6a87e83a5645c759e4e721",
+      "64acc33cfa52276a85a58e18ab989d2b"
+    ]
+  },
+  {
+    "qid": "1607.07514-q03",
+    "question": "In the paper \"Tweet2Vec: Learning Tweet Embeddings Using Character-level CNN-LSTM Encoder-Decoder\", what are the previous state of the art for sentiment categorization?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "4f2a7b8c28f45de3e13aae4409d17883"
+    ],
+    "hybrid_top5": [
+      "cbc57043cf2cacd23c600f2cc9a5d91d",
+      "a18913abcb53abc172414cbdae6eaf7e",
+      "90022f6f3cce921ad4b8f4e174b5f791",
+      "054a8e7e76d9c0a84f08d665e2b0f088",
+      "173703df3e117becf29497c02da99dee"
+    ]
+  },
+  {
+    "qid": "1809.03680-q02",
+    "question": "In the paper \"Learning Scripts as Hidden Markov Models\", which baselines do they use?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "f1d0dcae6eaddcc783db5f72d582d767"
+    ],
+    "hybrid_top5": [
+      "502b9c9b0b59aaec1595cdc2dc68c64d",
+      "24fca8af72c86221137121a976ec841e",
+      "9ee67c7ebd1a0c2fda73aeae24e57303",
+      "ebd36dc754aa33bb0c143397b349fe0c",
+      "315d4e8621dfe92998495264302cf704"
+    ]
+  },
+  {
+    "qid": "1706.00188-q01",
+    "question": "In the paper \"Deep Learning for Hate Speech Detection in Tweets\", what deep learning methods do they look at?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "f493c7b437a4fda8c945af01d0b29c4e"
+    ],
+    "hybrid_top5": [
+      "4575f83e03e9905a773f52700f00e6cf",
+      "0e0c29ba58b757296b1d2d7d937e08fe",
+      "8ee6d731c49beee57d0933f7bb251ee7",
+      "757cbbd42c4a8c296516a959d3f39a65",
+      "728c248f240c3a9429fa31903d68d5ba"
+    ]
+  },
+  {
+    "qid": "1805.04558-q05",
+    "question": "In the paper \"NRC-Canada at SMM4H Shared Task: Classifying Tweets Mentioning Adverse Drug Reactions and Medication Intake\", what domain-specific features did they train on?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "1d04e26e1f34f7609d9f99c7c2e6e476"
+    ],
+    "hybrid_top5": [
+      "137eddd3d474807d14467a80d5105929",
+      "934454cb25d3b7f815bf7b550b2f35de",
+      "defea5eefa61c5d9739dfa34f5d62f60",
+      "9f05bd4d06313025978156eaa9bf073e",
+      "e544378dd289dc3477694b1e93bdd06f"
+    ]
+  },
+  {
+    "qid": "1805.04558-q06",
+    "question": "In the paper \"NRC-Canada at SMM4H Shared Task: Classifying Tweets Mentioning Adverse Drug Reactions and Medication Intake\", what are the sentiment features used?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "ffdb511e07865531a84b687ee368687b"
+    ],
+    "hybrid_top5": [
+      "137eddd3d474807d14467a80d5105929",
+      "934454cb25d3b7f815bf7b550b2f35de",
+      "9f05bd4d06313025978156eaa9bf073e",
+      "defea5eefa61c5d9739dfa34f5d62f60",
+      "b7266d5446cab7c1b9fe7a5bef343389"
+    ]
+  },
+  {
+    "qid": "1805.04558-q07",
+    "question": "In the paper \"NRC-Canada at SMM4H Shared Task: Classifying Tweets Mentioning Adverse Drug Reactions and Medication Intake\", what surface-form features were used?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "ab5bf3b5ff2a0023842f4a803e4af5b7",
+      "1d04e26e1f34f7609d9f99c7c2e6e476"
+    ],
+    "hybrid_top5": [
+      "934454cb25d3b7f815bf7b550b2f35de",
+      "defea5eefa61c5d9739dfa34f5d62f60",
+      "9f05bd4d06313025978156eaa9bf073e",
+      "137eddd3d474807d14467a80d5105929",
+      "8301bcb1152dd0c7f558e31500c2893c"
+    ]
+  },
+  {
+    "qid": "2004.02143-q01",
+    "question": "In the paper \"Reinforced Multi-task Approach for Multi-hop Question Generation\", how much did the model outperform",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "f46c35228382e095b3ad0f8de8d1cd15"
+    ],
+    "hybrid_top5": [
+      "c7d1a58a7e4308dc15b61b7280cfda96",
+      "274dbc6991f17dc40001f91b380842e6",
+      "a15a412fb9a3228b23fdc8ae6c347f27",
+      "8c75d9cb3d614afe02bb2ccaaca4b5b1",
+      "796c1c59f75ed264186a0e717496432d"
+    ]
+  },
+  {
+    "qid": "2004.02143-q02",
+    "question": "In the paper \"Reinforced Multi-task Approach for Multi-hop Question Generation\", what language is in the dataset?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "b7cd201c1d2860ef430587332c25df76"
+    ],
+    "hybrid_top5": [
+      "8c75d9cb3d614afe02bb2ccaaca4b5b1",
+      "796c1c59f75ed264186a0e717496432d",
+      "d96e647c169cdef4a6a2c0315cc31281",
+      "a15a412fb9a3228b23fdc8ae6c347f27",
+      "e05d6288981bdf6581b7e4cece8a38fe"
+    ]
+  },
+  {
+    "qid": "1704.04451-q02",
+    "question": "In the paper \"Optimizing Differentiable Relaxations of Coreference Evaluation Metrics\", how long is the training dataset?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "98f876db1d1ec993e0b978c5ce84ab6c"
+    ],
+    "hybrid_top5": [
+      "f5556bd6893aaf371a259b133083dd73",
+      "ae475e58867034acc1dba662d4643cf0",
+      "558a8a7b2d4a54d21c7fb9ca7c4e24ef",
+      "61b361078d0e71fa7b8fdd03092ed2b3",
+      "afdfe5d0f58499ef080b274647076c6a"
+    ]
+  },
+  {
+    "qid": "1704.04451-q03",
+    "question": "In the paper \"Optimizing Differentiable Relaxations of Coreference Evaluation Metrics\", what dataset do they use?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "98f876db1d1ec993e0b978c5ce84ab6c"
+    ],
+    "hybrid_top5": [
+      "d954eada3c63cf20fbc1464d05069134",
+      "f5556bd6893aaf371a259b133083dd73",
+      "ed1619123e1426a6de3d5ea7b49714c2",
+      "558a8a7b2d4a54d21c7fb9ca7c4e24ef",
+      "afdfe5d0f58499ef080b274647076c6a"
+    ]
+  },
+  {
+    "qid": "1908.11053-q04",
+    "question": "In the paper \"Leveraging Frequent Query Substructures to Generate Formal Queries for Complex Question Answering\", how do they recover from noisy entity linking?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "8daf41ab7fa05614b0364ed8c1cd599d"
+    ],
+    "hybrid_top5": [
+      "289af8a244c2dc6cf805124c57303d0e",
+      "b749521dc87296d2d1cd1a262f960f2d",
+      "9dcbb0085b18832ac7af622535c3cc65",
+      "fad48a6e3f8c8db9fd42a40ae393e144",
+      "b4eae76decacad83f39688a94775be8e"
+    ]
+  },
+  {
+    "qid": "1906.00424-q02",
+    "question": "In the paper \"Plain English Summarization of Contracts\", how big is the dataset?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "9d5deab81148e744651d5b51e4eee8f9"
+    ],
+    "hybrid_top5": [
+      "1117f90efa769ba5e8643525b9337519",
+      "d105bbdd5bc1a1bbb94597ebe4cc463d",
+      "5f8b3286c37f098432d52feffdbaf957",
+      "231390bce4de4fca64b9689b8866d6f2",
+      "f11e0ed95adfbbb12fa9510f2f3f39aa"
+    ]
+  },
+  {
+    "qid": "1805.09960-q03",
+    "question": "In the paper \"Phrase Table as Recommendation Memory for Neural Machine Translation\", what datasets did they use?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "866503aa7911f9cde625d098e9211ff1"
+    ],
+    "hybrid_top5": [
+      "9e928c56ade47676cd8b213ec99a13b9",
+      "75300f7b1c1178233d782ea1006490bd",
+      "229eb2676d0855c8e8ac4f6e985e5048",
+      "75726df92b99e18f1136c0c99f578e07",
+      "5eba818b786dc8e30c5ecf82d816946c"
+    ]
+  },
+  {
+    "qid": "1805.09960-q04",
+    "question": "In the paper \"Phrase Table as Recommendation Memory for Neural Machine Translation\", which attention based nmt method did they compare with?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "a3c226e22e8ee25cf7aaed99e58aa447"
+    ],
+    "hybrid_top5": [
+      "229eb2676d0855c8e8ac4f6e985e5048",
+      "9e928c56ade47676cd8b213ec99a13b9",
+      "75300f7b1c1178233d782ea1006490bd",
+      "bc3254ff88ef28d16faaa32fc6ab522a",
+      "18e24a5c59006a6796249d8f13aa5f90"
+    ]
+  },
+  {
+    "qid": "1811.01183-q02",
+    "question": "In the paper \"Unsupervised Identification of Study Descriptors in Toxicology Research: An Experimental Study\", what is the source of their data?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "94615a54ba5e75309a84f096ca0f64b8"
+    ],
+    "hybrid_top5": [
+      "9fe44df0d973088131e1e52cec7fd7c4",
+      "1cbff2291e46536ed635244f59fc9095",
+      "e2edabe66f7b2b14198107cefbb9268b",
+      "6141335d5b04700af8205d286d68dec6",
+      "8cbd371b787aac2eb2e4b51dd7df3e55"
+    ]
+  },
+  {
+    "qid": "1811.01183-q03",
+    "question": "In the paper \"Unsupervised Identification of Study Descriptors in Toxicology Research: An Experimental Study\", what is their binary classifier?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "2c2ef75a0efa613c98864ce49e385ba1"
+    ],
+    "hybrid_top5": [
+      "128e4ff4dbae7d02cd39d2aa90bcceb2",
+      "e2edabe66f7b2b14198107cefbb9268b",
+      "9fe44df0d973088131e1e52cec7fd7c4",
+      "44f45f03cff468d39b9d7f1805b07be3",
+      "6141335d5b04700af8205d286d68dec6"
+    ]
+  },
+  {
+    "qid": "1910.09387-q02",
+    "question": "In the paper \"Clotho: An Audio Captioning Dataset\", how did they evaluate the quality of annotations?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "c69bf5f1442dd24ad75fb58f2696df79"
+    ],
+    "hybrid_top5": [
+      "bab2c82dddb5f2acf171da818afca807",
+      "73fb61ea82f0e80cc58d30e53b1d73f8",
+      "fa6e2bbe872919ed1bd950d54690ad88",
+      "07f2c8418dd82ef61f56e6d6ee4cf02a",
+      "a4e5618d9696bf5fb9b9e0ae799c44e4"
+    ]
+  },
+  {
+    "qid": "1901.05389-q01",
+    "question": "In the paper \"Location, Occupation, and Semantics based Socioeconomic Status Inference on Twitter\", how do they preprocess Tweets?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "bd4387b0bd8a328b89c6708b7e121a80"
+    ],
+    "hybrid_top5": [
+      "a383c0520d5ce3309ac12f1e018e33e5",
+      "f078e150b1a5fca3886909e99083879a",
+      "809f65bae8ff9257f46d703a79c3ecf8",
+      "78d50ef6a9572e9d9e64547b6660f247",
+      "ca3805b00ac212c5f9b09cb756c0afa2"
+    ]
+  },
+  {
+    "qid": "1808.10290-q01",
+    "question": "In the paper \"Acquiring Annotated Data with Cross-lingual Explicitation for Implicit Discourse Relation Classification\", how much additional data do they manage to generate from translations?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "ebb89d37d60e251feb1b44b21c21b153"
+    ],
+    "hybrid_top5": [
+      "474997ec4f1c5fbc7ba8e191bea54cd4",
+      "a323a2ac14035b70ebb2b94cd53713cf",
+      "f7b80be120c7341a3b2fe1f186beac53",
+      "f1e0d0be43d27ad6395f6466a31617c2",
+      "692bac8fbff3c3ec388557d26e712d40"
+    ]
+  },
+  {
+    "qid": "1612.04118-q02",
+    "question": "In the paper \"Information Extraction with Character-level Neural Networks and Free Noisy Supervision\", what existing databases were used?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "8d21dbd26cf359cd887f70b0ad68a3c1"
+    ],
+    "hybrid_top5": [
+      "d4de512764f9e3a5d42ec023a0d82ca1",
+      "1b363050b9049d7f25ee55526d829803",
+      "750c9d0b2223cbcfe9480a92cc12337d",
+      "ef1c7d7b5593da270aab017c60dc5f3e",
+      "90e009eb8832666eed27999651557028"
+    ]
+  },
+  {
+    "qid": "1908.09283-q01",
+    "question": "In the paper \"Multi-task Learning for Low-resource Second Language Acquisition Modeling\", what are the evaluation metrics used?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "da95c7e4a95102c3511cd2d3de0c4549"
+    ],
+    "hybrid_top5": [
+      "650c6041e11244c6d36e4dfe6e989bc2",
+      "3a9785a659e73c6fe09b1be7fad7cb2f",
+      "8b50686bc8c874ac8c61aa3b97caae68",
+      "d104488579e83d0f5a0c4fd216dcde19",
+      "e8d4828841e8c409d269f4eb5dc1e2b9"
+    ]
+  },
+  {
+    "qid": "1908.09283-q02",
+    "question": "In the paper \"Multi-task Learning for Low-resource Second Language Acquisition Modeling\", what are the baselines?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "c0b158c3cec25e68e23f03dd38f1f7f6"
+    ],
+    "hybrid_top5": [
+      "8b50686bc8c874ac8c61aa3b97caae68",
+      "650c6041e11244c6d36e4dfe6e989bc2",
+      "d104488579e83d0f5a0c4fd216dcde19",
+      "3a9785a659e73c6fe09b1be7fad7cb2f",
+      "e8d4828841e8c409d269f4eb5dc1e2b9"
+    ]
+  },
+  {
+    "qid": "1908.09283-q03",
+    "question": "In the paper \"Multi-task Learning for Low-resource Second Language Acquisition Modeling\", which language learning datasets are used?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "c0b158c3cec25e68e23f03dd38f1f7f6"
+    ],
+    "hybrid_top5": [
+      "8b50686bc8c874ac8c61aa3b97caae68",
+      "81bca082b8e96800e4e9ba5715e489a8",
+      "d104488579e83d0f5a0c4fd216dcde19",
+      "650c6041e11244c6d36e4dfe6e989bc2",
+      "3a9785a659e73c6fe09b1be7fad7cb2f"
+    ]
+  },
+  {
+    "qid": "1911.10401-q01",
+    "question": "In the paper \"A Transformer-based approach to Irony and Sarcasm detection\", what are the baseline models?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "5bb8e842e768e7ee31473eeb3850f24f"
+    ],
+    "hybrid_top5": [
+      "db6bd302e70ad317ba170b061636fc0f",
+      "1e7fe45fccadb382ec982d23b2b84090",
+      "881c547631bd21daf56f134d49ea5767",
+      "62288dfaf654ab8f9548113bcc75e8d8",
+      "f75617b1b929e3afdd6a8c859ab18143"
+    ]
+  },
+  {
+    "qid": "1911.10401-q03",
+    "question": "In the paper \"A Transformer-based approach to Irony and Sarcasm detection\", what datasets are used for training and testing?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "eeaff6b2754a20591a696f4e28f4ff42"
+    ],
+    "hybrid_top5": [
+      "db6bd302e70ad317ba170b061636fc0f",
+      "62288dfaf654ab8f9548113bcc75e8d8",
+      "f75617b1b929e3afdd6a8c859ab18143",
+      "1e7fe45fccadb382ec982d23b2b84090",
+      "881c547631bd21daf56f134d49ea5767"
+    ]
+  },
+  {
+    "qid": "1708.03699-q01",
+    "question": "In the paper \"Improved Abusive Comment Moderation with User Embeddings\", how much gain in performance was obtained with user embeddings?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "42f3a9c974e9f256c068910b15322896"
+    ],
+    "hybrid_top5": [
+      "52ab79292e1572d792f569a8d5b30fa5",
+      "3e80f6ce0b2c1a0c568b43b6460ab5b7",
+      "cfd9e8f56b3949d5b63f882f959c5b62",
+      "17cee1808315ffa57e670be8399c3f29",
+      "57530befb53fb3733af402960eab2637"
+    ]
+  },
+  {
+    "qid": "2003.13028-q02",
+    "question": "In the paper \"Abstractive Summarization with Combination of Pre-trained Sequence-to-Sequence and Saliency Models\", what is the architecture of the decoder?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "b5b0f2c095091231c8ccb3de4504075c"
+    ],
+    "hybrid_top5": [
+      "a8a97f2ea578d3d3acc01cd5e964bee6",
+      "3bd00e203ea8db09a7a27e2c5795dd46",
+      "a9f8be0a847570fc29e7ddaa991596e4",
+      "ad31a254c4ae275807deeff48f9c5862",
+      "ecfa027e9c005f357d634f4c2193c02e"
+    ]
+  },
+  {
+    "qid": "2003.13028-q03",
+    "question": "In the paper \"Abstractive Summarization with Combination of Pre-trained Sequence-to-Sequence and Saliency Models\", what is the architecture of the encoder?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "387bff6d228d925da24bfddca58e8e9c"
+    ],
+    "hybrid_top5": [
+      "a8a97f2ea578d3d3acc01cd5e964bee6",
+      "2b7f83db92fd9b5629577825034a1f74",
+      "711f402ee90f7ab73311b61cf873c42e",
+      "ed55760dfd6ff8d585698a32cce2bd17",
+      "a9f8be0a847570fc29e7ddaa991596e4"
+    ]
+  },
+  {
+    "qid": "1910.01992-q02",
+    "question": "In the paper \"SNDCNN: Self-normalizing deep CNNs with scaled exponential linear units for speech recognition\", on what dataset is model trained/tested?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "3e03204ea912be0da421a27b52a17878"
+    ],
+    "hybrid_top5": [
+      "cfb5d97f8d82fea3376d7928a8d3d793",
+      "07a763a044eeda557b43378a55ec1e80",
+      "335052b9ae117d7fb1810cb3968ef165",
+      "e24cb1b441cfbc2e345a18a500e9beef",
+      "b0ca3cf33cf140be59533ccf794b15de"
+    ]
+  },
+  {
+    "qid": "2003.03728-q02",
+    "question": "In the paper \"Pseudo Labeling and Negative Feedback Learning for Large-scale Multi-label Domain Classification\", which dataset do they evaluate on?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "3c4205fa0a08204f8b338402e761df93"
+    ],
+    "hybrid_top5": [
+      "e9768d57d05f9d222799391e1e14bfcf",
+      "84a31a6e3ab9f25954fe4997812685e2",
+      "d0ddd9a8ff99c6563fffd2e969436468",
+      "d55072d0cf0c1fa11acf0d9ae36f2dab",
+      "a7b6a8ea9f972996689b4aed6fc4bce5"
+    ]
+  },
+  {
+    "qid": "1912.00342-q02",
+    "question": "In the paper \"Machines Getting with the Program: Understanding Intent Arguments of Non-Canonical Directives\", what potential applications are demonstrated?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "4219bd19756f47dc90d82afcf2d23b77"
+    ],
+    "hybrid_top5": [
+      "a845fe51b9daac46747468e92ae763fa",
+      "b9760c853683c016bb76a9dca237c4da",
+      "110937238d0843d60a8b7a416deea657",
+      "c9f3a63717f32293c2e60f620146cb69",
+      "657e00b4ce5f22440cabe18bf57012e1"
+    ]
+  },
+  {
+    "qid": "1911.01248-q01",
+    "question": "In the paper \"A Holistic Natural Language Generation Framework for the Semantic Web\", what is the Semantic Web?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "349eb77b4763dbee0ac718c4e039a69e"
+    ],
+    "hybrid_top5": [
+      "8ef7591bb53914e885e82099b3f5c8d8",
+      "04accc3da03afbe6eb484b6f5fe4bf7f",
+      "6d515a41fef0110baf133d471c8cb196",
+      "d6ec85bad277ee6fc96c230d5c80e5a5",
+      "b01be297bade91688b05c1989f9bf8f0"
+    ]
+  },
+  {
+    "qid": "1709.05295-q05",
+    "question": "In the paper \"And That's A Fact: Distinguishing Factual and Emotional Argumentation in Online Dialogue\", what patterns were extracted which were correlated with factual arguments?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "918bc609b926049a8ae44c40d8e08ea9"
+    ],
+    "hybrid_top5": [
+      "8c1ee32b1a2155b4f2c7b40defc91844",
+      "e17ad354f86625c304edecd205a79439",
+      "834a1e4e5c13e1456beccbd8d028c85a",
+      "8d84ba1898b1ef8dcb79977decf49e76",
+      "e773f9e1ab790929758b14439e8bfc22"
+    ]
+  },
+  {
+    "qid": "1906.05685-q01",
+    "question": "In the paper \"A Focus on Neural Machine Translation for African Languages\", what evaluation metrics did they use?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "f6699a38e6132844de4b1f641d49a2fc"
+    ],
+    "hybrid_top5": [
+      "518735135e81b61dd285b90d3583a1c3",
+      "341e16c3d57c017de254043d86cab809",
+      "16e065a913382309e0645a8f757311b8",
+      "8f04d738e2de74af6827aa59e88989d8",
+      "6ff8dd9d7799bf905a5242982b53bed7"
+    ]
+  },
+  {
+    "qid": "1906.05685-q02",
+    "question": "In the paper \"A Focus on Neural Machine Translation for African Languages\", what NMT techniques did they explore?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "bbf55af0dbe36bc4b2079cafddac2a50"
+    ],
+    "hybrid_top5": [
+      "a7d840c1d576feeabf52cc94d6597162",
+      "16e065a913382309e0645a8f757311b8",
+      "93bff0650786d055f2dbcbdc49f8f13b",
+      "6ff8dd9d7799bf905a5242982b53bed7",
+      "bba1251402be83ab674e8d290a64cdbe"
+    ]
+  },
+  {
+    "qid": "1901.05415-q01",
+    "question": "In the paper \"Learning from Dialogue after Deployment: Feed Yourself, Chatbot!\", how is user satisfaction estimated?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "2719f7386453f1371a55f764d9cc575b"
+    ],
+    "hybrid_top5": [
+      "6ba007a5cbad861c692dbab1a131dcda",
+      "7518186dfe7623ad8c252045990516a0",
+      "4a3da293ffb7d54724fa5c316aeacfb4",
+      "3d279663bb7c00e6d4b20dea93f59d63",
+      "fb4ae3c5d92d0f6e3b4ab68580fbb7cc"
+    ]
+  },
+  {
+    "qid": "1802.08969-q02",
+    "question": "In the paper \"Meta Multi-Task Learning for Sequence Modeling\", what new tasks do they use to show the transferring ability of the shared meta-knowledge?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "4a78703869a085fd4b05a0e49281bbdf"
+    ],
+    "hybrid_top5": [
+      "b7507289e75779711d51ff9bb8e06d4e",
+      "7d2830391fc73b2c39bf219ac338f2bf",
+      "d7cc7accbb2134a954ba84ad60aa8d1c",
+      "9dece9c39ec8b5b62d97c1b29abaea61",
+      "14e1072811a05e747e3a7b5985ce545d"
+    ]
+  },
+  {
+    "qid": "1908.06259-q02",
+    "question": "In the paper \"Hard but Robust, Easy but Sensitive: How Encoder and Decoder Perform in Neural Machine Translation\", how do they measure conditional information strength?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "da67c53a046f80c97d80532cd6f9f10c"
+    ],
+    "hybrid_top5": [
+      "d10124de3ae259e2b97ccf5b424130f9",
+      "996f645ebfa68c10e9bae834816804e4",
+      "43ddff8d8e042aca8a2385bf96d5d9d3",
+      "1078b3e349c90433b5b714bf1799766c",
+      "dea7c22e989bffb0deba0be7dc62a192"
+    ]
+  },
+  {
+    "qid": "1908.06024-q04",
+    "question": "In the paper \"Tackling Online Abuse: A Survey of Automated Abuse Detection Methods\", how is abuse defined for the purposes of this research?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "84b52452e249d100d605eacfa84fbc79"
+    ],
+    "hybrid_top5": [
+      "5edb27727dfcb0b711d7dc5a18216396",
+      "ff104c19539db07affb05d10c6510bd8",
+      "0643149c988ff68958f6a796ac124631",
+      "8ee5e92030588c4fca56299ba84d29ca",
+      "a8f04ee309415c6ede7a2ddde7ed1144"
+    ]
+  },
+  {
+    "qid": "1602.03483-q02",
+    "question": "In the paper \"Learning Distributed Representations of Sentences from Unlabelled Data\", which tasks do they evaluate supervised systems on?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "e08451a4e7d4cff319ea4962b2e95dcf"
+    ],
+    "hybrid_top5": [
+      "4f613a284af279f82b3a5c6371ecf859",
+      "eed93b8d13f247536dad8f5886ce75e8",
+      "449ff73a34032426eaaee184220bc4d4",
+      "54521767755d65231386b06ff3b27b4a",
+      "628fd14ec58243ff540a97b04a9ac5f0"
+    ]
+  },
+  {
+    "qid": "1912.07076-q01",
+    "question": "In the paper \"Multilingual is not enough: BERT for Finnish\", by how much did the new model outperform multilingual BERT?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "835d3bf4132eba1f1d8cf1cd816b6373"
+    ],
+    "hybrid_top5": [
+      "967628de2d4b977032ec14f14abd2113",
+      "63dd6370e442ff6feeb69e06fea245a8",
+      "0ccd8ba62c247ed3d479f424d09fd4b1",
+      "db83ff1e7db037bab3b50681ec84880f",
+      "e4f8dab63a431ef1813c4cfd1796c214"
+    ]
+  },
+  {
+    "qid": "1912.07076-q02",
+    "question": "In the paper \"Multilingual is not enough: BERT for Finnish\", what previous proposed methods did they explore?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "7cc0e17628312e0bc242eedae530107e"
+    ],
+    "hybrid_top5": [
+      "0ccd8ba62c247ed3d479f424d09fd4b1",
+      "967628de2d4b977032ec14f14abd2113",
+      "db83ff1e7db037bab3b50681ec84880f",
+      "f0e03066caf971851258b6a9c4f9d562",
+      "63dd6370e442ff6feeb69e06fea245a8"
+    ]
+  },
+  {
+    "qid": "1911.11161-q01",
+    "question": "In the paper \"Emotional Neural Language Generation Grounded in Situational Contexts\", what is the state-of-the-art approach?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "3e59d1d75da42ae3c339f0f16ad3ff8e"
+    ],
+    "hybrid_top5": [
+      "8018869da1fb484d821654abc21aaab2",
+      "4b983fa28988c876a283154ab023c482",
+      "38aaf66b7d37b7a85ba896785cb02f7a",
+      "1a77dfbfcf4e9660263f63839d9d0889",
+      "ea93c02dd8de6039b6c958e830b05394"
+    ]
+  },
+  {
+    "qid": "1904.02306-q01",
+    "question": "In the paper \"A Simple Joint Model for Improved Contextual Neural Lemmatization\", what previous work do they also look at?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "60802ea0a3c05b62a0e12ae2f2302c53"
+    ],
+    "hybrid_top5": [
+      "a3a5fb9fe5cb54dc065178ebd4da90e2",
+      "4eea05bcf57867a979e745daa371681a",
+      "0d96b762e0700765b2817fd503fb68ac",
+      "397a5c8c0ac69f39431d53c9b83b6fa5",
+      "acda918b9168fec08aeb52d9fb7f254a"
+    ]
+  },
+  {
+    "qid": "2003.00864-q04",
+    "question": "In the paper \"Pathological speech detection using x-vector embeddings\", how big are OSA and PD corporas used for testing?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "59c396f1c38577b3d69c93de9ad2c2a8"
+    ],
+    "hybrid_top5": [
+      "4ae1c7fc7f9bcd72f5ef0e12a3d73e10",
+      "1f7cc0b421a927285d50b4f5b71c502c",
+      "69d15a573757759194cbd5872af26a3f",
+      "84fc764ba3b59114c28ef6f4cf84cdb2",
+      "1469e3bfdbfc616e75a0b4365681db67"
+    ]
+  },
+  {
+    "qid": "1605.04278-q04",
+    "question": "In the paper \"Universal Dependencies for Learner English\", did they use crowdsourcing to annotate the dataset?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "9d6aaec93169c9174d14e07b6c6eb4ec"
+    ],
+    "hybrid_top5": [
+      "1a89d5768136c3b136d5af15e7696d79",
+      "2dea402cb70b0eecd61a41c52b3ccf47",
+      "358c2baafb2d7da746a218bc0fedb0f1",
+      "7ecbe150b2f60255f0225b5630bdd1d8",
+      "734137b6bd6ef5055f939ec12c63c369"
+    ]
+  },
+  {
+    "qid": "1908.09590-q01",
+    "question": "In the paper \"Rethinking Attribute Representation and Injection for Sentiment Classification\", how significant are the improvements over previous approaches?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "407136a492ce72bfb67de90f8ed1eac7"
+    ],
+    "hybrid_top5": [
+      "32b6d35f3d7ad6a7b0a1c848c43d872b",
+      "75a6f3fd87251ecd3d9baa58501df72f",
+      "1537be239934715306d7e612b8ec62ea",
+      "064925922dbb0b8e37bc3fde13e22568",
+      "9b98f271f1f5968d3200ef6517d7c6a3"
+    ]
+  },
+  {
+    "qid": "1910.10487-q02",
+    "question": "In the paper \"Memory-Augmented Recurrent Networks for Dialogue Coherence\", what is percentage change in performance for better model when compared to baseline?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "c11067bb96cc0bdc125dcf2260c51499"
+    ],
+    "hybrid_top5": [
+      "498a4d9b8c2733664d40c22b03f3a832",
+      "9385ca66e4b5890b75deebf75b4d4335",
+      "d8539a413f45419212494e03c7cfb0cb",
+      "178d4dba8119bd2ebdd15c2d5d68a21a",
+      "d445c5b71273018d5b49d37dc2e0201d"
+    ]
+  },
+  {
+    "qid": "1908.06493-q01",
+    "question": "In the paper \"TwistBytes -- Hierarchical Classification at GermEval 2019: walking the fine line (of recall and precision)\", does the paper report F1-scores with and without post-processing for the second task?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "2cccdee38b929a13e89c2f95934163f9"
+    ],
+    "hybrid_top5": [
+      "19e64dbcd750d3e3853bae75ee41730e",
+      "0654d272afe7dbbac9b8c0c9b75a1624",
+      "89775acba8475610a465b65eea31643e",
+      "254e8283b8f23960ea06b708efd39583",
+      "abfe8bd6ee0a89888dfb2e8d813764ef"
+    ]
+  },
+  {
+    "qid": "1707.07212-q02",
+    "question": "In the paper \"\"i have a feeling trump will win..................\": Forecasting Winners and Losers from User Predictions on Twitter\", what are the components of the classifier?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "ee36eff8374f66984de05e9795bcebfa"
+    ],
+    "hybrid_top5": [
+      "739097b99cf34583d96c88504bc1a92e",
+      "70672615332f4468fdc17439faeca5b6",
+      "a24f1a61643fcb2f4f36c856393d349b",
+      "be102f7e884abbf2825b419ebbbe54d6",
+      "3c7abe2be9ab4da427d9ba3ad2e6e8bf"
+    ]
+  },
+  {
+    "qid": "1804.09692-q03",
+    "question": "In the paper \"Factors Influencing the Surprising Instability of Word Embeddings\", how is unstability defined?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "9d3359290440dd103eb84ad6feccb178"
+    ],
+    "hybrid_top5": [
+      "60706d1e127aa58399a54333d4a528be",
+      "7ab7cc655e19df1acc723cb5da634c94",
+      "68e14dcf1a104935712fe63ca266e39f",
+      "3c3a0ccef884d9045c1be46f45d944a6",
+      "e930678088a007310bcf2c830ee9361f"
+    ]
+  },
+  {
+    "qid": "1606.02892-q02",
+    "question": "In the paper \"Linguistic Input Features Improve Neural Machine Translation\", what type of attention do they use in the decoder?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "88196bed4f37de16a128af842c7193db"
+    ],
+    "hybrid_top5": [
+      "bf08cac4f5c8f72fa41c205745801e4a",
+      "b6397b802a00c9af5e1f63d6eb8861e1",
+      "b6a9f2d8486eaa1ec8ec9a29c728fccc",
+      "bc50f63a05f20599ecc84b2cfe7ba2a4",
+      "2a149de8c7abcc7231421588039b23e0"
+    ]
+  },
+  {
+    "qid": "1909.11706-q03",
+    "question": "In the paper \"The Power of Communities: A Text Classification Model with Automated Labeling Process Using Network Community Detection\", did they collect the human labeled data?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "55130b2d3484ad859c713bf2e05452a8"
+    ],
+    "hybrid_top5": [
+      "cb340589623d4e120eb7460f17872cee",
+      "f5df3f03020ce0588b9381e6c9aff2b9",
+      "3ed3fe1e86f991681c143fe442bb567e",
+      "eb9817f10ad14eb73d93bc1408bc91d3",
+      "5fb2e0c925f0e2540b5da3aad6cc751b"
+    ]
+  },
+  {
+    "qid": "1911.00202-q01",
+    "question": "In the paper \"Forget Me Not: Reducing Catastrophic Forgetting for Domain Adaptation in Reading Comprehension\", what is the training objective in the method introduced in this paper?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "b6e1b87593ae5e030e4d986d87ec9717"
+    ],
+    "hybrid_top5": [
+      "5033b530669c554611866353aa6cf904",
+      "741d6eda0cd5532d8760b8104a919dac",
+      "7c3eaa28b33acaa8b584a78c1712236a",
+      "5f04604856f661406006fa86cc8b1ac5",
+      "0698e5393a0bcc48d786aa3e3a790cdc"
+    ]
+  },
+  {
+    "qid": "2001.11316-q01",
+    "question": "In the paper \"Adversarial Training for Aspect-Based Sentiment Analysis with BERT\", how long is the dataset?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "da221a73836187394dbb223b6773a3be"
+    ],
+    "hybrid_top5": [
+      "9a6e83677bc85083a6658458ff18cb79",
+      "b5a9e26b116261194557d5eef7b2e61e",
+      "9515b381b7a8bd15b8e5d738f6b1c6de",
+      "5881c1f9061db60947e3304b36f66361",
+      "0a1527467ddbceaa2f866c00e036eb44"
+    ]
+  },
+  {
+    "qid": "2001.11316-q02",
+    "question": "In the paper \"Adversarial Training for Aspect-Based Sentiment Analysis with BERT\", how are adversarial examples generated?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "c7b25302c7a9e944a4d4c04f9b7451b5"
+    ],
+    "hybrid_top5": [
+      "93d4006888c4191663183a70d62572d5",
+      "9a6e83677bc85083a6658458ff18cb79",
+      "5881c1f9061db60947e3304b36f66361",
+      "e4691aa8c378e99ac85cad0d7288017e",
+      "6e2756d756f76f56cf55f40dbe381ebf"
+    ]
+  },
+  {
+    "qid": "1610.07149-q01",
+    "question": "In the paper \"Two are Better than One: An Ensemble of Retrieval- and Generation-Based Dialog Systems\", were human evaluations conducted?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "88bfbd4acf96355cc66a5a6eb992ca36"
+    ],
+    "hybrid_top5": [
+      "8390978edaaf616e5c3bc7f3df471394",
+      "ebd2dd2116965b29491d732dfb69c7ed",
+      "b310f329b4d5516b6f8ae0dd05551533",
+      "b5661faf3c6db687a482e26d1600b38b",
+      "d75093649ee7eb87edf2c3649b33d7f2"
+    ]
+  },
+  {
+    "qid": "1902.10246-q03",
+    "question": "In the paper \"Fixed-Size Ordinally Forgetting Encoding Based Word Sense Disambiguation\", what is the state-of-the-art model?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "cd70e870a45cd6eba7c2ad6768af4471"
+    ],
+    "hybrid_top5": [
+      "98bb3a0fbaf7f6cc9c9a7b21a829011c",
+      "d130e53b98d941bcc8a664d0989438d7",
+      "3d591878c3e34edd0e05d90a6ea2ca6e",
+      "d9ec188036f5aea75490b36679dcfe13",
+      "8ba956c56288cecb24c06517683c7673"
+    ]
+  },
+  {
+    "qid": "1706.02222-q01",
+    "question": "In the paper \"Gated Recurrent Neural Tensor Network\", how significant is the performance compared to LSTM model?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "683d8c9c266db9253e8e886a506f7d62"
+    ],
+    "hybrid_top5": [
+      "ec6288a45ba49b3e4ce749e1349c6369",
+      "7fe46ffddc21d403fd1a40255319d07b",
+      "789766bc46ebe41bce4929fb85d8e423",
+      "72147ed572862b04acf238592b18b5b2",
+      "9d423097af2303182ceecb1d6a4fe62a"
+    ]
+  },
+  {
+    "qid": "1706.02222-q03",
+    "question": "In the paper \"Gated Recurrent Neural Tensor Network\", how much improvement do the introduced model achieve compared to the previous models?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "683d8c9c266db9253e8e886a506f7d62"
+    ],
+    "hybrid_top5": [
+      "ec6288a45ba49b3e4ce749e1349c6369",
+      "789766bc46ebe41bce4929fb85d8e423",
+      "cf1f69069e601a7df74d79c058f48cd6",
+      "4243eb153819b245c262a9cd93c281eb",
+      "8d3bbded59e2f1f88e33c25373c67fcb"
+    ]
+  },
+  {
+    "qid": "1709.04005-q02",
+    "question": "In the paper \"Addressee and Response Selection in Multi-Party Conversations with Speaker Interaction RNNs\", by how much is accuracy improved?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "b1355adbcd9f447464de05c635238ad8"
+    ],
+    "hybrid_top5": [
+      "3a9efef54bd45dbd9a5d15c0943f3756",
+      "2e7f5dfc8788e1cd243503acb114b4c3",
+      "907a98b9e3fa58fc88495d4b0efe0fb4",
+      "1cf95285fd9f72b20a53443777d70339",
+      "5fc9f49335e79953ba4c81f93776d2b2"
+    ]
+  },
+  {
+    "qid": "1909.02855-q01",
+    "question": "In the paper \"Don't Forget the Long Tail! A Comprehensive Analysis of Morphological Generalization in Bilingual Lexicon Induction\", what are the three SOTA models evaluated?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "dca0d442520406afcdcb859269b072a7"
+    ],
+    "hybrid_top5": [
+      "9234fa13fdcb808f6576553c77122aac",
+      "f514cdd387f79059c6b327ba6c04a2b0",
+      "ed5a9b762a701379bb1e3cf89acd5790",
+      "5218f27356e413588404a6485a8b920c",
+      "54c5b19c6c19c8ac469ac5a54a88ef0e"
+    ]
+  },
+  {
+    "qid": "1605.05166-q02",
+    "question": "In the paper \"Digital Stylometry: Linking Profiles Across Social Networks\", does this paper discuss the potential these techniques have for invading user privacy?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "d78cbfe763a6169b9543b735f26dbc2b"
+    ],
+    "hybrid_top5": [
+      "2a1c1e4be72f823eec0695fc41bc7771",
+      "3030ec0c3a442c2c354c4e04a0805640",
+      "43b72d34f542d074d8f07a73ce451a46",
+      "1776d9f9c5cb13da3afb90b9acb33f48",
+      "30f0d4bccf58c500b1ac8cf046e400cc"
+    ]
+  },
+  {
+    "qid": "1910.12203-q04",
+    "question": "In the paper \"Do Sentence Interactions Matter? Leveraging Sentence Level Representations for Fake News Classification\", which datasets did they use?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "0fba3183965fe24064b06dd47f3d2068"
+    ],
+    "hybrid_top5": [
+      "b060c4f77dc4f75865edd2611697a742",
+      "1806f24f05eebd0ea6827fb6437f91da",
+      "ea2a4cdba74b0ba2430af76afc29b07e",
+      "f7abc2b935120c894761d4de405d7ea1",
+      "75674c6689e1b4a27b0cc11ce39d2473"
+    ]
+  },
+  {
+    "qid": "1911.07620-q01",
+    "question": "In the paper \"Exploiting Token and Path-based Representations of Code for Identifying Security-Relevant Commits\", what regularization methods are used?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "c6d1df32ec3324140c30d61b81c0fd2f"
+    ],
+    "hybrid_top5": [
+      "85ce81e609a4552ce3916ce4bf9b4b22",
+      "14ffd5a6e5f11ec8ef20d26948a62c80",
+      "bd03d83f7b7f223bd0c7ae38ceb41fb1",
+      "43c4d150a326f21c214aa779f7a2dad6",
+      "d1af5cd02ac97397db9c30d4fd010f0f"
+    ]
+  },
+  {
+    "qid": "1911.07620-q03",
+    "question": "In the paper \"Exploiting Token and Path-based Representations of Code for Identifying Security-Relevant Commits\", how long is the dataset?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "49120c09cad1bf4d068b5253bec08cd3"
+    ],
+    "hybrid_top5": [
+      "c8dbaa8c8aed915f44211daaf98e8ae1",
+      "bd03d83f7b7f223bd0c7ae38ceb41fb1",
+      "9f8db52af1c1e7dad9bbfc76b3d7c71d",
+      "d1af5cd02ac97397db9c30d4fd010f0f",
+      "14ffd5a6e5f11ec8ef20d26948a62c80"
+    ]
+  },
+  {
+    "qid": "1906.04236-q02",
+    "question": "In the paper \"Identifying Visible Actions in Lifestyle Vlogs\", how many videos did they use?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "e987188dcc4d40e325a382c897f756cc"
+    ],
+    "hybrid_top5": [
+      "d0d3bc9d1f5c2ae832aaf1adf358d3d7",
+      "89c4c62592268881c280ef3af07b5757",
+      "160cc3228d38bc44260e71333b93b42b",
+      "94ef8ce617e19e17f5e6b398829ea72d",
+      "d5501a835d1a1d0a7a41a7effd6a545d"
+    ]
+  },
+  {
+    "qid": "1906.04236-q06",
+    "question": "In the paper \"Identifying Visible Actions in Lifestyle Vlogs\", how long are the videos?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "38accbbed52de9e9de95059a17fd03f9"
+    ],
+    "hybrid_top5": [
+      "160cc3228d38bc44260e71333b93b42b",
+      "d0d3bc9d1f5c2ae832aaf1adf358d3d7",
+      "94ef8ce617e19e17f5e6b398829ea72d",
+      "89c4c62592268881c280ef3af07b5757",
+      "d5501a835d1a1d0a7a41a7effd6a545d"
+    ]
+  },
+  {
+    "qid": "1806.07042-q02",
+    "question": "In the paper \"Response Generation by Context-aware Prototype Editing\", which dataset do they evaluate on?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "529ea448715c094eeeb27478002a0a6b",
+      "09591198ebd0287206f1caa9aac3214a"
+    ],
+    "hybrid_top5": [
+      "b4147ce8f8ac71dda218320ee457d084",
+      "3807b35c7611f0b6d6dc468f5b78ef1b",
+      "ab98058fbf97bd9ca00a81ad413c6f4b",
+      "1a2a5ce2ec4e4c64f56957c96d7870ba",
+      "d879a528240f7b504b025bc4b8eaa9b5"
+    ]
+  },
+  {
+    "qid": "1911.04128-q02",
+    "question": "In the paper \"A hybrid text normalization system using multi-head self-attention for mandarin\", what models do they compare to?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "299908903e9a660d5996ed515c38f516"
+    ],
+    "hybrid_top5": [
+      "23a2376bb0b618e5a445d605319ee221",
+      "7de594299986a25d0245734ab1e5da57",
+      "a24178d83526a104cd7b50fdb8a181ed",
+      "c84a292beacfff8efe41ef1f7fc482b3",
+      "ce8a3cd2dce35fa3ffc71019babcc37b"
+    ]
+  },
+  {
+    "qid": "1603.00957-q05",
+    "question": "In the paper \"Question Answering on Freebase via Relation Extraction and Textual Evidence\", what is the previous state-of-the-art?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "407ad74bebe4877cc50d8f963962fcf9"
+    ],
+    "hybrid_top5": [
+      "3ee87d2bb4a937d85fe3b1f30ad21ffe",
+      "aa773df9ef55f75c3360c4f037a50685",
+      "c5868bba7aaa6373a029ca07105c3b4c",
+      "89056cc821200b647404fcc6e817b766",
+      "24d337665211c1cf3e8d584f7108aa3b"
+    ]
+  },
+  {
+    "qid": "2002.04374-q02",
+    "question": "In the paper \"Convolutional Neural Networks and a Transfer Learning Strategy to Classify Parkinson's Disease from Speech in Three Different Languages\", what datasets are used?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "d6f96aa98307752dc591af770fcf5cd8"
+    ],
+    "hybrid_top5": [
+      "01cb2e53c33e809c6cccc4160edb34d6",
+      "2ed9f109c038224b70df25f494200d7b",
+      "fce50b15d7d342c43793bd3986f9f6da",
+      "79eecce93a495e080f634c0b3ee439b8",
+      "ffe1ee363c9556dbb4251d795f410067"
+    ]
+  },
+  {
+    "qid": "1909.08211-q01",
+    "question": "In the paper \"Modeling Conversation Structure and Temporal Dynamics for Jointly Predicting Rumor Stance and Veracity\", how do they split the dataset when training and evaluating their models?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "e2b430ce892324131be19d20c0f112be"
+    ],
+    "hybrid_top5": [
+      "026365ba8f49a50b43e59a4d8fce1413",
+      "3e4feb841235fff980e185dcca471563",
+      "e31c6bb7dfc87fd2a35fd21e70e54449",
+      "dfc5acd0c6e731758912d528f4eabf5d",
+      "7e31ea6f9cc54fbaaf0cf19fb3ee17cd"
+    ]
+  },
+  {
+    "qid": "1908.09355-q03",
+    "question": "In the paper \"Patient Knowledge Distillation for BERT Model Compression\", what downstream tasks are tested?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "336047e6039b2b82cc41298e98131531"
+    ],
+    "hybrid_top5": [
+      "85fb986962e9c8e656fdb5e59993d7e3",
+      "219e0bc5702ea227cf63d082803e53a7",
+      "a4127bb6d684e821f680b4689a4be7d8",
+      "ff7a5add6bc50ed7ebc66a9828ac105c",
+      "c26c2cf2d8b87d9fa3f23f0ab0776f06"
+    ]
+  },
+  {
+    "qid": "2001.05540-q02",
+    "question": "In the paper \"Insertion-Deletion Transformer\", how much is BELU score difference between proposed approach and insertion-only method?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "8bc18a803f7345f99682fc576aaa8cc5"
+    ],
+    "hybrid_top5": [
+      "2225fbbf8bc68d9b08db1ae5907bb540",
+      "9966b8c906f20d3d0eae5828943f541d",
+      "a4c88089adb98877b1e7a7772f6a3f88",
+      "fc2e7ae8b55c8caedaa21884723acc18",
+      "4e5142b5c70468be8db6fc9849870212"
+    ]
+  },
+  {
+    "qid": "1805.00195-q01",
+    "question": "In the paper \"An Annotated Corpus for Machine Reading of Instructions in Wet Lab Protocols\", are the protocols manually annotated?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "e05e58aff8e929251b3e05b9561215f9"
+    ],
+    "hybrid_top5": [
+      "d8d5ecc2d7632ac4a158179155d5c447",
+      "ae53eb578d634c925687542b1ac2e688",
+      "e66d08416cd1be91278da5d5aa07fc28",
+      "ae51bdd51c515774f04fde0daa82dc95",
+      "95578343e45774c6dfb8fad26d6cf073"
+    ]
+  },
+  {
+    "qid": "1612.02695-q01",
+    "question": "In the paper \"Towards better decoding and language model integration in sequence to sequence models\", what type of attention is used in the recognition system?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "72b35bec6cf8818b5e64a6fc4638e516"
+    ],
+    "hybrid_top5": [
+      "5c7108784be68208efe2158c90c41311",
+      "9fb4eac4cb58d285016122a8ed3cc250",
+      "401fffecd9e49481789674564443a439",
+      "86ffa431cf85cf46580667925e8e6248",
+      "afea0387c147ed3d0d412d246f4e90a5"
+    ]
+  },
+  {
+    "qid": "1907.12984-q01",
+    "question": "In the paper \"DuTongChuan: Context-aware Translation Model for Simultaneous Interpreting\", which datasets do they evaluate on?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "c66baeeea0784de7f59b214761778dc6"
+    ],
+    "hybrid_top5": [
+      "e8d3c7ec4035ff591d12b65e242b7db1",
+      "a70a9b6789dab7ad675be41579185b9f",
+      "cd0d3772bf5e4c539e6b14869b3e01e3",
+      "302afa3ef3e31c56376ecb8d428db491",
+      "a9594bb4945c7c61c65d12ec0076be8e"
+    ]
+  },
+  {
+    "qid": "1907.12984-q03",
+    "question": "In the paper \"DuTongChuan: Context-aware Translation Model for Simultaneous Interpreting\", does larger granularity lead to better translation quality?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "6f11862364572f8f84abdc8469f5388f"
+    ],
+    "hybrid_top5": [
+      "a70a9b6789dab7ad675be41579185b9f",
+      "302afa3ef3e31c56376ecb8d428db491",
+      "a9594bb4945c7c61c65d12ec0076be8e",
+      "cd0d3772bf5e4c539e6b14869b3e01e3",
+      "66117de9c5c24348f74686debd28a819"
+    ]
+  },
+  {
+    "qid": "1911.09247-q04",
+    "question": "In the paper \"How to Ask Better Questions? A Large-Scale Multi-Domain Dataset for Rewriting Ill-Formed Questions\", what did the human annotations consist of?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "8b812f26de1a1b408075a0396e97482b"
+    ],
+    "hybrid_top5": [
+      "654d240e9984e7989ca4f1f81886950e",
+      "046c6f2ee6af352062f94774b3063e42",
+      "057c98343df1d7590b8ad0bd4a199e29",
+      "2783132e89de0b5e718caa0e0e1627a5",
+      "1a9c32b684bab1c1cfa40755995489e5"
+    ]
+  },
+  {
+    "qid": "2003.12660-q05",
+    "question": "In the paper \"Towards Supervised and Unsupervised Neural Machine Translation Baselines for Nigerian Pidgin\", what baselines do they propose?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "c9ef4108aca467254d25cb2948f4e815"
+    ],
+    "hybrid_top5": [
+      "79654d598f2d6e224ba1867d2076e935",
+      "2f28e01f8581255032b16191859fcc11",
+      "ac25f1338a91c5c3c9cceeafe5800ff3",
+      "018bfe6326428a42cb2016505ca221d9",
+      "b2339adce80c476efb99ccf87ef60a8f"
+    ]
+  },
+  {
+    "qid": "1912.08084-q02",
+    "question": "In the paper \"A Context-Aware Approach for Detecting Check-Worthy Claims in Political Debates\", what models are trained?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "b2c5104fd1092213f90eca257798d489"
+    ],
+    "hybrid_top5": [
+      "36cb363849ba3b4b472e0553aa8bcfd9",
+      "58cb5854f428dc05d1c41c2b582bf60d",
+      "d2b75cb58d5bc2108f882133757156f4",
+      "61e1163bb5eff079d5dbdf50b0074c95",
+      "f34f44743353d83c4bdd2228d5d0cdcc"
+    ]
+  },
+  {
+    "qid": "1912.08084-q04",
+    "question": "In the paper \"A Context-Aware Approach for Detecting Check-Worthy Claims in Political Debates\", what is the strong rivaling system?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "2ce48b9636aee557ea2faccfcfadd5b9"
+    ],
+    "hybrid_top5": [
+      "36cb363849ba3b4b472e0553aa8bcfd9",
+      "d2b75cb58d5bc2108f882133757156f4",
+      "c6f579f7b0c5465c042c0a2a9fac365e",
+      "61e1163bb5eff079d5dbdf50b0074c95",
+      "58cb5854f428dc05d1c41c2b582bf60d"
+    ]
+  },
+  {
+    "qid": "1610.00479-q01",
+    "question": "In the paper \"Nonsymbolic Text Representation\", do they have an elementary unit of text?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "fb7e14756ee32202bd7a2b6958fb6a83"
+    ],
+    "hybrid_top5": [
+      "89e1c8a52135614c70b268e0efca12e5",
+      "309b4d036d28b98c1ef88ae63beb8b6d",
+      "2d9077496bd7fde2ccd9fbf1775c6a68",
+      "2e6857f4dd9a2b5e32c554030d7c33b5",
+      "12b2c83015efc40a2e0ae2d53bdae848"
+    ]
+  },
+  {
+    "qid": "1610.00479-q03",
+    "question": "In the paper \"Nonsymbolic Text Representation\", in their nonsymbolic representation can they represent two same string differently depending on the context?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "fb7e14756ee32202bd7a2b6958fb6a83"
+    ],
+    "hybrid_top5": [
+      "309b4d036d28b98c1ef88ae63beb8b6d",
+      "82f04837bec992b7d57fc561aa598e8f",
+      "b39d5a4a789ab0a390f5c771a06d370d",
+      "89e1c8a52135614c70b268e0efca12e5",
+      "2d9077496bd7fde2ccd9fbf1775c6a68"
+    ]
+  },
+  {
+    "qid": "1905.01347-q02",
+    "question": "In the paper \"Auditing ImageNet: Towards a Model-driven Framework for Annotating Demographic Attributes of Large-Scale Image Datasets\", do they assume binary gender?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "d0057e1ec1d49ab9d3d7907a033a8e15"
+    ],
+    "hybrid_top5": [
+      "53dfc91f939e7feb8b7b1a219dd6c7d1",
+      "b1c91eabea814a8b6f679d339b621003",
+      "a966836e7e6068174b0d5aa7389200a7",
+      "2c9b3efe9877da29ef89fa3491733a5d",
+      "5cad102ef1954d4d2618425282fd82fb"
+    ]
+  },
+  {
+    "qid": "1710.01789-q03",
+    "question": "In the paper \"Enhanced Neural Machine Translation by Learning from Draft\", do they compare to state-of-the-art models?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "34e78b291182617bdd2b3413a6035f5c",
+      "4d294a4209a241d9c257c35179cb7e43"
+    ],
+    "hybrid_top5": [
+      "162636fd5b77e4e2e0c7cb1163968190",
+      "371a1f9fcec4cd4ec1e2b788ccb3a0b8",
+      "bc4e82887f4ca2fb047c8561b57268e8",
+      "cf5de5661ec76d7ceec6005300d8acef",
+      "74600a1faa70704ad7e97ebe637ba5ee"
+    ]
+  },
+  {
+    "qid": "1711.03759-q02",
+    "question": "In the paper \"YEDDA: A Lightweight Collaborative Text Span Annotation Tool\", what dataset was used in their experiment?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "82a3c0f854b2c129b0d0a6c6ffee0222",
+      "98bc5f4b8d64811c472bfbdc331b164a"
+    ],
+    "hybrid_top5": [
+      "324ae88928278d1161081b8504b376b0",
+      "59dbde75fd107d48b53fa1ce838dafcd",
+      "609445ca79eac5cb153680192aaaa335",
+      "785ce65928f5ac9e0bccc2015465e5dd",
+      "2002d96f37af4341075dbb4aaba8a8f4"
+    ]
+  },
+  {
+    "qid": "1711.04964-q01",
+    "question": "In the paper \"Dynamic Fusion Networks for Machine Reading Comprehension\", how much improvement is given on RACE by their introduced approach?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "95765ade86f893b5f072f16b5dc8939c"
+    ],
+    "hybrid_top5": [
+      "5708290d00e68a6420e13f68f4862d59",
+      "d1bac0bea1a21c3a8ba9550c9b2df7e9",
+      "de9ec0bbf33ae74652f24060cc210ddd",
+      "16d83dc2f6e039d009770f51da3bbc29",
+      "532e70101f826e8b1553cbef52b19a51"
+    ]
+  },
+  {
+    "qid": "1908.10001-q05",
+    "question": "In the paper \"Real-World Conversational AI for Hotel Bookings\", where does their information come from?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "c420fb020e3627f410ba25340e84cd0c"
+    ],
+    "hybrid_top5": [
+      "1bbc425042b51fd0a9e9a73ce85256b6",
+      "b2d7ca3613c806b81a594ce52256ec45",
+      "53b63dcb7633d178996dd5a265ae23ee",
+      "4cf19a880bb6bb33536b44b5c1423caf",
+      "5bbc14d6fb3bcf0adee0fe7b792a4cf7"
+    ]
+  },
+  {
+    "qid": "1911.11025-q03",
+    "question": "In the paper \"Women, politics and Twitter: Using machine learning to change the discourse\", what public online harassment datasets was the system validated on?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "bf4412b695ebfa22df6e0043094ca5ef"
+    ],
+    "hybrid_top5": [
+      "81e3418d67f750729b599805fd1a4387",
+      "bb8bd743659f2fb978a8fe8389d0a368",
+      "d028f9aeb5b612c2b11e1568e1ad06c3",
+      "47e6af34bacad7886d49e894d105864c",
+      "0448cf3b167808aa17fc15d3dab85039"
+    ]
+  },
+  {
+    "qid": "1905.07894-q04",
+    "question": "In the paper \"Abusive Language Detection in Online Conversations by Combining Content-and Graph-based Features\", what graph-based features are considered?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "f1ab0d0fc908034bc196dc58a28a0964"
+    ],
+    "hybrid_top5": [
+      "af474959f84d08be3b2500c08855c491",
+      "fa8f68847b5a261d40fb1cc39383b178",
+      "fe7151ba7acbb042a3f862fb418578aa",
+      "a25cc1c829d48ebca35256e59d144c82",
+      "926d6b6d0f277a64a9acdd9e1355ffa9"
+    ]
+  },
+  {
+    "qid": "1610.09722-q01",
+    "question": "In the paper \"Represent, Aggregate, and Constrain: A Novel Architecture for Machine Reading from Noisy Sources\", what metrics are used to evaluate the models?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "eac7bed0d81e663d7a5f7021166325d6",
+      "97074fa54d76c98477712953f321d5b5"
+    ],
+    "hybrid_top5": [
+      "ccdacb578be90539238ae373785f8a94",
+      "57642736fb285117c8a309a6fe3ded31",
+      "9d20d035cacc0eb0fb9a30b4a8bef427",
+      "1e6212ae61ab7344c80220b33c886e2e",
+      "073ee36aa65416b4b09c9164686d293c"
+    ]
+  },
+  {
+    "qid": "1908.05925-q03",
+    "question": "In the paper \"Incorporating Word and Subword Units in Unsupervised Machine Translation Using Language Model Rescoring\", is the MUSE alignment independently evaluated?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "ef4e40fce6dabef617d96ccd2e14dcb8"
+    ],
+    "hybrid_top5": [
+      "42712e690d0463972e52974347e472d7",
+      "d5f2cb8b2c2116456bcca8bd5a1a2c54",
+      "14db4b51cb031448af2c89064e24e492",
+      "05bdfee0b2063ab8821e83c91c0239fd",
+      "b430ce227305b4cb02d291ffa3197f28"
+    ]
+  },
+  {
+    "qid": "1909.13466-q01",
+    "question": "In the paper \"Regressing Word and Sentence Embeddings for Regularization of Neural Machine Translation\", what baselines do they compare to?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "f7373b0237f9d8f9603c1ddccbef41b2"
+    ],
+    "hybrid_top5": [
+      "b9566544bccc830ca40d15c45ae28610",
+      "707399f0a0c9ee4b5a9a880e1462a8e9",
+      "15c54b6c007b044c4746f5fbcb505a71",
+      "337b80e80e39944753e88789490ea01d",
+      "60588b073486748fcd80a935e8a230a1"
+    ]
+  },
+  {
+    "qid": "1803.05160-q03",
+    "question": "In the paper \"How to evaluate sentiment classifiers for Twitter time-ordered data?\", which three variants of cross-validation are examined?",
+    "doc_hit5": 1.0,
+    "all_top5_common": true,
+    "dense_top5_relevant": [
+      "04f0ca20a1f20cec3b3383e61f0765f5"
+    ],
+    "hybrid_top5": [
+      "8532b397b8385502853a9637ea4c1988",
+      "c177961028d85d76bd6cf0243dd225ef",
+      "dc1bac73406aca46984c91d25e4386b3",
+      "f4e7839cb8e4421016f7a62fdf998533",
+      "a32c00c097e42151a63a16c1047da2df"
+    ]
+  }
+]

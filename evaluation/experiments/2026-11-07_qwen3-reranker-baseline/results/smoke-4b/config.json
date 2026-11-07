@@ -1,0 +1,36 @@
+{
+  "model": "Qwen/Qwen3-Reranker-4B",
+  "revision": "22e683669bc0f0bd69640a1354a6d0aebcfeede5",
+  "data_sha256": "41249bc71bd0345a43acde7f1e66fe72b4749646d8bf47d404abb6f5f617e44f",
+  "code_sha256": {
+    "run.py": "7efa898363dc90e0bbce58d9b057add6287b032f9bcfe756c472c5c69129c493",
+    "score.py": "e02d8da3e27ec4eb1c007bfcdb9bec9be16ee7257ae3f88a28c8c4b69498a2f9",
+    "common.py": "16aa994af0f5fa087fba8e6205b0057b6b8bd5acee6d9d26d8c70ba8d808a042"
+  },
+  "qids": [
+    "1912.00342-q02",
+    "2003.03728-q04",
+    "cross100-2p-001",
+    "cross100-2p-002",
+    "cross100-3p-001",
+    "cross100-3p-002"
+  ],
+  "batch_size": 4,
+  "max_length": 2048,
+  "dtype": "bfloat16",
+  "attention": "sdpa",
+  "instruction": "Given a web search query, retrieve relevant passages that answer the query",
+  "document_format": "heading_path + newline + text",
+  "versions": {
+    "torch": "2.13.0+cu132",
+    "transformers": "4.57.1",
+    "tokenizers": "0.22.1",
+    "huggingface-hub": "0.36.0",
+    "safetensors": "0.6.2"
+  },
+  "python": "3.12.11",
+  "cuda": "13.2",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "gpu_memory_bytes": 50866487296,
+  "score": "logit_yes - logit_no; descending; Dense order breaks ties"
+}

@@ -1,0 +1,31 @@
+{
+  "model": "deepseek-v4-flash-vision-exp",
+  "benchmark": "22c9276e8c0d7179a9a527f3eb604d20424e6628b65ce61d3a5339bc97e9478b",
+  "history": "b5a7114951c2365b4c4a1e2febd7ac4462652de66fe03b99eec80a0e4c7e4607",
+  "pools": {
+    "cross-v1-01": "fed19c8a290fc4d80be99c5ec50e283151263b55080d4692eae28ba6fa239b7f",
+    "cross-v1-04": "037dec31e762e1225d508b29a41b5588f4c5af8979a0d04c1d8e2ee7b9ee1059",
+    "cross-v1-05": "313c7f00d4c2de4a033d893f190e88b8316d1a005a69461e23d37435d7e98ba4",
+    "cross-v1-07": "7277b1bc76cf0477e2816b9a3222af8de023ce908b7e0c0bffa40adfbe5fb053",
+    "cross-v1-08": "123b254b308f8a81dce9a30b737308b7abc52038ae0434cfa6538783e3d3f0ee",
+    "cross-v1-09": "2311a213053ab2b7045c6e61d7aa6cf6a75c1a95ba0d3881199ef8940c41f624",
+    "cross-v1-10": "2ea1ddb06218de2444fe78d875c95af6cec80f3ac391ffdbc33716ce58d2f968",
+    "cross-v1-13": "0e5c2451877e4ac93d9e64f4f49b4363c6f939747999ea16e3c4114897a05ce7",
+    "cross-v1-14": "a496d3a0442b3728e39974fa95edcaa4f510a0f199bb904f58990a0d9058dd49",
+    "cross-v1-17": "259f491a4cf42e51a277788fda435f14a4f037617ce345a7c2ac6b1172d752a3",
+    "cross-v1-18": "93b41bf102aa4fbf6d746914c460267e02fa15d2f2fcca32b2251e47609fb1a7",
+    "cross-v1-20": "3af3712e9ca1c80dce9b9c837d8a24229af14a7c848d2ab3a632b9d589ca42f7",
+    "cross-v1-21": "2d1150ddc5bca2602186a296efbdd46f6716b4c4f8aa4ecd8f0b7e734336622a",
+    "cross-v1-23": "ae835eb608e304780ebdaadc1f3120e09502269d6071f0ee0774dcd825eccf25",
+    "cross-v1-24": "8b0c638aacd5805c11b74fdfa6ffcaf202eb287587a4d43d4420a74bb0c3f65b",
+    "cross-v1-27": "918108376275f311ae0f445c6a64caea30ca30ab9daa22a730711060919a8ac6"
+  },
+  "code": {
+    "/Users/bia/Documents/Codex/2026-11-02/wo/outputs/qasper-crosspaper-v1/one-pass/compare.py": "d946e1684b7c5af2d37272758dfb2f7c1e27c7ed42b9b23d965f476e79748447",
+    "/Users/bia/Documents/Codex/2026-11-02/wo/outputs/qasper-crosspaper-v1/run/evaluate.py": "33db1b5a3a4300abf74330a12c49985cf4877a594bf55222c638c1e6e08475b9",
+    "/Users/bia/PycharmProjects/PythonProject5/answer.py": "eb15b2fcda22407de04e311b5fa59a7d0246414a26699951dfef33f3ee850f47",
+    "/Users/bia/PycharmProjects/PythonProject5/llm.py": "398ef8e8e1d433d5f6c6a079957306412e8c1e0839d577d305da1a02b66c8c6b",
+    "/Users/bia/PycharmProjects/PythonProject5/reranker.py": "33797b93b348fd22186d72453b09d783f5e1a8a50002556cf22fc282e14b5ee9",
+    "/Users/bia/PycharmProjects/PythonProject5/retrieval.py": "fa54a348fa13e866e18b4251339ffeb453fbdaeb406edbfd377f0d19e540f958"
+  }
+}

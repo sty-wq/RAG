@@ -1,0 +1,18 @@
+{
+  "one_pass": {
+    "fact_a": true,
+    "fact_b": true,
+    "synthesis": true,
+    "verdict": "correct",
+    "citation": "supported",
+    "why": "A明确给出推文分类器overall F1=0.90（引用1703.04009结果段），并给出人工撰写干预回复在Reddit/Gab两数据集上70%以上被选为最有效且最多样（引用1909.04251人工评价段）；同时明确二者衡量不同任务/能力、不可直接比较，与synthesis一致。引用为两篇论文的有效证据段落，支持各实质主张。"
+  },
+  "paper_read": {
+    "fact_a": true,
+    "fact_b": true,
+    "synthesis": true,
+    "verdict": "correct",
+    "citation": "supported",
+    "why": "B给出overall F1=0.90及hate类precision/recall 0.44/0.61（1703.04009结果段），并给出人工撰写回复在Reddit/Gab上70%以上被选为最有效且最多样（1909.04251人工评价段）；明确说明二者衡量不同能力、来自不同研究，与synthesis一致。引用为两篇论文的有效证据段落，支持各实质主张。"
+  }
+}

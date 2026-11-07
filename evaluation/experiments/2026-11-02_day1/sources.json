@@ -1,0 +1,17 @@
+{
+  "/Users/bia/PycharmProjects/PythonProject5/evaluation/results/20261102-140330_qasper_候选池深度_3-small.json": "8e3ef9a138cf2fa2ee1a1c879f9014c5264660f68d8742eeb51a7ff343db1ad7",
+  "/Users/bia/PycharmProjects/PythonProject5/evaluation/results/20261102-171638_qasper_ab_20261102_171451_A_dense.json": "f66fb5133385284a2d0e8b496b25faafae2c8a682776fd07bfee2ad3f18c448e",
+  "/Users/bia/PycharmProjects/PythonProject5/evaluation/results/20261102-172040_qasper_ab_20261102_171451_B_bm25.json": "43adb089041b1a325865b4c85019de0919ef5cfa8c051d74e9da790ccb4b9022",
+  "/Users/bia/PycharmProjects/PythonProject5/evaluation/results/20261102-172530_qasper_ab_20261102_171451_C_hybrid.json": "d621a5a186b9e4e84438e92abd652dc9b800304aa016c022acf5a90ac32b4ab4",
+  "/Users/bia/PycharmProjects/PythonProject5/evaluation/results/20261102-173333_qasper_ab_20261102_171451_D_dense_rerank.json": "f5a1e66b203bdb54ff119317fd6edab5271b1ec28ec31b3ed5f4bb7efd0fe5ba",
+  "/Users/bia/PycharmProjects/PythonProject5/evaluation/results/20261102-174619_qasper_ab_20261102_171451_E_hybrid_reran.json": "385c2cd07371f39a01abca0d81140a1e03f53d8b01962baa805294295b41ea86",
+  "/Users/bia/PycharmProjects/PythonProject5/evaluation/results/20261102-190757_qasper_D2_original_query.json": "f807b26da88f47c0e123bc998c5c3e6ed52b1db648a4287485b32e4ff1dbde15",
+  "/Users/bia/PycharmProjects/PythonProject5/evaluation/results/20261102-210812_20261102_210742_SC68_A_dense.json": "7718f2b5907feb0dba3bbed78bbe5d7030dfd79e84320c61397cc3069fc996e5",
+  "/Users/bia/PycharmProjects/PythonProject5/evaluation/results/20261102-210917_20261102_210742_SC68_D_dense_rerank.json": "f297efa3a7d3ecf05d726c5e99d29f2bc9b405f369b965da0d53c5f55684f961",
+  "/Users/bia/PycharmProjects/PythonProject5/evaluation/results/20261102-210950_20261102_210742_SC68_E_hybrid_rerank.json": "9033cb50830c97995163febce34ca8437340c044f0c6b2e08969d3c81ac75603",
+  "/Users/bia/PycharmProjects/PythonProject5/evaluation/results/20261102-215135_SC68_F_deepseek_v2.json": "e4e72ada369b8f45e74b3a2986fe8a2ee4b64636569e0557bb8fbfd93552d643",
+  "/Users/bia/PycharmProjects/PythonProject5/evaluation/results/20261102-220633_SC68_G_qwen3_rerank_v1.json": "704b731a19624734d8bf8818e18c334d5a47fefddc28814f224866d033c62cae",
+  "/Users/bia/Documents/Codex/2026-11-02/wo/outputs/qasper-pilot100/manifest.json": "b8e8088dc3655bcc521833ba7085962d914835e948676f244a335cc39bde8e30",
+  "/Users/bia/Documents/Codex/2026-11-02/wo/outputs/qasper-pilot100/validation.json": "4ef2e9b7e178408c316c7d3c2ed142b4d12ac96af992eb8afea7e253e871f2d2",
+  "/Users/bia/Documents/Codex/2026-11-02/wo/outputs/qasper-pilot100/questions_ready_68.jsonl": "63a7ca951ea1ec3c851ebe84f185ab2d67594254e2ef1b55ae488c949f6d5aaa"
+}

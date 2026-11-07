@@ -1,0 +1,84 @@
+{
+  "qid": "cross-v1-09",
+  "question": "How do the cross-language Audio Word2Vec and continuous language-vector experiments differ in their reliance on target-language adaptation, and what evidence does each report?",
+  "conditions": {
+    "replay": {
+      "ids": [
+        "01cdd13a8d4e65c1a7da5b170cf7b233",
+        "d81edc8e2d4c1893531ca96ce8d8fb4e",
+        "437abfcba42ed7d47c45126437923e8d",
+        "05569cf228ffeab5f817b17563eeb0c0",
+        "a00215280ad89efa48e1564fe8e7ba9d"
+      ],
+      "answer": "根据现有资料无法回答这个问题。\n\n拒答原因：资料只涉及跨语言 Audio Word2Vec（源语言英语训练后迁移到法语、德语、捷克语、西班牙语）在 STD 任务上的表现及其对目标语言微调的依赖，报告的证据是 MAP 检索分数和余弦相似度随音素序列编辑距离的变化[1][2][3][4][5]；资料中没有任何关于“continuous language-vector experiments”的方法、结果或其对目标语言适应依赖程度的描述，因此无法对两者的差异作出有依据的比较。",
+      "cited_docs": [
+        "1707.06519.md"
+      ],
+      "judge": {
+        "correct": false,
+        "supported": false,
+        "why": "该回答拒答，未提供两篇论文事实与比较，按规则拒答判错。"
+      },
+      "grounded": false
+    },
+    "prompt_only": {
+      "ids": [
+        "01cdd13a8d4e65c1a7da5b170cf7b233",
+        "d81edc8e2d4c1893531ca96ce8d8fb4e",
+        "437abfcba42ed7d47c45126437923e8d",
+        "05569cf228ffeab5f817b17563eeb0c0",
+        "a00215280ad89efa48e1564fe8e7ba9d"
+      ],
+      "answer": "根据现有资料无法回答这个问题。\n\n拒答原因：资料[1]–[5]均只涉及跨语言 Audio Word2Vec（以英语为源语言迁移到法语、德语、捷克语、西班牙语）的 STD 检索与余弦相似度分析，没有任何段落报告“continuous language-vector”实验，因此无法核对两者在依赖目标语言适配（fine-tuning）上的差异，也无法给出后者的证据。目前能确认的是：跨语言 Audio Word2Vec 在部分情况下不经目标语言微调即可达到与微调相当的性能[3]，其证据为源语言训练的模型在德语、法语上无微调即超过基线[2]，以及余弦相似度随音素序列编辑距离增大而下降的趋势在四种目标语言中均出现[4][5]；西班牙语微调后 MAP 为 0.13，略低于基线的 0.17[2]。",
+      "cited_docs": [
+        "1707.06519.md"
+      ],
+      "judge": {
+        "correct": false,
+        "supported": false,
+        "why": "该回答拒答，虽引用了Audio Word2Vec事实但未给出连续语言向量实验事实及比较，按规则拒答判错。"
+      },
+      "grounded": false
+    },
+    "evidence_only": {
+      "ids": [
+        "01cdd13a8d4e65c1a7da5b170cf7b233",
+        "d81edc8e2d4c1893531ca96ce8d8fb4e",
+        "437abfcba42ed7d47c45126437923e8d",
+        "05569cf228ffeab5f817b17563eeb0c0",
+        "d3ce9a4db71d8e4d4673bd22787fc69f"
+      ],
+      "answer": "两篇资料在“是否依赖目标语言适配”上的做法和证据不同：\n\n- **跨语言 Audio Word2Vec**：先用高资源源语言训练模型，再把编码器用于低资源目标语言；也可以再用目标语言微调参数。实验发现，在某些情况下，不用低资源目标语言微调时，编码器的 STD 性能可以和有微调时一样好[3]。在 STD 检索实验中，作者比较了不同目标语言训练集划分（1K、2K、3K、4K 以及 0 即不微调）下微调预训练模型的效果[1]；结果显示，源语言训练的模型通常优于仅用有限目标语言训练的模型，说明有足够音频片段时模型能识别并编码通用语音结构[2]。具体地，德语和法语中不微调也超过对比模型；捷克语中微调后得分更好；西班牙语中微调后 MAP 为 0.13，略低于对比模型的 0.17[2]。\n\n- **连续语言向量实验**：通过固定语言模型除语言向量外的所有参数、反向传播来估计未知语言或语言变体的语言向量；使用 32 句《钦定版圣经》句子即可在留出句子上带来明显交叉熵改善，测试集交叉熵从 1.39（以现代英语语言向量为初始值）降到 1.35[5]。\n\n因此，前者明确报告了“目标语言微调”与“不微调”的对比及 STD/MAP 结果[1][2][3]；后者报告的是用少量目标语言句子估计语言向量后交叉熵的改善[5]。",
+      "cited_docs": [
+        "1612.07486.md",
+        "1707.06519.md"
+      ],
+      "judge": {
+        "correct": true,
+        "supported": true,
+        "why": "正确指出Audio Word2Vec部分情况下无需目标语言微调即可与微调相当，并引用STD/MAP证据；同时给出连续语言向量实验通过少量句子估计语言向量使交叉熵从1.39降至1.35，两侧核心事实均有有效材料支持。"
+      },
+      "grounded": true
+    },
+    "historical": {
+      "ids": [
+        "01cdd13a8d4e65c1a7da5b170cf7b233",
+        "d81edc8e2d4c1893531ca96ce8d8fb4e",
+        "437abfcba42ed7d47c45126437923e8d",
+        "05569cf228ffeab5f817b17563eeb0c0",
+        "a00215280ad89efa48e1564fe8e7ba9d"
+      ],
+      "answer": "根据现有资料无法回答这个问题。\n\n拒答原因：资料只涉及跨语言 Audio Word2Vec（源语言英语训练、迁移到法语/德语/捷克语/西班牙语）在 STD 任务上的表现及其对目标语言微调的依赖，报告的证据是 MAP 检索分数与余弦相似度随音素序列编辑距离的变化[1][2][3][4][5]；资料中没有任何关于“continuous language-vector experiments”的方法、是否依赖目标语言适配或其报告证据的内容，因此无法对两者的差异作出有依据的比较。",
+      "cited_docs": [
+        "1707.06519.md"
+      ],
+      "judge": {
+        "correct": false,
+        "supported": false,
+        "why": "该回答拒答，未给出两篇论文的必要事实与比较，按规则拒答判错。"
+      },
+      "grounded": false
+    }
+  },
+  "swaps": 1
+}

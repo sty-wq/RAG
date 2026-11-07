@@ -1,0 +1,29 @@
+{
+  "result": {
+    "qid": "cross-v1-13",
+    "question": "What representations do HABCNN-QP and HABCNN-QAP compare to score an answer? Contrast their scoring mechanisms with how the Attention Sum Reader scores a word that occurs several times in the passage.",
+    "key": "eddf856afec61024fd19a80aefbf3a165f6fc7afaa305714196a33c3c28ed35c",
+    "answer": "HABCNN-QP compares the question-attention-based document representation with the answer representation; HABCNN-QAP compares the question-attention-based document projection with the answer-attention-based document projection [2]. By contrast, the Attention Sum Reader computes a weight for every word in the document as the dot product of its contextual embedding and the query embedding, normalizes these weights with softmax to model the probability that the answer appears at each position, and then computes the probability that a word is the correct answer by summing its attention across all positions where that word appears in the document (\"pointer sum attention\") [1].",
+    "model": "deepseek-v4-flash-vision-exp",
+    "docs": [
+      "1603.01547.md",
+      "1602.04341.md"
+    ],
+    "bytes": 52961,
+    "input_tokens": 11327,
+    "calls": 1,
+    "judge": {
+      "a": true,
+      "b": true,
+      "relation": true,
+      "citation_supported": true,
+      "verdict": "correct",
+      "why": "回答正确区分了两篇论文的评分机制。HABCNN-QP 将基于问题注意力的文档投影与答案表示比较，HABCNN-QAP 将基于问题注意力和基于答案注意力的两个文档投影相互比较，与材料[2]一致。Attention Sum Reader 部分正确描述了：对文档中每个词计算其上下文嵌入与查询嵌入的点积作为权重，softmax 归一化为各位置的概率，再对同一词出现的所有位置求和得到该词作为答案的概率（pointer sum attention），与材料[1]一致。两侧关键断言均有对应来源支撑，引用编号与实际来源匹配，关系对比（一侧比较过滤后的表示，另一侧在候选词出现位置汇总注意力）明确且等价回答了题意。"
+    },
+    "both_cited": true
+  },
+  "reference": [
+    "HABCNN-QP matches the question-conditioned document projection to an answer representation; HABCNN-QAP matches question- and answer-conditioned document projections. Attention Sum Reader points to context tokens and sums a word's attention across its occurrences. One compares filtered representations; the other pools evidence at the positions of a candidate word."
+  ],
+  "correction_source_line": 75
+}

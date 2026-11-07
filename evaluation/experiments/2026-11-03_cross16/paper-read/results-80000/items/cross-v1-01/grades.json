@@ -1,0 +1,18 @@
+{
+  "one_pass": {
+    "fact_a": true,
+    "fact_b": true,
+    "synthesis": true,
+    "verdict": "correct",
+    "citation": "supported",
+    "why": "A states reader-aware benchmark caps summaries at 100 words (cites [3]/[11] matching 1708.01065 passages) and Multi-News averages ~260 words (cites [5] matching 1906.01749). It correctly concludes the cap matches the first but not the second, and notes the mean is not a limit. Both facts and synthesis present with correct attribution; citations point to valid passages."
+  },
+  "paper_read": {
+    "fact_a": true,
+    "fact_b": true,
+    "synthesis": true,
+    "verdict": "correct",
+    "citation": "supported",
+    "why": "B quotes the 100-word limit from 1708.01065 [1] and the ~260-word average from 1906.01749 [2], correctly concluding the cap matches the reader-aware limit but not Multi-News's average. Both facts and synthesis present with correct attribution; citations reference valid passages containing the quoted evidence."
+  }
+}

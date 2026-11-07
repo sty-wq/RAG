@@ -1,0 +1,68 @@
+{"qid": "1602.07563-q01", "question": "What evidence from human annotations of multilingual tweets supports treating negative, neutral, and positive sentiment as ordered classes?"}
+{"qid": "1604.02201-q01", "question": "Which high-resource language pair was used to train the parent NMT model for transfer to Hausa-, Turkish-, Uzbek-, and Urdu-to-English translation?"}
+{"qid": "1605.05156-q04", "question": "How many manually labeled tweets were used to train the Tweet Acts speech-act classifier?"}
+{"qid": "1605.05166-q02", "question": "Does the Digital Stylometry approach to linking Twitter and Facebook accounts discuss the risk of invading users' privacy?"}
+{"qid": "1607.00167-q02", "question": "What method does SentiBubbles use for sentiment analysis of entity-centric tweets?"}
+{"qid": "1607.03895-q01", "question": "What data was used in the language-model-based analysis of gender bias in sports journalism?"}
+{"qid": "1610.00479-q01", "question": "Does the nonsymbolic text representation model evaluated on information extraction and text denoising assume an elementary unit of text?"}
+{"qid": "1611.01116-q01", "question": "Have Binary Paragraph Vector models been evaluated on a downstream task?"}
+{"qid": "1611.01884-q01", "question": "How does G-AC-BLSTM perform semi-supervised learning for text classification?"}
+{"qid": "1611.06322-q01", "question": "Which earlier methods were used as baselines for early rumor detection using novelty features and pseudo feedback?"}
+{"qid": "1612.09535-q01", "question": "Which datasets were used for the PAMPO Portuguese named-entity recognition system?"}
+{"qid": "1702.02367-q03", "question": "Which neural network architecture is used in the iterative multi-document attention model for multiple-answer prediction on bAbI Movie Dialog tasks?"}
+{"qid": "1703.04357-q01", "question": "What neural network architecture does the Nematus machine translation toolkit implement?"}
+{"qid": "1705.02023-q02", "question": "How many sentiment labels does Senti17 use for tweet polarity classification at SemEval-2017 Task 4?"}
+{"qid": "1707.02892-q04", "question": "What type of recurrent neural network underlies the generalized multi-task text classifier with four types of recurrent layers?"}
+{"qid": "1708.01065-q05", "question": "How large is the dataset introduced for reader-aware multi-document summarization of news and reader comments?"}
+{"qid": "1710.10380-q01", "question": "Which downstream tasks are used to evaluate sentence representations learned with an RNN encoder and a non-autoregressive convolutional decoder?"}
+{"qid": "1801.03615-q01", "question": "Which prior approaches were used as baselines for English-to-Russian neural machine translation with separate stem and suffix prediction?"}
+{"qid": "1802.02614-q02", "question": "What baseline model was used to evaluate the combined general-purpose and task-specific word embeddings for next-utterance selection on Ubuntu and Douban conversations?"}
+{"qid": "1802.03052-q02", "question": "How many tables are in the original WorldTree explanation-centered tablestore?"}
+{"qid": "1802.06053-q04", "question": "Which low-resource language was used to evaluate Bayesian acoustic unit discovery with informative priors and subsequent word segmentation?"}
+{"qid": "1802.09059-q03", "question": "How many layers are in the single BLSTM word-sense disambiguation model that handles all ambiguous words collectively and is evaluated on Senseval-3?"}
+{"qid": "1803.02914-q01", "question": "Which movie-subtitle dataset supplements DBpedia n-triples in the sequence-to-sequence question-answering system?"}
+{"qid": "1803.04579-q01", "question": "What training-data pruning is used by the KDG question-answering model on WikiTableQuestions?"}
+{"qid": "1803.06745-q01", "question": "Which social media platform supplied the code-mixed data for the SAIL_Code-Mixed shared task at ICON-2017?"}
+{"qid": "1804.01155-q04", "question": "How is socioeconomic status operationalized for users in the analysis of linguistic patterns in French Twitter data?"}
+{"qid": "1805.04833-q02", "question": "Which automatic metrics evaluate hierarchical story generation from writing prompts using model fusion and gated multi-scale self-attention?"}
+{"qid": "1805.09821-q01", "question": "Which baselines evaluate cross-lingual document classification on the eight-language Reuters subset with balanced class priors?"}
+{"qid": "1805.11598-q02", "question": "Which datasets are used to evaluate polyglot PropBank-style semantic role labeling trained jointly on pairs of languages?"}
+{"qid": "1805.11937-q03", "question": "What morphological features are supplied to the morphology-level models in the cross-language comparison of character-level and morphology-level semantic role labeling?"}
+{"qid": "1807.03674-q01", "question": "How many death certificates are in the training data supplied for the IAM French ICD-10 coding system at CLEF eHealth 2018?"}
+{"qid": "1809.08935-q02", "question": "What evaluation metric is used for the balikasg essay-level prediction system in the CAp 2018 challenge?"}
+{"qid": "1811.00127-q02", "question": "What media and text sources were used to measure political issue ownership with document embeddings in Sweden?"}
+{"qid": "1812.05813-q02", "question": "How were missing hypotheses identified when constructing the precise textual-entailment corpus from RTE problems?"}
+{"qid": "1901.09501-q01", "question": "How are the structured content records constructed for unsupervised manipulation of sentences from basketball game reports?"}
+{"qid": "1902.04094-q01", "question": "Which metrics evaluate the quality of sentences sampled from BERT viewed as a Markov random field language model?"}
+{"qid": "1902.06734-q03", "question": "What community-based author-profiling features are used for hate-speech detection on Twitter?"}
+{"qid": "1903.10318-q03", "question": "How does BERTSUM use BERT to encode a multi-sentence document for extractive summarization?"}
+{"qid": "1905.08067-q03", "question": "What is the source of the propaganda material used to build textual and psychological signals for detecting pro-ISIS content on Twitter?"}
+{"qid": "1906.01749-q04", "question": "What is the size of Multi-news dataset?"}
+{"qid": "1906.04287-q02", "question": "Does the original evaluation of Dual-channel Word Embedding (DWE) for Chinese include downstream tasks beyond word similarity and word analogy?"}
+{"qid": "1908.05908-q01", "question": "What weak supervision is used for entity-recognition pretraining on Baidu Baike in the BERT-based multi-head entity-relation extraction system?"}
+{"qid": "1908.05925-q03", "question": "Does CAiRE's WMT 2019 German-to-Czech unsupervised translation system evaluate its MUSE alignment independently of translation performance?"}
+{"qid": "1908.11664-q01", "question": "Which evaluation settings are used to study domain shift in extractive summarization with Multi-SUM?"}
+{"qid": "1909.05372-q01", "question": "How does Overton handle contradictory or incomplete supervision data?"}
+{"qid": "1909.09070-q01", "question": "Which datasets are used to train and evaluate scientific figure-caption correspondence learning with knowledge-graph-enriched representations?"}
+{"qid": "1909.11706-q02", "question": "What dataset is used to evaluate automatic text labeling through Louvain community detection on a sentence-similarity network?"}
+{"qid": "1909.12016-q03", "question": "Which domains do the test sets cover in experiments selecting artificially generated sentences to fine-tune German-to-English NMT?"}
+{"qid": "1910.07154-q03", "question": "How are FEVER claims masked to generate questions in the unsupervised BERT-based fact-checking pipeline?"}
+{"qid": "1910.07924-q02", "question": "How is audio-text alignment quality evaluated in LibriVoxDeEn?"}
+{"qid": "1910.10670-q01", "question": "What does the cache contain in the dynamic WFST decoder for personalized language models?"}
+{"qid": "1910.13793-q02", "question": "What baseline is used to evaluate the emoji-supporting BERT model for conversational response selection?"}
+{"qid": "1911.01248-q01", "question": "What is the Semantic Web?"}
+{"qid": "1911.03324-q02", "question": "How was Wikipedia used to construct the WikiRef query-focused summarization dataset automatically?"}
+{"qid": "1911.04474-q02", "question": "How does TENER incorporate direction and relative distance into attention for named-entity recognition?"}
+{"qid": "1911.07620-q01", "question": "Which regularization methods are used in hierarchical neural models for identifying security-relevant Java commits from code representations?"}
+{"qid": "1911.09247-q05", "question": "What do the 303 domains in the MQR question-rewriting dataset represent: subject tags or another kind of category?"}
+{"qid": "1912.10162-q03", "question": "How does the Greek named-entity recognition model implemented in spaCy extend the ENAMEX entity categories?"}
+{"qid": "1912.11637-q02", "question": "Which datasets are used to evaluate Explicit Sparse Transformer?"}
+{"qid": "2001.04346-q03", "question": "Which datasets are used to evaluate the asymmetric hierarchical review-based recommendation model with attentive user-item interactions?"}
+{"qid": "2002.04326-q02", "question": "How are biases identified in the ReClor reading-comprehension dataset?"}
+{"qid": "2002.04374-q02", "question": "Which datasets are used to evaluate transfer learning with CNNs for classifying Parkinson's disease from speech across Spanish, German, and Czech?"}
+{"qid": "2002.09616-q03", "question": "Which baseline models are compared with Imagine-then-Arbitrate (ITA) for deciding whether a dialogue agent should wait or respond?"}
+{"qid": "2003.03131-q01", "question": "How is Morfessor EM+Prune evaluated against Morfessor Baseline's original recursive training algorithm?"}
+{"qid": "2003.11531-q01", "question": "Which tagging model is used to extract clinical concepts in the Medical Scribe provider-patient conversation corpus?"}
+{"qid": "2003.12139-q02", "question": "How many unique tweets are in the combined collection used to study job-loss event classification with crowdsourcing and active learning?"}
+{"qid": "2004.01820-q04", "question": "What social-network features are used in the cyberbullying classifier that models aggression, repetition, intent, visibility, and power imbalance?"}
+{"qid": "2004.02401-q02", "question": "How do optimizer choice and cyclical learning-rate policy affect Transformer-based neural machine translation performance?"}

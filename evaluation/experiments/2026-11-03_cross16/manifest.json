@@ -1,0 +1,12 @@
+{
+  "corpus_docs": 416,
+  "questions": 16,
+  "source_papers": 32,
+  "candidate_pairs": 28,
+  "curated_candidates": 16,
+  "rejected_at_final_audit": [],
+  "artifact_sha256": {
+    "questions.jsonl": "22c9276e8c0d7179a9a527f3eb604d20424e6628b65ce61d3a5339bc97e9478b",
+    "queries_only.jsonl": "135fd417361eb7489234b6f5c49c45296ee0bae2df3449b8503ae61858614a8f"
+  }
+}

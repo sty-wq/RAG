@@ -1,0 +1,23 @@
+{
+  "questions": 100,
+  "by_required_papers": {
+    "2": 90,
+    "3": 10
+  },
+  "unique_source_papers": 185,
+  "previous_paper_overlap": 0,
+  "required_source_records": 210,
+  "all_passed_evidence_audits": 100,
+  "drop_one_checks": 210,
+  "model": "deepseek-v4-flash-vision-exp",
+  "raw_selection": "TF-IDF title/abstract similarity, pair and triple neighborhoods, reuse limits; prior 32 source papers excluded",
+  "dataset_scope": "development benchmark; model-assisted construction/review",
+  "files": {
+    "audits.jsonl": "6333ae43a1b3fd49b8ed306edb0748f71f5aac5487df343694d671147c6e8dd7",
+    "queries_only.jsonl": "1c93ecd35cf2727782f5e742bd8725b3bb12c718d837feebbd2fb8845d4bd0bb",
+    "questions.jsonl": "ea9d48f2f9f72683f0893d3873eed715976dd836881b9cca67baa43d7bcc26d5",
+    "questions_2papers.jsonl": "7347ca969ee51ff9ca52baf477c78fe78aeb6b79e3961ce41ba6d2e22bb7ba86",
+    "questions_3papers.jsonl": "fa8dd3d3aa7dab2f854bc1429c707129da0981412ea3fdeb4bbbb3662a7dc6b0",
+    "题目与证据.md": "9dc36272e4a26dac619edd13c3a98e7ee6db22914dabf6f866fa94768cebdf52"
+  }
+}

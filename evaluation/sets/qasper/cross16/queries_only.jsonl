@@ -1,0 +1,16 @@
+{"qid": "cross-v1-01", "question": "Would a 100-word generation cap reflect the reference-summary lengths in both the reader-aware news benchmark and Multi-News? Explain what each dataset reports."}
+{"qid": "cross-v1-04", "question": "In machine translation of occupations, how did the Google Translate pronoun study diagnose gender imbalance, and what training set did the domain-adaptation study construct to address it?"}
+{"qid": "cross-v1-05", "question": "How should the reported BLEU gains from French–English parent-model transfer and comparable-corpus sentence extraction for Tamil and Hindi be interpreted before comparing their magnitude?"}
+{"qid": "cross-v1-07", "question": "Do the best tweet hate-speech classifier's overall F1 and the human preference results for Reddit/Gab interventions measure the same ability? Give the reported findings behind your answer."}
+{"qid": "cross-v1-08", "question": "If training a dialogue system on SAMSum and Interview, what kind of supervision can it take from each corpus, and at what granularity?"}
+{"qid": "cross-v1-09", "question": "How do the cross-language Audio Word2Vec and continuous language-vector experiments differ in their reliance on target-language adaptation, and what evidence does each report?"}
+{"qid": "cross-v1-10", "question": "In the multilingual tweet annotation study and the time-ordered Twitter sentiment evaluation, what was repeated or held out, and which source of evaluation uncertainty did each design address?"}
+{"qid": "cross-v1-13", "question": "How does attention produce an answer score in HABCNN-QP/QAP compared with the Attention Sum Reader when a candidate word recurs in the passage?"}
+{"qid": "cross-v1-14", "question": "Where does extra information enter the EEG-assisted speech recognition system versus the intent-aware recognizer for spontaneous conversations, and what improvement was observed in each?"}
+{"qid": "cross-v1-17", "question": "At what level is query–candidate similarity computed in content-based web table retrieval versus semantic PubMed query matching, and what signal does each use?"}
+{"qid": "cross-v1-18", "question": "What annotation decisions make the English learner dependency treebank and the German legal named-entity corpus sensitive to their respective domains?"}
+{"qid": "cross-v1-20", "question": "When building reference summaries, how do GameWikiSum and the plain-English contracts corpus obtain a usable target from existing material, and what determines which target is retained?"}
+{"qid": "cross-v1-21", "question": "What information is shared across tasks by the recurrent multi-task text classifier, and what information flows between the convolutional and recurrent stages of AC-BLSTM?"}
+{"qid": "cross-v1-23", "question": "What human-provided supervision supports multi-hop question generation on HotPotQA, compared with question generation from Freebase using web exploration?"}
+{"qid": "cross-v1-24", "question": "How do BAE and the subjective-bias neutralization model decide which textual changes to allow when editing a sentence?"}
+{"qid": "cross-v1-27", "question": "What evidence from the BEA-2019 restricted track and the ill-formed question rewriting study helps explain why training a grammatical corrector alone may not yield good rewritten questions?"}

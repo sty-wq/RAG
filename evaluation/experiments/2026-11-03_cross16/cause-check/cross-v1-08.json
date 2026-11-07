@@ -1,0 +1,87 @@
+{
+  "qid": "cross-v1-08",
+  "question": "If training a dialogue system on SAMSum and Interview, what kind of supervision can it take from each corpus, and at what granularity?",
+  "conditions": {
+    "replay": {
+      "ids": [
+        "62f8063b241f6e7e1d9f1f47c267c7ae",
+        "fb55b46ef6977780752039737239e29b",
+        "4284779d1fe511d4f25d6b1eee650e8f",
+        "0dc0374122f6f725b957b73e26d7d968",
+        "bd0395a2c7b1e72fceeca01fdc8282da"
+      ],
+      "answer": "根据资料，两个语料库提供的监督信号及粒度如下：\n\n- **Interview**：每个对话轮次都带有说话人角色标注（speaker role annotations for each turn），因此可在“轮次”粒度上提供说话人角色监督，并支持角色建模（为特定角色生成回应）和预测下一位说话人是否插话等任务。[2][3]\n- **SAMSum**：每条话语（utterance）包含说话人姓名，因此可在“话语”粒度上提供说话人身份监督；数据集共16369段对话，按话语数量分为3-6、7-12、13-18、19-30四组，约75%为两人对话，其余为三人及以上。[5]\n\n综上，Interview提供的是轮次级的“角色”标注，SAMSum提供的是话语级的“说话人姓名”标注。[2][5]",
+      "cited_docs": [
+        "1911.12237.md",
+        "2004.03090.md"
+      ],
+      "judge": {
+        "correct": false,
+        "supported": false,
+        "why": "错误：同样将SAMSum监督归为话语级说话人姓名，未给出SAMSum每对话一个参考摘要这一核心事实，比较错误。"
+      },
+      "grounded": false
+    },
+    "prompt_only": {
+      "ids": [
+        "62f8063b241f6e7e1d9f1f47c267c7ae",
+        "fb55b46ef6977780752039737239e29b",
+        "4284779d1fe511d4f25d6b1eee650e8f",
+        "0dc0374122f6f725b957b73e26d7d968",
+        "bd0395a2c7b1e72fceeca01fdc8282da"
+      ],
+      "answer": "根据资料[5]，SAMSum 的每条话语（utterance）都包含说话人姓名，因此可提供说话人级别的监督，粒度到每条话语。根据资料[2]，Interview 为每一轮（each turn）提供说话人角色标注，因此可提供说话人角色级别的监督，粒度到每一轮。两者的关系是：两个语料都提供说话人身份/角色信息，但 SAMSum 标注的是说话人姓名，Interview 标注的是说话人角色，且 Interview 的角色标注还支撑了角色建模与下一说话人插入预测两项任务[3]。",
+      "cited_docs": [
+        "1911.12237.md",
+        "2004.03090.md"
+      ],
+      "judge": {
+        "correct": false,
+        "supported": false,
+        "why": "错误：将SAMSum的监督说成说话人姓名/话语级，而参考事实是SAMSum提供每对话一个专家摘要（对话级）；虽Interview部分正确，但两侧核心事实未正确比较。"
+      },
+      "grounded": false
+    },
+    "evidence_only": {
+      "ids": [
+        "62f8063b241f6e7e1d9f1f47c267c7ae",
+        "fb55b46ef6977780752039737239e29b",
+        "4284779d1fe511d4f25d6b1eee650e8f",
+        "ba4eb9a4c69ad12627ba8fd77f832878",
+        "be3f08b86f6f2fca4a489b4603e0649e"
+      ],
+      "answer": "根据资料，两个语料库提供的监督信息及粒度如下：\n\n- **Interview**：为每一轮对话提供说话者角色标注（speaker role annotations for each turn），可用于角色建模等任务，粒度是**每一轮（each turn）**。[2][4] 资料还说明，这些角色标注支持两类任务：一是根据对话历史为特定角色生成合适回复（speaker role modeling），二是预测下一位说话者是否会在下一句插话。[3]\n- **SAMSum**：为每段对话提供人工标注的摘要，且每段对话只有**一个参考摘要**（Each dialogue contains only one reference summary），粒度是**每段对话（each dialogue）**。[5] 摘要要求简短、提取重要信息、包含对话者姓名、用第三人称书写。[5]\n\n因此，Interview 的监督在轮次级别（角色标注），SAMSum 的监督在对话级别（单一参考摘要）。",
+      "cited_docs": [
+        "1911.12237.md",
+        "2004.03090.md"
+      ],
+      "judge": {
+        "correct": true,
+        "supported": true,
+        "why": "正确指出SAMSum每段对话仅一个参考摘要（对话级），Interview每轮有说话人角色标注（轮次级），并引用有效材料[2][4][5]。"
+      },
+      "grounded": true
+    },
+    "historical": {
+      "ids": [
+        "62f8063b241f6e7e1d9f1f47c267c7ae",
+        "fb55b46ef6977780752039737239e29b",
+        "4284779d1fe511d4f25d6b1eee650e8f",
+        "0dc0374122f6f725b957b73e26d7d968",
+        "bd0395a2c7b1e72fceeca01fdc8282da"
+      ],
+      "answer": "根据资料，两个语料库提供的监督信号及粒度如下：\n\n- **Interview**：每个对话轮次（turn）都带有说话人角色标注（speaker role annotations for each turn），因此可在轮次粒度上提供说话人角色监督[2]。基于这些角色标注，该研究还探索了两项任务：一是根据对话历史为特定角色生成合适回复（说话人角色建模），二是预测下一位说话人是否会在下一句插话[3]。实验表明利用这些标签能提升性能，并生成更具体、更具询问性的回复[4]。\n- **SAMSum**：每条话语（utterance）包含说话人姓名（Each utterance contains the name of the speaker），因此可在话语粒度上提供说话人身份监督[5]。\n\n综上，Interview 提供的是轮次级的说话人**角色**标注[2]，SAMSum 提供的是话语级的说话人**姓名**标注[5]。",
+      "cited_docs": [
+        "1911.12237.md",
+        "2004.03090.md"
+      ],
+      "judge": {
+        "correct": false,
+        "supported": false,
+        "why": "错误：把SAMSum监督说成话语级说话人姓名，遗漏其核心的每对话单一参考摘要（对话级）；未正确比较两侧核心事实。"
+      },
+      "grounded": false
+    }
+  },
+  "swaps": 2
+}

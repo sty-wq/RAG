@@ -1,0 +1,6 @@
+{
+  "answer": "No. The reader-aware news benchmark caps model summaries at 100 words: “The length limit of the model summary is 100 words (slitted by space)” [1]. By contrast, Multi-News reports that its summaries are “about 260 words on average,” notably longer than in other work [2]. Thus a 100-word cap matches the stated limit for the reader-aware dataset but not the average reference-summary length reported for Multi-News.",
+  "seconds": 1.330633166944608,
+  "input_tokens": 11078,
+  "output_tokens": 93
+}

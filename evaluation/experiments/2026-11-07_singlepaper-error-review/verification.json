@@ -1,0 +1,9 @@
+{
+  "questions": 403,
+  "data_rows": 21210,
+  "candidate_rows": 20150,
+  "gold_rows": 1060,
+  "sha256": "3c364abd8270f60ce130c26ab9a695e9990f5fab90e28b55af8824e38fc30333",
+  "bytes": 34827756,
+  "verification": "Every question, reference answer, candidate text, candidate rank, rerank score and gold paragraph matches its source."
+}

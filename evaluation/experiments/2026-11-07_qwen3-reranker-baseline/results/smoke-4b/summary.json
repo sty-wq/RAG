@@ -1,0 +1,77 @@
+{
+  "cross2": {
+    "n": 2,
+    "metrics": {
+      "hit@1": 0,
+      "recall@1": 0.0,
+      "all_evidence@1": 0,
+      "hit@5": 0.5,
+      "recall@5": 0.25,
+      "all_evidence@5": 0,
+      "hit@10": 0.5,
+      "recall@10": 0.25,
+      "all_evidence@10": 0,
+      "hit@50": 1,
+      "recall@50": 1.0,
+      "all_evidence@50": 1,
+      "mrr@5": 0.25,
+      "mrr@10": 0.25
+    },
+    "p50_ms": 1031.1007269999664,
+    "p95_ms": 1040.4114942999286,
+    "pairs_per_second": 48.49186766212185,
+    "truncated_pairs": 0,
+    "pair_count": 100,
+    "peak_allocated_gib": 7.651325702667236
+  },
+  "cross3": {
+    "n": 2,
+    "metrics": {
+      "hit@1": 0,
+      "recall@1": 0.0,
+      "all_evidence@1": 0,
+      "hit@5": 0,
+      "recall@5": 0.0,
+      "all_evidence@5": 0,
+      "hit@10": 0,
+      "recall@10": 0.0,
+      "all_evidence@10": 0,
+      "hit@50": 0.5,
+      "recall@50": 0.5,
+      "all_evidence@50": 0.5,
+      "mrr@5": 0.0,
+      "mrr@10": 0.0
+    },
+    "p50_ms": 1087.7589205000504,
+    "p95_ms": 1129.283567350069,
+    "pairs_per_second": 45.96606753361733,
+    "truncated_pairs": 0,
+    "pair_count": 100,
+    "peak_allocated_gib": 7.6812639236450195
+  },
+  "single500": {
+    "n": 2,
+    "metrics": {
+      "hit@1": 0,
+      "recall@1": 0.0,
+      "all_evidence@1": 0,
+      "hit@5": 1,
+      "recall@5": 0.75,
+      "all_evidence@5": 0.5,
+      "hit@10": 1,
+      "recall@10": 0.75,
+      "all_evidence@10": 0.5,
+      "hit@50": 1,
+      "recall@50": 1.0,
+      "all_evidence@50": 1,
+      "mrr@5": 0.5,
+      "mrr@10": 0.5
+    },
+    "p50_ms": 985.2504659999113,
+    "p95_ms": 999.3374531999166,
+    "pairs_per_second": 50.74851697660045,
+    "truncated_pairs": 0,
+    "pair_count": 100,
+    "peak_allocated_gib": 7.6491498947143555
+  }
+}

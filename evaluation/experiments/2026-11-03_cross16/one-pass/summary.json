@@ -1,0 +1,37 @@
+{
+  "two_step": {
+    "correct": 5,
+    "grounded": 5,
+    "p50_seconds": 2.828,
+    "input_tokens": 147792,
+    "output_tokens": 4820,
+    "calls": 32
+  },
+  "one_pass": {
+    "correct": 11,
+    "grounded": 11,
+    "p50_seconds": 2.888,
+    "input_tokens": 123062,
+    "output_tokens": 4727,
+    "calls": 16
+  },
+  "n": 16,
+  "recovered_of_historical_five": [
+    "cross-v1-09",
+    "cross-v1-14",
+    "cross-v1-21",
+    "cross-v1-23"
+  ],
+  "lost_from_historical_six": [
+    "cross-v1-20"
+  ],
+  "improved_vs_fresh_two_step": [
+    "cross-v1-08",
+    "cross-v1-09",
+    "cross-v1-14",
+    "cross-v1-18",
+    "cross-v1-21",
+    "cross-v1-23"
+  ],
+  "regressed_vs_fresh_two_step": []
+}

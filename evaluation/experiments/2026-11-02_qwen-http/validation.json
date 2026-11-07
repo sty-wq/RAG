@@ -1,0 +1,7 @@
+{
+  "offline_tests_passed": 72,
+  "real_qwen_calls": 0,
+  "reason": "EMBED_API_KEY not available in agent environment",
+  "endpoint": "https://api.quickrouter.ai/v1/rerank",
+  "model": "qwen3-rerank"
+}

@@ -1,0 +1,92 @@
+import json
+from pathlib import Path
+
+OUT=Path(__file__).resolve().parent
+s=json.loads((OUT/'summary.json').read_text())
+single=s['single500'];cross=s['cross93']
+pct=lambda x:f'{100*x:.2f}%'
+delta=lambda a,b:f'{100*(b-a):+.2f} 个百分点'
+lines=['# RAG 从 Dense 基线到当前版本的量化对照','',
+    '整理日期：2026-11-04。全部来自保存的候选、回答与评审缓存；本轮只补算离线指标，没有调用模型，也未改动生产代码。','',
+    '**最可靠的单论文同题结论：500题上，Dense前五改为DeepSeek重排前五，Hit@5从60.60%升到93.40%，Recall@5从54.30%升到90.07%，MRR@5从0.3624升到0.8115。**','',
+    '**跨论文同题结论：最新93题中，读50段改为自动选文读正文，判对87→91，平均答案要点证据覆盖度88.39%→91.15%。双论文85题、三论文8题分别报告，不能与500题或原1309题直接相减。**','',
+    '## 1. 最早的实验起点','',
+    '| 题集 | 方案 | Hit@1 | Hit@5 | Recall@5 | Recall@10 | MRR@10 | 答案要点证据覆盖度 |',
+    '|---|---|---|---|---|---|---|---|',
+    '| 原始1309题 | Dense，无rerank | 26.13% | 61.88% | 55.97% | 72.30% | 0.4083 | 当时未评测 |','',
+    '这行用于交代项目起点。后来问题改写、题集扩充，不能用这行与最终500题或跨论文题相减来宣称优化幅度。下面用相同题集、相同候选的对照量化收益。','',
+    '## 2. 500道单论文题：同题 Dense 与 DeepSeek 重排','',
+    '保存的最终500题版本是 Dense50→DeepSeek重排→前5作答；并没有在这500题上运行后来的自动选论文阅读版本。Dense组使用同一候选池的前5，回答生成模型与提示词相同。','',
+    '| 指标 | Dense，无rerank | DeepSeek重排 | 提升 |','|---|---|---|---|']
+for k in ('hit@1','hit@5','recall@5','all_evidence@5'):
+    a=single['dense']['retrieval'][k];b=single['rerank']['retrieval'][k]
+    label={'all_evidence@5':'前5找齐一组标注证据的题目比例'}.get(k,k)
+    lines.append(f'| {label} | {pct(a)} | {pct(b)} | {delta(a,b)} |')
+a=single['dense']['retrieval']['mrr@5'];b=single['rerank']['retrieval']['mrr@5']
+lines.append(f'| MRR@5 | {a:.4f} | {b:.4f} | {b-a:+.4f} |')
+for key,label in [('correct','原模型评审判对'),('correct_strict','拒答一律算错后的判对')]:
+    a=single['dense'][key];b=single['rerank'][key]
+    lines.append(f'| {label} | {a}/500（{pct(a/500)}） | {b}/500（{pct(b/500)}） | {delta(a/500,b/500)} |')
+lines += ['| 答案要点证据覆盖度 | 未评测 | 未评测 | 不能计算 |','',
+    'MRR统一截断在5：重排缓存只保存前5，不能拼接Dense尾部伪造MRR@10。Dense本身的MRR@10为0.3871，完整值保存在summary.json。', '',
+    '本轮复核发现Dense组也有1道以固定拒答句开头却被判正确；重排组有2道。原评审结果229→403保留，按可答题拒答算错的规则修正后为228→401。该修正仅检查固定拒答前缀，不代表已经重新人工评审500题。','',
+    '证据召回与答案覆盖不可混淆：Recall@5是取回的文本覆盖标注段落的比例；答案要点覆盖度是生成答案中有引用支持的必答要点比例。不能把90.07%的Recall改名为答案证据覆盖度。','',
+    '## 3. 新跨论文题：无rerank的 Dense 检索起点','',
+    '使用最终93题自己的候选缓存补算，所以与后面的选文阅读在题目与Dense候选层面对齐。跨论文每篇论文对应一个必要事实，只有命中指定事实引用才算该侧召回；93题全部验证与原supporting_chunk_ids判定一致。','',
+    '| 分组 | 题数 | Hit@1 | Hit@5 | Recall@5 | MRR@5 | MRR@10 | 前5找齐全部必要事实 |',
+    '|---|---|---|---|---|---|---|---|']
+for group,label in [('two','双论文'),('three','三论文'),('all','合计')]:
+    x=cross[group];m=x['dense_retrieval'];n=x['n']
+    lines.append(f"| {label} | {n} | {pct(m['hit@1'])} | {pct(m['hit@5'])} | {pct(m['recall@5'])} | {m['mrr@5']:.4f} | {m['mrr@10']:.4f} | {round(n*m['all_evidence@5'])}/{n} |")
+lines += ['',
+    'Hit只要求至少命中一个事实，MRR只看第一个正确块的位置，都不能证明找齐两篇或三篇的证据。因此下面额外列“所有必要事实均覆盖”。','',
+    '## 4. 实际送入模型的资料：从5段到50段，再到选文正文','',
+    '这里的Hit与Recall针对本方案实际送入的全部上下文，不统一标成@5。读论文版本每题输入2/3篇论文，总预算80000 UTF-8字节，超出则取章节；它与5段/50段不是同预算对照。','',
+    '| 分组 | 上下文方案 | 至少一项必要事实命中 | 必要事实Recall | 全部必要事实覆盖的题数 |',
+    '|---|---|---|---|---|']
+for group,label in [('two','双论文'),('three','三论文')]:
+    x=cross[group];n=x['n'];m=x['dense_retrieval']
+    lines.append(f"| {label} | Dense前5段 | {pct(m['hit@5'])} | {pct(m['recall@5'])} | {round(n*m['all_evidence@5'])}/{n} |")
+    for arm,name in [('one_pass','Dense前50段，一步作答'),('paper_read','自动选文读正文')]:
+        a=x[arm]
+        lines.append(f"| {label} | {name} | {pct(a['context_evidence_hit'])} | {pct(a['context_evidence_recall'])} | {round(n*a['context_all_evidence'])}/{n} |")
+lines += ['',
+    '双论文上下文事实Recall为30.00%→87.06%→98.82%；三论文为16.67%→66.67%→95.83%。这是扩大上下文与按论文补全文字共同带来的链路结果，不应全部记到重排模型名下。','',
+    '自动选文版不输出重排后的chunk序列，段落MRR不适用；一步50段的输入仍是原Dense顺序，也不能宣称其排序MRR提升。若需要优化论文排名，应另外定义文档级MRR并建立对应评测。','',
+    '## 5. 跨论文最终回答与答案要点证据覆盖度','',
+    '| 分组 | 方案 | 答对 | 正确且全来源引用充分 | 平均答案要点证据覆盖度 | 所有要点均覆盖 |',
+    '|---|---|---|---|---|---|']
+for group,label in [('two','双论文'),('three','三论文'),('all','合计')]:
+    x=cross[group];n=x['n']
+    for arm,name in [('one_pass','一步读50段'),('paper_read','自动选文读正文')]:
+        a=x[arm]
+        lines.append(f"| {label} | {name} | {round(n*a['correct'])}/{n}（{pct(a['correct'])}） | {round(n*a['grounded'])}/{n} | {pct(a['answer_evidence_coverage'])} | {round(n*a['all_answer_points_supported'])}/{n} |")
+lines += ['',
+    '| 一步读50段→自动选文读正文 | 答对率变化 | 答案证据覆盖度变化 |','|---|---|---|']
+for group,label in [('two','双论文'),('three','三论文'),('all','合计')]:
+    x=cross[group];a=x['one_pass'];b=x['paper_read']
+    lines.append(f"| {label} | {delta(a['correct'],b['correct'])} | {delta(a['answer_evidence_coverage'],b['answer_evidence_coverage'])} |")
+lines += ['',
+    '93题没有保存Dense前5直接作答的基线与要点覆盖审核，因此不能报“Dense前5答案覆盖度→最终答案覆盖度”的提升。上述已有的配对回答比较起点是一步读50段。','',
+    '## 6. 指标解释与比较限制','',
+    '- Hit@k：前k块至少覆盖一个标注证据/必要事实的题目比例。',
+    '- Recall@k：前k块覆盖所需证据的比例，先按题计算再平均。单论文沿用Qasper最优标注组，允许足够长段落切片；跨论文必须含每侧指定事实引用，规则更严格。不同题集的绝对值不直接比较。',
+    '- MRR@k：前k块中第一个正确块排名的倒数，未命中为0。它不衡量多篇证据的完整性。',
+    '- 上下文证据Recall：送入生成模型的全部材料包含多少指定事实，不检查模型是否正确使用它们。',
+    '- 答案要点证据覆盖度：模型先仅依据问题列必答要点，再审核答案及引用，计算有原文支持的要点数/全部要点数；各题等权平均。93题各方案共用要点清单。它不是校准后的正确概率，也不是Recall的别名。',
+    '- 正确性与答案覆盖度均含DeepSeek评审，尚非独立人工测评。93题经过“给正确全文后模型能答对”的筛选，属于条件化测试；指定全文93/93由入选规则决定。',
+    '- 三论文只保留8题，单题影响12.5个百分点，不能把87.5%当成稳定的总体准确率。','',
+    '## 7. 目前可以使用的项目量化表述','',
+    '> 在500道单论文问题的同题对照中，增加DeepSeek重排使Hit@5从60.6%提高到93.4%，证据Recall@5从54.3%提高到90.1%，MRR@5从0.3624提高到0.8115。模型评审并按固定拒答规则修正后的答对率由45.6%提高到80.2%。在经全文可答性筛选的93道跨论文题中，自动选文阅读相较一次读取50个候选段落，使答对数由87提高到91，平均答案要点证据覆盖度由88.39%提高到91.15%。','',
+    '如果要补齐同一张“从最初到最终”的严格表格，尚需在固定题集补做：500题自动选文阅读及答案覆盖审核；93题Dense前5直接作答及答案覆盖审核。所有方案应共用每题要点清单、生成/评审配置与输入版本。这里没有为填表而启动这些新调用。','',
+    '## 8. 本轮产物','',
+    f'- [机器可读汇总]({OUT}/summary.json)',
+    f'- [500题逐题指标]({OUT}/single500-details.jsonl)',
+    f'- [93题逐题指标]({OUT}/cross93-details.jsonl)',
+    f'- [数据来源哈希]({OUT}/provenance.json)',
+    f'- [离线计算脚本]({OUT}/measure.py)','',
+    '运行脚本只读取本地缓存，不调用模型。','',
+    '```bash',f'PYTHONDONTWRITEBYTECODE=1 /Users/bia/PycharmProjects/PythonProject5/.venv/bin/python {OUT}/measure.py',
+    f'/Users/bia/PycharmProjects/PythonProject5/.venv/bin/python {OUT}/report.py','```','']
+(OUT/'从Dense到当前版本-量化对照.md').write_text('\n'.join(lines))
+print(OUT/'从Dense到当前版本-量化对照.md')

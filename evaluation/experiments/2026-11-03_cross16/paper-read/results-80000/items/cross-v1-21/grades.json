@@ -1,0 +1,18 @@
+{
+  "one_pass": {
+    "fact_a": true,
+    "fact_b": true,
+    "synthesis": true,
+    "verdict": "correct",
+    "citation": "supported",
+    "why": "A correctly describes the multi-task model's shared global fusion memory plus coupling/local fusion interactions (fact_a), and AC-BLSTM's flow of phrase-level convolution features into BLSTM for long-range dependencies (fact_b). It also captures the synthesis: task-representation connection vs. local+long-range feature composition. Citations [2]/[4]/[11]/[38]/[47] and [1]/[5]/[8]/[21] are valid passages from the two papers supporting the claims."
+  },
+  "paper_read": {
+    "fact_a": true,
+    "fact_b": true,
+    "synthesis": true,
+    "verdict": "correct",
+    "citation": "supported",
+    "why": "B states the same shared global memory and coupling/local fusion interactions for the multi-task classifier, and the ACNN-to-BLSTM feature flow with phrase-level features feeding long-range dependency learning. It also equivalently conveys the synthesis. Citations [1] and [2] point to the correct source papers and their passages support the material claims."
+  }
+}

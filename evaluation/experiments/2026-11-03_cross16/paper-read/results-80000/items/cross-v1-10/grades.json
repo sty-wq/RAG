@@ -1,0 +1,18 @@
+{
+  "paper_read": {
+    "fact_a": true,
+    "fact_b": true,
+    "synthesis": true,
+    "verdict": "correct",
+    "citation": "supported",
+    "why": "A correctly states the ~15% duplication (same/different annotators) for self/inter-agreement (label consistency) and the 138 in/out-set time-ordered design fitting a classifier per in-set for out-of-sample performance. Both facts and the synthesis (label consistency vs held-out generalization) are present and correctly attributed, with valid citations to both papers."
+  },
+  "one_pass": {
+    "fact_a": true,
+    "fact_b": false,
+    "synthesis": false,
+    "verdict": "incorrect",
+    "citation": "incomplete",
+    "why": "B correctly describes the 15% duplication and its purpose (label consistency/annotator quality). However, for the time-ordered study it does not state the 138 paired in-sets/out-sets nor fitting a classifier on each in-set to measure out-of-sample performance; it only discusses CV vs sequential validation and dependence. Thus fact_b and the synthesis (held-out generalization) are not equivalently stated, and citations do not support the required fact_b."
+  }
+}

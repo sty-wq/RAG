@@ -1,0 +1,84 @@
+{
+  "qid": "cross-v1-27",
+  "question": "What evidence from the BEA-2019 restricted track and the ill-formed question rewriting study helps explain why training a grammatical corrector alone may not yield good rewritten questions?",
+  "conditions": {
+    "replay": {
+      "ids": [
+        "d7489652f1c1a0619f2f7d22198d2dde",
+        "9f9d972b97dd6760545dae1f868e4c0c",
+        "7308430977f2f6f2110530edfcae5dab",
+        "724e67bad7292209599a05eee0e27567",
+        "a26a5e460094f7cefbb2d44b406d53fd"
+      ],
+      "answer": "根据现有资料无法回答这个问题。  \n拒答原因：资料中没有关于 BEA-2019 restricted track 的任何信息，因此无法提供该 track 的证据。就 ill-formed question rewriting 研究而言，资料能确认的是：GEC 方法只是纠正少量语法错误，改写后的问题仍达不到人工标注者的标准[1]；GEC 改写的示例问题保持不变、质量仍低[2]；GEC 能纠正语法和拼写错误，从而在改写中提升问题质量[3]；该研究使用的 GEC 系统是在 Wikipedia 编辑历史和 round trip translations 上训练的 GEC ensemble model[4]。但资料没有说明“单独训练一个语法纠正器”为何不能产生好的改写问题这一因果解释，也没有提供 BEA-2019 restricted track 的相关证据。",
+      "cited_docs": [
+        "1911.09247.md"
+      ],
+      "judge": {
+        "correct": false,
+        "supported": false,
+        "why": "该回答拒答，未给出BEA-2019 restricted track的必要事实（120万句对/去除恒等映射后56万），也未完成两篇论文的正确比较，因此判错。"
+      },
+      "grounded": false
+    },
+    "prompt_only": {
+      "ids": [
+        "d7489652f1c1a0619f2f7d22198d2dde",
+        "9f9d972b97dd6760545dae1f868e4c0c",
+        "7308430977f2f6f2110530edfcae5dab",
+        "724e67bad7292209599a05eee0e27567",
+        "a26a5e460094f7cefbb2d44b406d53fd"
+      ],
+      "answer": "根据现有资料无法回答这个问题。\n拒答原因：资料中没有关于 BEA-2019 restricted track 的任何内容，因此无法提供该 track 的证据。关于 ill-formed question rewriting 研究，资料[1]指出 GEC 方法仅略微提升问题质量分数，虽在自动指标上有提升，但只纠正少量语法错误，改写后的问题仍不达人工标注者标准，同时 GEC 模型擅长保留问题语义；资料[2]指出 GEC 改写的问题保持不变但质量仍低；资料[3]指出 GEC 纠正语法和拼写错误从而提升改写质量。这些可说明 GEC 单独使用的局限，但缺少 BEA-2019 restricted track 这一半的证据，无法完整回答两者如何共同解释该问题。",
+      "cited_docs": [
+        "1911.09247.md"
+      ],
+      "judge": {
+        "correct": false,
+        "supported": false,
+        "why": "该回答拒答，缺少BEA-2019 restricted track的关键事实与两篇论文的比较，未满足同时给出必要事实及正确比较的要求。"
+      },
+      "grounded": false
+    },
+    "evidence_only": {
+      "ids": [
+        "d7489652f1c1a0619f2f7d22198d2dde",
+        "9f9d972b97dd6760545dae1f868e4c0c",
+        "7308430977f2f6f2110530edfcae5dab",
+        "724e67bad7292209599a05eee0e27567",
+        "c2357da700684ba4839ad9c3f71ee978"
+      ],
+      "answer": "根据现有资料无法回答这个问题。\n拒答原因：资料[5]只说明CUED在BEA-2019 restricted track上使用组织者提供的120万句对（去除identity mapping后56万）并探索纯神经模型用于语法纠错，未报告该受限赛道中“单独训练语法纠错器”用于问句改写的任何结果或分析；资料[1][2][3][4]虽指出GEC方法仅纠正少量语法错误、改写后问句仍达不到人工标注标准、GEC擅长保留语义但质量提升有限，但这些是ill-formed question rewriting研究自身的观察，资料并未把它们与BEA-2019 restricted track的证据联系起来。因此缺少能同时支撑“BEA-2019 restricted track”与“单独训练语法纠错器不足以产生良好改写问句”之间解释关系的具体事实。",
+      "cited_docs": [
+        "1907.00168.md",
+        "1911.09247.md"
+      ],
+      "judge": {
+        "correct": false,
+        "supported": false,
+        "why": "该回答虽引用了BEA-2019 restricted track的120万/56万句对事实，但整体为拒答，未给出两篇论文的完整必要事实与正确比较，仍判错。"
+      },
+      "grounded": false
+    },
+    "historical": {
+      "ids": [
+        "d7489652f1c1a0619f2f7d22198d2dde",
+        "9f9d972b97dd6760545dae1f868e4c0c",
+        "7308430977f2f6f2110530edfcae5dab",
+        "724e67bad7292209599a05eee0e27567",
+        "a26a5e460094f7cefbb2d44b406d53fd"
+      ],
+      "answer": "根据现有资料无法回答这个问题。\n\n拒答原因：资料中没有关于 BEA-2019 restricted track 的任何信息，因此无法提供该 track 的证据。就 ill-formed question rewriting 研究而言，资料[1]指出 GEC 方法只是略微提升问题质量分数，虽能修正少量语法错误，但改写后的问题仍达不到人工标注者的标准；资料[2]也提到 GEC 改写的问题保持不变、质量仍然较低。这些可以说明单独使用语法纠错器效果有限，但资料并未涉及 BEA-2019 restricted track，无法据此回答该 track 相关的证据。",
+      "cited_docs": [
+        "1911.09247.md"
+      ],
+      "judge": {
+        "correct": false,
+        "supported": false,
+        "why": "该回答拒答，未提供BEA-2019 restricted track的事实，也未进行两篇论文的正确比较，判错。"
+      },
+      "grounded": false
+    }
+  },
+  "swaps": 1
+}

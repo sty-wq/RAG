@@ -1,0 +1,19 @@
+{
+  "n": 16,
+  "pool_has_both": 15,
+  "selected_both": 15,
+  "correct": 14,
+  "correct_given_both": 14,
+  "grounded": 14,
+  "questions_with_section_excerpts": 1,
+  "historical_one_pass_correct": 11,
+  "improved_vs_historical": [
+    "cross-v1-10",
+    "cross-v1-13",
+    "cross-v1-20"
+  ],
+  "lost_vs_historical": [],
+  "one_pass_correct_in_current_grading": 10,
+  "generation_input_tokens": 190945,
+  "generation_output_tokens": 4067
+}

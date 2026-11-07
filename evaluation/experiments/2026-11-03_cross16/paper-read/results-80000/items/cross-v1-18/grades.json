@@ -1,0 +1,18 @@
+{
+  "paper_read": {
+    "fact_a": true,
+    "fact_b": true,
+    "synthesis": true,
+    "verdict": "correct",
+    "citation": "supported",
+    "why": "A明确说明TLE采用字面标注原则、依据观察到的用法进行句法分析（fact_a），并说明德语法律语料定义19个细粒度类别以区分法律领域实体（fact_b），且综合指出前者调整对观察形式的解释、后者调整标签清单（synthesis）。引用[1][2]分别对应两篇论文的相关段落，支持各实质主张。"
+  },
+  "one_pass": {
+    "fact_a": false,
+    "fact_b": true,
+    "synthesis": true,
+    "verdict": "incorrect",
+    "citation": "incomplete",
+    "why": "B对德语语料正确说明19个细粒度类别及法律领域类别（fact_b），综合也正确（扩展标注类别或指南）。但英语侧未明确陈述“字面标注/依据观察到的用法进行句法分析”这一核心事实，仅泛泛提及ESL指南与不引入新类别，故fact_a不成立，整体判错。引用虽多但未直接支撑字面标注这一关键事实，且部分引用与主张关联不足。"
+  }
+}

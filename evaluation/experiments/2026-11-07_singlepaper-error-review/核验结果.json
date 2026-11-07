@@ -1,0 +1,67 @@
+{
+  "source_unchanged": true,
+  "dense_partition_complete_disjoint": true,
+  "rerank_partition_complete_disjoint": true,
+  "focus_questions": 139,
+  "focus_split": [
+    55,
+    22,
+    62
+  ],
+  "original_columns_preserved_exactly": true,
+  "files": [
+    {
+      "file": "D1_未找到正确论文_1题.csv",
+      "questions": 1,
+      "data_rows": 51,
+      "passed": true
+    },
+    {
+      "file": "D2_找到论文但无标注证据_7题.csv",
+      "questions": 7,
+      "data_rows": 367,
+      "passed": true
+    },
+    {
+      "file": "D3_找到论文但证据不完整_11题.csv",
+      "questions": 11,
+      "data_rows": 631,
+      "passed": true
+    },
+    {
+      "file": "D4_候选证据齐全_384题.csv",
+      "questions": 384,
+      "data_rows": 20161,
+      "passed": true
+    },
+    {
+      "file": "R1_前5条完全未命中_152题.csv",
+      "questions": 152,
+      "data_rows": 7954,
+      "passed": true
+    },
+    {
+      "file": "R2_前5条证据不完整_53题.csv",
+      "questions": 53,
+      "data_rows": 2887,
+      "passed": true
+    },
+    {
+      "file": "R3_前5条证据齐全但首条未命中_179题.csv",
+      "questions": 179,
+      "data_rows": 9320,
+      "passed": true
+    },
+    {
+      "file": "重点审核_139题_完整段落明细.csv",
+      "questions": 139,
+      "data_rows": 7319,
+      "passed": true
+    },
+    {
+      "file": "重点审核_139题_逐题审核表.csv",
+      "questions": 139,
+      "passed": true
+    }
+  ]
+}
